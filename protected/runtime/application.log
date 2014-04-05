@@ -1,0 +1,668 @@
+2014/04/04 08:50:01 [error] [php] include(User.php): failed to open stream: No such file or directory (D:\Training Tracker\framework\YiiBase.php:427)
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(395): spl_autoload_call()
+#1 D:\Training Tracker\framework\web\CActiveDataProvider.php(165): model()
+#2 D:\Training Tracker\framework\web\CActiveDataProvider.php(87): CActiveDataProvider->getModel()
+#3 D:\Training Tracker\framework\TrainingTracker\protected\modules\auth\controllers\AssignmentController.php(20): CActiveDataProvider->__construct()
+#4 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AssignmentController->actionIndex()
+#5 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 D:\Training Tracker\framework\web\CController.php(286): AssignmentController->runAction()
+#7 D:\Training Tracker\framework\web\CController.php(265): AssignmentController->runActionWithFilters()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(282): AssignmentController->run()
+#9 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/auth/Assignment
+2014/04/04 09:15:18 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(32): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php
+2014/04/04 09:16:07 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(32): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php
+2014/04/04 09:28:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'authenticated' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES (:name, :type, :description, :bizrule, :data).
+2014/04/04 09:28:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'authenticated' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES (:name, :type, :description, :bizrule, :data)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\CDbCommand.php(1250): CDbCommand->execute(Array)
+#1 D:\Training Tracker\framework\web\auth\CDbAuthManager.php(444): CDbCommand->insert('AuthItem', Array)
+#2 D:\Training Tracker\framework\web\auth\CAuthManager.php(72): CDbAuthManager->createAuthItem('authenticated', 2, 'authenticated u...', 'return !Yii::ap...', NULL)
+#3 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(36): CAuthManager->createRole('authenticated', 'authenticated u...', 'return !Yii::ap...')
+#4 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#5 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#9 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#10 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://localhost/index.php/auth/Assignment
+---
+2014/04/04 09:34:50 [error] [exception.CException] exception 'CException' with message 'AuthWebUser and its behaviors do not have a method or closure named "isGuest".' in D:\Training Tracker\framework\base\CComponent.php:266
+Stack trace:
+#0 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): CComponent->__call('isGuest', Array)
+#1 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): AuthWebUser->isGuest()
+#2 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#7 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2014/04/04 09:44:12 [error] [php] Use of undefined constant LoginForm - assumed 'LoginForm' (D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php:50)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#1 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#3 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 09:45:24 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(50): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:11:19 [error] [php] urlencode() expects parameter 1 to be string, object given (D:\Training Tracker\framework\web\CUrlManager.php:440)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CUrlManager.php(302): CUrlRule->createUrl()
+#1 D:\Training Tracker\framework\base\CApplication.php(543): CUrlManager->createUrl()
+#2 D:\Training Tracker\framework\web\CController.php(967): CWebApplication->createUrl()
+#3 D:\Training Tracker\framework\web\CController.php(1028): SiteController->createUrl()
+#4 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(51): SiteController->redirect()
+#5 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#6 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#8 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/index
+2014/04/04 10:14:34 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/index
+2014/04/04 10:15:13 [error] [php] Undefined variable: code (D:\Training Tracker\framework\TrainingTracker\protected\views\site\error.php:11)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/index
+2014/04/04 10:15:14 [error] [php] Undefined variable: code (D:\Training Tracker\framework\TrainingTracker\protected\views\site\error.php:11)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/index
+2014/04/04 10:15:18 [error] [php] Undefined variable: code (D:\Training Tracker\framework\TrainingTracker\protected\views\site\error.php:11)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:15:19 [error] [php] Undefined variable: code (D:\Training Tracker\framework\TrainingTracker\protected\views\site\error.php:11)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:16:16 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\contact.php:38)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/index
+2014/04/04 10:16:47 [error] [php] Undefined variable: code (D:\Training Tracker\framework\TrainingTracker\protected\views\site\error.php:11)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:17:26 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "/site/about".' in D:\Training Tracker\framework\web\CController.php:878
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('/site/about', NULL, true)
+#1 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): CController->render('/site/about')
+#2 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#7 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2014/04/04 10:17:39 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "about".' in D:\Training Tracker\framework\web\CController.php:878
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('about', NULL, true)
+#1 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): CController->render('about')
+#2 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#3 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#7 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#8 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2014/04/04 10:18:20 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(48): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:18:51 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(49): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 10:18:52 [error] [php] Undefined variable: model (D:\Training Tracker\framework\TrainingTracker\protected\views\site\login.php:28)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\Training Tracker\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(49): SiteController->render()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\Training Tracker\framework\web\CController.php(286): SiteController->runAction()
+#6 D:\Training Tracker\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): SiteController->run()
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+2014/04/04 11:17:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "athlete/create".' in D:\Training Tracker\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#1 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/athlete/create
+---
+2014/04/04 11:54:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "site".' in D:\Training Tracker\framework\web\CController.php:483
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(270): CController->missingAction('site')
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('site')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('site/site/index')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/site/index
+HTTP_REFERER=http://localhost/index.php/site/login
+---
+2014/04/04 11:54:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "site".' in D:\Training Tracker\framework\web\CController.php:483
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(270): CController->missingAction('site')
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('site')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('site/site/index')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/site/index
+HTTP_REFERER=http://localhost/index.php/site/login
+---
+2014/04/04 11:58:59 [error] [exception.CException] exception 'CException' with message 'Property "AuthWebUser.admin" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CWebUser.php(146): CComponent->__get('admin')
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\layouts\main.php(34): CWebUser->__get('admin')
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#4 D:\Training Tracker\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#5 D:\Training Tracker\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 D:\Training Tracker\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 D:\Training Tracker\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 D:\Training Tracker\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 D:\Training Tracker\framework\TrainingTracker\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#11 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#12 D:\Training Tracker\framework\web\CController.php(784): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#13 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(30): CController->render('index')
+#14 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://localhost/index.php/site/login
+---
+2014/04/04 12:11:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'training_tracker.athelete' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `athelete`.
+2014/04/04 12:25:00 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+HTTP_REFERER=http://localhost/index.php/athlete/index
+---
+2014/04/04 12:26:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+---
+2014/04/04 12:26:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+---
+2014/04/04 12:26:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+---
+2014/04/04 12:27:00 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+HTTP_REFERER=http://localhost/index.php/Athlete/index
+---
+2014/04/04 12:27:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+HTTP_REFERER=http://localhost/index.php/Athlete/index
+---
+2014/04/04 13:49:31 [error] [exception.CException] exception 'CException' with message 'Property "AuthWebUser.test1" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CWebUser.php(146): CComponent->__get('test1')
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\layouts\main.php(51): CWebUser->__get('test1')
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#4 D:\Training Tracker\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#5 D:\Training Tracker\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 D:\Training Tracker\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 D:\Training Tracker\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 D:\Training Tracker\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 D:\Training Tracker\framework\TrainingTracker\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#11 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#12 D:\Training Tracker\framework\web\CController.php(784): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#13 D:\Training Tracker\framework\TrainingTracker\protected\controllers\SiteController.php(30): CController->render('index')
+#14 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 D:\Training Tracker\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://localhost/index.php/User/index
+---
+2014/04/04 14:26:33 [error] [php] Undefined variable: model (D:\Training Tracker\framework\base\CComponent.php(612) : eval()'d code:1)
+Stack trace:
+#0 D:\Training Tracker\framework\zii\widgets\grid\CGridColumn.php(151): TbDataColumn->renderDataCellContent()
+#1 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(616): TbDataColumn->renderDataCell()
+#2 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(572): TbGridView->renderTableRow()
+#3 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(482): TbGridView->renderTableBody()
+#4 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(167): TbGridView->renderItems()
+#5 unknown(0): TbGridView->renderSection()
+#6 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback()
+#7 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(135): TbGridView->renderContent()
+#8 D:\Training Tracker\framework\web\CBaseController.php(173): TbGridView->run()
+#9 D:\Training Tracker\framework\TrainingTracker\protected\views\athlete\admin.php(66): AthleteController->widget()
+#10 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#11 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#12 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#13 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#14 D:\Training Tracker\framework\TrainingTracker\protected\controllers\AthleteController.php(150): AthleteController->render()
+#15 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionAdmin()
+#16 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#18 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#20 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#21 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#22 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#23 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#24 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#25 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#26 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#27 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/admin
+2014/04/04 15:35:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('exercise/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/exercise/admin
+HTTP_REFERER=http://localhost/index.php/exercise/create
+---
+2014/04/04 16:40:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+HTTP_REFERER=http://localhost/index.php/Athlete/index
+---
+2014/04/04 16:40:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\Training Tracker\framework\web\auth\CAccessControlFilter.php:182
+Stack trace:
+#0 D:\Training Tracker\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(AuthWebUser), 'You are not aut...')
+#1 D:\Training Tracker\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#6 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/admin')
+#9 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php/athlete/admin
+HTTP_REFERER=http://localhost/index.php/Athlete/index
+---
+2014/04/04 17:29:48 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (D:\Training Tracker\framework\web\helpers\CHtml.php:103)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(173): TbBreadcrumb->run()
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\athlete\update.php(13): AthleteController->widget()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#6 D:\Training Tracker\framework\TrainingTracker\protected\controllers\AthleteController.php(103): AthleteController->render()
+#7 unknown(0): AthleteController->actionUpdate()
+#8 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#9 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#12 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#14 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#15 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#16 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#17 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/update/1
+2014/04/04 17:29:49 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (D:\Training Tracker\framework\web\helpers\CHtml.php:103)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(173): TbBreadcrumb->run()
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\athlete\update.php(13): AthleteController->widget()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#6 D:\Training Tracker\framework\TrainingTracker\protected\controllers\AthleteController.php(103): AthleteController->render()
+#7 unknown(0): AthleteController->actionUpdate()
+#8 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#9 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#12 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#14 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#15 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#16 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#17 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/update/1
+2014/04/04 17:30:29 [error] [exception.CException] exception 'CException' with message 'Property "Athlete.name" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(145): CComponent->__get('name')
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\athlete\update.php(10): CActiveRecord->__get('name')
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#4 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#5 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('update', Array, true)
+#6 D:\Training Tracker\framework\TrainingTracker\protected\controllers\AthleteController.php(103): CController->render('update', Array)
+#7 [internal function]: AthleteController->actionUpdate('1')
+#8 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AthleteController), Array)
+#9 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AthleteController), Object(ReflectionMethod), Array)
+#10 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#17 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('update')
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/update')
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php/athlete/update/1
+HTTP_REFERER=http://localhost/index.php/athlete/admin
+---
+2014/04/04 17:30:44 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (D:\Training Tracker\framework\web\helpers\CHtml.php:103)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(173): TbBreadcrumb->run()
+#1 D:\Training Tracker\framework\TrainingTracker\protected\views\athlete\update.php(16): AthleteController->widget()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#6 D:\Training Tracker\framework\TrainingTracker\protected\controllers\AthleteController.php(103): AthleteController->render()
+#7 unknown(0): AthleteController->actionUpdate()
+#8 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#9 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#12 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#14 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#15 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#16 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#17 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#19 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 D:\Training Tracker\framework\TrainingTracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/update/1
+2014/04/04 18:06:05 [error] [exception.CHttpException.401] exception 'CHttpException' with message 'Access denied.' in D:\Training Tracker\protected\modules\auth\AuthModule.php:128
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(263): AuthModule->beforeControllerAction(Object(AssignmentController), Object(CInlineAction))
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('auth/Assignment')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/auth/Assignment
+HTTP_REFERER=http://localhost/index.php/user/update/1
+---
