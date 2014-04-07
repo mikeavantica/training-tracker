@@ -4,11 +4,17 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Workouts'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Workout' => 'index',
+				$model->name => array (
+						'view',
+						'id' => $model->id
+				),
+				'Update'
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'List Workout', 'url'=>array('index')),
@@ -18,6 +24,6 @@ $this->menu=array(
 );
 ?>
 
-    <h1>Update Workout <?php echo $model->id; ?></h1>
+    <h1>Update Workout <?php echo $model->name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

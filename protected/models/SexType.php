@@ -1,27 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "workout".
+ * This is the model class for table "sex_type".
  *
- * The followings are the available columns in table 'workout':
+ * The followings are the available columns in table 'sex_type':
  * @property integer $id
- * @property string $date
  * @property string $name
- * @property string $description
- * @property integer $workout_typeid
  *
  * The followings are the available model relations:
- * @property WorkoutType $workoutType
- * @property WorkoutDetail[] $workoutDetails
+ * @property Athlete[] $athletes
+ * @property BodyProfiles[] $bodyProfiles
  */
-class Workout extends CActiveRecord
+class SexType extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'workout';
+		return 'sex_type';
 	}
 
 	/**
@@ -32,14 +29,11 @@ class Workout extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, workout_typeid', 'required'),
-			array('workout_typeid', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>45),
-			array('description', 'length', 'max'=>150),
-			array('date', 'safe'),
+			array('name', 'required'),
+			array('name', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, date, name, description, workout_typeid', 'safe', 'on'=>'search'),
+			array('id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,8 +45,8 @@ class Workout extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'workoutType' => array(self::BELONGS_TO, 'WorkoutType', 'workout_typeid'),
-			'workoutDetails' => array(self::HAS_MANY, 'WorkoutDetail', 'workoutid'),
+			'athletes' => array(self::HAS_MANY, 'Athlete', 'sex_typeid'),
+			'bodyProfiles' => array(self::HAS_MANY, 'BodyProfiles', 'sex_typeid'),
 		);
 	}
 
@@ -63,10 +57,7 @@ class Workout extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'date' => 'Date',
 			'name' => 'Name',
-			'description' => 'Description',
-			'workout_typeid' => 'Workout Typeid',
 		);
 	}
 
@@ -87,27 +78,20 @@ class Workout extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-    //    $criteria2 = new CDbCriteria();
-      //  $criteria2->select='name';
-      //  $nose = WorkoutType::model()->findAll($criteria2);
-       // $WorkoutType = WorkoutType::model()->findAll(array('condition'=>'id = $this->workout_typeid'),$criteria2);
+
 		$criteria->compare('id',$this->id);
-		$criteria->compare('date',$this->date,true);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('workout_typeid',$this->workout_typeid);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
-	
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Workout the static model class
+	 * @return SexType the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

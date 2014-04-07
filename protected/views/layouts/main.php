@@ -6,9 +6,9 @@
 <meta name="language" content="en" />
 
 <!-- blueprint CSS framework -->
- <link rel="stylesheet" type="text/css"
+<link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css"
-	media="screen, projection" /> 
+	media="screen, projection" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css"
 	media="print" />
@@ -72,6 +72,12 @@
 																) 
 														),
 														array (
+																'label' => 'Manage WorkOut',
+																'url' => array (
+																		'/Workout/index' 
+																) 
+														),
+														array (
 																'label' => 'Manage Workout Type',
 																'url' => array (
 																		'/WorkoutType/index' 
@@ -97,7 +103,7 @@
 														) 
 												),
 												
-												'visible' => Yii::app()->user->checkAccess('admin') 
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
 										),
 										array (
 												'label' => 'Login',

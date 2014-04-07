@@ -91,6 +91,9 @@ class Athlete extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
          $sex = 1;
 		$criteria=new CDbCriteria;
+		
+
+		
       if($this->sex_typeid == 'Female' || $this->sex_typeid == 2){$sex = 2;}
 		$criteria->compare('id',$this->id);
 		$criteria->compare('first_name',$this->first_name,true);
@@ -98,7 +101,7 @@ class Athlete extends CActiveRecord
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('height',$this->height,true);
 		$criteria->compare('weight',$this->weight,true);
-		$criteria->compare('sex_typeid',$sex/*$this->sex_typeid*/,true);
+		$criteria->compare('sex_typeid',$this->sex_typeid,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

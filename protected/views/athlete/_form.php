@@ -23,7 +23,7 @@
 
             <?php echo $form->textFieldControlGroup($model,'last_name',array('span'=>5,'maxlength'=>45)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'email',array('span'=>5,'maxlength'=>150)); ?>
+            <?php echo $form->emailFieldControlGroup($model, 'email'); ?>
 
             <?php echo $form->textFieldControlGroup($model,'height',array('span'=>5,'maxlength'=>10)); ?>
 

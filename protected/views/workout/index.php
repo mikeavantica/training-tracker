@@ -4,9 +4,13 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Workouts',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Workout',
+
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'Create Workout','url'=>array('create')),
@@ -16,7 +20,18 @@ $this->menu=array(
 
 <h1>Workouts</h1>
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php 
+$this->widget('bootstrap.widgets.TbGridView',array(
+		'id'=>'workout-grid',
+		'dataProvider'=>$dataProvider,
+		'columns'=>array(
+				'id',
+				'date',
+				'name',
+				'description',
+				'workout_typeid',
+				
+		),
+));
+
+?>

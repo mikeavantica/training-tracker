@@ -4,10 +4,13 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Workouts'=>array('index'),
-	$model->name,
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Workouts' => 'index',
+				$model->name
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'List Workout', 'url'=>array('index')),
@@ -18,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Workout #<?php echo $model->id; ?></h1>
+<h1>Workout <?php echo $model->name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

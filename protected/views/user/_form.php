@@ -19,11 +19,11 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'username',array('span'=>5,'maxlength'=>128)); ?>
+            <?php echo $form->textFieldControlGroup($model,'username',array('span'=>3,'maxlength'=>128)); ?>
 
-            <?php echo $form->passwordFieldControlGroup($model,'password',array('span'=>5,'maxlength'=>128)); ?>
+            <?php echo $form->passwordFieldControlGroup($model,'password',array('span'=>3,'maxlength'=>128)); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'email',array('span'=>5,'maxlength'=>128)); ?>
+            <?php echo $form->emailFieldControlGroup($model,'email',array('span'=>3,'maxlength'=>128)); ?>
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(

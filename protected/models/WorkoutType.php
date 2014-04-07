@@ -84,6 +84,7 @@ class WorkoutType extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
 
 	/**
 	 * Returns the static model of the specified AR class.
