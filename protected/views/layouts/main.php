@@ -110,7 +110,8 @@
 												),
 												
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),
+										),array('label'=> 'Overall Stats ',
+		                                        'url'=> Yii::app ()->homeUrl.'/site/Overallstats'),
 										array (
 												'label' => 'Login',
 												'url' => array (
@@ -158,9 +159,9 @@
 	<div class="clear"></div>
 
 		<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br /> All
+		Copyright &copy; <?php echo date('Y'); ?> by BetterWod.<br /> All
 			Rights Reserved.<br />
-		<?php echo Yii::powered(); ?>
+		<?php //echo Yii::powered(); ?>
 		<?php Yii::app()->bootstrap->register(); ?>
 		<?php echo Yii::app()->bootstrap->registerCoreCss(); ?>
 	</div>

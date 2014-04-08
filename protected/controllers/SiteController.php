@@ -20,6 +20,11 @@ class SiteController extends Controller
 			),
 		);
 	}
+	public function actionOverallStats()
+	{
+		$this->render('overallstats');
+		
+	}
 
 	/**
 	 * This is the default 'index' action that is invoked

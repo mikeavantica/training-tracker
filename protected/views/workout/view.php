@@ -62,6 +62,7 @@ $this->menu = array (
 			<th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('workout_typeid')); ?></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -71,9 +72,11 @@ $this->menu = array (
 			<td><?php echo CHtml::encode($model->name); ?></td>
 			<td><?php echo CHtml::encode($model->description); ?></td>
 			<td><?php echo CHtml::encode($model->workoutType->name)?></td>
+			<td><?php echo  CHtml::link('<i class="icon-edit"style="margin-left:-10px;"></i>',array('Workout/update','id'=>$model->id))//TbHtml::link('',array('icon' => TbHtml::ICON_EDIT,'url'=>array('Workout/update','id'=>$model->id)));//TbHtml::icon(TbHtml::ICON_EDIT) ?> </td>
 
 		</tr>
 		<tr>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -88,6 +91,7 @@ $this->menu = array (
 
 $this->widget('bootstrap.widgets.TbGridView', array(
 		'id' => 'releasenote-grid',
+		'selectableRows'=>0,
 		'dataProvider' => WorkoutDetail::model()->search2($model->id),
 		'columns' => array(
 				array(
@@ -168,7 +172,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 );
 ?>
     <?php
-      echo   TbHtml::linkButton('New Detail',array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_LARGE,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
+      echo   TbHtml::linkButton('New Detail',array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_SMALL,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
   
 
     <?php    

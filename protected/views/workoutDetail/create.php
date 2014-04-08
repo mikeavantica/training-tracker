@@ -4,10 +4,7 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Workout Details'=>array('index'),
-	'Create',
-);
+
 $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 		'links' => array (
 				'Workout' => Yii::app ()->homeUrl.'/Workout/index',

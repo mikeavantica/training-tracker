@@ -11,14 +11,17 @@ return array (
 		
 		'aliases' => array (
 		
-				'bootstrap' => realpath ( __DIR__ . '/../extensions/bootstrap' )  // change this if necessary
+				'bootstrap' => realpath ( __DIR__ . '/../extensions/bootstrap' ),
+				'chartjs' => realpath ( __DIR__. '/../extensions/yii-chartjs' ) // change this if necessary
 		),
+		
+		
 		
 	
 		
 		// preloading 'log' component
 		'preload' => array (
-				'log', 'bootstrap' 
+				'log', 'bootstrap' ,'chartjs'
 		),
 		
 		// autoloading model and component classes
@@ -64,6 +67,7 @@ return array (
 				),
 		),
 		),
+		        'chartjs' => array('class' => 'chartjs.components.ChartJs'),
 				'user' => array (
 				'class' => 'auth.components.AuthWebUser',
 				'admins' => array('admin', 'Jason', 'bar'), // users with full access

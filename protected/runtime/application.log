@@ -3672,3 +3672,161 @@ in D:\Training Tracker\index.php (13)
 2014/04/08 09:49:22 [warning] [application] Failed to set unsafe attribute "total_time" of "WorkoutDetail".
 in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (71)
 in D:\Training Tracker\index.php (13)
+2014/04/08 10:19:19 [error] [exception.CException] exception 'CException' with message 'Property "TbGridView.disabled" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWidgetFactory.php(161): CComponent->__set('disabled', true)
+#1 D:\Training Tracker\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(WorkoutController), 'bootstrap.widge...', Array)
+#2 D:\Training Tracker\framework\web\CBaseController.php(172): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 D:\Training Tracker\protected\views\workout\view.php(169): CBaseController->widget('bootstrap.widge...', Array)
+#4 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#5 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#6 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#7 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#8 D:\Training Tracker\protected\controllers\WorkoutController.php(56): CController->render('view', Array)
+#9 [internal function]: WorkoutController->actionView('8')
+#10 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(WorkoutController), Array)
+#11 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WorkoutController), Object(ReflectionMethod), Array)
+#12 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#14 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#16 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#17 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#18 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#19 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('view')
+#21 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('Workout/view')
+#22 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 D:\Training Tracker\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php/Workout/8
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/8
+---
+2014/04/08 11:03:12 [error] [php] Array to string conversion (D:\Training Tracker\framework\web\helpers\CHtml.php:162)
+Stack trace:
+#0 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2646): link()
+#1 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2570): createButton()
+#2 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2470): btn()
+#3 D:\Training Tracker\protected\views\workout\view.php(75): linkButton()
+#4 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#5 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutController->renderInternal()
+#6 D:\Training Tracker\framework\web\CController.php(869): WorkoutController->renderFile()
+#7 D:\Training Tracker\framework\web\CController.php(782): WorkoutController->renderPartial()
+#8 D:\Training Tracker\protected\controllers\WorkoutController.php(56): WorkoutController->render()
+#9 unknown(0): WorkoutController->actionView()
+#10 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#11 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#12 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutController->runAction()
+#14 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#16 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutController->filterAccessControl()
+#17 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#18 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#19 D:\Training Tracker\framework\web\CController.php(265): WorkoutController->runActionWithFilters()
+#20 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutController->run()
+#21 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/Workout/8
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (635)
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (2404)
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (2646)
+2014/04/08 11:03:53 [error] [php] Array to string conversion (D:\Training Tracker\framework\web\helpers\CHtml.php:162)
+Stack trace:
+#0 D:\Training Tracker\protected\views\workout\view.php(75): link()
+#1 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#2 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutController->renderInternal()
+#3 D:\Training Tracker\framework\web\CController.php(869): WorkoutController->renderFile()
+#4 D:\Training Tracker\framework\web\CController.php(782): WorkoutController->renderPartial()
+#5 D:\Training Tracker\protected\controllers\WorkoutController.php(56): WorkoutController->render()
+#6 unknown(0): WorkoutController->actionView()
+#7 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#8 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#9 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutController->runAction()
+#11 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutController->filterAccessControl()
+#14 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\Training Tracker\framework\web\CController.php(265): WorkoutController->runActionWithFilters()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutController->run()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/Workout/8
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (635)
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (2404)
+in D:\Training Tracker\protected\views\workout\view.php (75)
+2014/04/08 11:52:24 [error] [exception.CException] exception 'CException' with message 'Alias "chartjs.components.ChartJs" is invalid. Make sure it points to an existing directory or file.' in D:\Training Tracker\framework\YiiBase.php:347
+Stack trace:
+#0 D:\Training Tracker\framework\YiiBase.php(196): YiiBase::import('chartjs.compone...', true)
+#1 D:\Training Tracker\framework\base\CModule.php(386): YiiBase::createComponent(Array)
+#2 D:\Training Tracker\framework\base\CModule.php(523): CModule->getComponent('chartjs')
+#3 D:\Training Tracker\framework\base\CApplication.php(163): CModule->preloadComponents()
+#4 D:\Training Tracker\framework\YiiBase.php(125): CApplication->__construct('D:\Training Tra...')
+#5 D:\Training Tracker\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\Training Tra...')
+#6 D:\Training Tracker\index.php(13): YiiBase::createWebApplication('D:\Training Tra...')
+#7 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://localhost/index.php/Workout/8
+---
+2014/04/08 12:28:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "overallstats/index".' in D:\Training Tracker\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('overallstats/in...')
+#1 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\Training Tracker\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/overallstats/index
+HTTP_REFERER=http://localhost/index.php
+---
+2014/04/08 12:30:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "overallstats".' in D:\Training Tracker\framework\web\CController.php:483
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(270): CController->missingAction('overallstats')
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('overallstats')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('site/overallsta...')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/overallstats
+HTTP_REFERER=http://localhost/index.php
+---
+2014/04/08 12:30:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "overallstats".' in D:\Training Tracker\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('overallstats')
+#1 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\Training Tracker\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/overallstats
+---
+2014/04/08 12:31:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "overallstats".' in D:\Training Tracker\framework\web\CController.php:483
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(270): CController->missingAction('overallstats')
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('overallstats')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('site/overallsta...')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/overallstats
+HTTP_REFERER=http://localhost/index.php/overallstats
+---
+2014/04/08 12:31:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "overallstats".' in D:\Training Tracker\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('overallstats')
+#1 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 D:\Training Tracker\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/overallstats
+---
+2014/04/08 12:31:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "overallstats".' in D:\Training Tracker\framework\web\CController.php:483
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(270): CController->missingAction('overallstats')
+#1 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('overallstats')
+#2 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('site/overallsta...')
+#3 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 D:\Training Tracker\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php/site/overallstats
+HTTP_REFERER=http://localhost/index.php/overallstats
+---
