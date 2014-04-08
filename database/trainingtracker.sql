@@ -18,13 +18,13 @@ USE `training_tracker`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `athlete`
+-- Table structure for table `Athlete`
 --
 
-DROP TABLE IF EXISTS `athlete`;
+DROP TABLE IF EXISTS `Athlete`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `athlete` (
+CREATE TABLE `Athlete` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
@@ -39,13 +39,13 @@ CREATE TABLE `athlete` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `athlete`
+-- Dumping data for table `Athlete`
 --
 
-LOCK TABLES `athlete` WRITE;
-/*!40000 ALTER TABLE `athlete` DISABLE KEYS */;
-INSERT INTO `athlete` VALUES (1,'chitin','Burton','barry@gmail.com',21,31,1),(2,'chitin','zamora','zamora@gmail.com',21,81,1),(3,'chitin','zamora','chitin@gmail.com',20,30,1);
-/*!40000 ALTER TABLE `athlete` ENABLE KEYS */;
+LOCK TABLES `Athlete` WRITE;
+/*!40000 ALTER TABLE `Athlete` DISABLE KEYS */;
+INSERT INTO `Athlete` VALUES (1,'chitin','Burton','barry@gmail.com',21,31,1),(2,'chitin','zamora','zamora@gmail.com',21,81,1),(3,'chitin','zamora','chitin@gmail.com',20,30,1);
+/*!40000 ALTER TABLE `Athlete` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -238,7 +238,7 @@ CREATE TABLE `record_data` (
   PRIMARY KEY (`id`),
   KEY `record_data_athlete` (`athleteid`),
   KEY `record_data_detail_workout` (`workout_detailid`),
-  CONSTRAINT `record_data_athlete` FOREIGN KEY (`athleteid`) REFERENCES `athlete` (`id`),
+  CONSTRAINT `record_data_athlete` FOREIGN KEY (`athleteid`) REFERENCES `Athlete` (`id`),
   CONSTRAINT `record_data_detail_workout` FOREIGN KEY (`workout_detailid`) REFERENCES `workout_detail` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
