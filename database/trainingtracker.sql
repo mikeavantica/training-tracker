@@ -61,7 +61,7 @@ CREATE TABLE `AuthAssignment` (
   `bizrule` text,
   `data` text,
   PRIMARY KEY (`itemname`,`userid`),
-  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,13 +76,13 @@ INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N
 UNLOCK TABLES;
 
 --
--- Table structure for table `authitem`
+-- Table structure for table `AuthItem`
 --
 
-DROP TABLE IF EXISTS `authitem`;
+DROP TABLE IF EXISTS `AuthItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `authitem` (
+CREATE TABLE `AuthItem` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -93,39 +93,39 @@ CREATE TABLE `authitem` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `authitem`
+-- Dumping data for table `AuthItem`
 --
 
-LOCK TABLES `authitem` WRITE;
-/*!40000 ALTER TABLE `authitem` DISABLE KEYS */;
-INSERT INTO `authitem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
-/*!40000 ALTER TABLE `authitem` ENABLE KEYS */;
+LOCK TABLES `AuthItem` WRITE;
+/*!40000 ALTER TABLE `AuthItem` DISABLE KEYS */;
+INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
+/*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `authitemchild`
+-- Table structure for table `AuthItemChild`
 --
 
-DROP TABLE IF EXISTS `authitemchild`;
+DROP TABLE IF EXISTS `AuthItemChild`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `authitemchild` (
+CREATE TABLE `AuthItemChild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`),
-  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `authitemchild`
+-- Dumping data for table `AuthItemChild`
 --
 
-LOCK TABLES `authitemchild` WRITE;
-/*!40000 ALTER TABLE `authitemchild` DISABLE KEYS */;
-/*!40000 ALTER TABLE `authitemchild` ENABLE KEYS */;
+LOCK TABLES `AuthItemChild` WRITE;
+/*!40000 ALTER TABLE `AuthItemChild` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AuthItemChild` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
