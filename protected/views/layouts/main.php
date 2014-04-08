@@ -84,6 +84,12 @@
 																) 
 														),
 														array (
+																'label' => 'Manage Record Data',
+																'url' => array (
+																		'/RecordData/index' 
+																) 
+														),
+														array (
 																'label' => 'Manage Exercises',
 																'url' => array (
 																		'/Exercise/index' 

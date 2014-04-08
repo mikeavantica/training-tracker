@@ -4,10 +4,13 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Body Profiles'=>array('index'),
-	$model->Id,
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Athletes' => 'index',
+				$model->body_part__name
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'List BodyProfiles', 'url'=>array('index')),
@@ -18,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>BodyProfiles: <?php echo $model->body_part_name; ?></h1>
+<h1>BodyProfiles: <?php echo $model->body_part__name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(
@@ -30,6 +33,10 @@ $this->menu=array(
 		'body_part__name',
 		'weight',
 		'height',
-		'sex_typeid',
+		//'sex_typeid',
+        array(
+		'name' => 'sex_typeid',
+		'value' => $model->sex_typeid == 1 ? 'Male' : 'Female'),
+		
 	),
 )); ?>

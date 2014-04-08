@@ -16,8 +16,8 @@
  *
  * The followings are the available model relations:
  * @property RecordData[] $recordDatas
- * @property Exercise $exercise
  * @property Workout $workout
+ * @property Exercise $exercise
  */
 class WorkoutDetail extends CActiveRecord
 {
@@ -37,8 +37,9 @@ class WorkoutDetail extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('measure_weight, measure_height, measure_calories, measure_assist, total_reps, total_time, workoutid, exerciseid', 'required'),
+			array('measure_weight, measure_height, measure_calories, measure_assist, workoutid, exerciseid', 'required'),
 			array('measure_weight, measure_height, measure_calories, measure_assist, total_reps, workoutid, exerciseid', 'numerical', 'integerOnly'=>true),
+			array('total_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, measure_weight, measure_height, measure_calories, measure_assist, total_reps, total_time, workoutid, exerciseid', 'safe', 'on'=>'search'),
@@ -54,8 +55,8 @@ class WorkoutDetail extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'recordDatas' => array(self::HAS_MANY, 'RecordData', 'workout_detailid'),
-			'exercise' => array(self::BELONGS_TO, 'Exercise', 'exerciseid'),
 			'workout' => array(self::BELONGS_TO, 'Workout', 'workoutid'),
+			'exercise' => array(self::BELONGS_TO, 'Exercise', 'exerciseid'),
 		);
 	}
 
@@ -107,6 +108,26 @@ class WorkoutDetail extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		));
+	}
+	public function search2($id)
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+	
+		$criteria=new CDbCriteria;
+		$criteria->addCondition('workoutid= "'. $id .'"');
+		$criteria->compare('id',$this->id);
+		$criteria->compare('measure_weight',$this->measure_weight);
+		$criteria->compare('measure_height',$this->measure_height);
+		$criteria->compare('measure_calories',$this->measure_calories);
+		$criteria->compare('measure_assist',$this->measure_assist);
+		$criteria->compare('total_reps',$this->total_reps);
+		$criteria->compare('total_time',$this->total_time,true);
+		$criteria->compare('workoutid',$this->workoutid);
+		$criteria->compare('exerciseid',$this->exerciseid);
+	
+		return new CActiveDataProvider($this, array(
+				'criteria'=>$criteria,
 		));
 	}
 

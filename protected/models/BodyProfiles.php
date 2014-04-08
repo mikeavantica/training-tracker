@@ -65,7 +65,7 @@ class BodyProfiles extends CActiveRecord
 			'body_part__name' => 'Body Part Name',
 			'weight' => 'Weight',
 			'height' => 'Height',
-			'sex_typeid' => 'Sex Typeid',
+			'sex_typeid' => 'Gender',
 		);
 	}
 
@@ -84,14 +84,14 @@ class BodyProfiles extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
-
+		$sex = 1;
 		$criteria=new CDbCriteria;
-
+		if($this->sex_typeid == 'Female' || $this->sex_typeid == 2){$sex = 2;}
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('body_part__name',$this->body_part__name,true);
 		$criteria->compare('weight',$this->weight,true);
 		$criteria->compare('height',$this->height,true);
-		$criteria->compare('sex_typeid',$this->sex_typeid);
+		$criteria->compare('sex_typeid',/*$this->sex_typeid*/$sex,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

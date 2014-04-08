@@ -16,7 +16,13 @@ $this->menu=array(
 
 <h1>Exercises</h1>
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php 
+$this->widget('bootstrap.widgets.TbGridView',array(
+		'id'=>'exercise-grid',
+		'dataProvider'=>$dataProvider,
+		'columns'=>array(
+				'id',
+				'name',
+		),
+));
+ ?>

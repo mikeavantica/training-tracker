@@ -72,8 +72,8 @@ class RecordData extends CActiveRecord
 			'assist' => 'Assist',
 			'reps' => 'Reps',
 			'time' => 'Time',
-			'athleteid' => 'Athleteid',
-			'workout_detailid' => 'Workout Detailid',
+			'athleteid' => 'Athlete',
+			'workout_detailid' => 'WorkOut',
 			'date' => 'Date',
 		);
 	}

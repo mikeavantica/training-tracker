@@ -66,7 +66,7 @@ class Workout extends CActiveRecord
 			'date' => 'Date',
 			'name' => 'Name',
 			'description' => 'Description',
-			'workout_typeid' => 'Workout Typeid',
+			'workout_typeid' => 'Workout Type',
 		);
 	}
 

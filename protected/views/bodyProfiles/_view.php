@@ -22,7 +22,8 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('sex_typeid')); ?>:</b>
-	<?php echo CHtml::encode($data->sex_typeid); ?>
+	     
+	<?php if($data->sex_typeid == 1) echo CHtml::encode('Male');else echo CHtml::encode('Female') ?>
 	<br />
 
 

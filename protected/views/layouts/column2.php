@@ -8,7 +8,7 @@
 <div class="span-5 last">
 	<div id="sidebar">
 	<?php
-
+   
 	$this->widget('bootstrap.widgets.TbNav', array(
 			'stacked' => true,
 			'type' => TbHtml::NAV_TYPE_TABS,

@@ -4,11 +4,17 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Workout Details'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Workout' => Yii::app ()->homeUrl.'/Workout/index',
+				$model->workout->name => array (
+						'/Workout/view',
+						'id' => $model->workoutid
+				),
+				'Update'
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'List WorkoutDetail', 'url'=>array('index')),
@@ -18,6 +24,6 @@ $this->menu=array(
 );
 ?>
 
-    <h1>Update WorkoutDetail <?php echo $model->id; ?></h1>
+    <h3>Update Workout <?php echo $model->workout->name; ?> - <?php echo $model->exercise->name; ?></h3>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

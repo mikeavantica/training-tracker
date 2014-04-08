@@ -4,11 +4,17 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Body Profiles'=>array('index'),
-	$model->Id=>array('view','id'=>$model->Id),
-	'Update',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Body Profiles' => 'index',
+				$model->body_part__name => array (
+						'view',
+						'Id' => $model->Id
+				),
+				'Update'
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'List BodyProfiles', 'url'=>array('index')),

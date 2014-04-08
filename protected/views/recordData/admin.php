@@ -1,19 +1,19 @@
 <?php
-/* @var $this BodyProfilesController */
-/* @var $model BodyProfiles */
+/* @var $this RecordDataController */
+/* @var $model RecordData */
 
 
 
 $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 		'links' => array (
-				'Body Profiles' => 'index',
+				'Record Data' => 'index',
 				'Manage'
 		)
 ) );
 
 $this->menu=array(
-	array('label'=>'List BodyProfiles', 'url'=>array('index')),
-	array('label'=>'Create BodyProfiles', 'url'=>array('create')),
+	array('label'=>'List RecordData', 'url'=>array('index')),
+	array('label'=>'Create RecordData', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -22,7 +22,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#body-profiles-grid').yiiGridView('update', {
+	$('#record-data-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -30,7 +30,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Body Profiles</h1>
+<h1>Manage Record Datas</h1>
 
 <p>
     You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
@@ -46,18 +46,33 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'body-profiles-grid',
+	'id'=>'record-data-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'Id',
-		'body_part__name',
+		'id',
 		'weight',
 		'height',
-        array(
-		'name' => 'sex_typeid',
-		'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
-         ),
+		'calories',
+		'assist',
+		'reps',
+		
+		'time',
+        array (
+		'name' => 'athleteid',
+		// 'value'=>'$data->customers->FirstNameB',
+		//'filter' => CHtml::listData ( Athlete::model ()->findAll (), 'id', 'first_name' ),
+		'value' => 'Athlete::model()->FindByPk($data->athleteid)->first_name'
+), array(
+		'name'=>'workout_detailid',
+		//'value'=>'$data->customers->FirstNameB',
+		//	'filter' => CHtml::listData(Workout::model()->findAll(),'id','name'),
+		'value' => 'Workout::model()->FindByPk($data->workout_detailid)->name',
+),
+		//'athleteid',
+		//'workout_detailid',
+		'date',
+		
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

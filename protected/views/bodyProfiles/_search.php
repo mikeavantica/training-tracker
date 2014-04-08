@@ -19,7 +19,8 @@
 
                     <?php echo $form->textFieldControlGroup($model,'height',array('span'=>5,'maxlength'=>10)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'sex_typeid',array('span'=>5)); ?>
+                     <?php echo $form->label($model,'sex_typeid'); ?>
+                    <?php echo $form->dropDownList($model,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
 
         <div class="form-actions">
         <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>

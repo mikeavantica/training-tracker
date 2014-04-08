@@ -53,12 +53,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'attr3',
 		'attr4',
 		'attr5',
-		/*
+		
 		'attr6',
 		'attr7',
 		'body_profilesId',
 		'exerciseid',
-		*/
+		
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

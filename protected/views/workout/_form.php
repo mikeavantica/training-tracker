@@ -27,7 +27,7 @@
             <?php echo $form->textFieldControlGroup($model,'description',array('span'=>3,'maxlength'=>150)); ?>
              <?php  echo $form->label($model,'workout_typeid'); ?>
             <?php echo  $form->dropDownList($model, 'workout_typeid', CHtml::listData(WorkoutType::model()->findAll(), 'id', 'name'));//echo $form->textFieldControlGroup($model,'workout_typeid',array('span'=>5)); ?>
-
+          
         <div class="form-actions">
         <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
 		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,

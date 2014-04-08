@@ -4,9 +4,12 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Body Profiles',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'BodyProfiles'
+		)
+) );
 
 $this->menu=array(
 	array('label'=>'Create BodyProfiles','url'=>array('create')),
@@ -16,7 +19,28 @@ $this->menu=array(
 
 <h1>Body Profiles</h1>
 
-<?php $this->widget('bootstrap.widgets.TbListView',array(
+<?php 
+$this->widget('bootstrap.widgets.TbGridView',array(
+		'id'=>'athlete-grid',
+		'dataProvider'=>$dataProvider,
+
+		'columns'=>array(
+				'Id',
+				'body_part__name',
+				'weight',
+				'height',
+				'height',
+				array(
+						'name' => 'sex_typeid',
+						'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
+				),
+
+				/*array(
+				 'class'=>'bootstrap.widgets.TbButtonColumn',
+				),*/
+		),
+));
+/*$this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-)); ?>
+)); */?>

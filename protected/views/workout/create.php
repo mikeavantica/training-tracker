@@ -7,7 +7,7 @@
 
 $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 		'links' => array (
-				'Workout' => 'index',
+				'Workouts' => 'index',
 				'Create'
 		)
 ) );

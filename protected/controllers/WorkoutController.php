@@ -69,9 +69,15 @@ class WorkoutController extends Controller
 
 		if (isset($_POST['Workout'])) {
 			$model->attributes=$_POST['Workout'];
+			
+			$valid = $model->validate();
+			if ($valid) {
+				
+			
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
 			}
+		}
 		}
 
 		$this->render('create',array(
