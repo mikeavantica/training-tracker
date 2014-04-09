@@ -14,7 +14,7 @@ $form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
 				) );
 				?>
 
-                    <?php echo $form->textFieldControlGroup($model,'id',array('span'=>3)); ?>
+                    <?php //echo $form->textFieldControlGroup($model,'id',array('span'=>3)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'first_name',array('span'=>3,'maxlength'=>45)); ?>
 

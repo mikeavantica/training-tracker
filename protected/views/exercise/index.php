@@ -21,7 +21,7 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 		'id'=>'exercise-grid',
 		'dataProvider'=>$dataProvider,
 		'columns'=>array(
-				'id',
+				//'id',
 				'name',
 		),
 ));

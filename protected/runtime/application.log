@@ -5083,3 +5083,33 @@ REQUEST_URI=/index.php/WorkoutDetail/create/1
 in D:\Training Tracker\protected\views\workoutDetail\_form.php (61)
 in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
 in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)
+2014/04/09 09:30:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`training_tracker`.`workout_detail`, CONSTRAINT `detail_workout_workout` FOREIGN KEY (`workoutid`) REFERENCES `workout` (`id`)). The SQL statement executed was: DELETE FROM `workout` WHERE `workout`.`id`=8.
+in D:\Training Tracker\protected\controllers\WorkoutController.php (121)
+in D:\Training Tracker\index.php (13)
+2014/04/09 09:30:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`training_tracker`.`workout_detail`, CONSTRAINT `detail_workout_workout` FOREIGN KEY (`workoutid`) REFERENCES `workout` (`id`)). The SQL statement executed was: DELETE FROM `workout` WHERE `workout`.`id`=8' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('8')
+#2 D:\Training Tracker\protected\controllers\WorkoutController.php(121): CActiveRecord->delete()
+#3 [internal function]: WorkoutController->actionDelete('8')
+#4 D:\Training Tracker\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(WorkoutController), Array)
+#5 D:\Training Tracker\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(WorkoutController), Object(ReflectionMethod), Array)
+#6 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 D:\Training Tracker\framework\web\CController.php(1116): CFilterChain->run()
+#9 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('delete')
+#18 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('workout/delete')
+#19 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 D:\Training Tracker\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php/workout/delete/8
+HTTP_REFERER=http://localhost/index.php/workout/8
+---

@@ -28,7 +28,7 @@ $this->menu=array(
     ),
     'data'=>$model,
     'attributes'=>array(
-		'id',
+		//'id',
 		'first_name',
 		'last_name',
 		'email',

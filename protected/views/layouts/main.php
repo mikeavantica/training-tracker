@@ -46,7 +46,8 @@
 								'items' => array (
 										array (
 												'label' => 'Home',
-												'url' => Yii::app ()->homeUrl 
+												'url' => Yii::app ()->homeUrl ,
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' )
 										),
 										array (
 												'label' => 'Athlete',
@@ -54,6 +55,25 @@
 														'/Athlete/index' 
 												),
 												'visible' => ! Yii::app ()->user->isGuest 
+										),
+										array (
+												'label' => 'WorkOut',
+												'url' => array (
+														'/Workout/index' 
+												),
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
+										),
+										array (
+												'label' => 'Record',
+												'url' => array (
+														'/RecordData/index' 
+												),
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
+										),
+										array (
+												'label' => 'Overall Stats ',
+												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
 										),
 										
 										array (
@@ -72,21 +92,9 @@
 																) 
 														),
 														array (
-																'label' => 'WorkOut',
-																'url' => array (
-																		'/Workout/index' 
-																) 
-														),
-														array (
 																'label' => 'Workout Type',
 																'url' => array (
 																		'/WorkoutType/index' 
-																) 
-														),
-														array (
-																'label' => 'Record Data',
-																'url' => array (
-																		'/RecordData/index' 
 																) 
 														),
 														array (
@@ -110,10 +118,7 @@
 												),
 												
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),array('label'=> 'Overall Stats ',
-		                                        'url'=> Yii::app ()->homeUrl.'/site/Overallstats',
-		                                         'visible'=> Yii::app ()->user->checkAccess ( 'admin' ) ),
-										        
+										),
 										array (
 												'label' => 'Login',
 												'url' => array (

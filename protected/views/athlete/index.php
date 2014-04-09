@@ -25,7 +25,7 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 		'dataProvider'=>$dataProvider,
 	
 		'columns'=>array(
-				'id',
+				//'id',
 				'first_name',
 				'last_name',
 				'email',
