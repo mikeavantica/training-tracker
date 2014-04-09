@@ -10,7 +10,7 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
     )
 ));
 
-$this->menu = array(
+/*$this->menu = array(
     array(
         'label' => 'Create RecordData',
         'url' => array(
@@ -23,7 +23,7 @@ $this->menu = array(
             'admin'
         )
     )
-);
+);*/
 ?>
 
 <h1>Record Data</h1>
@@ -57,11 +57,14 @@ $this->menu = array(
         <td><?php echo $form->dateField($model, 'date',array('span'=>3)); ?></td>
         <td><?php 
             $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
-            $list['empty'] = 'select';
+            array_unshift($list, "-- Select --");
             echo CHtml::dropDownList('wod', 'empty', $list);
             ?>
         </td>
-        <td><?php echo  $form->dropDownList($model, 'athleteid', CHtml::listData(Athlete::model()->findAll(), 'id', 'first_name')); ?></td>
+        <td><?php 
+            $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'first_name');
+            array_unshift($list2, "-- Select --");
+            echo  $form->dropDownList($model, 'athleteid',$list2 ); ?></td>
         <td><?php echo $form->timeField($model,'time',array('span'=>3)); ?></td>
     </tr>
 </table>
