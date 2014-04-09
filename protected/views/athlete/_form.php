@@ -16,6 +16,15 @@ $form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
 						// See class documentation of CActiveForm for details on this.
 						'enableAjaxValidation' => false 
 				) );
+
+/**
+ * Truncates the given string at the specified length.
+ *
+ * @param string $str The input string.
+ * @param int $width The number of chars at which the string will be truncated.
+ * @return string
+ */
+
 				?>
 
     <p class="help-block">

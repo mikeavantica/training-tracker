@@ -86,7 +86,7 @@ class TbGridView extends CGridView
      * @throws CException if the column format is incorrect
      */
     protected function createDataColumn($text)
-    {
+    { 
         if (!preg_match('/^([\w\.]+)(:(\w*))?(:(.*))?$/', $text, $matches)) {
             throw new CException(Yii::t(
                 'zii',

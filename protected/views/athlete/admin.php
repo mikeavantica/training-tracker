@@ -5,16 +5,21 @@
 $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 		'links' => array (
 				'Athletes' => 'index',
-				'Manage'
-		)
+				'Manage' 
+		) 
 ) );
 
-$this->menu=array(
-	
-	array('label'=>'Create Athlete', 'url'=>array('create')),
+$this->menu = array (
+		
+		array (
+				'label' => 'Create Athlete',
+				'url' => array (
+						'create' 
+				) 
+		) 
 );
 
-Yii::app()->clientScript->registerScript('search', "
+Yii::app ()->clientScript->registerScript ( 'search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
@@ -25,39 +30,53 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
-");
+" );
+
 ?>
 
-<h1>Manage Athletes </h1>
+<h1>Manage Athletes</h1>
 
 
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+<div class="search-form" style="display: none">
+<?php
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'athlete-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		//'id',
-		'first_name',
-		'last_name',
-		'email',
-		'height',
-		'weight',
-		//'sex_typeid',
-         array(
-		'name' => 'sex_typeid',
-		'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
-),
-		
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+$this->renderPartial ( '_search', array (
+		'model' => $model 
+) );
+?>
+</div>
+<!-- search-form -->
+
+<?php
+$this->widget ( 'bootstrap.widgets.TbGridView', array (
+		'id' => 'athlete-grid',
+		'dataProvider' => $model->search (),
+		'filter' => $model,
+		'columns' => array (
+				// 'id',
+				array (
+						'name' => 'first_name',
+						'value' => 'strlen($data->first_name) > 20 ? substr($data->first_name, 0, 20)."...": $data->first_name' 
+				),
+				array (
+						'name' => 'first_name',
+						'value' => 'strlen($data->last_name) > 20 ? substr($data->last_name, 0, 20)."...": $data->last_name' 
+				),
+				'email',
+				'height',
+				'weight',
+				// 'sex_typeid',
+				array (
+						'name' => 'sex_typeid',
+						'value' => '$data->sex_typeid == 1 ? "Male" : "Female"' 
+				),
+				
+				array (
+						'class' => 'bootstrap.widgets.TbButtonColumn' 
+				)
+				 
+		) 
+) );
+?>
