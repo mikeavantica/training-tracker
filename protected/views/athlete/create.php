@@ -13,7 +13,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 
 $this->menu=array(
-	array('label'=>'List Athlete', 'url'=>array('index')),
+	
 	array('label'=>'Manage Athlete', 'url'=>array('admin')),
 );
 ?>

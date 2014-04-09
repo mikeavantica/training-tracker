@@ -17,7 +17,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
+	
 	array('label'=>'Create User', 'url'=>array('create')),
 	array('label'=>'View User', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage User', 'url'=>array('admin')),

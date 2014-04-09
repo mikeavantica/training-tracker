@@ -37,7 +37,7 @@ class ExerciseDetail extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('body_profilesId, exerciseid', 'required'),
+			array('body_profilesId, exerciseid,attr1, attr2, attr3, attr4, attr5, attr6, attr7', 'required'),
 			array('body_profilesId, exerciseid', 'numerical', 'integerOnly'=>true),
 			array('attr1, attr2, attr3, attr4, attr5, attr6, attr7', 'length', 'max'=>10),
 			// The following rule is used by search().

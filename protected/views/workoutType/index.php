@@ -36,7 +36,7 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 		'dataProvider' => $dataProvider,
 		
 		'columns' => array (
-				'id',
+				//'id',
 				'name',
 		/*array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

@@ -13,12 +13,6 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 
 $this->menu = array (
 		array (
-				'label' => 'List WorkoutType',
-				'url' => array (
-						'index' 
-				) 
-		),
-		array (
 				'label' => 'Create WorkoutType',
 				'url' => array (
 						'create' 
@@ -61,7 +55,7 @@ $this->widget ( 'zii.widgets.CDetailView', array (
 		),
 		'data' => $model,
 		'attributes' => array (
-				'id',
+				//'id',
 				'name' 
 		) 
 ) );

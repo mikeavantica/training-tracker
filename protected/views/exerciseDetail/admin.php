@@ -3,17 +3,23 @@
 /* @var $model ExerciseDetail */
 
 
-$this->breadcrumbs=array(
-	'Exercise Details'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array (
+		'Exercise Details' => array (
+				'index' 
+		),
+		'Manage' 
 );
 
-$this->menu=array(
-	array('label'=>'List ExerciseDetail', 'url'=>array('index')),
-	array('label'=>'Create ExerciseDetail', 'url'=>array('create')),
+$this->menu = array (
+		array (
+				'label' => 'Create Exercises Details',
+				'url' => array (
+						'create' 
+				) 
+		) 
 );
 
-Yii::app()->clientScript->registerScript('search', "
+Yii::app ()->clientScript->registerScript ( 'search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
@@ -24,43 +30,51 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
-");
+" );
 ?>
 
 <h1>Manage Exercise Details</h1>
 
-<p>
-    You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
-        &lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+<div class="search-form" style="display: none">
+<?php
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'exercise-detail-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'attr1',
-		'attr2',
-		'attr3',
-		'attr4',
-		'attr5',
-		
-		'attr6',
-		'attr7',
-		'body_profilesId',
-		'exerciseid',
-		
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+$this->renderPartial ( '_search', array (
+		'model' => $model 
+) );
+?>
+</div>
+<!-- search-form -->
+
+<?php
+
+$this->widget ( 'bootstrap.widgets.TbGridView', array (
+		'id' => 'exercise-detail-grid',
+		'dataProvider' => $model->search (),
+		'filter' => $model,
+		'columns' => array (
+				array (
+						'name' => 'body_profilesId',
+						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part__name' 
+				),
+				array (
+						'name' => 'exerciseid',
+						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name' 
+				),
+				'attr1',
+				'attr2',
+				'attr3',
+				'attr4',
+				'attr5',
+				
+				'attr6',
+				'attr7',
+				
+				array (
+						'class' => 'bootstrap.widgets.TbButtonColumn' 
+				) 
+		) 
+) );
+?>

@@ -91,7 +91,7 @@ class WorkoutDetailController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+        
 		if (isset($_POST['WorkoutDetail'])) {
 			$model->attributes=$_POST['WorkoutDetail'];
 			if ($model->save()) {

@@ -46,7 +46,7 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'Id',
+		//'Id',
 		'body_part__name',
 		'weight',
 		'height',

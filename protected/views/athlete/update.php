@@ -14,9 +14,18 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 				'Update'
 		)
 ) );
-
+if($model->height < '100'){
+	$model->height = '0'.$model->height;
+	
+	
+}
+if($model->weight < 100){
+	
+	$model->weight = '0'.$model->weight;
+	
+}
 $this->menu=array(
-	array('label'=>'List Athlete', 'url'=>array('index')),
+	
 	array('label'=>'Create Athlete', 'url'=>array('create')),
 	array('label'=>'View Athlete', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Athlete', 'url'=>array('admin')),

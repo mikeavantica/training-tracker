@@ -12,7 +12,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 
 $this->menu=array(
-	array('label'=>'List Workout', 'url'=>array('index')),
+	
 	array('label'=>'Create Workout', 'url'=>array('create')),
 );
 
@@ -46,7 +46,7 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		
 		'date',
 		'name',
 		'description',

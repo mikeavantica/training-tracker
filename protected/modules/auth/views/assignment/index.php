@@ -10,7 +10,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 ?>
 
-<h1><?php echo Yii::t('AuthModule.main', 'Assignments'); ?></h1>
+<h1><?php echo Yii::t('AuthModule.main', 'Roles'); ?></h1>
 
 <?php $this->widget(
     'bootstrap.widgets.TbGridView',
@@ -25,7 +25,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
                 'class' => 'AuthAssignmentNameColumn',
             ),
             array(
-                'header' => Yii::t('AuthModule.main', 'Assigned items'),
+                'header' => Yii::t('AuthModule.main', 'Roles Assignments'),
                 'class' => 'AuthAssignmentItemsColumn',
             ),
             array(

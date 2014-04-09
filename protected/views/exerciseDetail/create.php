@@ -10,8 +10,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ExerciseDetail', 'url'=>array('index')),
-	array('label'=>'Manage ExerciseDetail', 'url'=>array('admin')),
+	array('label'=>'Manage Exercises Details', 'url'=>array('admin')),
 );
 ?>
 

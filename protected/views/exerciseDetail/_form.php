@@ -24,7 +24,7 @@
 
     <?php echo $form->errorSummary($model); ?>
             <?php  echo $form->label($model,'body_profilesId'); ?>
-            <?php echo  $form->dropDownList($model, 'body_profilesId', CHtml::listData(BodyProfiles::model()->findAll(), 'id', 'body_part__name')); ?>
+            <?php echo  $form->dropDownList($model, 'body_profilesId', CHtml::listData(BodyProfiles::model()->findAll(), 'Id', 'body_part__name')); ?>
             <?php //echo $form->textFieldControlGroup($model,'exerciseid',array('span'=>5)); ?>
             <?php  echo $form->label($model,'exerciseid'); ?>
             <?php echo  $form->dropDownList($model, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name')); ?>

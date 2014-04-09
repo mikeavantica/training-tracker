@@ -50,26 +50,27 @@
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' )
 										),
 										array (
+												'label' => 'Daily Record',
+												'url' => array (
+														'/RecordData/index'
+												),
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' )
+										),
+										array (
 												'label' => 'Athlete',
 												'url' => array (
-														'/Athlete/index' 
+														'/Athlete/admin' 
 												),
 												'visible' => ! Yii::app ()->user->isGuest 
 										),
 										array (
-												'label' => 'WorkOut',
+												'label' => 'Workout Profile',
 												'url' => array (
-														'/Workout/index' 
+														'/Workout/admin' 
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
 										),
-										array (
-												'label' => 'Record',
-												'url' => array (
-														'/RecordData/index' 
-												),
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),
+									
 										array (
 												'label' => 'Overall Stats ',
 												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
@@ -82,7 +83,7 @@
 														array (
 																'label' => 'Users',
 																'url' => array (
-																		'/User/Index' 
+																		'/User/admin' 
 																) 
 														),
 														array (
@@ -94,25 +95,26 @@
 														array (
 																'label' => 'Workout Type',
 																'url' => array (
-																		'/WorkoutType/index' 
+																		'/WorkoutType/admin' 
+																) 
+														),
+														
+														array (
+																'label' => 'Body Profiles',
+																'url' => array (
+																		'/BodyProfiles/admin' 
 																) 
 														),
 														array (
 																'label' => 'Exercises',
 																'url' => array (
-																		'/Exercise/index' 
-																) 
+																		'/Exercise/admin'
+																)
 														),
 														array (
-																'label' => 'Body Profiles',
+																'label' => 'Exercises Details',
 																'url' => array (
-																		'/BodyProfiles/index' 
-																) 
-														),
-														array (
-																'label' => 'Exercises Detail',
-																'url' => array (
-																		'/ExerciseDetail/index' 
+																		'/ExerciseDetail/admin' 
 																) 
 														) 
 												),

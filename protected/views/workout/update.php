@@ -17,7 +17,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 
 $this->menu=array(
-	array('label'=>'List Workout', 'url'=>array('index')),
+
 	array('label'=>'Create Workout', 'url'=>array('create')),
 	array('label'=>'View Workout', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Workout', 'url'=>array('admin')),

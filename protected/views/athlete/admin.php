@@ -10,7 +10,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 ) );
 
 $this->menu=array(
-	array('label'=>'List Athlete', 'url'=>array('index')),
+	
 	array('label'=>'Create Athlete', 'url'=>array('create')),
 );
 
@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Athletes</h1>
+<h1>Manage Athletes </h1>
 
 
 
