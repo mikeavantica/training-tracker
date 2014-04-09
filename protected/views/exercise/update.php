@@ -4,14 +4,20 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Exercises'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Exercises' => 'index',
+				$model->name => array (
+						'view',
+						'Id' => $model->id
+				),
+				'Update'
+		)
+) );
 
 $this->menu=array(
-	array('label'=>'List Exercise', 'url'=>array('index')),
+	
 	array('label'=>'Create Exercise', 'url'=>array('create')),
 	array('label'=>'View Exercise', 'url'=>array('view', 'id'=>$model->id)),
 	array('label'=>'Manage Exercise', 'url'=>array('admin')),

@@ -3,12 +3,13 @@
 /* @var $model ExerciseDetail */
 
 
-$this->breadcrumbs = array (
-		'Exercise Details' => array (
-				'index' 
-		),
-		'Manage' 
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Exercise Details' => 'index',
+				'Manage'
+		)
+) );
 
 $this->menu = array (
 		array (

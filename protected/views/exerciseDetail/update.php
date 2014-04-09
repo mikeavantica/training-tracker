@@ -4,11 +4,17 @@
 ?>
 
 <?php
-$this->breadcrumbs=array(
-	'Exercise Details'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
-);
+
+$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+		'links' => array (
+				'Exercise Details' => 'index',
+				$model->exercise->name => array (
+						'view',
+						'id' => $model->id
+				),
+				'Update'
+		)
+) );
 
 $this->menu=array(
 	
