@@ -3,81 +3,101 @@
 /* @var $model WorkoutDetail */
 /* @var $form TbActiveForm */
 ?>
+<script>
+   $(function(){
+		$("#txtTime").change(function(){
+			if($("#txtTime").val()==""){
+				$("#txtTime").val("00:00:00");
+				}
+			});
+	   });
 
-<div class="form">
-
+</script>
     <?php
-				
+				$model->workoutid = $_GET ['id'];
 				$form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
 						'id' => 'workout-detail-form',
+					// 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
 						// Please note: When you enable ajax validation, make sure the corresponding
 						// controller action is handling ajax validation correctly.
 						// There is a call to performAjaxValidation() commented in generated controller code.
 						// See class documentation of CActiveForm for details on this.
-						'enableAjaxValidation' => false 
+						'enableAjaxValidation'=>false,
+                        
+						
 				) );
 				?>
 
-    <p class="help-block">
-		Fields with <span class="required">*</span> are required.
-	</p>
-
-    <?php echo $form->errorSummary($model); ?>
-            <div class="row">
-            <?php  echo $form->label($model,'measure_weight'); ?>
-            <?php echo $form->checkBoxControlGroup($model,'measure_weight'); ?>
-            </div>
-	<div class="row">
-            <?php  echo $form->label($model,'measure_height'); ?>
-            <?php echo $form->checkBoxControlGroup($model,'measure_height'); ?>
-            </div>
-
-	<div class="row">
-            <?php  echo $form->label($model,'measure_calories'); ?>
-            <?php echo $form->checkBoxControlGroup($model,'measure_calories'); ?>
-            </div>
-
-	<div class="row">
-            <?php  echo $form->label($model,'measure_assist'); ?>
-            <?php echo $form->checkBoxControlGroup($model,'measure_assist'); ?>
-            </div>
-            
-
-            <?php      if($model->workout['workout_typeid'] == 1 ){
-												echo $form->textFieldControlGroup ( $model, 'total_reps', array (
-														'span' => 1,
-														'lenght' => 11 
-												) );
-            }
-												?>
-            <div class="row">
-             <?php
-
-					if($model->workout['workout_typeid'] == 2 ){	
-                            
-                                                echo $form->label ( $model, 'total_time');							
-													echo $form->timeField ( $model, 'total_time', array (
-															'span' => 3
-													) );  
-}													?>
-             </div>
-              <?php echo $form->label($model,'workoutid'); ?>
+<p class="help-block">
+	Fields with <span class="required">*</span> are required.
+</p>
+<?php echo $form->errorSummary($model); ?>
+<div class="form">
+	<div style="display: none;">
             <?php echo $form->dropDownList($model, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
-            <div class="row">
+            </div>
+	
+	<div class="column">
             <?php  echo $form->label($model,'exerciseid'); ?>
             <?php echo  $form->dropDownList($model, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name')); ?>
-            </div>
+            <?php
+												// echo TbHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
+												// 'color' => TbHtml::BUTTON_COLOR_PRIMARY,
+												// 'size' => TbHtml::BUTTON_SIZE_SMALL
+												// ) );
+												?>
+            
+</div>
+<div class="column">
+              <?php
+														if ($model->workout ['workout_typeid'] == 1) {
+                                                            echo $form->label($model, 'total_reps');
+															echo $form->numberField( $model, 'total_reps', array (
+																	// 'span' => 3,
+																	'lenght' => 11 
+															) );
+														}
+														?>
+											<?php
+											if ($model->workout ['workout_typeid'] == 2) {
+                                               
+												echo $form->label ( $model, 'total_time' );
+												echo $form->timeField ( $model, 'total_time',array('id'=>'txtTime'));
+										
+												// 'span' => 3
 
-	<div class="form-actions">
+											
+											}
+											?>
+
+            </div>
+	<div class="column" >
+		<div style="font-weight: bold;
+font-size: 0.9em;
+display: block;">Measure</div>
+            <?php  //echo $form->label($model,'measure_weight'); ?>
+            <?php echo $form->checkBoxControlGroup($model,'measure_weight'); ?>
+
+            <?php  //echo $form->label($model,'measure_height'); ?>
+            <?php echo $form->checkBoxControlGroup($model,'measure_height'); ?>
+           
+            <?php  //echo $form->label($model,'measure_calories'); ?>
+            <?php echo $form->checkBoxControlGroup($model,'measure_calories'); ?>
+
+            <?php  //echo $form->label($model,'measure_calories'); ?>
+            <?php echo $form->checkBoxControlGroup($model,'measure_assist'); ?>
+             </div>
+
+	<div class="row" style=" padding: 30px;"> 
         <?php
+								
 								echo TbHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
 										'color' => TbHtml::BUTTON_COLOR_PRIMARY,
-										'size' => TbHtml::BUTTON_SIZE_LARGE 
+										'size' => TbHtml::BUTTON_SIZE_SMALL 
 								) );
 								?>
-    </div>
-
-    <?php $this->endWidget(); ?>
-
+     </div>
+<?php $this->endWidget(); ?>
 </div>
+
 <!-- form -->

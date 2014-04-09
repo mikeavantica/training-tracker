@@ -74,7 +74,7 @@ class WorkoutDetail extends CActiveRecord
 			'total_reps' => 'Total Reps',
 			'total_time' => 'Total Time',
 			'workoutid' => 'Workoutid',
-			'exerciseid' => 'Exerciseid',
+			'exerciseid' => 'Exercise',
 		);
 	}
 

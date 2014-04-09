@@ -18,6 +18,6 @@ $this->menu=array(
 );
 ?>
 
-    <h1>Update Exercise <?php echo $model->id; ?></h1>
+    <h3>Update Exercise <?php echo $model->name; ?></h3>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

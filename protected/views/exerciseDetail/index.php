@@ -30,8 +30,20 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 
 				'attr6',
 				'attr7',
-				'body_profilesId',
-				'exerciseid',
+				array (
+						'name' => 'body_profilesId',
+						// 'value'=>'$data->customers->FirstNameB',
+						//'filter' => CHtml::listData ( Athlete::model ()->findAll (), 'id', 'first_name' ),
+						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part__name'
+				),
+				//'body_profilesId',
+				array (
+						'name' => 'exerciseid',
+						// 'value'=>'$data->customers->FirstNameB',
+						//'filter' => CHtml::listData ( Athlete::model ()->findAll (), 'id', 'first_name' ),
+						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name'
+				),
+			//	'exerciseid',
 
 				array(
 						'class'=>'bootstrap.widgets.TbButtonColumn',

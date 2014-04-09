@@ -18,7 +18,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Exercise #<?php echo $model->id; ?></h1>
+<h3>Exercise<?php echo $model->name; ?></h3>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

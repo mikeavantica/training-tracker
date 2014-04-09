@@ -30,9 +30,9 @@ $this->menu=array(
     ),
     'data'=>$model,
     'attributes'=>array(
-		'id',
+		//'id',
 		'username',
-		'password',
+		//'password',
 		'email',
 	),
 )); ?>

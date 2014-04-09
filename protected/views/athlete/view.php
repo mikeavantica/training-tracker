@@ -20,7 +20,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Athlete: <?php echo $model->first_name; ?></h1>
+<h3>Athlete: <?php echo $model->first_name; ?></h3>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(

@@ -35,7 +35,7 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 		'id' => 'workout-grid',
 		'dataProvider' => $dataProvider,
 		'columns' => array (
-				'id',
+				//'id',
 				'date',
 				'name',
 				'description',

@@ -24,6 +24,6 @@ $this->menu=array(
 );
 ?>
 
-    <h1>Update Workout <?php echo $model->name; ?></h1>
+    <h3>Update Workout <?php echo $model->name; ?></h3>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

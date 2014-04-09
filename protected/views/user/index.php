@@ -25,9 +25,9 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	
 	'columns'=>array(
-		'id',
+		//'id',
 		'username',
-		'password',
+		//'password',
 		'email',
 		/*array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

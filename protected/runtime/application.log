@@ -3830,3 +3830,1256 @@ Stack trace:
 REQUEST_URI=/index.php/site/overallstats
 HTTP_REFERER=http://localhost/index.php/overallstats
 ---
+2014/04/08 14:32:37 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (D:\Training Tracker\framework\web\helpers\CHtml.php:103)
+Stack trace:
+#0 D:\Training Tracker\framework\web\helpers\CHtml.php(158): renderAttributes()
+#1 D:\Training Tracker\framework\web\helpers\CHtml.php(2255): tag()
+#2 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2248): activeInputField()
+#3 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(1546): activeTextInputField()
+#4 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2149): activeNumberField()
+#5 D:\Training Tracker\protected\extensions\bootstrap\widgets\TbActiveForm.php(433): createActiveInput()
+#6 D:\Training Tracker\protected\extensions\bootstrap\widgets\TbActiveForm.php(229): TbActiveForm->createInput()
+#7 D:\Training Tracker\protected\views\athlete\_form.php(33): TbActiveForm->numberField()
+#8 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#9 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#10 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#11 D:\Training Tracker\protected\views\athlete\create.php(23): AthleteController->renderPartial()
+#12 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#13 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#14 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#15 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#16 D:\Training Tracker\protected\controllers\AthleteController.php(79): AthleteController->render()
+#17 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#18 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#19 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#20 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#22 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#23 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#24 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#25 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#26 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#27 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#28 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#29 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/create
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (2248)
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (1546)
+in D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php (2149)
+2014/04/08 14:38:01 [error] [php] Object of class CMaskedTextField could not be converted to string (D:\Training Tracker\protected\views\athlete\_form.php:37)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#1 D:\Training Tracker\protected\views\athlete\create.php(23): AthleteController->renderPartial()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#6 D:\Training Tracker\protected\controllers\AthleteController.php(79): AthleteController->render()
+#7 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#8 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#10 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#16 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/create
+in D:\Training Tracker\protected\views\athlete\_form.php (37)
+in D:\Training Tracker\protected\views\athlete\create.php (23)
+in D:\Training Tracker\protected\controllers\AthleteController.php (79)
+2014/04/08 14:40:12 [error] [php] Object of class CMaskedTextField could not be converted to string (D:\Training Tracker\protected\views\athlete\_form.php:37)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#1 D:\Training Tracker\protected\views\athlete\create.php(23): AthleteController->renderPartial()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): AthleteController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): AthleteController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): AthleteController->renderPartial()
+#6 D:\Training Tracker\protected\controllers\AthleteController.php(79): AthleteController->render()
+#7 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#8 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): AthleteController->runAction()
+#10 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): AthleteController->filterAccessControl()
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(265): AthleteController->runActionWithFilters()
+#16 D:\Training Tracker\framework\web\CWebApplication.php(282): AthleteController->run()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/athlete/create
+in D:\Training Tracker\protected\views\athlete\_form.php (37)
+in D:\Training Tracker\protected\views\athlete\create.php (23)
+in D:\Training Tracker\protected\controllers\AthleteController.php (79)
+2014/04/08 14:47:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '305,69' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\Training Tracker\protected\controllers\AthleteController.php (72)
+in D:\Training Tracker\index.php (13)
+2014/04/08 14:47:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '305,69' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\AthleteController.php(72): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/athlete/create
+HTTP_REFERER=http://localhost/index.php/athlete/create
+---
+2014/04/08 14:48:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '305,69' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\Training Tracker\protected\controllers\AthleteController.php (72)
+in D:\Training Tracker\index.php (13)
+2014/04/08 14:48:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '305,69' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\AthleteController.php(72): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/athlete/create
+HTTP_REFERER=http://localhost/index.php/athlete/create
+---
+2014/04/08 14:49:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '30,56' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\Training Tracker\protected\controllers\AthleteController.php (72)
+in D:\Training Tracker\index.php (13)
+2014/04/08 14:49:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '30,56' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\AthleteController.php(72): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/athlete/create
+HTTP_REFERER=http://localhost/index.php/athlete/create
+---
+2014/04/08 14:50:08 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '30,56' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\Training Tracker\protected\controllers\AthleteController.php (72)
+in D:\Training Tracker\index.php (13)
+2014/04/08 14:50:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '30,56' for column 'weight' at row 1. The SQL statement executed was: INSERT INTO `athlete` (`first_name`, `last_name`, `email`, `height`, `weight`, `sex_typeid`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\AthleteController.php(72): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/athlete/create
+HTTP_REFERER=http://localhost/index.php/athlete/create
+---
+2014/04/08 14:59:53 [error] [exception.CException] exception 'CException' with message 'Property "CMaskedTextField.span" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\Training Tracker\framework\web\CWidgetFactory.php(161): CComponent->__set('span', 3)
+#1 D:\Training Tracker\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(AthleteController), 'CMaskedTextFiel...', Array)
+#2 D:\Training Tracker\framework\web\CBaseController.php(172): CBaseController->createWidget('CMaskedTextFiel...', Array)
+#3 D:\Training Tracker\protected\views\athlete\_form.php(42): CBaseController->widget('CMaskedTextFiel...', Array)
+#4 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#5 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#6 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#7 D:\Training Tracker\protected\views\athlete\create.php(23): CController->renderPartial('_form', Array)
+#8 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#9 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#10 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#11 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 D:\Training Tracker\protected\controllers\AthleteController.php(79): CController->render('create', Array)
+#13 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): AthleteController->actionCreate()
+#14 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#21 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#23 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('athlete/create')
+#24 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#25 D:\Training Tracker\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/index.php/athlete/create
+HTTP_REFERER=http://localhost/index.php/Athlete/index
+---
+2014/04/08 15:09:20 [error] [exception.CException] exception 'CException' with message 'Property "Athlete.name" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(145): CComponent->__get('name')
+#1 D:\Training Tracker\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('name')
+#2 D:\Training Tracker\framework\base\CComponent.php(612): eval()
+#3 D:\Training Tracker\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('Athlete::model(...', Array)
+#4 D:\Training Tracker\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(ExerciseDetail))
+#5 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
+#6 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
+#7 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
+#8 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{items}?<div cl...')
+#11 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
+#12 D:\Training Tracker\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 D:\Training Tracker\protected\views\exerciseDetail\index.php(47): CBaseController->widget('bootstrap.widge...', Array)
+#14 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#15 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#16 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#17 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#18 D:\Training Tracker\protected\controllers\ExerciseDetailController.php(134): CController->render('index', Array)
+#19 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): ExerciseDetailController->actionIndex()
+#20 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#27 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('index')
+#29 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('exerciseDetail/...')
+#30 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#31 D:\Training Tracker\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/index.php/exerciseDetail/index
+HTTP_REFERER=http://localhost/index.php/exerciseDetail/6
+---
+2014/04/08 15:09:37 [error] [exception.CException] exception 'CException' with message 'Property "ExerciseDetail.name" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(145): CComponent->__get('name')
+#1 D:\Training Tracker\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('name')
+#2 D:\Training Tracker\framework\base\CComponent.php(612): eval()
+#3 D:\Training Tracker\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('ExerciseDetail:...', Array)
+#4 D:\Training Tracker\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(ExerciseDetail))
+#5 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
+#6 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
+#7 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
+#8 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{items}?<div cl...')
+#11 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
+#12 D:\Training Tracker\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 D:\Training Tracker\protected\views\exerciseDetail\index.php(47): CBaseController->widget('bootstrap.widge...', Array)
+#14 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#15 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#16 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#17 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#18 D:\Training Tracker\protected\controllers\ExerciseDetailController.php(134): CController->render('index', Array)
+#19 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): ExerciseDetailController->actionIndex()
+#20 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#27 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('index')
+#29 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('exerciseDetail/...')
+#30 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#31 D:\Training Tracker\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/index.php/exerciseDetail/index
+HTTP_REFERER=http://localhost/index.php/exerciseDetail/6
+---
+2014/04/08 15:10:55 [error] [exception.CException] exception 'CException' with message 'Property "BodyProfiles.name" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(145): CComponent->__get('name')
+#1 D:\Training Tracker\framework\base\CComponent.php(612) : eval()'d code(1): CActiveRecord->__get('name')
+#2 D:\Training Tracker\framework\base\CComponent.php(612): eval()
+#3 D:\Training Tracker\framework\zii\widgets\grid\CDataColumn.php(137): CComponent->evaluateExpression('BodyProfiles::m...', Array)
+#4 D:\Training Tracker\framework\zii\widgets\grid\CGridColumn.php(151): CDataColumn->renderDataCellContent(0, Object(ExerciseDetail))
+#5 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(616): CGridColumn->renderDataCell(0)
+#6 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(572): CGridView->renderTableRow(0)
+#7 D:\Training Tracker\framework\zii\widgets\grid\CGridView.php(482): CGridView->renderTableBody()
+#8 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(167): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(150): preg_replace_callback('/{(\w+)}/', Array, '{items}?<div cl...')
+#11 D:\Training Tracker\framework\zii\widgets\CBaseListView.php(135): CBaseListView->renderContent()
+#12 D:\Training Tracker\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 D:\Training Tracker\protected\views\exerciseDetail\index.php(53): CBaseController->widget('bootstrap.widge...', Array)
+#14 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#15 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#16 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#17 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#18 D:\Training Tracker\protected\controllers\ExerciseDetailController.php(134): CController->render('index', Array)
+#19 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): ExerciseDetailController->actionIndex()
+#20 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#27 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('index')
+#29 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('exerciseDetail/...')
+#30 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#31 D:\Training Tracker\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/index.php/exerciseDetail/index
+HTTP_REFERER=http://localhost/index.php/exerciseDetail/6
+---
+2014/04/08 16:23:38 [error] [php] Missing argument 1 for CActiveForm::label(), called in D:\Training Tracker\protected\views\workoutDetail\_form.php on line 28 and defined (D:\Training Tracker\framework\web\widgets\CActiveForm.php:580)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#1 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#2 D:\Training Tracker\protected\views\workoutDetail\create.php(30): WorkoutDetailController->renderPartial()
+#3 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#4 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#5 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#6 D:\Training Tracker\framework\web\CController.php(782): WorkoutDetailController->renderPartial()
+#7 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): WorkoutDetailController->render()
+#8 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#9 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutDetailController->runAction()
+#11 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutDetailController->filterAccessControl()
+#14 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\Training Tracker\framework\web\CController.php(265): WorkoutDetailController->runActionWithFilters()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutDetailController->run()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+in D:\Training Tracker\protected\views\workoutDetail\_form.php (28)
+in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)
+2014/04/08 16:24:10 [error] [php] Missing argument 2 for CActiveForm::label(), called in D:\Training Tracker\protected\views\workoutDetail\_form.php on line 28 and defined (D:\Training Tracker\framework\web\widgets\CActiveForm.php:580)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#1 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#2 D:\Training Tracker\protected\views\workoutDetail\create.php(30): WorkoutDetailController->renderPartial()
+#3 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#4 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#5 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#6 D:\Training Tracker\framework\web\CController.php(782): WorkoutDetailController->renderPartial()
+#7 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): WorkoutDetailController->render()
+#8 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#9 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutDetailController->runAction()
+#11 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutDetailController->filterAccessControl()
+#14 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\Training Tracker\framework\web\CController.php(265): WorkoutDetailController->runActionWithFilters()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutDetailController->run()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+in D:\Training Tracker\protected\views\workoutDetail\_form.php (28)
+in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)
+2014/04/08 16:47:12 [error] [exception.CException] exception 'CException' with message 'Property "WorkoutDetail.measure" is not defined.' in D:\Training Tracker\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(145): CComponent->__get('measure')
+#1 D:\Training Tracker\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('measure')
+#2 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(1738): CHtml::resolveValue(Object(WorkoutDetail), 'measure')
+#3 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2167): TbHtml::activeCheckBoxList(Object(WorkoutDetail), 'measure', Array, Array)
+#4 D:\Training Tracker\protected\extensions\bootstrap\helpers\TbHtml.php(2097): TbHtml::createActiveInput('checkBoxList', Object(WorkoutDetail), 'measure', Array, Array)
+#5 D:\Training Tracker\protected\extensions\bootstrap\widgets\TbActiveForm.php(704): TbHtml::activeControlGroup('checkBoxList', Object(WorkoutDetail), 'measure', Array, Array)
+#6 D:\Training Tracker\protected\extensions\bootstrap\widgets\TbActiveForm.php(647): TbActiveForm->createControlGroup('checkBoxList', Object(WorkoutDetail), 'measure', Array, Array)
+#7 D:\Training Tracker\protected\views\workoutDetail\_form.php(57): TbActiveForm->checkBoxListControlGroup(Object(WorkoutDetail), 'measure', Array)
+#8 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#9 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#10 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#11 D:\Training Tracker\protected\views\workoutDetail\create.php(30): CController->renderPartial('_form', Array)
+#12 D:\Training Tracker\framework\web\CBaseController.php(126): require('D:\Training Tra...')
+#13 D:\Training Tracker\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\Training Tra...', Array, true)
+#14 D:\Training Tracker\framework\web\CController.php(869): CBaseController->renderFile('D:\Training Tra...', Array, true)
+#15 D:\Training Tracker\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#16 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): CController->render('create', Array)
+#17 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#18 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#19 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#20 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#21 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#22 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#23 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#24 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#25 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#27 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#28 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#29 D:\Training Tracker\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/Workout/1
+---
+2014/04/08 17:37:05 [error] [php] Missing argument 2 for CActiveForm::label(), called in D:\Training Tracker\protected\views\workoutDetail\_form.php on line 45 and defined (D:\Training Tracker\framework\web\widgets\CActiveForm.php:580)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#1 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#2 D:\Training Tracker\protected\views\workoutDetail\create.php(30): WorkoutDetailController->renderPartial()
+#3 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#4 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#5 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#6 D:\Training Tracker\framework\web\CController.php(782): WorkoutDetailController->renderPartial()
+#7 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): WorkoutDetailController->render()
+#8 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#9 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutDetailController->runAction()
+#11 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#13 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutDetailController->filterAccessControl()
+#14 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#15 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#16 D:\Training Tracker\framework\web\CController.php(265): WorkoutDetailController->runActionWithFilters()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutDetailController->run()
+#18 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+in D:\Training Tracker\protected\views\workoutDetail\_form.php (45)
+in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)
+2014/04/08 18:15:18 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:15:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:15:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:15:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:16:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:16:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:16:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:16:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:16:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:16:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:17:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:17:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:30 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:35 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:19:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:19:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:20:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:20:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:21:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:21:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:23:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:23:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `total_time`, `exerciseid`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:36:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:36:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:40:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:40:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save(false)
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:46:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:46:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:46:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:46:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:50:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:50:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:51:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:51:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:53:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:53:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:53:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:53:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:53:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:53:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:54:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:54:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:57:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6).
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (73)
+in D:\Training Tracker\index.php (13)
+2014/04/08 18:57:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect time value: '' for column 'total_time' at row 1. The SQL statement executed was: INSERT INTO `workout_detail` (`workoutid`, `exerciseid`, `total_time`, `measure_weight`, `measure_height`, `measure_calories`, `measure_assist`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6)' in D:\Training Tracker\framework\db\CDbCommand.php:358
+Stack trace:
+#0 D:\Training Tracker\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 D:\Training Tracker\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(73): CActiveRecord->save()
+#3 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#4 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 D:\Training Tracker\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\Training Tracker\framework\web\CWebApplication.php(282): CController->run('create')
+#13 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController('WorkoutDetail/c...')
+#14 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 D:\Training Tracker\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+HTTP_REFERER=http://localhost/index.php/WorkoutDetail/create/1
+---
+2014/04/08 18:59:20 [error] [php] Object of class CMaskedTextField could not be converted to string (D:\Training Tracker\protected\views\workoutDetail\_form.php:61)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#1 D:\Training Tracker\protected\views\workoutDetail\create.php(30): WorkoutDetailController->renderPartial()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): WorkoutDetailController->renderPartial()
+#6 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): WorkoutDetailController->render()
+#7 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#8 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutDetailController->runAction()
+#10 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutDetailController->filterAccessControl()
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(265): WorkoutDetailController->runActionWithFilters()
+#16 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutDetailController->run()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+in D:\Training Tracker\protected\views\workoutDetail\_form.php (61)
+in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)
+2014/04/08 19:00:43 [error] [php] Object of class CMaskedTextField could not be converted to string (D:\Training Tracker\protected\views\workoutDetail\_form.php:61)
+Stack trace:
+#0 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#1 D:\Training Tracker\protected\views\workoutDetail\create.php(30): WorkoutDetailController->renderPartial()
+#2 D:\Training Tracker\framework\web\CBaseController.php(126): require()
+#3 D:\Training Tracker\framework\web\CBaseController.php(95): WorkoutDetailController->renderInternal()
+#4 D:\Training Tracker\framework\web\CController.php(869): WorkoutDetailController->renderFile()
+#5 D:\Training Tracker\framework\web\CController.php(782): WorkoutDetailController->renderPartial()
+#6 D:\Training Tracker\protected\controllers\WorkoutDetailController.php(80): WorkoutDetailController->render()
+#7 D:\Training Tracker\framework\web\actions\CInlineAction.php(49): WorkoutDetailController->actionCreate()
+#8 D:\Training Tracker\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 D:\Training Tracker\framework\web\filters\CFilterChain.php(133): WorkoutDetailController->runAction()
+#10 D:\Training Tracker\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 D:\Training Tracker\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#12 D:\Training Tracker\framework\web\filters\CInlineFilter.php(58): WorkoutDetailController->filterAccessControl()
+#13 D:\Training Tracker\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#14 D:\Training Tracker\framework\web\CController.php(291): CFilterChain->run()
+#15 D:\Training Tracker\framework\web\CController.php(265): WorkoutDetailController->runActionWithFilters()
+#16 D:\Training Tracker\framework\web\CWebApplication.php(282): WorkoutDetailController->run()
+#17 D:\Training Tracker\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 D:\Training Tracker\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 D:\Training Tracker\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/WorkoutDetail/create/1
+in D:\Training Tracker\protected\views\workoutDetail\_form.php (61)
+in D:\Training Tracker\protected\views\workoutDetail\create.php (30)
+in D:\Training Tracker\protected\controllers\WorkoutDetailController.php (80)

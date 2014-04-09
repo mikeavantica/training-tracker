@@ -52,12 +52,12 @@ $this->menu = array (
 );
 ?>
 
-<h1>Workout <?php echo $model->name; ?></h1>
+<h3>Workout <?php echo $model->name; ?></h3>
 
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th><?php echo CHtml::encode($model->getAttributeLabel('id')); ?></th>
+			<!--  <th><?php //echo CHtml::encode($model->getAttributeLabel('id')); ?></th> -->
 			<th><?php echo CHtml::encode($model->getAttributeLabel('date')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
@@ -67,7 +67,7 @@ $this->menu = array (
 	</thead>
 	<tbody>
 		<tr>
-			<td><?php echo CHtml::encode($model->id); ?></td>
+		<!--  	<td><?php //echo CHtml::encode($model->id); ?></td> -->
 			<td><?php echo CHtml::encode($model->date); ?></td>
 			<td><?php echo CHtml::encode($model->name); ?></td>
 			<td><?php echo CHtml::encode($model->description); ?></td>
@@ -76,7 +76,7 @@ $this->menu = array (
 
 		</tr>
 		<tr>
-			<td></td>
+			<!--  <td></td> -->
 			<td></td>
 			<td></td>
 			<td></td>
@@ -94,10 +94,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 		'selectableRows'=>0,
 		'dataProvider' => WorkoutDetail::model()->search2($model->id),
 		'columns' => array(
-				array(
+				/*array(
 						'name' => 'id',
 						'header' => '#',
-				),
+				),*/
 				array( 'class'=>'CCheckBoxColumn',
                         'checked' => '$data->measure_height == 1',
  						
@@ -129,16 +129,13 @@ $this->widget('bootstrap.widgets.TbGridView', array(
                 array('name'=> 'total_time',
                       'header'=> 'Time',
                        'visible'=>$model->workout_typeid == 2),
-                array (
+              /*  array (
 		'name' => 'workoutid',
         'header'=> 'WorkOut',
-        'value'=>' $data->workout->name',
-		// 'value'=>'$data->customers->FirstNameB',
-		//'filter' => CHtml::listData ( Athlete::model ()->findAll (), 'id', 'first_name' ),
-		//'value' => Workout::model()->FindByPk($model->id)->name,
-)
+        'value'=>' $data->workout->name',*/
+		
                 /*array('name' => 'workoutid',
-                      'header'=> 'WorkOut')*/,
+                      'header'=> 'WorkOut')*/
                 array('name'=> 'exerciseid',
                       'value'=> '$data->exercise->name',
 
@@ -172,7 +169,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 );
 ?>
     <?php
-      echo   TbHtml::linkButton('New Detail',array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_SMALL,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
+      echo   TbHtml::linkButton('Add Exercise(s)',array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_SMALL,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
   
 
     <?php    
