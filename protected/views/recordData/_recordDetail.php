@@ -30,7 +30,7 @@
     </table>
     <fieldset>
         <?php
-        echo $this->renderPartial("DetailRecordData", array('model' => $data));
+        echo $this->renderPartial("detailRecordData", array('model' => $data));
         ?>
     </fieldset>
 </div>
