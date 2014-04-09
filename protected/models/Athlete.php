@@ -118,4 +118,9 @@ class Athlete extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+ function getFullName() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
 }
