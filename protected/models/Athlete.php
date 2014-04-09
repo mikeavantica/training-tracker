@@ -71,6 +71,7 @@ class Athlete extends CActiveRecord
 			'height' => 'Height',
 			'weight' => 'Weight',
 			'sex_typeid' => 'Gender',
+            		'fullName' => 'Athlete'
 		);
 	}
 
