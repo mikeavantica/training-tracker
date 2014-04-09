@@ -20,10 +20,10 @@
                 <td><?php echo CHtml::encode($data->athlete->fullname); ?>
                 <td><?php echo CHtml::encode($data->time); ?>
                 <td class="button-column">
-                    <a href="#" title="Update" class="update">
-                        <img alt="Update" src="/assets/6265ae6a/gridview/update.png"></a> 
-                    <a href="#" title="Delete" class="delete">
-                        <img alt="Delete" src="/assets/6265ae6a/gridview/delete.png"></a>
+                    <a class="icon-edit" href="#" title="Update" class="update">
+                        <img src alt></a> 
+                    <a class="icon-remove" href="#" title="Delete" class="delete">
+                        <img src alt></a>
                 </td>
             </tr>
         </tbody>

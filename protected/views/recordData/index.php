@@ -53,7 +53,8 @@ $this->menu = array(
         <th><?php echo $form->labelEx($model,'time'); ?></th>
     </tr>
     <tr>
-        <td><?php echo $form->textField($model,'date'); ?></td>
+        
+        <td><?php echo $form->dateField($model, 'date',array('span'=>3)); ?></td>
         <td><?php 
             $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
             $list['empty'] = 'select';
