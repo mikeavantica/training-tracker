@@ -340,10 +340,10 @@ DROP TABLE IF EXISTS `workout_detail`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `workout_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `measure_weight` bit(1) NOT NULL,
-  `measure_height` bit(1) NOT NULL,
-  `measure_calories` bit(1) NOT NULL,
-  `measure_assist` bit(1) NOT NULL,
+  `measure_weight` tinyint(1) NOT NULL,
+  `measure_height` tinyint(1) NOT NULL,
+  `measure_calories` tinyint(1) NOT NULL,
+  `measure_assist` tinyint(1) NOT NULL,
   `total_reps` int(11) DEFAULT NULL,
   `total_time` time DEFAULT NULL,
   `workoutid` int(11) NOT NULL,
@@ -353,7 +353,7 @@ CREATE TABLE `workout_detail` (
   KEY `workout_detail_exercise_profile` (`exerciseid`),
   CONSTRAINT `detail_workout_workout` FOREIGN KEY (`workoutid`) REFERENCES `workout` (`id`),
   CONSTRAINT `workout_detail_exercise_profile` FOREIGN KEY (`exerciseid`) REFERENCES `exercise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -362,7 +362,7 @@ CREATE TABLE `workout_detail` (
 
 LOCK TABLES `workout_detail` WRITE;
 /*!40000 ALTER TABLE `workout_detail` DISABLE KEYS */;
-INSERT INTO `workout_detail` VALUES (4,'\0','\0','','\0',20,'10:00:00',1,13),(5,'','','\0','\0',20,'20:10:00',8,18),(6,'','\0','','',20,'10:15:00',8,8),(7,'','\0','','',20,'01:20:00',1,18),(8,'\0','','\0','\0',20,NULL,8,17),(12,'\0','\0','','',20,NULL,8,2),(15,'\0','','\0','\0',20,'10:10:00',1,10),(17,'\0','','\0','\0',NULL,'15:12:00',1,37),(18,'\0','\0','','',50,NULL,8,40),(19,'\0','','','\0',NULL,'15:12:00',1,13),(20,'','\0','','\0',NULL,'01:00:00',1,6),(37,'\0','','','\0',10,NULL,8,12),(38,'','','','',NULL,'15:12:00',1,35);
+INSERT INTO `workout_detail` VALUES (4,0,0,1,0,20,'10:00:00',1,13),(5,1,1,0,0,20,'20:10:00',8,18),(6,1,0,1,1,20,'10:15:00',8,8),(7,1,0,1,1,20,'01:20:00',1,18),(8,0,1,0,0,20,NULL,8,17),(12,0,0,1,1,20,NULL,8,2),(15,0,1,0,0,20,'10:10:00',1,10),(17,0,1,0,0,NULL,'15:12:00',1,37),(18,0,0,1,1,50,NULL,8,40),(19,0,1,1,0,NULL,'15:12:00',1,13),(20,1,0,1,0,NULL,'01:00:00',1,6),(37,0,1,1,0,10,NULL,8,12),(38,1,1,1,1,NULL,'15:12:00',1,35),(39,0,1,1,0,NULL,'15:10:00',1,19);
 /*!40000 ALTER TABLE `workout_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-08 19:37:45
+-- Dump completed on 2014-04-09  9:24:46
