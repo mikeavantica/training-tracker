@@ -106,8 +106,8 @@ DROP TABLE IF EXISTS `athlete`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `athlete` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
   `email` varchar(150) NOT NULL,
   `height` decimal(10,2) NOT NULL,
   `weight` decimal(10,2) NOT NULL,
@@ -399,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-09  9:24:46
+-- Dump completed on 2014-04-09  9:39:01
