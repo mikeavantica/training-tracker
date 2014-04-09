@@ -102,7 +102,7 @@ class Athlete extends CActiveRecord
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('height',$this->height,true);
 		$criteria->compare('weight',$this->weight,true);
-		$criteria->compare('sex_typeid',$sex/*$this->sex_typeid*/,true);
+		//$criteria->compare('sex_typeid',$sex/*$this->sex_typeid*/);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

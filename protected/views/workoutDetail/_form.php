@@ -14,7 +14,7 @@
 
 </script>
     <?php
-				$model->workoutid = $_GET ['id'];
+				
 				$form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
 						'id' => 'workout-detail-form',
 					// 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
@@ -33,7 +33,7 @@
 </p>
 <?php echo $form->errorSummary($model); ?>
 <div class="form">
-	<div style="display: none;">
+	<div  style="display:none;">
             <?php echo $form->dropDownList($model, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
             </div>
 	
