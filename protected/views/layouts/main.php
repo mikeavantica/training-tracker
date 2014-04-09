@@ -66,7 +66,7 @@
 										array (
 												'label' => 'Record',
 												'url' => array (
-														'/RecordData/index' 
+														'/Recorddata/index' 
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
 										),
