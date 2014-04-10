@@ -12,7 +12,8 @@ return array (
 		'aliases' => array (
 		
 				'bootstrap' => realpath ( __DIR__ . '/../extensions/bootstrap' ),
-				'chartjs' => realpath ( __DIR__. '/../extensions/yii-chartjs' ) // change this if necessary
+				'chartjs' => realpath ( __DIR__. '/../extensions/yii-chartjs' ),
+				'arraydata'=>  realpath ( __DIR__. '/../extensions/arrayDataProvider' )  // change this if necessary
 		),
 		
 		
@@ -31,7 +32,9 @@ return array (
 				'bootstrap.helpers.TbHtml',
 				'bootstrap.helpers.TbArray',
 				'bootstrap.behaviors.TbWidget',
-				'bootstrap.widgets.*'
+				'bootstrap.widgets.*',
+				'arraydata.*'
+				
 		),
 		
 		'modules' => array (

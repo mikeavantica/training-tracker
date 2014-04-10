@@ -99,47 +99,32 @@ class RecordDataController extends Controller {
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id the ID of the model to be updated
      */
-    public function actionUpdate($id) {
-        $model = $this->loadModel($id);
-
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-
-        if (isset($_POST['RecordData'])) {
-            $model->attributes = $_POST['RecordData'];
-            if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+    public function actionUpdate($athleteid, $date) {
+        if (array_key_exists('action', $_POST)) {
+            $action = $_POST['action'];
+            if ($action == 'edit') {
+                $total_workdetails = $_POST['total_workdetails'];
+                for($i=0; $i<$total_workdetails; $i++) {
+                    $work = 'WorkoutDetails' . $i;
+                    $work_array = $_POST[$work];
+                    $record = RecordData::model()->findByPk($work_array['recorddataid']);
+                    $record->date = $_POST["RecordData"]["date"];
+                    $record->time = $_POST["RecordData"]["time"];
+                    $record->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
+                    $record->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
+                    $record->assist = (array_key_exists('assist', $work_array) ? $work_array['assist'] : 0);
+                    $record->calories = (array_key_exists('calories', $work_array) ? $work_array['calories'] : 0);
+                    $record->reps = $_POST["RecordData"]["reps"];
+                    $record->workout_detailid = $work_array['id'];
+                    $record->save();
+                }
+                
+                $this->redirect('index');
+                return;
             }
         }
-
-        $this->render('update', array(
-            'model' => $model,
-        ));
-    }
-
-    /**
-     * Deletes a particular model.
-     * If deletion is successful, the browser will be redirected to the 'admin' page.
-     * @param integer $id the ID of the model to be deleted
-     */
-    public function actionDelete($id) {
-        if (Yii::app()->request->isPostRequest) {
-            // we only allow deletion via POST request
-            $this->loadModel($id)->delete();
-
-            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-            if (!isset($_GET['ajax'])) {
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-            }
-        } else {
-            throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
-        }
-    }
-
-    /**
-     * Lists all models.
-     */
-    public function actionIndex() {
+               
+        
         $criteria = new CDbCriteria();
         $criteria->group = 'athleteid, date';
         $dataProvider = new CActiveDataProvider('RecordData', array(
@@ -167,9 +152,56 @@ class RecordDataController extends Controller {
 
                 $model->save();
             }
-
-            //$this->redirect(array('view','id'=>$model->id));
         }
+        
+        $criteria = new CDbCriteria();
+        $criteria->condition = "athleteid =:athleteid and date = :date";
+        $criteria->params = array(':athleteid' => $athleteid, ':date' => $date);
+        $models = RecordData::model()->with('workoutDetail','workoutDetail.exercise')->findAll($criteria);
+        
+        $model = $models[0];
+        
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+            'model' => $model,
+            'models' => $models,
+        ));
+    }
+
+    /**
+     * Deletes a particular model.
+     * If deletion is successful, the browser will be redirected to the 'admin' page.
+     * @param integer $id the ID of the model to be deleted
+     */
+    public function actionDelete($id) {
+       if (Yii::app()->request->isPostRequest) {
+            // we only allow deletion via POST request
+            $sample = $this->loadModel($id);
+            $criteria = new CDbCriteria();
+            $criteria->condition = "athleteid =:athleteid and date = :date";
+            $criteria->params = array(':athleteid' => $sample->athleteid, ':date' => $sample->date);
+            RecordData::model()->deleteAll($criteria);
+
+            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+            if (!isset($_GET['ajax'])) {
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+            }
+        } else {
+            throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
+        }
+    }
+
+    /**
+     * Lists all models.
+     */
+    public function actionIndex() {
+        $this->createRecordData();
+        
+        $criteria = new CDbCriteria();
+        $criteria->group = 'athleteid, date';
+        $dataProvider = new CActiveDataProvider('RecordData', array(
+            'criteria' => $criteria
+        ));
         
         $model = new RecordData;
         
@@ -177,6 +209,29 @@ class RecordDataController extends Controller {
             'dataProvider' => $dataProvider,
             'model' => $model,
         ));
+    }
+    
+    private function createRecordData() {
+        if (isset($_POST['RecordData'])) {
+            $total_workdetails = $_POST['total_workdetails'];
+
+            for ($i = 0; $i < $total_workdetails; $i++) {
+                $work = 'WorkoutDetails' . $i;
+
+                $model = new RecordData;
+                $model->attributes = $_POST['RecordData'];
+                if (array_key_exists($work, $_POST)) {
+                    $work_array = $_POST[$work];
+                    $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
+                    $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
+                    $model->assist = (array_key_exists('assist', $work_array) ? $work_array['assist'] : 0);
+                    $model->calories = (array_key_exists('calories', $work_array) ? $work_array['calories'] : 0);
+                    //$model->reps = 0;
+                    $model->workout_detailid = $work_array['id'];
+                }
+                $model->save();
+            }
+        }
     }
 
     /**

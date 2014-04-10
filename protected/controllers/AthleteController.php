@@ -36,7 +36,7 @@ class AthleteController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','AthleteStats'),
 				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -101,6 +101,121 @@ class AthleteController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
+	}
+	public function actionAthleteStats(){
+		date_default_timezone_get();
+		$endDate = date("Y-m-d");
+		$startDate= date('Y-m-d', strtotime('-10 day'));
+		$this->layout = '';
+		$model=$this->loadModel($_GET['id']);
+		$athlete_stats = array (
+		
+				"id" => 1,
+				"athlete_name" => $model->first_name.' '.$model->last_name,
+				"average_volume" => "139.3",
+				"average_fitness" => "31.8",
+				"max_squat" => "225",
+				"max_press" => "95",
+				"max_deadlift" => "275",
+		
+				"WOD" => array (
+						array (
+								"date" => $startDate,
+								"name" => "fran",
+								"type" => "time",
+								"value" => "20:00",
+								"volume" => 90,
+								"fitness" => 60,
+								"exercises" => array (
+		
+										array (
+												"name" => "Hand Stand Push Up",
+												"prop" => array (
+														array (
+																"type" => "Reps",
+																"value" => 15
+														),
+														array (
+																"type" => "Assist",
+																"value" => 0.40
+														),
+														array (
+																"type" => "Height",
+																"value" => "40.55"
+														)
+												)
+										),
+										array (
+												"name" => "Pistol",
+												"prop" => array (
+														array (
+																"type" => "Reps",
+																"value" => 15
+														),
+														array (
+																"type" => "Weight",
+																"value" => "60.70"
+														),
+														array (
+																"type" => "Calories",
+																"value" => "60"
+														)
+												)
+										)
+								)
+						),
+		
+						array (
+								"date" => $endDate,
+								"name" => "mary",
+								"type" => "reps",
+								"value" => "45",
+								"volume" => 90,
+								"fitness" => 40,
+								"exercises" => array (
+		
+										array (
+												"name" => "Thruster",
+												"prop" => array (
+														array (
+																"type" => "Reps",
+																"value" => 15
+														),
+														array (
+																"type" => "Assist",
+																"value" => 0.40
+														),
+														array (
+																"type" => "Height",
+																"value" => "40.55"
+														)
+												)
+										),
+										array (
+												"name" => "Pistol",
+												"prop" => array (
+														array (
+																"type" => "Reps",
+																"value" => 15
+														),
+														array (
+																"type" => "Weight",
+																"value" => "60.70"
+														),
+														array (
+																"type" => "Calories",
+																"value" => "60"
+														)
+												)
+										)
+								)
+						)
+				)
+		);
+		
+		$this->render ( 'athleteStat', array (
+				'athlete_stats' => $athlete_stats
+		) );
 	}
 
 	/**

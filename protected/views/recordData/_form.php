@@ -33,7 +33,7 @@
             <td><?php 
                 $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
                 $list['empty'] = 'select';
-                echo CHtml::dropDownList('wod', 'empty', $list);
+                echo CHtml::dropDownList('wod', (isset($workout_id) ? $workout_id : 'empty'), $list);
                 ?>
             </td>
             <td><?php echo  $form->dropDownList($model, 'athleteid', CHtml::listData(Athlete::model()->findAll(), 'id', 'first_name')); ?></td>
@@ -41,7 +41,24 @@
         </tr>
     </table>
     <div id="exercises">
+        <?php
         
+        var_dump($models);
+
+        if (isset($models)) {
+            echo 'models is set';
+            $workout = new object;
+            $workout->workoutDetails = $models;
+            foreach($workout->workoutDetails as $detail) {
+                $details->measure_weight = ($details->weight > 0);
+                $details->measure_height = ($details->height > 0);
+                $details->measure_assist = ($details->assist > 0);
+                $details->measure_calories = ($details->calories> 0);
+            }
+            
+            $this->renderPartial('_form2', array('workout'=>$workout));
+        }
+        ?>
     </div>
     
     

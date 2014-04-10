@@ -145,12 +145,6 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
 										'options' => array('class' => 'icon-edit')
  								),
-// 								'view' => array(
-// 										'label' => '',
-// 										'imageUrl' => '',
-// 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/view', 'id'=>\$data->id))",
-// 										'options' => array('class' => 'icon-search'),
-// 								),
 								'delete' => array(
 										'label' => '',
 										'imageUrl' => '',

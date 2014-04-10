@@ -1,11 +1,20 @@
-<div style="text-align: center;"><h1>Overall Stats</h1></div>
+
+<div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
+<div>
+
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h3><?php echo $athlete_stats["average_volume"] ?> </h3> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h3> <?php echo $athlete_stats["average_fitness"] ?></h3></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h3><?php echo $athlete_stats["max_squat"] ?></h3></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h3><?php echo $athlete_stats["max_press"] ?></h3> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h3><?php echo $athlete_stats["max_deadlift"] ?></h3></div>
+	<div>
 <?php
 $dateschbars = array ();
 $fitness = array ();
 $volume = array ();
 $dataprovider = array ();
-foreach($athlete_stats['Athlete'] as $grafic){
-foreach ( $grafic ["WOD"] as $wod ) {
+
+foreach ( $athlete_stats ["WOD"] as $wod ) {
 	// print "<pre>";
 	// print_r ( $wod["name"] );
 	// print "</pre>";
@@ -13,31 +22,17 @@ foreach ( $grafic ["WOD"] as $wod ) {
 	$dateschbars [] = $wod ['date'];
 	$fitness [] = $wod ['fitness'];
 	$volume [] = $wod ['volume'];
-} 
-}// grafica
+} // grafica
 $x = 1;
 $total_measures =0;
 $total_exercises = 0;
-$average_volume = 0;
-$average_fitness = 0;
-$max_squat = 0;
-$max_deadlift = 0;
-$max_press = 0;
-$cont = 0;
-foreach($athlete_stats['Athlete'] as $athlete)
-{
-	$average_volume += $athlete['average_volume'];
-	$average_fitness += $athlete['average_fitness'];
-	$max_squat += $athlete['max_squat'];
-	$max_press += $athlete['max_press'];
-	$max_deadlift += $athlete['max_deadlift'];
-foreach ( $athlete['WOD'] as $exerciseswod ) {
+
+foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
 	
 	$row = array ();
 	
-	
+	// $dataprovider[] = $athlete['athlete_name'];
 	$row['id'] = $x;
-	$row['Athlete'] = $athlete['athlete_name'];
 	$row ['Workout'] = $exerciseswod ['name'];
 	$row['Type'] = $exerciseswod['type'];
 	$row ['Value'] = $exerciseswod ['value'];
@@ -71,23 +66,9 @@ foreach ( $athlete['WOD'] as $exerciseswod ) {
 	$dataprovider[$x] = $row;
 	$x++;
 } // fin del foreach de workouts
-$cont++;
-}//fin del foreach de atletas
-/*
- * se calcula el average para todos;
- * */
-
-$average_volume = $average_volume/$cont;
-$average_fitness = $average_fitness/$cont;
-$max_squat = $max_squat/$cont;
-$max_press = $max_press/$cont;
-$max_deadlift = $max_deadlift/$cont;
-/************************************************/
-
 $columns = array();
 //$columns[] ='id';
 $columns[] = 'Date';
-$columns[] = 'Athlete';
 $columns[] = 'Workout';
 $columns[] = 'Type';
 $columns[] = 'Value';
@@ -111,16 +92,7 @@ while ($total_measures > 0){
 }
 $columns[] = 'Volume';
 $columns[] = 'Fitness';
- ?>
-<div>
 
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h3><?php echo $average_volume; ?> </h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h3> <?php echo $average_fitness; ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h3><?php echo $max_squat; ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h3><?php echo $max_press; ?></h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h3><?php echo $max_deadlift; ?></h3></div>
-	<div>
-<?php 
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 $this->widget ( 'chartjs.widgets.ChBars', array (
 		'width' => 600,

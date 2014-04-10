@@ -58,11 +58,11 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 				// 'id',
 				array (
 						'name' => 'first_name',
-						'value' => 'strlen($data->first_name) > 20 ? substr($data->first_name, 0, 20)."...": $data->first_name' 
+						'value' => 'GlobalFunctions::truncate($data->first_name)' 
 				),
 				array (
-						'name' => 'first_name',
-						'value' => 'strlen($data->last_name) > 20 ? substr($data->last_name, 0, 20)."...": $data->last_name' 
+						'name' => 'last_name',
+						'value' => 'GlobalFunctions::truncate($data->last_name)'
 				),
 				'email',
 				'height',
@@ -72,10 +72,44 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 						'name' => 'sex_typeid',
 						'value' => '$data->sex_typeid == 1 ? "Male" : "Female"' 
 				),
+                array('class' => 'CButtonColumn',
+		'template'=>'{view}{update}{delete}{stats}',
+        'htmlOptions'=>array('width'=>'60px'),
+		'buttons' => array(
+
+				'update' => array(
+						'label' => '',
+						'imageUrl' => '',
+						'url' => "CHtml::normalizeUrl(array('/Athlete/update', 'id'=>\$data->id))",
+						'options' => array('class' => 'icon-edit')
+				),
+                'view' => array(
+		        'label' => '',
+	            'imageUrl' => '',
+		        'url' => "CHtml::normalizeUrl(array('/Athlete/view', 'id'=>\$data->id))",
+		        'options' => array('class' => 'icon-search')
+                 ),
+				'delete' => array(
+						'label' => '',
+						'imageUrl' => '',
+						'url' => "CHtml::normalizeUrl(array('/Athlete/delete', 'id'=>\$data->id))",
+						'options' => array('class' => 'icon-remove'),
+				),
+                'stats' => array(
+						'label' => '',
+						
+						'url' => "CHtml::normalizeUrl(array('/Athlete/AthleteStats', 'id'=>\$data->id))",
+                        'options' => array('class' => TbHtml::ICON_ADJUST),
+						
+				),
+                     
+                
+		),
+)
 				
-				array (
+				/*array (
 						'class' => 'bootstrap.widgets.TbButtonColumn' 
-				)
+				)*/
 				 
 		) 
 ) );
