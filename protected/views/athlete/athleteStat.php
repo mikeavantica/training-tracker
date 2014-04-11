@@ -15,24 +15,41 @@ $volume = array ();
 $dataprovider = array ();
 
 foreach ( $athlete_stats ["WOD"] as $wod ) {
-	// print "<pre>";
-	// print_r ( $wod["name"] );
-	// print "</pre>";
-	
+
+
 	$dateschbars [] = $wod ['date'];
-	$fitness [] = $wod ['fitness'];
-	$volume [] = $wod ['volume'];
-} // grafica
-$x = 1;
+
+}
+// se guardan unicamente las fechas que no estan repetidas
+$dateschbars = array_unique($dateschbars);
+	foreach ( $athlete_stats ["WOD"] as $wod ) {
+
+		$clave = array_search($wod['date'], $dateschbars);
+		if(!isset($fitness[$clave])){ //verified if exist
+			$fitness[$clave] = $wod['fitness'];
+			$volume[$clave] = $wod['volume'];
+				
+		}else{
+			$fitness[$clave] = $fitness[$clave] + $wod['fitness'];
+			$volume[$clave] = $wod['volume'] + $volume[$clave];
+		}
+
+
+
+
+	  
+	}// se guardan y suman los valores de fitness y volumen en las fecha que corresponden
+
+$rowid = 1; //primary key for my dataprovider
 $total_measures =0;
 $total_exercises = 0;
-
+$columns2 = array();
 foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
 	
 	$row = array ();
 	
 	// $dataprovider[] = $athlete['athlete_name'];
-	$row['id'] = $x;
+	$row['id'] = $rowid;
 	$row ['Workout'] = $exerciseswod ['name'];
 	$row['Type'] = $exerciseswod['type'];
 	$row ['Value'] = $exerciseswod ['value'];
@@ -40,31 +57,32 @@ foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
 	$row ['Volume'] = $exerciseswod ['volume'];
 	$row ['Fitness'] = $exerciseswod ['fitness'];
 	
-	$i = 1;
-	$y= 1;
+	$exe = 1; //number of exercises
+	$measures= 1; //number of measures
 	foreach ( $exerciseswod ['exercises'] as $exercise ) {
 		
-		$row ['Exercise'.$i] = $exercise ['name'];
+		$row ['Exercise'.$exe] = $exercise ['name'];
 		
 		foreach ( $exercise ['prop'] as $measure ) {
-			$row ['Measure'.$y] = $measure ['type'];
-			$row ['Value'.$y] = $measure ['value'];
-			$y++;
+			$row ['Measure'.$measures] = $measure ['type'];
+			$row ['Value'.$measures] = $measure ['value'];
+			$measures++;
 		}//fin del foreach measures
-		$i++; 
-		$total_measures = $y;
-		if ($total_measures  < $y) {
-			$total_measures = $y;//definir cantidad de columnas measures
+		$exe++; 
+		$total_measures = $measures;
+		if ($total_measures  < $measures) {
+			$total_measures = $measures;//definir cantidad de columnas measures
+			
 		}
-		$total_exercises = $i;
-		if ($total_exercises  < $i) {
-			$total_exercises = $i;//definir cantidad de columnas exercises
+		$total_exercises = $exe;
+		if ($total_exercises  < $exe) {
+			$total_exercises = $exe;//definir cantidad de columnas exercises
 		}
 		
 	} // fin del foreach de ejercicios
 	
-	$dataprovider[$x] = $row;
-	$x++;
+	$dataprovider[$rowid] = $row;
+	$rowid++;
 } // fin del foreach de workouts
 $columns = array();
 //$columns[] ='id';
@@ -74,20 +92,27 @@ $columns[] = 'Type';
 $columns[] = 'Value';
 
 
+//var_dump($total_measures);
 
 $contador = 1;
-while($total_exercises > 0){
+
+while($total_exercises > $contador){
+  
 	$columns[]= 'Exercise'.$contador;
-	$total_exercises = $total_exercises - $contador;
 	$contador++;
+	
+	
+	
 }
 
 $contador = 1;
-while ($total_measures > 0){
+while ($total_measures > $contador){
+   
 	$columns[]= 'Measure'.$contador;
 	$columns[]= 'Value'.$contador;
-	$total_measures = $total_measures - $contador;
 	$contador++;
+	
+	
 	
 }
 $columns[] = 'Volume';
@@ -117,7 +142,7 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 ) );
 ?>
 </div>
-	<div class="span3">
+	
 <?php
 $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'overallstats-grid',
@@ -127,6 +152,6 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 
 ?>
 
-</div>
+
 
 </div>

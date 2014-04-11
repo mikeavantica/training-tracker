@@ -72,7 +72,7 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
                 $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'fullname');
                 echo  $form->dropDownList($model, 'athleteid',$list2, array('disabled' => 'disabled')); 
             } else {
-                $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'fullname');
+                $list2 = CHtml::listData(Athlete::model()->findAll(), 'id','fullname');
                 echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
             }
             

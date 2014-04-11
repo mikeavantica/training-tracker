@@ -140,8 +140,8 @@ class AthleteController extends Controller
 																"value" => 0.40
 														),
 														array (
-																"type" => "Height",
-																"value" => "40.55"
+																"type" => "Calories",
+																"value" => "30.20"
 														)
 												)
 										),
@@ -149,17 +149,14 @@ class AthleteController extends Controller
 												"name" => "Pistol",
 												"prop" => array (
 														array (
-																"type" => "Reps",
-																"value" => 15
+																"type" => "time",
+																"value" => '20:10'
 														),
 														array (
 																"type" => "Weight",
 																"value" => "60.70"
 														),
-														array (
-																"type" => "Calories",
-																"value" => "60"
-														)
+														
 												)
 										)
 								)
@@ -179,11 +176,11 @@ class AthleteController extends Controller
 												"prop" => array (
 														array (
 																"type" => "Reps",
-																"value" => 15
+																"value" => 45
 														),
 														array (
 																"type" => "Assist",
-																"value" => 0.40
+																"value" => 0.20
 														),
 														array (
 																"type" => "Height",
@@ -195,16 +192,16 @@ class AthleteController extends Controller
 												"name" => "Pistol",
 												"prop" => array (
 														array (
-																"type" => "Reps",
-																"value" => 15
+																"type" => "time",
+																"value" => '50:00'
 														),
 														array (
 																"type" => "Weight",
-																"value" => "60.70"
+																"value" => "80.10"
 														),
 														array (
 																"type" => "Calories",
-																"value" => "60"
+																"value" => "30"
 														)
 												)
 										)

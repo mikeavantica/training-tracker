@@ -1,21 +1,38 @@
 <div style="text-align: center;"><h1>Overall Stats</h1></div>
 <?php
 $dateschbars = array ();
-$fitness = array ();
-$volume = array ();
+$fitness = array();
+$volume = array();
 $dataprovider = array ();
 foreach($athlete_stats['Athlete'] as $grafic){
 foreach ( $grafic ["WOD"] as $wod ) {
-	// print "<pre>";
-	// print_r ( $wod["name"] );
-	// print "</pre>";
+	
 	
 	$dateschbars [] = $wod ['date'];
-	$fitness [] = $wod ['fitness'];
-	$volume [] = $wod ['volume'];
+
 } 
-}// grafica
-$x = 1;
+}// se guardan unicamente las fechas que no estan repetidas
+$dateschbars = array_unique($dateschbars);
+foreach($athlete_stats['Athlete'] as $grafic){
+	foreach ( $grafic ["WOD"] as $wod ) {
+	 
+		$clave = array_search($wod['date'], $dateschbars);
+		if(!isset($fitness[$clave])){ //verified if exist
+			$fitness[$clave] = $wod['fitness'];
+			$volume[$clave] = $wod['volume'];
+			
+		}else{
+			$fitness[$clave] = $fitness[$clave] + $wod['fitness'];
+			$volume[$clave] = $wod['volume'] + $volume[$clave];
+		}
+	
+	
+		
+		
+	    
+	}
+}// se guardan y suman los valores de fitness y volumen en las fecha que corresponden
+$rowid = 1; //primary key needed to the dataprovider
 $total_measures =0;
 $total_exercises = 0;
 $average_volume = 0;
@@ -23,7 +40,7 @@ $average_fitness = 0;
 $max_squat = 0;
 $max_deadlift = 0;
 $max_press = 0;
-$cont = 0;
+$cont = 0; //variable needed to define average
 foreach($athlete_stats['Athlete'] as $athlete)
 {
 	$average_volume += $athlete['average_volume'];
@@ -36,7 +53,7 @@ foreach ( $athlete['WOD'] as $exerciseswod ) {
 	$row = array ();
 	
 	
-	$row['id'] = $x;
+	$row['id'] = $rowid;
 	$row['Athlete'] = $athlete['athlete_name'];
 	$row ['Workout'] = $exerciseswod ['name'];
 	$row['Type'] = $exerciseswod['type'];
@@ -45,31 +62,31 @@ foreach ( $athlete['WOD'] as $exerciseswod ) {
 	$row ['Volume'] = $exerciseswod ['volume'];
 	$row ['Fitness'] = $exerciseswod ['fitness'];
 	
-	$i = 1;
-	$y= 1;
+	$exe = 1; //numer of exercises
+	$measures= 1; //number of measures
 	foreach ( $exerciseswod ['exercises'] as $exercise ) {
 		
-		$row ['Exercise'.$i] = $exercise ['name'];
+		$row ['Exercise'.$exe] = $exercise ['name'];
 		
 		foreach ( $exercise ['prop'] as $measure ) {
-			$row ['Measure'.$y] = $measure ['type'];
-			$row ['Value'.$y] = $measure ['value'];
-			$y++;
+			$row ['Measure'.$measures] = $measure ['type'];
+			$row ['Value'.$measures] = $measure ['value'];
+			$measures++;
 		}//fin del foreach measures
-		$i++; 
-		$total_measures = $y;
-		if ($total_measures  < $y) {
-			$total_measures = $y;//definir cantidad de columnas measures
+		$exe++; 
+		$total_measures = $measures;
+		if ($total_measures  < $measures) {
+			$total_measures = $measures;//definir cantidad de columnas measures
 		}
-		$total_exercises = $i;
-		if ($total_exercises  < $i) {
-			$total_exercises = $i;//definir cantidad de columnas exercises
+		$total_exercises = $exe;
+		if ($total_exercises  < $exe) {
+			$total_exercises = $exe;//definir cantidad de columnas exercises
 		}
 		
 	} // fin del foreach de ejercicios
 	
-	$dataprovider[$x] = $row;
-	$x++;
+	$dataprovider[$rowid] = $row;
+	$rowid++;
 } // fin del foreach de workouts
 $cont++;
 }//fin del foreach de atletas
@@ -95,18 +112,24 @@ $columns[] = 'Value';
 
 
 $contador = 1;
-while($total_exercises > 0){
+
+while($total_exercises > $contador){
+  
 	$columns[]= 'Exercise'.$contador;
-	$total_exercises = $total_exercises - $contador;
 	$contador++;
+	
+	
+	
 }
 
 $contador = 1;
-while ($total_measures > 0){
+while ($total_measures > $contador){
+   
 	$columns[]= 'Measure'.$contador;
 	$columns[]= 'Value'.$contador;
-	$total_measures = $total_measures - $contador;
 	$contador++;
+	
+	
 	
 }
 $columns[] = 'Volume';
@@ -123,7 +146,7 @@ $columns[] = 'Fitness';
 <?php 
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 $this->widget ( 'chartjs.widgets.ChBars', array (
-		'width' => 600,
+		'width' => 900,
 		'height' => 300,
 		'htmlOptions' => array (),
 		'labels' => $dateschbars,
@@ -145,7 +168,8 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 ) );
 ?>
 </div>
-	<div class="span3">
+
+	
 <?php
 $this->widget('bootstrap.widgets.TbGridView',array(
 'id'=>'overallstats-grid',
@@ -155,6 +179,6 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 
 ?>
 
-</div>
+
 
 </div>

@@ -18,7 +18,7 @@ class SiteController extends Controller {
 		);
 	}
 	public function actionOverallStats() {
-		//$first = Athlete::model()->findAllByPk($_GET['id']);
+                $athlete_stats = $this->getData(1, '04/01/2014', '04/30/2014');
 		$athlete_stats = array("Athlete"=> array (
 				array (
 								"id" => 1,
@@ -324,4 +324,144 @@ class SiteController extends Controller {
 		Yii::app ()->user->logout ();
 		$this->redirect ( Yii::app ()->homeUrl );
 	}
+        
+        private function getData($athleteid, $start_date, $end_date) {
+            
+            $connection=Yii::app()->db;   
+            $sql = 'select at.id as athleteid, at.first_name, at.last_name, 
+	at.height as athlete_height, at.weight as athlete_weight, at.sex_typeid,
+	bp.Id as body_profile_id, bp.body_part__name, bp.weight as body_part_weight, bp.height as body_part_height,
+	exd.attr1, exd.attr2, exd.attr3, exd.attr4, exd.attr5, exd.attr6, exd.attr7,
+	rd.id as record_dataid, rd.weight as record_data_weight, rd.height as record_data_height, 
+	rd.calories, rd.assist, rd.reps, rd.time as record_data_time, rd.date as record_data_date,
+	ex.id as exerciseid, ex.name as exercise_name,
+	wde.total_reps as workout_detail_total_reps,
+	wde.total_time as workout_detail_total_time,
+	wde.measure_weight as workout_detail_measure_weight,
+	wde.measure_height as workout_detail_measure_height,
+	wde.measure_calories as workout_detail_measure_calories,
+	wde.measure_assist as workout_detail_measure_assist,
+	wo.name	as workout_name,
+	wt.name as workout_type_name
+from athlete at
+join body_profiles bp on bp.sex_typeid = at.sex_typeid
+join exercise_detail exd on exd.body_profilesId = bp.Id
+join exercise ex on ex.id = exd.exerciseid
+left outer join record_data rd on rd.athleteid = at.id
+left outer join workout_detail wde on wde.id = rd.workout_detailid
+left outer join workout wo on wo.id = wde.workoutid
+left outer join workout_type wt on wt.id = wo.workout_typeid
+order by at.id, rd.date, bp.id
+-- where at.id = 1';
+            $command=$connection->createCommand($sql);
+            $dataReader=$command->query(); 
+            $rows=$dataReader->readAll();
+
+            $athlete_stats = array ();
+            $current_athleteid = -1;
+            
+            // get distinct athletes
+            $current_athleteid = -1;
+            foreach ($rows as $row) {
+//                 var_dump($row); 
+                $athleteid = $row["athleteid"];
+                if ($current_athleteid != $athleteid) {
+                    $athlete = array(
+                        'id'=> $row["athleteid"],
+                        'name' => $row["first_name"] . " " .$row["last_name"],
+                        'average_volume' => 0,
+                        'average_fitness' => 0,
+                        'max_squat' => 0,
+                        'max_press' => 0,
+                        'max_deadlift' => 0,
+                        'WOD' => array()
+                    );
+
+                    // fill date range
+                    $current_date = new DateTime($start_date);
+                    //echo $current_date->format('m/d/Y');
+                    $limit_date = new DateTime($end_date);
+                    $wod = array();
+                    while ($current_date < $limit_date) {
+                        $wod_day = array(
+                            'date' => $current_date,   //->format('m/d/Y'),
+                            'name' => $row["workout_name"],
+                            'type' => $row["workout_type_name"],
+                            'value' => $row["workout_type_name"] == 'ForReps' ? $row["workout_detail_total_time"] : $row["workout_detail_total_reps"],
+                            'volume' => 90,
+                            'fitness' => 60,         
+                            'exercises' => array()
+                        );
+                        $data_for_day = $this->filter_by_date($rows, $wod_day["date"]);
+                        var_dump($data_for_day);
+                        $current_exercise_id = -1;
+                        foreach ($data_for_day as $in_exercise) {
+                            if($current_exercise_id != $in_exercise["exerciseid"]) {
+                                $exercise = array(
+                                            "name" => $in_exercise["exercise_name"],
+                                            "prop" => array ()
+                                            );
+                                $current_exercise_id = $in_exercise["exerciseid"];
+                            }
+                            if ($in_exercise["workout_detail_measure_weight"] == 1) {
+                                
+                            }
+                            if ($row["workout_type_name"] == 'ForReps') {
+                                array_push($exercise["prop"], array(
+                                        "type" => "Reps",
+                                        "value" => $in_exercise["record_data_reps"]
+                                    ));
+                            }
+//                                                        array (
+//                                                                        "type" => "Assist",
+//                                                                        "value" => 0.40
+//                                                        ),
+//                                                        array (
+//                                                                        "type" => "Height",
+//                                                                        "value" => "40.55"
+//                                                        )
+
+                            array_push($wod_day["exercises"], $exercise);
+                        }
+                        array_push($wod, $wod_day);
+                        $current_date->add(new DateInterval("P1D"));
+                    }
+                    array_push($athlete["WOD"], $wod);
+                    array_push($athlete_stats, $athlete);
+                    $current_athleteid = $athleteid;
+                }
+            }
+            
+            echo '<pre>';
+            var_dump($athlete_stats);
+            echo '</pre>';
+            die();
+//            foreach ($athlete_stats as $athlete) {
+//                foreach ($athlete->WOD as $wod) {
+//                    $current_date = new DateTime($wod->date);
+//                    echo $current_date->format('m/d/Y');
+//
+//
+//                }
+//            }
+        
+            
+            return;
+            
+        }
+        
+        private function filter_by_date($data, $date) {
+            $result = array();
+            foreach ($data as $record) {
+                if (!is_null($record["record_data_date"])) {
+                    $record_data_date_as_date = new DateTime($record["record_data_date"]);
+                    if ($record_data_date_as_date == $date) {
+                        array_push($result, $record);
+                    }
+                }                    
+            }
+            return $result;
+        }
+                
+                
 }
