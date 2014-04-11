@@ -1,5 +1,3 @@
-DROP DATABASE IF EXISTS `training_tracker`;
-
 CREATE DATABASE  IF NOT EXISTS `training_tracker` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `training_tracker`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
