@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				Yii::t('authModule.main','Assignments'),
 		)
@@ -13,7 +13,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
 <h1><?php echo Yii::t('AuthModule.main', 'Roles'); ?></h1>
 
 <?php $this->widget(
-    'bootstrap.widgets.TbGridView',
+    'bootstrap.widgets.BsGridView',
     array(
         'type' => 'striped hover',
         'dataProvider' => $dataProvider,

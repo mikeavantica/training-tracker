@@ -6,6 +6,7 @@
    $(function(){
 	  
 		$("#txtTime").change(function(){
+			alert("hola");
 			if($("#txtTime").val()==""){
 				 alert($("#txtTime").val());
 				$("#txtTime").val("00:00:00");
@@ -18,7 +19,7 @@
 
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
-				'Workouts' => 'index',
+				'Workouts' => 'admin',
 				$model->name 
 		) 
 ) );
@@ -94,7 +95,7 @@ $this->menu = array (
 	</table>
 	<div class="form-actions">
         <?php
-								echo BsHtml::submitButton ( 'Create Workout', array (
+								echo BsHtml::submitButton ( 'Submite WOD', array (
 										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 										'size' => BsHtml::BUTTON_SIZE_SMALL,
 										'submit' => 'create' 
@@ -150,7 +151,7 @@ $this->menu = array (
               <?php 
               	
               
-														if ($model->workout_typeid == 1) {
+														if ($model->workout_typeid == 1 || $model->workout_typeid == 3 ) {
                                                             echo $form->label($modelDetail, 'total_reps');
 															echo $form->numberField( $modelDetail, 'total_reps', array (
 																	// 'span' => 3,
@@ -158,6 +159,7 @@ $this->menu = array (
                                                                     'min'=>0 
 															) );
 														}
+														
 														?>
 											<?php
 											if ($model->workout_typeid == 2) {
@@ -217,7 +219,7 @@ display: block;">Measure</div>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
 			<th><?php echo CHtml::encode($model->getAttributeLabel('workout_typeid')); ?></th>
-			<th></th>
+			<!--  <th></th>-->
 		</tr>
 	</thead>
 	<tbody>
@@ -226,8 +228,8 @@ display: block;">Measure</div>
 			<td><?php echo CHtml::encode($model->date); ?></td>
 			<td><?php echo CHtml::encode($model->name); ?></td>
 			<td><?php echo CHtml::encode($model->description); ?></td>
-			<td><?php echo CHtml::encode($model->workoutType->name)?></td>
-			<td><?php echo  CHtml::link('<i class="glyphicon glyphicon-edit"style="margin-left:-10px;"></i>',array('Workout/update','id'=>$model->id))//TbHtml::link('',array('icon' => TbHtml::ICON_EDIT,'url'=>array('Workout/update','id'=>$model->id)));//TbHtml::icon(TbHtml::ICON_EDIT) ?> </td>
+			<td><?php if(!isset($model->workoutType->name)){echo "";}else{ echo CHtml::encode($model->workoutType->name);}?></td>
+			<!--  <td><?php // echo  CHtml::link('<i class="glyphicon glyphicon-edit"style="margin-left:-10px;"></i>',array('Workout/update','id'=>$model->id))//TbHtml::link('',array('icon' => TbHtml::ICON_EDIT,'url'=>array('Workout/update','id'=>$model->id)));//TbHtml::icon(TbHtml::ICON_EDIT) ?> </td>-->
 
 		</tr>
 		<tr>
@@ -236,7 +238,7 @@ display: block;">Measure</div>
 			<td></td>
 			<td></td>
 			<td></td>
-			<td></td>
+			<!--  <td></td>-->
 
 		</tr>
 	</tbody>
@@ -286,7 +288,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'name' => 'total_reps',
 						'header' => 'Reps',
-						'visible' => $model->workout_typeid == 1 
+						'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3 
 				),
 				array (
 						'name' => 'total_time',

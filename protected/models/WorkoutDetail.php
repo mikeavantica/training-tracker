@@ -141,6 +141,23 @@ class WorkoutDetail extends CActiveRecord
 		return $arr;
 	}
 	
+	public function deleteSons($workout_id)
+	{
+		$sql = "select id from workout_detail where workoutid = :workout";
+		$result = false;
+		$arr = array();
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
+		$arr = $command->queryAll();
+		foreach($arr as $detail){
+			Yii::app()->db->createCommand()->delete('record_data', 'workout_detailid=:id', array(':id' => $detail['id']));
+			
+		}
+		Yii::app()->db->createCommand()->delete('workout_detail', 'workoutid=:id', array(':id' => $workout_id));
+		
+		
+	}
+	
 
 	/**
 	 * Returns the static model of the specified AR class.

@@ -51,9 +51,10 @@ class WorkoutController extends Controller
 	 */
 	public function actionView($id)
 	{ $this->layout = '';
-	    if(!isset($id)){
+	    if($id == 0){
 	    	$model = new Workout();
-	    	
+	    	$model->date = date("Y-m-d");
+	    	//$model->workout_typeid = 1;
 	    }else{
 	    	$model = $this->loadModel($id);
 	    }
@@ -147,6 +148,7 @@ class WorkoutController extends Controller
 	{
 		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
+			WorkoutDetail::model()->deleteSons($id);
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

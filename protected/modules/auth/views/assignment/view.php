@@ -7,7 +7,7 @@
 /* @var $assignmentOptions array */
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				Yii::t('authModule.main','Assignments') => array('index'),
 				CHtml::value($model,$this->module->userNameColumn),
@@ -29,7 +29,7 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
         </h3>
 
         <?php $this->widget(
-            'bootstrap.widgets.TbGridView',
+            'bootstrap.widgets.BsGridView',
             array(
                 'type' => 'striped condensed hover',
                 'dataProvider' => $authItemDp,
@@ -58,18 +58,18 @@ $this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
             <h4><?php echo Yii::t('AuthModule.main', 'Assign permission'); ?></h4>
 
             <?php $form = $this->beginWidget(
-                'bootstrap.widgets.TbActiveForm',
+                'bootstrap.widgets.BsActiveForm',
                 array(
-                    'layout' => TbHtml::FORM_LAYOUT_INLINE,
+                    'layout' =>BsHtml::FORM_LAYOUT_INLINE,
                 )
             ); ?>
 
             <?php echo $form->dropDownList($formModel, 'items', $assignmentOptions, array('label' => false)); ?>
 
-            <?php echo TbHtml::submitButton(
+            <?php echo BsHtml::submitButton(
                 Yii::t('AuthModule.main', 'Assign'),
                 array(
-                    'color' => TbHtml::BUTTON_COLOR_PRIMARY,
+                    'color' => BsHtml::BUTTON_COLOR_PRIMARY,
                 )
             ); ?>
 

@@ -6,14 +6,14 @@
 
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
-				'Workout' => 'index',
+				'Workout' => 'admin',
 				'Manage'
 		)
 ) );
 
 $this->menu=array(
 	
-	array('label'=>'Create Workout', 'url'=>array('view','id'=> 1)),
+	array('label'=>'Create Workout', 'url'=>array('view','id'=> 0)),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -53,6 +53,7 @@ $('.search-form form').submit(function(){
 		'workout_typeid',
 		array(
 			'class'=>'bootstrap.widgets.BsButtonColumn',
+            'template'=> '{view},{delete}'
 		),
 	),
 )); ?>

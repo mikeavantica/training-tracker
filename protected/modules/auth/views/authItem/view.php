@@ -20,7 +20,7 @@ $this->breadcrumbs = array(
         <small><?php echo $this->getTypeText(); ?></small>
     </h1>
 
-    <?php echo TbHtml::buttonGroup(
+    <?php echo BsHtml::buttonGroup(
         array(
             array(
                 'label' => Yii::t('AuthModule.main', 'Edit'),
@@ -78,7 +78,7 @@ $this->breadcrumbs = array(
         </h3>
 
         <?php $this->widget(
-            'bootstrap.widgets.TbGridView',
+            'bootstrap.widgets.BsGridView',
             array(
                 'type' => 'striped condensed hover',
                 'dataProvider' => $ancestorDp,
@@ -112,7 +112,7 @@ $this->breadcrumbs = array(
         </h3>
 
         <?php $this->widget(
-            'bootstrap.widgets.TbGridView',
+            'bootstrap.widgets.BsGridView',
             array(
                 'type' => 'striped condensed hover',
                 'dataProvider' => $descendantDp,
@@ -151,16 +151,16 @@ $this->breadcrumbs = array(
             <?php $form = $this->beginWidget(
                 'bootstrap.widgets.TbActiveForm',
                 array(
-                    'layout' => TbHtml::FORM_LAYOUT_INLINE,
+                    'layout' => BsHtml::FORM_LAYOUT_INLINE,
                 )
             ); ?>
 
             <?php echo $form->dropDownListControlGroup($formModel, 'items', $childOptions, array('label' => false)); ?>
 
-            <?php echo TbHtml::submitButton(
+            <?php echo BsHtml::submitButton(
                 Yii::t('AuthModule.main', 'Add'),
                 array(
-                    'color' => TbHtml::BUTTON_COLOR_PRIMARY,
+                    'color' => BsHtml::BUTTON_COLOR_PRIMARY,
                 )
             ); ?>
 
