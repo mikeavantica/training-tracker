@@ -64,10 +64,10 @@
 											<?php
 											if ($model->workout ['workout_typeid'] == 2) {
                                                
-												//echo $form->label ( $model, 'total_time' );
+												echo $form->label ( $model, 'total_time' );
 												
                                          
-												echo $form->textFieldControlGroup( $model, 'total_time',array('id'=>'txtTime' ,'showSeconds'=>true));
+												echo $form->timeField( $model, 'total_time',array('id'=>'txtTime' ,'step'=>1));
 										
 												
 

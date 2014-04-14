@@ -44,11 +44,23 @@ $dateschbars = array_unique($dateschbars);
 
 	  
 	}// se guardan y suman los valores de fitness y volumen en las fecha que corresponden
-$average_volume = $average_volume/$cont;
-$average_fitness = $average_fitness/$cont;
-//$average_maxpress = $average_maxpress/$cont;
-//$average_deadlift = $average_deadlift/$cont;
-//$average_maxsquat = $average_maxsquat/$cont;
+
+        if ($cont > 0) {
+            $average_volume = $average_volume/$cont;
+            $average_fitness = $average_fitness/$cont;
+            //$average_maxpress = $average_maxpress/$cont;
+            //$average_deadlift = $average_deadlift/$cont;
+            //$average_maxsquat = $average_maxsquat/$cont;
+        }
+        else
+        {
+            $average_volume = 0;
+            $average_fitness = 0;
+            //$average_maxpress = $average_maxpress/$cont;
+            //$average_deadlift = $average_deadlift/$cont;
+            //$average_maxsquat = $average_maxsquat/$cont;
+            
+        }
 $rowid = 1; //primary key for my dataprovider
 $total_measures =0;
 $total_exercises = 0;

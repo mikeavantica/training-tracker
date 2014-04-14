@@ -36,7 +36,7 @@ class WorkoutController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','CreateWorkout','LoadDetail'),
 				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -50,17 +50,21 @@ class WorkoutController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
+	{ $this->layout = '';
+	    if(!isset($id)){
+	    	$model = new Workout();
+	    	
+	    }else{
+	    	$model = $this->loadModel($id);
+	    }
+	    $modelDetail = new WorkoutDetail;
+	    $modelDetail->workoutid = $id;
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$model,
+			'modelDetail'=> $modelDetail
 		));
 	}
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
+	public function actionCreateWorkout()
 	{
 		$model=new Workout;
 
@@ -74,6 +78,31 @@ class WorkoutController extends Controller
 			if ($valid) {
 				
 			
+			if ($model->save()) {
+				$this->redirect(array('view','id'=>$model->id));
+			}
+		}
+		}
+		
+	}
+
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionCreate()
+	{
+		$model=new Workout;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+                
+		if (isset($_POST['Workout'])) {
+			$model->attributes=$_POST['Workout'];
+			//var_dump($model);
+			$valid = $model->validate();
+		//	$model->id = null;
+			if ($valid) {
 			if ($model->save()) {
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -139,6 +168,7 @@ class WorkoutController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+
 
 	/**
 	 * Manages all models.

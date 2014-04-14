@@ -216,6 +216,14 @@ class RecordDataController extends Controller {
             $model = $models[0];
             $is_update = null;
         }
+        else
+        {
+            if (isset($_POST['wod']))
+            {   
+
+            }
+            $model->date = date("Y-m-d");
+        }
         
         $this->render('index', array(
             'dataProvider' => $dataProvider,
@@ -248,7 +256,8 @@ class RecordDataController extends Controller {
                     {
                         $model = RecordData::model()->findByPk($work_array['recorddataid']);
                     }
-                    $model->time = $_POST["RecordData"]["time"];
+                    $time = '00:'.$_POST["RecordData"]["time"];
+                    $model->time = $time;
                     $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);

@@ -5,7 +5,7 @@
 ?>
 
 <div class="form">
-   <?php  ?>
+   
 
     <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'id'=>'workout-form',

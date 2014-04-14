@@ -13,7 +13,7 @@ $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 
 $this->menu=array(
 	
-	array('label'=>'Create Workout', 'url'=>array('create')),
+	array('label'=>'Create Workout', 'url'=>array('view','id'=> 1)),
 );
 
 Yii::app()->clientScript->registerScript('search', "

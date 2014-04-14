@@ -93,7 +93,10 @@ $cont++;
 /*
  * se calcula el average para todos;
  * */
-
+if($cont == 0){
+	$cont = 1;//if rows are 0
+	
+}
 $average_volume = $average_volume/$cont;
 $average_fitness = $average_fitness/$cont;
 $max_squat = $max_squat/$cont;

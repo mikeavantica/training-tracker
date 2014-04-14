@@ -93,7 +93,16 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
             
             ?></td>
         <td>&nbsp;</td>
-        <td><?php echo $form->timeField($model,'time',array('span'=>3,'style'=> 'display:none;','step'=>1,'class'=>'form-control' )); ?>
+        <td><?php 
+                $this->widget( 'ext.EJuiTimePicker.EJuiTimePicker', array(
+                                'model' => $model, // Your model
+                                'attribute' => 'time', // Attribute for input
+                                'options'=>array('timeOnly'=>true, 'timeFormat'=> 'mm:ss', 'showSecond'=>true, 'showHour'=>false),
+                                'htmlOptions' => array('class'=>'form-control','style'=> 'display:none;'),
+                            )); 
+        
+        ?>
+            
             <label id="lbltimeValue"><?php echo $model->time ?></label>
         </td>
     </tr>
@@ -108,7 +117,7 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
         
 ?>
 <div class=" prepend-12 span-1 append-4 " id="loading" style="display:none">
-    <img src="../../images/loading3.gif" alt  />
+    <img src="../../images/loading3.gif" alt width="40px" />
 </div>
 
 
@@ -181,12 +190,13 @@ Yii::app()->clientScript->registerScript('settings-script', <<<EOD
                     $('#exercises').empty();
                     $('#exercises').append(data);
                     $('#loading').hide();
-                    changeWorkoutType()
+                    changeWorkoutType();
                 }
             );
         });
         $(function(){
             changeWorkoutType();
+        
         });
         
         function changeWorkoutType()
