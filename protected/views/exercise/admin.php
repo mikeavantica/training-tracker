@@ -4,7 +4,7 @@
 
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Exercises' => 'index',
 				'Manage'
@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('bootstrap.widgets.BsGridView',array(
 	'id'=>'exercise-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -50,7 +50,7 @@ $('.search-form form').submit(function(){
 		//'id',
 		'name',
 		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'bootstrap.widgets.BsButtonColumn',
 		),
 	),
 )); ?>

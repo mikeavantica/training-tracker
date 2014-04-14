@@ -18,14 +18,13 @@ echo "\$this->breadcrumbs=array(
 ?>
 
 $this->menu=array(
-	array('label'=>'Create <?php echo $this->modelClass; ?>','url'=>array('create')),
-	array('label'=>'Manage <?php echo $this->modelClass; ?>','url'=>array('admin')),
+    array('icon' => 'glyphicon glyphicon-plus-sign','label'=>'Create <?php echo $this->modelClass; ?>', 'url'=>array('create')),
+    array('icon' => 'glyphicon glyphicon-tasks','label'=>'Manage <?php echo $this->modelClass; ?>', 'url'=>array('admin')),
 );
 ?>
 
-<h1><?php echo $label; ?></h1>
-
-<?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbListView',array(
+<?php echo "<?php echo BsHtml::pageHeader('$label') ?>\n"; ?>
+<?php echo "<?php"; ?> $this->widget('bootstrap.widgets.BsListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>

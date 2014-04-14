@@ -4,7 +4,7 @@
 
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Body Profiles' => 'index',
 				'Manage'
@@ -41,7 +41,7 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('bootstrap.widgets.BsGridView',array(
 	'id'=>'body-profiles-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -55,7 +55,7 @@ $('.search-form form').submit(function(){
 		'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
          ),
 		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'bootstrap.widgets.BsButtonColumn',
 		),
 	),
 )); ?>

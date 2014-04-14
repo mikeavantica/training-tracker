@@ -36,13 +36,13 @@
 		<div>
 		<?php
 		
-		$this->widget ( 'bootstrap.widgets.TbNavbar', array (
+		$this->widget ( 'bootstrap.widgets.BsNavbar', array (
 				'brandLabel' => CHtml::encode ( Yii::app ()->name ),
-				'display' => null, // default is static to top
 				'collapse' => true,
 				'items' => array (
 						array (
-								'class' => 'bootstrap.widgets.TbNav',
+								'class' => 'bootstrap.widgets.BsNav',
+								'type' => 'navbar',
 								'items' => array (
 										array (
 												'label' => 'Home',
@@ -171,8 +171,19 @@
 		Copyright &copy; <?php echo date('Y'); ?> by BetterWod.<br /> All
 			Rights Reserved.<br />
 		<?php //echo Yii::powered(); ?>
-		<?php Yii::app()->bootstrap->register(); ?>
-		<?php echo Yii::app()->bootstrap->registerCoreCss(); ?>
+		<?php //Yii::app()->bootstrap->register(); //method register() and registerCoreCss() don't longer exist in BsApi.php, so the lines below include javascript and style files?> 
+		<?php //echo Yii::app()->bootstrap->registerCoreCss(); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap.min.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-theme.min.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-responsive.min.css', ''); //this file is not included in the bootstrap 3 folder, it was taken from the project svn?>
+		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
+		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
+		<?php 
+		/** @var CClientScript $cs */
+		$cs = Yii::app()->getClientScript();
+		$cs->registerCoreScript('jquery');
+		$cs->registerScriptFile(Yii::app()->bootstrap->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
+		?>
 	</div>
 		<!-- footer -->
 

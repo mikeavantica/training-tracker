@@ -130,6 +130,17 @@ class WorkoutDetail extends CActiveRecord
 				'criteria'=>$criteria,
 		));
 	}
+	public function hasSons($workout_id)
+	{   $sql = "select total_time,total_reps from workout_detail where workoutid = :workout";
+	    $result = false;
+	    $arr;
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
+		$arr = $command->queryAll();
+		
+		return $arr;
+	}
+	
 
 	/**
 	 * Returns the static model of the specified AR class.

@@ -63,7 +63,9 @@ class WorkoutDetailController extends Controller
 	public function actionCreate()
 	{
 		$model=new WorkoutDetail;
-
+       
+       	
+     
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 

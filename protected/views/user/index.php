@@ -5,7 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Users' => 'index',
 				
@@ -20,7 +20,7 @@ $this->menu=array(
 
 <h1>Users</h1>
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('bootstrap.widgets.BsGridView',array(
 	'id'=>'user-grid',
 	'dataProvider'=>$dataProvider,
 	

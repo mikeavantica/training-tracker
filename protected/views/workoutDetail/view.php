@@ -5,7 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workout Detail' => 'index',
 				$model->workout->name

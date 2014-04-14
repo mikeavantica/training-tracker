@@ -5,7 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workout' 
 		)
@@ -31,7 +31,7 @@ $this->menu = array (
 <h1>Workouts</h1>
 
 <?php
-$this->widget ( 'bootstrap.widgets.TbGridView', array (
+$this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'workout-grid',
 		'dataProvider' => $dataProvider,
 		'columns' => array (
@@ -47,7 +47,7 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 ),
 				//'workout_typeid',
 				array (
-						'class' => 'bootstrap.widgets.TbButtonColumn',
+						'class' => 'bootstrap.widgets.BsButtonColumn',
 						'template' => '{view}' 
 				) 
 		)

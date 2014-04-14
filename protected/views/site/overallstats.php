@@ -15,7 +15,7 @@ foreach ( $grafic ["WOD"] as $wod ) {
 $dateschbars = array_unique($dateschbars);
 foreach($athlete_stats['Athlete'] as $grafic){
 	foreach ( $grafic ["WOD"] as $wod ) {
-	 
+	    
 		$clave = array_search($wod['date'], $dateschbars);
 		if(!isset($fitness[$clave])){ //verified if exist
 			$fitness[$clave] = $wod['fitness'];
@@ -42,7 +42,7 @@ $max_deadlift = 0;
 $max_press = 0;
 $cont = 0; //variable needed to define average
 foreach($athlete_stats['Athlete'] as $athlete)
-{
+{   
 	$average_volume += $athlete['average_volume'];
 	$average_fitness += $athlete['average_fitness'];
 	$max_squat += $athlete['max_squat'];
@@ -137,11 +137,11 @@ $columns[] = 'Fitness';
  ?>
 <div>
 
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h3><?php echo $average_volume; ?> </h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h3> <?php echo $average_fitness; ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h3><?php echo $max_squat; ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h3><?php echo $max_press; ?></h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h3><?php echo $max_deadlift; ?></h3></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo $average_volume; ?> </h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo $average_fitness; ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo $max_squat; ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo $max_press; ?></h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo $max_deadlift; ?></h4></div>
 	<div>
 <?php 
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
@@ -152,7 +152,7 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 		'labels' => $dateschbars,
 		'datasets' => array (
 				array (
-						"fillColor" => "#ff00ff",
+						"fillColor" => "#04B404",
 						"label" => "Fitness",
 						"strokeColor" => "rgba(220,220,220,1)",
 						"data" => $fitness 
@@ -171,14 +171,11 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 
 	
 <?php
-$this->widget('bootstrap.widgets.TbGridView',array(
+$this->widget('bootstrap.widgets.BsGridView',array(
 'id'=>'overallstats-grid',
 'dataProvider'=>$invoiceItemsDataProvider ,
  'columns'=>$columns,
 ));
 
 ?>
-
-
-
 </div>

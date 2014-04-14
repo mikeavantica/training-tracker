@@ -6,7 +6,7 @@
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'id'=>'user-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
@@ -26,9 +26,9 @@
             <?php echo $form->emailFieldControlGroup($model,'email',array('span'=>3,'maxlength'=>128)); ?>
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
-		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
-		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
+        <?php echo BsHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array(
+		    'color'=>BsHtml::BUTTON_COLOR_PRIMARY,
+		    'size'=>BsHtml::BUTTON_SIZE_LARGE,
 		)); ?>
     </div>
 

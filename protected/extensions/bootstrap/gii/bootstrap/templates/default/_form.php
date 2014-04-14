@@ -7,42 +7,31 @@
 <?php echo "<?php\n"; ?>
 /* @var $this <?php echo $this->getControllerClass(); ?> */
 /* @var $model <?php echo $this->getModelClass(); ?> */
-/* @var $form TbActiveForm */
+/* @var $form BSActiveForm */
 <?php echo "?>\n"; ?>
 
-<div class="form">
-
-    <?php echo "<?php \$form=\$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-	'id'=>'" . $this->class2id($this->modelClass) . "-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+<?php echo "<?php \$form=\$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
+    'id'=>'" . $this->class2id($this->modelClass) . "-form',
+    // Please note: When you enable ajax validation, make sure the corresponding
+    // controller action is handling ajax validation correctly.
+    // There is a call to performAjaxValidation() commented in generated controller code.
+    // See class documentation of CActiveForm for details on this.
+    'enableAjaxValidation'=>false,
 )); ?>\n"; ?>
 
     <p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
     <?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
 
-    <?php
-    foreach ($this->tableSchema->columns as $column) {
-        if ($column->autoIncrement) {
-            continue;
-        }
-        ?>
-        <?php echo "<?php echo " . $this->generateActiveControlGroup($this->modelClass, $column) . "; ?>\n"; ?>
-
-    <?php
+<?php
+foreach ($this->tableSchema->columns as $column) :
+    if ($column->autoIncrement) {
+        continue;
     }
     ?>
-    <div class="form-actions">
-        <?php echo "<?php echo TbHtml::submitButton(\$model->isNewRecord ? 'Create' : 'Save',array(
-		    'color'=>TbHtml::BUTTON_COLOR_PRIMARY,
-		    'size'=>TbHtml::BUTTON_SIZE_LARGE,
-		)); ?>\n"; ?>
-    </div>
+    <?php echo "<?php echo " . $this->generateActiveControlGroup($this->modelClass, $column) . "; ?>\n"; ?>
+<?php endforeach; ?>
 
-    <?php echo "<?php \$this->endWidget(); ?>\n"; ?>
+    <?php echo "<?php echo BsHtml::submitButton('Submit', array('color' => BsHtml::BUTTON_COLOR_PRIMARY)); ?>\n"; ?>
 
-</div><!-- form -->
+<?php echo "<?php \$this->endWidget(); ?>\n"; ?>

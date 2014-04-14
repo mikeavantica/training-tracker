@@ -1,12 +1,12 @@
 <?php
 /* @var $this ExerciseController */
 /* @var $model Exercise */
-/* @var $form CActiveForm */
+/* @var $form BSActiveForm */
 ?>
 
 <div class="wide form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
@@ -16,7 +16,7 @@
                     <?php echo $form->textFieldControlGroup($model,'name',array('span'=>5,'maxlength'=>100)); ?>
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>
+        <?php echo BsHtml::submitButton('Search',  array('color' => BsHtml::BUTTON_COLOR_PRIMARY,));?>
     </div>
 
     <?php $this->endWidget(); ?>

@@ -6,7 +6,7 @@
 
 <div class="wide form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
@@ -23,7 +23,7 @@
                     <?php echo $form->dropDownList($model,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
 
         <div class="form-actions">
-        <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>
+        <?php echo BsHtml::submitButton('Search',  array('color' => BsHtml::BUTTON_COLOR_PRIMARY,));?>
     </div>
 
     <?php $this->endWidget(); ?>

@@ -5,7 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workout Types' 
 		)
@@ -31,7 +31,7 @@ $this->menu = array (
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbGridView', array (
+$this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'workout-type-grid',
 		'dataProvider' => $dataProvider,
 		

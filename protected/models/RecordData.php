@@ -39,6 +39,7 @@ class RecordData extends CActiveRecord
 		return array(
 			array('weight, height, calories, assist, reps, time, athleteid, workout_detailid, date', 'required'),
 			array('reps, athleteid, workout_detailid', 'numerical', 'integerOnly'=>true),
+                        array('weight, height, calories, assist, reps','numerical', 'min'=>0),
 			array('weight, height, calories, assist', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

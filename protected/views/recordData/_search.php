@@ -8,7 +8,7 @@
 
     <?php
 				
-				$form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
+				$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 						'action' => Yii::app ()->createUrl ( $this->route ),
 						'method' => 'get' 
 				) );
@@ -43,7 +43,7 @@
                     </div>
 
 	<div class="form-actions">
-        <?php echo TbHtml::submitButton('Search',  array('color' => TbHtml::BUTTON_COLOR_PRIMARY,));?>
+        <?php echo BsHtml::submitButton('Search',  array('color' => BsHtml::BUTTON_COLOR_PRIMARY,));?>
     </div>
 
     <?php $this->endWidget(); ?>

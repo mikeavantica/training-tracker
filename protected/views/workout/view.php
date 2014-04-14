@@ -5,7 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workouts' => 'index',
 				$model->name 
@@ -84,7 +84,7 @@ $this->menu = array (
 
 <?php
 
-$this->widget('bootstrap.widgets.TbGridView', array(
+$this->widget('bootstrap.widgets.BsGridView', array(
 		'id' => 'releasenote-grid',
 		'selectableRows'=>0,
 		'dataProvider' => WorkoutDetail::model()->search2($model->id),
@@ -158,7 +158,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 );
 ?>
     <?php
-      echo   TbHtml::linkButton('Add Exercise(s)',array('color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_SMALL,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
+      echo   BsHtml::linkButton('Add Exercise(s)',array('color' => BsHtml::BUTTON_COLOR_PRIMARY, 'size' => BsHtml::BUTTON_SIZE_SMALL,'url'=>array('WorkoutDetail/create','id'=>$model->id))); ?>
   
 
     <?php    

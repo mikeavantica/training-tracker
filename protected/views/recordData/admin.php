@@ -4,7 +4,7 @@
 
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Record Data' => 'index',
 				'Manage'
@@ -45,7 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('bootstrap.widgets.BsGridView',array(
 	'id'=>'record-data-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -74,7 +74,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'date',
 		
 		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'bootstrap.widgets.BsButtonColumn',
 		),
 	),
 )); ?>

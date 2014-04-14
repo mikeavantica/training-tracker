@@ -13,7 +13,7 @@ elseif ($model->workout->workout_typeid == 2){
 	$model->total_time = '00:00:00';
 	
 }
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workout' => Yii::app ()->homeUrl.'/Workout/index',
 				$model->workout->name => array (

@@ -1,28 +1,28 @@
 {
-	"name": "yiistrap",
-	"version": "1.0.0",
-	"author": "Christoffer Niska <christoffer.niska@gmail.com>",
-	"description": "Yiistrap, Twitter Bootstrap for Yii.",
-	"contributors": [
-		{
-			"name": "Christoffer Niska",
-			"email": "christoffer.niska@gmail.com",
-			"homepage": "http://www.cniska.net/"
-		},
-		{
-			"name": "Antonio Ramirez",
-			"email": "ramirez.cobos@gmail.com",
-			"homepage": "http://www.ramirezcobos.com/"
-		}
-	],
-	"keywords": [
-		"yii",
-		"yiistrap",
-		"bootstrap"
-	],
-	"devDependencies": {
-		"grunt": "~0.4.1",
-		"grunt-contrib-less": "~0.6.1",
-		"grunt-contrib-watch": "~0.4.4"
-	}
+    "name": "bootstrap",
+    "version": "0.0.8",
+    "private": true,
+    "description": "Yii Bootstrap3 Module",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://DrMabuse@bitbucket.org/DrMabuse/yii-bootstrap-3-module.git"
+    },
+    "keywords": [
+        "yii",
+        "module"
+    ],
+    "author": "Pascal Brewing",
+    "license": "BSD-3-CLAUSE",
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-release": "~0.5.1",
+        "grunt-bumpup": "~0.4.1",
+        "grunt-text-replace": "~0.3.6",
+        "grunt-contrib-sass": "~0.5.0",
+        "grunt-contrib-watch": "~0.5.3"
+    }
 }

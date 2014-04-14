@@ -15,7 +15,7 @@
 </script>
     <?php
 				
-				$form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
+				$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 						'id' => 'workout-detail-form',
 					// 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
 						// Please note: When you enable ajax validation, make sure the corresponding
@@ -31,7 +31,7 @@
 <p class="help-block">
 	Fields with <span class="required">*</span> are required.
 </p>
-<?php echo $form->errorSummary($model); ?>
+<?php  echo $form->errorSummary($model); ?>
 <div class="form">
 	<div  style="display:none;">
             <?php echo $form->dropDownList($model, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
@@ -49,25 +49,31 @@
             
 </div>
 <div class="column">
-              <?php
+              <?php 
+              	
+              
 														if ($model->workout ['workout_typeid'] == 1) {
                                                             echo $form->label($model, 'total_reps');
 															echo $form->numberField( $model, 'total_reps', array (
 																	// 'span' => 3,
-																	'lenght' => 11 
+																	'lenght' => 11,
+                                                                    'min'=>0 
 															) );
 														}
 														?>
 											<?php
 											if ($model->workout ['workout_typeid'] == 2) {
                                                
-												echo $form->label ( $model, 'total_time' );
-												echo $form->timeField ( $model, 'total_time',array('id'=>'txtTime'));
+												//echo $form->label ( $model, 'total_time' );
+												
+                                         
+												echo $form->textFieldControlGroup( $model, 'total_time',array('id'=>'txtTime' ,'showSeconds'=>true));
 										
-												// 'span' => 3
+												
 
 											
 											}
+              
 											?>
 
             </div>
@@ -91,9 +97,9 @@ display: block;">Measure</div>
 	<div class="row" style=" padding: 30px;"> 
         <?php
 								
-								echo TbHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
-										'color' => TbHtml::BUTTON_COLOR_PRIMARY,
-										'size' => TbHtml::BUTTON_SIZE_SMALL 
+								echo BsHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
+										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+										'size' => BsHtml::BUTTON_SIZE_SMALL 
 								) );
 								?>
      </div>

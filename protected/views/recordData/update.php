@@ -7,7 +7,7 @@
 
 
 
-$this->widget ('bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ('bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Record Data' => 'index',
 				$model->date => array (

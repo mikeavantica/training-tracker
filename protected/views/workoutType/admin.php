@@ -4,7 +4,7 @@
 
 
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Workout Types' => 'index',
 				'Manage'
@@ -51,7 +51,7 @@ $this->renderPartial ( '_search', array (
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.TbGridView', array (
+$this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'workout-type-grid',
 		'dataProvider' => $model->search (),
 		'filter' => $model,
@@ -59,7 +59,7 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 				//'id',
 				'name',
 				array (
-						'class' => 'bootstrap.widgets.TbButtonColumn' 
+						'class' => 'bootstrap.widgets.BsButtonColumn' 
 				) 
 		) 
 ) );

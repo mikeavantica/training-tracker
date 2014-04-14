@@ -1,31 +1,36 @@
 
-<div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
-<div>
 
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h3><?php echo $athlete_stats["average_volume"] ?> </h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h3> <?php echo $athlete_stats["average_fitness"] ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h3><?php echo $athlete_stats["max_squat"] ?></h3></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h3><?php echo $athlete_stats["max_press"] ?></h3> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h3><?php echo $athlete_stats["max_deadlift"] ?></h3></div>
-	<div>
 <?php
 $dateschbars = array ();
 $fitness = array ();
 $volume = array ();
 $dataprovider = array ();
-
+// print "<pre>";
+// print_r($athlete_stats);
+// print "</pre>";
+$cont = 0;
 foreach ( $athlete_stats ["WOD"] as $wod ) {
 
-
+    $cont++;
 	$dateschbars [] = $wod ['date'];
 
 }
 // se guardan unicamente las fechas que no estan repetidas
+$average_volume = 0;
+$average_fitness = 0;
+$average_maxsquat= 0;
+$average_deadlift = 0;
+$average_maxpress = 0;
 $dateschbars = array_unique($dateschbars);
 	foreach ( $athlete_stats ["WOD"] as $wod ) {
-
+		$average_volume = $average_volume + $wod['volume'];
+		$average_fitness = $average_fitness +$wod['fitness'];
+		//$average_maxsquat= $average_maxsquat + $wod['max_squat'];
+		//$average_deadlift = $average_deadlift + $wod['deadlift'];
+		//$average_maxpress =$average_maxpress + $wod['maxpress'];
 		$clave = array_search($wod['date'], $dateschbars);
-		if(!isset($fitness[$clave])){ //verified if exist
+		if(!isset($fitness[$clave])){//verified if exist
+// 			
 			$fitness[$clave] = $wod['fitness'];
 			$volume[$clave] = $wod['volume'];
 				
@@ -39,12 +44,20 @@ $dateschbars = array_unique($dateschbars);
 
 	  
 	}// se guardan y suman los valores de fitness y volumen en las fecha que corresponden
-
+$average_volume = $average_volume/$cont;
+$average_fitness = $average_fitness/$cont;
+//$average_maxpress = $average_maxpress/$cont;
+//$average_deadlift = $average_deadlift/$cont;
+//$average_maxsquat = $average_maxsquat/$cont;
 $rowid = 1; //primary key for my dataprovider
 $total_measures =0;
 $total_exercises = 0;
+
 $columns2 = array();
+
 foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
+	
+	
 	
 	$row = array ();
 	
@@ -60,6 +73,7 @@ foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
 	$exe = 1; //number of exercises
 	$measures= 1; //number of measures
 	foreach ( $exerciseswod ['exercises'] as $exercise ) {
+		
 		
 		$row ['Exercise'.$exe] = $exercise ['name'];
 		
@@ -119,6 +133,22 @@ $columns[] = 'Volume';
 $columns[] = 'Fitness';
 
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
+
+?>
+<div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
+<div>
+
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo $average_volume;//$athlete_stats["average_volume"] ?> </h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo $average_fitness;//$athlete_stats["average_fitness"] ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo $average_maxsquat;//$athlete_stats["max_squat"] ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo $average_maxpress;//$athlete_stats["max_press"] ?></h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo $average_deadlift;//$athlete_stats["max_deadlift"] ?></h4></div>
+	<div>
+</div>
+	
+<?php
+
+
 $this->widget ( 'chartjs.widgets.ChBars', array (
 		'width' => 600,
 		'height' => 300,
@@ -126,25 +156,23 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 		'labels' => $dateschbars,
 		'datasets' => array (
 				array (
-						"fillColor" => "#ff00ff",
+						"fillColor" => "#04B404",
 						"label" => "Fitness",
 						"strokeColor" => "rgba(220,220,220,1)",
-						"data" => $fitness 
+						"data" => $fitness
 				),
 				array (
 						"fillColor" => "#2E2EFE",
 						"label" => "Volume",
 						"strokeColor" => "rgba(220,220,220,1)",
-						"data" => $volume 
-				) 
+						"data" => $volume
+				)
 		),
-		'options' => array () 
+		'options' => array ()
 ) );
-?>
-</div>
-	
-<?php
-$this->widget('bootstrap.widgets.TbGridView',array(
+
+
+$this->widget('bootstrap.widgets.BsGridView',array(
 'id'=>'overallstats-grid',
 'dataProvider'=>$invoiceItemsDataProvider ,
  'columns'=>$columns,

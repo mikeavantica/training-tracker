@@ -7,7 +7,7 @@
 /*$this->breadcrumbs=array(
 	'Exercise Details',
 );*/
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Exercise Details'
 		)
@@ -23,7 +23,7 @@ $this->menu=array(
 <h1>Exercise Details</h1>
 
 <?php 
-$this->widget('bootstrap.widgets.TbGridView',array(
+$this->widget('bootstrap.widgets.BsGridView',array(
 		'id'=>'exercise-detail-grid',
 		'dataProvider'=>$dataProvider,
 		'columns'=>array(
@@ -52,7 +52,7 @@ $this->widget('bootstrap.widgets.TbGridView',array(
 			//	'exerciseid',
 
 				array(
-						'class'=>'bootstrap.widgets.TbButtonColumn',
+						'class'=>'bootstrap.widgets.BsButtonColumn',
                         'template'=> '{view}'
 				),
 		),

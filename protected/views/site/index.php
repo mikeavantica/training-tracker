@@ -4,7 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 <?php 
-$this->widget ( 'bootstrap.widgets.TbHeroUnit', array (
+/*$this->widget ( 'bootstrap.widgets.TbHeroUnit', array (
 		'heading' => 'Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!',
  		'content' => '<p>you can navigate in our web page and enjoy all their facilities</p>', //. TbHtml::linkButton('HOLA',array(
         //'color' => TbHtml::BUTTON_COLOR_PRIMARY, 'size' => TbHtml::BUTTON_SIZE_LARGE,
@@ -13,8 +13,9 @@ $this->widget ( 'bootstrap.widgets.TbHeroUnit', array (
               
           //  )),
 
-) );
+) );*/
 
+echo BsHtml::jumbotron('Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!', BsHtml::emphasis('<p>you can navigate in our web page and enjoy all their facilities</p>'), array(), true)
 
 
 ?>

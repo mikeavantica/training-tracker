@@ -2,7 +2,7 @@
 /* @var $this AthleteController */
 /* @var $model Athlete */
 
-$this->widget ( 'bootstrap.widgets.TbBreadcrumb', array (
+$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Athletes' => 'index',
 				'Manage' 
@@ -50,7 +50,7 @@ $this->renderPartial ( '_search', array (
 <!-- search-form -->
 
 <?php
-$this->widget ( 'bootstrap.widgets.TbGridView', array (
+$this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'athlete-grid',
 		'dataProvider' => $model->search (),
 		'filter' => $model,
@@ -74,32 +74,32 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 				),
                 array('class' => 'CButtonColumn',
 		'template'=>'{view}{update}{delete}{stats}',
-        'htmlOptions'=>array('width'=>'60px'),
+        'htmlOptions'=>array('width'=>'100px'),
 		'buttons' => array(
 
 				'update' => array(
 						'label' => '',
 						'imageUrl' => '',
 						'url' => "CHtml::normalizeUrl(array('/Athlete/update', 'id'=>\$data->id))",
-						'options' => array('class' => 'icon-edit')
+						'options' => array('class' => 'glyphicon glyphicon-edit', 'style' => 'margin: 0 3px;')
 				),
                 'view' => array(
 		        'label' => '',
 	            'imageUrl' => '',
 		        'url' => "CHtml::normalizeUrl(array('/Athlete/view', 'id'=>\$data->id))",
-		        'options' => array('class' => 'icon-search')
+		        'options' => array('class' => 'glyphicon glyphicon-search', 'style' => 'margin: 0 3px;')
                  ),
 				'delete' => array(
 						'label' => '',
 						'imageUrl' => '',
 						'url' => "CHtml::normalizeUrl(array('/Athlete/delete', 'id'=>\$data->id))",
-						'options' => array('class' => 'icon-remove'),
+						'options' => array('class' => 'glyphicon glyphicon-remove', 'style' => 'margin: 0 3px;'),
 				),
                 'stats' => array(
 						'label' => '',
 						
 						'url' => "CHtml::normalizeUrl(array('/Athlete/AthleteStats', 'id'=>\$data->id))",
-                        'options' => array('class' => TbHtml::ICON_ADJUST),
+                        'options' => array('class' => 'glyphicon glyphicon-adjust', 'style' => 'margin: 0 3px;'),
 						
 				),
                      
@@ -108,7 +108,7 @@ $this->widget ( 'bootstrap.widgets.TbGridView', array (
 )
 				
 				/*array (
-						'class' => 'bootstrap.widgets.TbButtonColumn' 
+						'class' => 'bootstrap.widgets.BsButtonColumn' 
 				)*/
 				 
 		) 

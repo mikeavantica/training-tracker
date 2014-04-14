@@ -29,9 +29,9 @@ return array (
 		'import' => array (
 				'application.models.*',
 				'application.components.*',
-				'bootstrap.helpers.TbHtml',
-				'bootstrap.helpers.TbArray',
-				'bootstrap.behaviors.TbWidget',
+				'bootstrap.helpers.BsHtml',
+				'bootstrap.helpers.BsArray',
+				'bootstrap.behaviors.BsWidget',
 				'bootstrap.widgets.*',
 				'arraydata.*'
 				
@@ -78,7 +78,7 @@ return array (
 						'allowAutoLogin' => true 
 				),
 				'bootstrap' => array (
-						'class' => 'bootstrap.components.TbApi',
+						'class' => 'bootstrap.components.BsApi',
 						
 				),
 				// uncomment the following to enable URLs in path-format

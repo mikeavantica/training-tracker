@@ -1,43 +1,29 @@
 {
-    "name": "crisu83/yiistrap",
-    "description": "Twitter Bootstrap for the Yii PHP framework.",
-    "keywords": ["bootstrap", "yii"],
+    "name": "drmabuse/yii-bootstrap-3-module",
+    "description": "Yii Web Widgets",
+    "keywords": [
+        "yii",
+        "framework",
+        "extension",
+		"bootstrap"
+    ],
+    "homepage": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module",
     "type": "library",
     "license": "BSD-3-Clause",
+    "version": "0.0.8",
     "authors": [
         {
-            "name": "Christoffer Niska",
-            "email": "christoffer.niska@gmail.com",
-            "homepage": "http://www.cniska.net/"
-        },
-        {
-            "name": "Antonio Ramirez",
-            "email": "ramirez.cobos@gmail.com",
-            "homepage": "http://www.ramirezcobos.com/"
+            "name": "Pascal Brewing",
+            "email": "pascalbrewing@gmail.com",
+            "homepage": "http://pascal-breiwng.de/",
+            "role": "Founder and development"
         }
     ],
-    "require-dev": {
-        "codeception/codeception": "@stable",
-        "crisu83/yii-composer": ">=1.0.0",
-        "yiisoft/yii": ">=1.1.13"
+    "support": {
+        "issues": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module/issues?status=new&status=open",
+        "source": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module/src"
     },
-    "scripts": {
-        "post-install-cmd": [
-            "Crisu83\\YiiComposer\\InstallHandler::setPermissions"
-        ]
-    },
-    "extra": {
-        "yii-install-writable": [
-            "tests/_log"
-        ]
-    },
-    "autoload": {
-        "classmap": [
-            "behaviors/",
-            "components/",
-            "form/",
-            "helpers/",
-            "widgets/"
-        ]
+    "require": {
+        "php": ">=5.3.0"
     }
 }

@@ -1,14 +1,14 @@
 <?php
 /* @var $this ExerciseDetailController */
 /* @var $model ExerciseDetail */
-/* @var $form TbActiveForm */
+/* @var $form BSActiveForm */
 ?>
 
 <div class="form">
 
     <?php
 				
-				$form = $this->beginWidget ( 'bootstrap.widgets.TbActiveForm', array (
+				$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 						'id' => 'exercise-detail-form',
 						// Please note: When you enable ajax validation, make sure the corresponding
 						// controller action is handling ajax validation correctly.
@@ -48,9 +48,9 @@
         <div class="form-actions">
         <?php
 								
-								echo TbHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
-										'color' => TbHtml::BUTTON_COLOR_PRIMARY,
-										'size' => TbHtml::BUTTON_SIZE_LARGE 
+								echo BsHtml::submitButton ( $model->isNewRecord ? 'Create' : 'Save', array (
+										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+										'size' => BsHtml::BUTTON_SIZE_LARGE 
 								) );
 								?>
     </div>

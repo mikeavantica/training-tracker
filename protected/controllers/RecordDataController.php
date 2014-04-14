@@ -30,7 +30,7 @@ class RecordDataController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'populateWOD'),
+                'actions' => array('create', 'update','populateWOD'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -40,9 +40,10 @@ class RecordDataController extends Controller {
             array('deny', // deny all users
                 'users' => array('*'),
             ),
+            
         );
     }
-
+    
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -100,23 +101,30 @@ class RecordDataController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($athleteid, $date) {
+        
+        $criteria = new CDbCriteria();
+        $criteria->group = 'athleteid, date';
+        $criteria->order = 'date DESC, athleteid';
+        $dataProvider = new CActiveDataProvider('RecordData', array(
+            'criteria' => $criteria
+        ));
+        
         if (array_key_exists('action', $_POST)) {
             $action = $_POST['action'];
             if ($action == 'edit') {
-                $total_workdetails = $_POST['total_workdetails'];
-                for($i=0; $i<$total_workdetails; $i++) {
-                    $work = 'WorkoutDetails' . $i;
-                    $work_array = $_POST[$work];
-                    $record = RecordData::model()->findByPk($work_array['recorddataid']);
-                    $record->date = $_POST["RecordData"]["date"];
-                    $record->time = $_POST["RecordData"]["time"];
-                    $record->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
-                    $record->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
-                    $record->assist = (array_key_exists('assist', $work_array) ? $work_array['assist'] : 0);
-                    $record->calories = (array_key_exists('calories', $work_array) ? $work_array['calories'] : 0);
-                    $record->reps = $_POST["RecordData"]["reps"];
-                    $record->workout_detailid = $work_array['id'];
-                    $record->save();
+                $models = $this->createRecordData();
+                $model = new RecordData;
+                if ($models!=null)
+                {
+                    $model = $models[0];
+                    $is_update = true;
+                    $this->render('index', array(
+                              'dataProvider' => $dataProvider,
+                                'model' => $model,
+                                'models' => $models,
+                                'is_update' =>$is_update,
+                                ));
+                    return;
                 }
                 
                 $this->redirect('index');
@@ -125,11 +133,6 @@ class RecordDataController extends Controller {
         }
                
         
-        $criteria = new CDbCriteria();
-        $criteria->group = 'athleteid, date';
-        $dataProvider = new CActiveDataProvider('RecordData', array(
-            'criteria' => $criteria
-        ));
         
         
         if (isset($_POST['RecordData'])) {
@@ -160,11 +163,12 @@ class RecordDataController extends Controller {
         $models = RecordData::model()->with('workoutDetail','workoutDetail.exercise')->findAll($criteria);
         
         $model = $models[0];
-        
+        $is_update = true;
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'model' => $model,
             'models' => $models,
+            'is_update' =>$is_update,
         ));
     }
 
@@ -195,25 +199,43 @@ class RecordDataController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $this->createRecordData();
-        
+        $models = $this->createRecordData();
+       
         $criteria = new CDbCriteria();
         $criteria->group = 'athleteid, date';
+        $criteria->order = 'date DESC, athleteid';
         $dataProvider = new CActiveDataProvider('RecordData', array(
             'criteria' => $criteria
         ));
         
+        $is_update = true;
+        
         $model = new RecordData;
+        if ($models!=null)
+        {
+            $model = $models[0];
+            $is_update = null;
+        }
         
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'model' => $model,
+            'models'=>$models,
+            'is_update' =>$is_update,
         ));
     }
     
     private function createRecordData() {
-        if (isset($_POST['RecordData'])) {
-            $total_workdetails = $_POST['total_workdetails'];
+          if (isset($_POST['RecordData'])) {
+            $total_workdetails = 0;
+            $recordDatas = array();
+            $correct = true;
+   
+            if (isset($_POST['total_workdetails']))
+            {
+                $total_workdetails = $_POST['total_workdetails'];
+            }
+           
 
             for ($i = 0; $i < $total_workdetails; $i++) {
                 $work = 'WorkoutDetails' . $i;
@@ -222,15 +244,54 @@ class RecordDataController extends Controller {
                 $model->attributes = $_POST['RecordData'];
                 if (array_key_exists($work, $_POST)) {
                     $work_array = $_POST[$work];
+                    if (array_key_exists('recorddataid', $work_array))
+                    {
+                        $model = RecordData::model()->findByPk($work_array['recorddataid']);
+                    }
+                    $model->time = $_POST["RecordData"]["time"];
+                    $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
                     $model->assist = (array_key_exists('assist', $work_array) ? $work_array['assist'] : 0);
                     $model->calories = (array_key_exists('calories', $work_array) ? $work_array['calories'] : 0);
-                    //$model->reps = 0;
+                    $model->reps = (array_key_exists('reps', $work_array) ? $work_array['reps'] : 0);
                     $model->workout_detailid = $work_array['id'];
                 }
-                $model->save();
+                
+                $correct &= $model->validate();
+                array_push($recordDatas, $model);
             }
+            
+            if($correct)
+            {
+                foreach ($recordDatas as $record) {
+                    $record->save();
+                }
+                if ($total_workdetails==0)
+                {
+                    $model = new RecordData;
+                    $model->attributes = $_POST['RecordData'];
+                    $model->weight = 0;
+                    $model->height = 0;
+                    $model->assist = 0;
+                    $model->calories = 0;
+                    $model->reps = 0;
+                    $model->workout_detailid = null;
+                    $model->workoutDetail = new WorkoutDetail;
+                    $model->workoutDetail->exercise = new Exercise;
+                    $model->workoutDetail->workout = new Workout;
+                    $model->workoutDetail->workout->workoutType = new WorkoutType;
+                    $model->validate();
+                                   
+
+                    array_push($recordDatas, $model);
+                    
+                }else
+                {
+                   return null;
+                }
+            }
+            return $recordDatas;
         }
     }
 
@@ -278,10 +339,10 @@ class RecordDataController extends Controller {
     public function actionPopulateWOD($id) {
         $data = array();
         $data["myValue"] = "Content updated in AJAX";
-
+        
         $workout = Workout::model()->with('workoutType', 'workoutDetails.exercise')->findByPk($id);
         $data['workout'] = $workout;
-
+        
         $this->renderPartial('_form2', $data, false, true);
     }
 

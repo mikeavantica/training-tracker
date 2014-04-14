@@ -1,31 +1,42 @@
-// The wrapper function
-module.exports = function(grunt) {
-	
-	// Project and task configuration
-	grunt.initConfig({
-		less: {
-			development: {
-				files: {
-					"assets/css/yiistrap.css": "assets/less/yiistrap.less"
-				}
-			},
-			production: {
-				options: {
-					compress: true,
-					yuicompress: true,
-					optimization: 2
-				},
-				files: {
-					"assets/css/yiistrap.min.css": "assets/less/yiistrap.less"
-				}
-			}
-		}
-	});
+module.exports = function (grunt) {
+    'use strict';
+    var extIbuttonAsset = 'extensions/ibutton/resources/css/';
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-	// Load plugins
-	grunt.loadNpmTasks('grunt-contrib-less');
+        bumpup: ['package.json', 'composer.json'],
 
-	// Define tasks
-	grunt.registerTask('default', ['less']);
+        release: {
+            options: {
+                bump: false, //default: true
+                tagName: 'v<%= version %>', //default: '<%= version %>'
+                commitMessage: 'release v<%= version %>', //default: 'release <%= version %>'
+                tagMessage: 'tagging version v<%= version %>' //default: 'Version <%= version %>'
+            }
+        },
+
+        replace: {
+            readme: {
+                src: ['README.md'],
+                overwrite: true,
+                replacements: [
+                    {
+                        from: /Version \d{1,1}\.\d{1,2}\.\d{1,2}/g,
+                        to: 'Version <%= pkg.version %>'
+                    }
+                ]
+            }
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-release');
+    grunt.loadNpmTasks('grunt-bumpup');
+    grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    // Default task(s).
+    grunt.registerTask('default', ['replace', 'release']);
 
 };

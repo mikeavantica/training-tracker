@@ -6,7 +6,7 @@
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'id'=>'record-data-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.

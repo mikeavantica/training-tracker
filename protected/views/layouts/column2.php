@@ -9,9 +9,9 @@
 	<div id="sidebar">
 	<?php
    
-	$this->widget('bootstrap.widgets.TbNav', array(
+	$this->widget('bootstrap.widgets.BsNav', array(
 			'stacked' => true,
-			'type' => TbHtml::NAV_TYPE_TABS,
+			'type' => BsHtml::NAV_TYPE_TABS,
 			'items'=>$this->menu,
 			'htmlOptions'=>array('class'=>'operations'),
 	));

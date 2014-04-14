@@ -4,7 +4,7 @@
 ?>
 
 <?php
-$this->widget('bootstrap.widgets.TbBreadcrumb', array(
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
     'links' => array(
         'Record Data'
     )
@@ -30,7 +30,7 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'id'=>'record-data-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
@@ -50,35 +50,52 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
         <th><?php echo $form->labelEx($model,'Date'); ?></th>
         <th>WOD</th>
         <th><?php echo $form->labelEx($model,'athleteid'); ?></th>
-        <th><?php echo $form->labelEx($model,'time',array('id'=>'lblTime','style'=> 'display:none;')); ?>
-            <?php echo $form->labelEx($model,'reps',array('id'=>'lblReps','style'=> 'display:none;')); ?>
-        </th>
+        <th></th>
+        <th><?php echo $form->labelEx($model,'time',array('id'=>'lbltimeText','style'=>'display:none')); ?> </th>
     </tr>
     <tr>
         
-        <td><?php echo $form->dateField($model, 'date',array('span'=>3)); ?></td>
+        <td><?php echo $form->dateField($model, 'date' ,array('span'=>3)); ?></td>
         <td><?php 
             if (isset($model->workoutDetail)) {
-                $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
-                echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('disabled' => 'disabled'));
+                if($is_update)
+                {
+                    $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                    echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('disabled' => 'disabled','class'=>'form-control'));
+                }
+                else
+                {
+                    $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                    echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('prompt' => '-- Select --','class'=>'form-control'));
+                }
             } else {
                 $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
-                echo CHtml::dropDownList('wod', 'empty', $list, array('prompt' => '-- Select --'));
+                echo CHtml::dropDownList('wod', 'empty', $list, array('prompt' => '-- Select --','class'=>'form-control'));
             }
             ?>
         </td>
         <td><?php 
             if (isset($model->workoutDetail)) {
-                $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'fullname');
-                echo  $form->dropDownList($model, 'athleteid',$list2, array('disabled' => 'disabled')); 
+                if($is_update)
+                {
+                    $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'fullname');
+                    echo  $form->dropDownList($model, 'athleteid',$list2, array('disabled' => 'disabled')); 
+                }
+                else
+                {
+                    $list2 = CHtml::listData(Athlete::model()->findAll(), 'id','fullname');
+                    echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
+                }
             } else {
                 $list2 = CHtml::listData(Athlete::model()->findAll(), 'id','fullname');
                 echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
             }
             
             ?></td>
-        <td><?php echo $form->timeField($model,'time',array('span'=>3,'style'=> 'display:none;')); ?>
-            <?php echo $form->numberField($model,'reps',array('size'=>35,'style'=> 'display:none;')); ?></td>
+        <td>&nbsp;</td>
+        <td><?php echo $form->timeField($model,'time',array('span'=>3,'style'=> 'display:none;','step'=>1,'class'=>'form-control' )); ?>
+            <label id="lbltimeValue"><?php echo $model->time ?></label>
+        </td>
     </tr>
 </table>
 <?php
@@ -90,31 +107,43 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
         
         
 ?>
+<div class=" prepend-12 span-1 append-4 " id="loading" style="display:none">
+    <img src="../../images/loading3.gif" alt  />
+</div>
+
+
 <div id="exercises">
     <?php
-
+    
     if (isset($models)) {
         $workout = new stdClass();
         $newDetails = array();
         $workout->workoutDetails = $models;
         foreach($workout->workoutDetails as $details) {
-            $obj = new stdClass();
-            $obj->measure_weight = ($details->weight > 0);
-            $obj->weight = $details->weight;
-            $obj->measure_height = ($details->height > 0);
-            $obj->height = $details->height;
-            $obj->measure_assist = ($details->assist > 0);
-            $obj->assist = $details->assist;
-            $obj->measure_calories = ($details->calories> 0);
-            $obj->calories = $details->calories;
             
+            $obj = new stdClass();
+            $obj->measure_weight = $details->workoutDetail->measure_weight;
+            $obj->weight = $details->weight;
+            $obj->measure_height = $details->workoutDetail->measure_height;
+            $obj->height = $details->height;
+            $obj->measure_assist = $details->workoutDetail->measure_assist;
+            $obj->assist = $details->assist;
+            $obj->measure_calories = $details->workoutDetail->measure_calories;
+            $obj->calories = $details->calories;
+            $obj->time = $details->time;
+            $obj->reps = $details->reps;
             $obj->id = $details->workout_detailid;
             $obj->id_record_data = $details->id;
-            
+            $obj->total_time = $details->workoutDetail->total_time;
+            $obj->total_reps = $details->workoutDetail->total_reps;
             $obj->exercise = new stdClass();
             $obj->exercise->name = $details->workoutDetail->exercise->name;
+            $obj->errors = $details->getErrors();
             
-            array_push($newDetails, $obj);
+            if(isset($obj->id))
+            {
+                array_push($newDetails, $obj);
+            }
         }
         $workout->workoutType = $model->workoutDetail->workout->workoutType;
         $workout->workoutDetails = $newDetails;
@@ -124,19 +153,34 @@ $this->widget('bootstrap.widgets.TbBreadcrumb', array(
 </div>
     
     
-    <input type="submit" class="btn btn-primary btn-small" value="<?php echo (isset($models) ? 'update' : 'create') ?>" >
+    <input type="submit" class="btn btn-primary btn-small" value=" <?php echo (isset($models)&&($is_update) ? 'update' : 'create') ?>" >
     
     <?php $this->endWidget(); ?>
     
 </div><!-- form -->
 
+
+
 <?php
 Yii::app()->clientScript->registerScript('settings-script', <<<EOD
         $('#wod').change(function() {
             var value = $(this).val();
+            $('#exercises').empty();
+            if (value != "")
+            {
+                $('#loading').show();
+            }
+            else
+            {
+                $('#RecordData_time').hide();
+                $('#lbltimeValue').hide();
+                $('#lbltimeText').hide();
+            }
+        
             $.get('populateWOD?id=' + value, function(data, textStatus, jqXHR) {
                     $('#exercises').empty();
                     $('#exercises').append(data);
+                    $('#loading').hide();
                     changeWorkoutType()
                 }
             );
@@ -147,30 +191,44 @@ Yii::app()->clientScript->registerScript('settings-script', <<<EOD
         
         function changeWorkoutType()
         {
+            var total_time = $('#total_time').val();
+            
+            if (total_time!="")
+            {
+                $('#RecordData_time').val(total_time);
+                $('#lbltimeValue').html(total_time);
+            }
+        
             var wotype = $('#workout_type').val();
                     if (wotype==1)
                     {
                         $('#RecordData_time').show();
-                        $('#RecordData_reps').hide();
-                        $('#lblTime').show();
-                        $('#lblReps').hide();
-                        $('#RecordData_reps').val(0);
+                        $('#lbltimeValue').hide();
+                        $('#lbltimeText').show();
+                        
                     }
                     else if (wotype==2)
                     {
                         $('#RecordData_time').hide();
-                        $('#RecordData_reps').show();
-                        $('#lblTime').hide();
-                        $('#lblReps').show();
+                        $('#lbltimeValue').show();
+                        $('#lbltimeText').show();
+                        
+                    }
+                    else if (wotype==3)
+                    {
                         $('#RecordData_time').val('00:00:00');
+                        $('#lbltimeValue').hide();
+                        $('#lbltimeText').hide();
+                        $('#RecordData_time').hide();
                     }
         }
+        
 EOD
 );
 ?>
 
 <?php
- $this->widget('bootstrap.widgets.TbListView',array(
+ $this->widget('bootstrap.widgets.BsListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_recordDetail',
 )); 

@@ -7,7 +7,7 @@ $detail = new CActiveDataProvider('RecordData', array(
         ));
 
 
-$this->widget('bootstrap.widgets.TbGridView', array(
+$this->widget('bootstrap.widgets.BsGridView', array(
 //'id' => 'record-data-grid',
     'dataProvider' => $detail,
     'columns' => array(
@@ -17,8 +17,13 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         'weight', 
         'height', 
-        'calories', 
-        'assist', 
+        'calories',
+        array(
+            'name'=>'assist',
+            'value'=> function($data) {         
+            return $data->assist.'%';},
+        ),
+    
         'reps',
     )
 ));

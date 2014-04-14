@@ -15,8 +15,7 @@ $this->menu=array(
 ?>
 
 <h1>Workout Details</h1>
-
-<?php $this->widget('bootstrap.widgets.TbListView',array(
+<?php $this->widget('bootstrap.widgets.BsListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
