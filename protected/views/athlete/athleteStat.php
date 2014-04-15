@@ -79,8 +79,8 @@ foreach ( $athlete_stats ['WOD'] as $exerciseswod ) {
 	$row['Type'] = $exerciseswod['type'];
 	$row ['Value'] = $exerciseswod ['value'];
 	$row['Date'] = $exerciseswod['date'];
-	$row ['Volume'] = $exerciseswod ['volume'];
-	$row ['Fitness'] = $exerciseswod ['fitness'];
+	$row ['Volume'] = number_format($exerciseswod ['volume'], 2);
+	$row ['Fitness'] = number_format($exerciseswod ['fitness'], 2);
 	
 	$exe = 1; //number of exercises
 	$measures= 1; //number of measures
@@ -150,11 +150,11 @@ $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 <div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
 <div>
 
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo $average_volume;//$athlete_stats["average_volume"] ?> </h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo $average_fitness;//$athlete_stats["average_fitness"] ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo $average_maxsquat;//$athlete_stats["max_squat"] ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo $average_maxpress;//$athlete_stats["max_press"] ?></h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo $average_deadlift;//$athlete_stats["max_deadlift"] ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo number_format($average_volume, 2);//$athlete_stats["average_volume"] ?> </h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2);//$athlete_stats["average_fitness"] ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo  number_format($average_maxsquat, 2);//$athlete_stats["max_squat"] ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo number_format($average_maxpress, 2);//$athlete_stats["max_press"] ?></h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo number_format($average_deadlift, 2);//$athlete_stats["max_deadlift"] ?></h4></div>
 	<div>
 </div>
 	

@@ -59,8 +59,8 @@ foreach ( $athlete['WOD'] as $exerciseswod ) {
 	$row['Type'] = $exerciseswod['type'];
 	$row ['Value'] = $exerciseswod ['value'];
 	$row['Date'] = $exerciseswod['date'];
-	$row ['Volume'] = $exerciseswod ['volume'];
-	$row ['Fitness'] = $exerciseswod ['fitness'];
+	$row ['Volume'] = number_format($exerciseswod ['volume'], 2);
+	$row ['Fitness'] = number_format($exerciseswod ['fitness'], 2);
 	
 	$exe = 1; //numer of exercises
 	$measures= 1; //number of measures
@@ -140,11 +140,11 @@ $columns[] = 'Fitness';
  ?>
 <div>
 
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo $average_volume; ?> </h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo $average_fitness; ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo $max_squat; ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo $max_press; ?></h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo $max_deadlift; ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo number_format($average_volume, 2); ?> </h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2); ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo number_format($max_squat, 2); ?></h4></div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo number_format($max_press, 2); ?></h4> </div>
+	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo number_format($max_deadlift, 2); ?></h4></div>
 	<div>
 <?php 
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
