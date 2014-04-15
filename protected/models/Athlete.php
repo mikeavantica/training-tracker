@@ -542,6 +542,7 @@ class Athlete extends CActiveRecord
                             $minutes = (int) $t->format("i");
                             $seconds = (int) $t->format("s");
                             $total =  $minutes * 60 + $seconds;
+                            echo 'minutes' . $minutes . " " . $seconds . "total " . $total; 
                             if ($total > 0) {
                                 $power[$body_profile->body_part__name]  = $work[$body_profile->body_part__name] / $total;
                             } else {
