@@ -3,10 +3,12 @@
 /* @var $model Workout */
 ?>
 <script>
+
    $(function(){
 	   $('#dpExercise').change(function() {
            var url = window.location.pathname;
            var exercise = $('#dpExercise').val();
+         
            $.ajax({
      			 type:  "get",
                   url: window.location.pathname,
@@ -26,12 +28,18 @@
                   ,error : function(request, status, error){}
 
          		});
+          
        });
+	 
+	    $('#updateGrid').on('click', function() { 
+		    var $this = $(this); 
+		    var cityId =$this.data('detail-id'); 
+		    //var projectId = $this.data('project-id'); 
+		    alert("Hola!!!"+cityId);
+		    
+		     }); 
 
-       function loadUpdateDetail()
-       {
-                 alert("Hola!");
-           }
+	 
 		
 	   });
 
@@ -80,6 +88,7 @@ $this->menu = array (
 );
 
 ?>
+<div style="margin-left: 20px;" >
 <div class="form">
     <?php
 				
@@ -152,7 +161,8 @@ if ($model->id != "") {
 			// controller action is handling ajax validation correctly.
 			// There is a call to performAjaxValidation() commented in generated controller code.
 			// See class documentation of CActiveForm for details on this.
-			'enableAjaxValidation' => false 
+			'enableAjaxValidation' => false ,
+      
 	) );
 	?>
 
@@ -165,7 +175,7 @@ if ($model->id != "") {
 
 	<div class="column">
             <?php  echo $form->label($modelDetail,'exerciseid'); ?>
-            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise')); ?>
+            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise','prompt'=>'Select a exercise')); ?>
             <?php
 												
 												?>
@@ -189,7 +199,7 @@ if ($model->id != "") {
 																echo $form->numberField ( $modelDetail, 'total_reps', array (
 	                                                                           		'lenght' => 11,
 	                                                                                'min' => 0 ,
-                                                                                     'style'=> 'display:none'));
+                                                                                      ));
 															}
 														}
 														
@@ -366,6 +376,8 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'header' => 'Time',
 						'visible' => $model->workout_typeid == 2 
 				),
+
+
               /*  array (
 		'name' => 'workoutid',
         'header'=> 'WorkOut',
@@ -378,15 +390,25 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'class' => 'CButtonColumn',
 						'template' => '{delete}',
+                         
 						'buttons' => array (
 								
 // 								 'update' => array (
 // 								 'label' => '',
 // 								 'imageUrl' => '',
+                                 
 // 								 'url' => '',//"CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
 // 								 'options' => array (
+                                 
 // 								 'class' => 'glyphicon glyphicon-edit',
-//                                  'onclick' => "js:loadUpdateDetail();"
+//                                  'id'=> "updateGrid",
+//                                  'data-detail-id'=> '$data->id',
+//                                  'data-exercise-id'=> '$data->exerciseid',
+//                                  'data-measure-height'=> '$data->measure_height',
+//                                  'data-measure-weight'=> '$data->measure_weight',
+//                                  'data-measure-calories'=>'$data->measure_calories',
+//                                  'data-measure-assist' => '$data->measure_assist'
+                                
 // 								 )
 // 								 ),
 								'delete' => array (
@@ -394,7 +416,8 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 										'imageUrl' => '',
 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/delete', 'id'=>\$data->id))",
 										'options' => array (
-												'class' => 'glyphicon glyphicon-remove' 
+												'class' => 'glyphicon glyphicon-remove'
+                                              
 										) 
 								) 
 						) 
@@ -421,4 +444,6 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				// 'url' => Yii::app()->request->urlReferrer,
 				// ));
 				?>
+				
+				</div>
 

@@ -103,9 +103,7 @@ class WorkoutDetailController extends Controller
 			}
 		}
 	
-		$this->render('create',array(
-				'model'=>$model,
-		));
+	             $this->redirect(array('Workout/view','id'=>$model->workoutid));
 	}
 
 	/**

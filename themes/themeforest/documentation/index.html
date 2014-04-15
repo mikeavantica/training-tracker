@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Bootstraped Documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="Ivor">
+
+	<!-- Le styles -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Le fav and touch icons -->
+	<!-- Loading Custom Stylesheets -->    
+	<link href="css/custom.css" rel="stylesheet">
+
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-fa fa-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-fa fa-114x114.png">
+</head>
+
+<body data-spy="scroll" id="top">
+
+	<!-- Documentation Navbar -->
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container"> 
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="fa fa-bar"></span> <span class="fa fa-bar"></span> <span class="fa fa-bar"></span> </a> 
+				<a class="brand" href="#">Archon</a> <!-- TIP: Change this for the name of your file -->
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="#top" class="active">Top</a></li>
+						<li><a href="#markup">Markup</a></li>
+						<li><a href="#styles">Styles</a></li>
+						<li><a href="../frontend/documentation.html">Front End</a></li>
+						<li><a href="#installation">Installation</a></li>
+						<li><a href="#javascript">JavaScript</a></li>
+						<li><a href="#changelog">Change Log</a></li>
+						<li><a href="#credits">Credits</a></li>
+						<li><a href="#contact" >Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div> <!-- End of Navbar -->
+
+	<!-- Main Container Beginning -->			
+
+<div class="container">
+
+	<div class="masthead">
+		<h1>Archon Documentation</h1>
+		<p class="marketing-byline">Archon Admin Dashboard Template Crafted with &hearts; by <a href="http://bootstrapguru.com">Bootstrap Guru</a></p>
+		<p>Simple, flat and responsive admin template  made with Twitter Bootstrap for your awesome application.  Live charts, 20+ jq plugins, Profile , font awesome icons.</p>
+		<p class="download-info"> <a href="http://bootstrapguru.com/contact" class="btn btn-primary btn-large">Item Support</a> <a href="http://bootstrapguru.com/forums/forum/archon/" class="btn btn-large btn-success">Self-hosted Forum</a> </p>
+	</div> <!-- masthead -->
+
+	<div id="intro">
+		<p class="highlight hero-unit">Thank you for purchasing my theme. You are awesome!! If you have any questions that are beyond the scope of this help file, please feel free to email via <a href="http://bootstrapguru.com/contact"> Contact form</a>. Thanks so much!</p>
+	</div> <!-- intro -->
+
+	<section id="markup">
+		<div class="page-header">
+			<h1>Markup <small>Markup customization and highlights</small></h1>
+		</div>
+
+		<div class="alert alert-info "> <a class="close" data-dismiss="alert">×</a> <strong>Important Note!</strong> Make sure to start with the template.html , it consists of basic markup of the template </div>
+		<p>This theme is a responsive layout with bootstrap 3.0  The theme consists of primarily two columns nested in class <code >.frame </code>   All of the information within the main content area is nested within a div with an class of <code>.content </code>  The sidebar's (column #2) content is within a div with an class of <code>.sidebar </code> </p>
+
+		<p>Once we are into the content div , we can use twitter bootstrap panels nested with in a class row. For more info on rows, columns and panels visit <a href="http://getbootstrap.com/">twitter bootstrap</a> documentation. Lets dig up this more deep to have real fun</p>
+
+		<hr />
+		<div calss="row">
+			<img src="assets/img/screen-narrate.png" width="100%" alt="">
+		</div>
+		<br /><br />
+		<div class="row">
+			<div class="span3">
+				<h3>General Markup</h3>
+				<p> The general template structure is the same throughout the template. Here is the general structure.</p>
+			</div>
+
+			<div class="span9">
+				<pre class="prettyprint linenums">
+				&lt;!DOCTYPE html&gt;<br/>&lt;html lang=&quot;en&quot;&gt;<br/>&lt;head&gt;<br/>	&lt;meta charset=&quot;utf-8&quot;&gt;<br/>	&lt;title&gt;Archon Admin Template&lt;/title&gt;<br/>	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br/><br/>	&lt;!-- Loading Bootstrap --&gt;<br/>	&lt;link href=&quot;bootstrap/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;<br/><br/>	&lt;!-- Loading Stylesheets --&gt;    <br/>	&lt;link href=&quot;css/archon.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>	&lt;link href=&quot;css/responsive.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>	&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon.ico&quot;&gt;<br/><br/>	&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon.ico&quot;&gt;<br/><br/>	&lt;!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --&gt;<br/>	&lt;!--[if lt IE 9]&gt;<br/>	&lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;<br/>	&lt;![endif]--&gt;<br/>&lt;/head&gt;<br/>&lt;body&gt;<br/>	&lt;div class=&quot;frame&quot;&gt;<br/>		&lt;div class=&quot;sidebar&quot;&gt;<br/>                 @@Content goes here@@<br/>		&lt;/div&gt;&lt;!-- /Sidebar --&gt;<br/><br/>		&lt;div class=&quot;content&quot;&gt;<br/>			&lt;div class=&quot;navbar&quot;&gt;<br/>                           @@Content goes here@@<br/>			&lt;/div&gt;&lt;!-- / Navbar--&gt;<br/><br/>			&lt;div id=&quot;main-content&quot;&gt;<br/>			 @@Content goes here@@<br/>                        &lt;/div&gt;&lt;!-- /Main Content  --&gt;<br/>		&lt;/div&gt;&lt;!-- / Content  --&gt;<br/><br/>		&lt;div class=&quot;row footer&quot;&gt;<br/>                 @@Content goes here@@<br/>                &lt;/div&gt;&lt;!-- /Row --&gt;<br/><br/>	&lt;/div&gt; &lt;!-- /Frame --&gt;<br/>    &lt;/body&gt;<br/>&lt;/html&gt;<br/><br/>
+				</pre>
+			</div>
+		</div>
+
+
+		<hr />
+
+			<div class="row">
+				<div class="span3">
+					<h3>Template file sections</h3>
+					<p>Archon admin template comes with a well documented code. Check the sections one by one , Template.html is demonstrated below</p>
+				</div>
+
+				<div class="span9">
+					<h3>Start:</h3>
+					<pre class="prettyprint linenums">&lt;!DOCTYPE html&gt;<br/>&lt;html lang=&quot;en&quot;&gt;</pre>
+
+					<h3>Page Head:</h3>
+					<pre class="prettyprint linenums">&lt;head&gt;<br/>	&lt;meta charset=&quot;utf-8&quot;&gt;<br/>	&lt;title&gt;Archon Admin Template&lt;/title&gt;<br/>	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br/><br/>	&lt;!-- Loading Bootstrap --&gt;<br/>	&lt;link href=&quot;bootstrap/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;<br/><br/>	&lt;!-- Loading Stylesheets --&gt;    <br/>	&lt;link href=&quot;css/archon.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>	&lt;link href=&quot;css/responsive.css&quot; rel=&quot;stylesheet&quot;&gt;<br/>	&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon.ico&quot;&gt;<br/><br/>	&lt;link rel=&quot;shortcut icon&quot; href=&quot;images/favicon.ico&quot;&gt;<br/><br/>	&lt;!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --&gt;<br/>	&lt;!--[if lt IE 9]&gt;<br/>	&lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;<br/>	&lt;![endif]--&gt;<br/>&lt;/head&gt;</pre>
+
+					<h3>Theme Start:</h3>
+					<pre class="prettyprint linenums">&lt;body&gt;<br/>	&lt;div class=&quot;frame&quot;&gt;<br/></pre>
+
+					<h3>Left Side Bar:</h3>
+					<pre class="prettyprint linenums">&lt;div class=&quot;sidebar&quot;&gt;<br/>	&lt;div class=&quot;wrapper&quot;&gt;<br/>		&lt;!-- Replace the src of the image with your logo --&gt;<br/>		&lt;a href=&quot;index.html&quot; class=&quot;logo&quot;&gt;&lt;img src=&quot;images/logo.png&quot; alt=&quot;Archon Admin&quot; /&gt;&lt;/a&gt;<br/>		&lt;ul class=&quot;nav  nav-list&quot;&gt;<br/>			&lt;!-- sidebar input search box --&gt;<br/>			&lt;li class=&quot;nav-search&quot;&gt;<br/>				&lt;div class=&quot;form-group&quot;&gt;<br/>					&lt;input type=&quot;text&quot; class=&quot;form-control nav-search&quot; placeholder=&quot;Search through site&quot; /&gt;<br/>					&lt;span class=&quot;input-icon fui-search&quot;&gt;&lt;/span&gt;<br/>				&lt;/div&gt;<br/>			&lt;/li&gt;<br/>			&lt;!-- Sidebar header @add class nav-header for sidebar header --&gt;<br/>			&lt;li class=&quot;nav-header&quot;&gt;Overview&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;&lt;i class=&quot;fa fa-dashboard&quot;&gt;&lt;/i&gt;Dashboard &lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;&lt;i class=&quot;fa fa-dashboard&quot;&gt;&lt;/i&gt;Dashboard &lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;<br/>				&lt;a class=&quot;dropdown&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-tint&quot;&gt;&lt;/i&gt; UI Features &lt;span class=&quot;label&quot;&gt;2&lt;/span&gt;&lt;/a&gt;<br/>				&lt;ul&gt;<br/>					&lt;li&gt;&lt;a href=&quot;buttons.html&quot;&gt;&lt;i class=&quot;fa fa-bullhorn&quot;&gt;&lt;/i&gt; Buttons &amp;amp; Notifications&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;slidersnprogress.html&quot;&gt;&lt;i class=&quot;fa fa-minus&quot;&gt;&lt;/i&gt;Sliders &amp;amp; Progress &lt;/a&gt;&lt;/li&gt;<br/>				&lt;/ul&gt;	<br/>			&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;widgets.html&quot;&gt;&lt;i class=&quot;fa fa-group&quot;&gt;&lt;/i&gt;Widgets&lt;/a&gt;&lt;/li&gt;<br/>			&lt;!-- Sidebar header @add class nav-header for sidebar header --&gt;<br/>			&lt;li class=&quot;nav-header&quot;&gt;Pages&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;calendar.html&quot;&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt;Calendar&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;gallery.html&quot;&gt;&lt;i class=&quot;fa fa-picture-o&quot;&gt;&lt;/i&gt;Gallery&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;login.html&quot;&gt;&lt;i class=&quot;fa fa-sign-in&quot;&gt;&lt;/i&gt;Login&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;login.html&quot;&gt;&lt;i class=&quot;fa fa-sign-in&quot;&gt;&lt;/i&gt;Login&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt; &lt;!-- Example for second level menu --&gt;<br/>				&lt;a class=&quot;dropdown&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; Profile &lt;span class=&quot;label&quot;&gt;2&lt;/span&gt;&lt;/a&gt;<br/>				&lt;ul&gt;<br/>					&lt;li&gt;&lt;a href=&quot;profile.html&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; Model One&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;profileTwo.html&quot;&gt;&lt;i class=&quot;fa fa-user&quot;&gt;&lt;/i&gt; Model Two&lt;/a&gt;&lt;/li&gt;<br/>				&lt;/ul&gt;	<br/>			&lt;/li&gt;<br/>			&lt;li&gt; &lt;!-- Example for second level menu --&gt;<br/>				&lt;a class=&quot;dropdown&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-folder&quot;&gt;&lt;/i&gt; Dropdown menu &lt;span class=&quot;label&quot;&gt;3&lt;/span&gt;&lt;/a&gt;<br/>				&lt;ul&gt;<br/>					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-hdd&quot;&gt;&lt;/i&gt; Submenu item&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-coffee&quot;&gt;&lt;/i&gt;Submenu item&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-crop&quot;&gt;&lt;/i&gt; Submenu item&lt;/a&gt;&lt;/li&gt;<br/>				&lt;/ul&gt;	<br/>			&lt;/li&gt;<br/>			&lt;!-- Sidebar header @add class nav-header for sidebar header --&gt;<br/>			&lt;li class=&quot;nav-header&quot;&gt;Components&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;tables.html&quot;&gt;&lt;i class=&quot;fa fa-table&quot;&gt;&lt;/i&gt;Tables&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt; &lt;!-- Example for second level menu --&gt;<br/>				&lt;a class=&quot;dropdown&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;fa fa-folder&quot;&gt;&lt;/i&gt; Charts &lt;span class=&quot;label&quot;&gt;3&lt;/span&gt;&lt;/a&gt;<br/>				&lt;ul&gt;<br/>					&lt;li&gt;&lt;a href=&quot;nvd.html&quot;&gt;&lt;i class=&quot;fa fa-hdd&quot;&gt;&lt;/i&gt; NVD&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;flot.html&quot;&gt;&lt;i class=&quot;fa fa-coffee&quot;&gt;&lt;/i&gt;Flot&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;knobs&quot;&gt;&lt;i class=&quot;fa fa-coffee&quot;&gt;&lt;/i&gt;Knobs&lt;/a&gt;&lt;/li&gt;<br/>				&lt;/ul&gt;	<br/>			&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;typography.html&quot;&gt;&lt;i class=&quot;fa fa-text-width&quot;&gt;&lt;/i&gt;Typography&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;<br/>				&lt;a class=&quot;dropdown&quot; href=&quot;forms.html&quot;&gt;&lt;i class=&quot;fa fa-list-alt&quot;&gt;&lt;/i&gt;Forms  &lt;span class=&quot;label&quot;&gt;4&lt;/span&gt;&lt;/a&gt;<br/>				&lt;ul&gt;<br/>					&lt;li&gt;&lt;a href=&quot;form-elements.html&quot;&gt;&lt;i class=&quot;fa fa-indent&quot;&gt;&lt;/i&gt; Form Elements&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li &gt;&lt;a href=&quot;forms.html&quot;&gt;&lt;i class=&quot;fa fa-indent&quot;&gt;&lt;/i&gt;Forms&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;form-wizard.html&quot;&gt;&lt;i class=&quot;fa fa-coffee&quot;&gt;&lt;/i&gt;Form wizard&lt;/a&gt;&lt;/li&gt;<br/>					&lt;li&gt;&lt;a href=&quot;file-uploads.html&quot;&gt;&lt;i class=&quot;fa fa-indent&quot;&gt;&lt;/i&gt; File Upload&lt;/a&gt;&lt;/li&gt;<br/>				&lt;/ul&gt;	<br/>			&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;icons.html&quot;&gt;&lt;i class=&quot;fa fa-truck&quot;&gt;&lt;/i&gt;Icons&lt;/a&gt;&lt;/li&gt;<br/>		&lt;/ul&gt;<br/>	&lt;/div&gt;&lt;!-- /Wrapper --&gt;<br/>&lt;/div&gt;&lt;!-- /Sidebar --&gt;<br/></pre>
+
+					<h3>Right content Starts:</h3>
+					<pre class="prettyprint linenums">&lt;!-- Main content starts here--&gt;<br/>&lt;div class=&quot;content&quot;&gt;</pre>
+
+					<h3>Navbar:</h3>
+					<pre class="prettyprint linenums">&lt;div class=&quot;navbar&quot;&gt;<br/>	&lt;a href=&quot;#&quot; onclick=&quot;return false;&quot; class=&quot;btn pull-left toggle-sidebar &quot;&gt;&lt;i class=&quot;fa fa-list&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>	&lt;a class=&quot;navbar-brand&quot; href=&quot;index.html&quot;&gt;Archon&lt;/a&gt;<br/><br/>	&lt;!-- Top right user menu --&gt;<br/>	&lt;ul class=&quot;nav navbar-nav user-menu pull-right&quot;&gt;<br/>		&lt;!-- First nav user item --&gt;<br/>		&lt;li class=&quot;dropdown hidden-xs&quot;&gt;<br/>			&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;fa fa-envelope&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>			&lt;ul class=&quot;dropdown-menu right inbox&quot;&gt;<br/>				&lt;li class=&quot;dropdown-menu-title&quot;&gt;<br/>					INBOX &lt;span&gt;(25)&lt;/span&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;img src=&quot;images/theme/avatarTwo.png&quot; alt=&quot;&quot; class=&quot;avatar&quot;&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Anusha&lt;/span&gt; <br/>						&lt;span class=&quot;mini-details&quot;&gt;(6) &lt;i class=&quot;fa fa-paper-clip&quot;&gt;&lt;/i&gt;&lt;/span&gt;<br/>						&lt;span class=&quot;time pull-right&quot;&gt; 06:58 PM&lt;/span&gt;<br/>						&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... &lt;/p&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;img src=&quot;images/theme/avatarFive.png&quot; alt=&quot;&quot; class=&quot;avatar&quot;&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Veeru&lt;/span&gt; <br/>						&lt;span class=&quot;mini-details&quot;&gt;(2) &lt;i class=&quot;fa fa-paper-clip&quot;&gt;&lt;/i&gt;&lt;/span&gt;<br/>						&lt;span class=&quot;time pull-right&quot;&gt; 09:58 AM&lt;/span&gt;<br/>						&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... &lt;/p&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;img src=&quot;images/theme/avatarSix.png&quot; alt=&quot;&quot; class=&quot;avatar&quot;&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Nag&lt;/span&gt; <br/>						&lt;span class=&quot;mini-details&quot;&gt;(6) &lt;i class=&quot;fa fa-paper-clip&quot;&gt;&lt;/i&gt;&lt;/span&gt;<br/>						&lt;span class=&quot;time pull-right&quot;&gt;Yesterday&lt;/span&gt;<br/>						&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... &lt;/p&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;img src=&quot;images/theme/avatarSeven.png&quot; alt=&quot;&quot; class=&quot;avatar&quot;&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Harish&lt;/span&gt; <br/>						&lt;span class=&quot;mini-details&quot;&gt; &lt;i class=&quot;fa fa-picture-o&quot;&gt;&lt;/i&gt;&lt;/span&gt;<br/>						&lt;span class=&quot;time pull-right&quot;&gt;14/12/2013&lt;/span&gt;<br/>						&lt;p&gt;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... &lt;/p&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li class=&quot;dropdown-menu-footer&quot;&gt;<br/>					&lt;a href=&quot;#&quot;&gt;View All Messages&lt;/a&gt;<br/>				&lt;/li&gt;<br/>			&lt;/ul&gt;<br/>		&lt;/li&gt;&lt;!-- /dropdown --&gt;<br/><br/>		&lt;!-- Second nav user item --&gt;<br/>		&lt;li class=&quot;dropdown hidden-xs&quot;&gt;<br/>			&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;i class=&quot;fa fa-bell&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>			&lt;ul class=&quot;dropdown-menu right notifications&quot;&gt;<br/>				&lt;li class=&quot;dropdown-menu-title&quot;&gt;<br/>					Notifications<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-cog avatar text-success&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-success&quot;&gt;New settings activated&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; 06:58 PM&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-shopping-cart avatar text-danger&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-danger&quot;&gt;You have 2 returns&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; 04:29 PM&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-user avatar text-success&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-success&quot;&gt;New User registered&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; Yesterday&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-comment avatar text-info&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-info&quot;&gt;New Comment received&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; Yesterday&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-cog avatar text-warning&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-warning&quot;&gt;User deleted&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; 2 days ago&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-dollar avatar&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Earned 200 points&lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt;3 days ago&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-hdd avatar text-danger&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username text-danger&quot;&gt;Memory size exceeded &lt;/span&gt; <br/>						&lt;span class=&quot;time pull-right&quot;&gt; 1 week ago&lt;/span&gt;<br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/><br/>				&lt;li class=&quot;dropdown-menu-footer&quot;&gt;<br/>					&lt;a href=&quot;#&quot;&gt;View All Notifications&lt;/a&gt;<br/>				&lt;/li&gt;<br/>			&lt;/ul&gt;<br/>		&lt;/li&gt;&lt;!-- / dropdown --&gt;<br/><br/>		&lt;li class=&quot;dropdown user-name&quot;&gt;<br/>			&lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;&lt;img src=&quot;images/theme/avatarSeven.png&quot; class=&quot;user-avatar&quot; alt=&quot;&quot; /&gt;Vijay Kumar&lt;/a&gt;<br/>				&lt;ul class=&quot;dropdown-menu right inbox user&quot;&gt;<br/>					&lt;li class=&quot;user-avatar&quot;&gt;<br/>						&lt;img src=&quot;images/theme/avatarSeven.png&quot; class=&quot;user-avatar&quot; alt=&quot;&quot; /&gt;<br/>						Vijay Kumar<br/>					&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-user avatar&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Profile&lt;/span&gt; <br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-cogs avatar&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Settings &lt;/span&gt; <br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;<br/>					&lt;i class=&quot;fa fa-book avatar&quot;&gt;&lt;/i&gt;<br/>					&lt;div class=&quot;message&quot;&gt;<br/>						&lt;span class=&quot;username&quot;&gt;Help &lt;/span&gt; <br/>					&lt;/div&gt;<br/>				&lt;/li&gt;<br/>				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Logout&lt;/a&gt;&lt;/li&gt;<br/>			&lt;/ul&gt;<br/>		&lt;/li&gt;&lt;!-- / dropdown --&gt;				<br/>	&lt;/ul&gt;&lt;!-- / Top right user menu --&gt;<br/><br/>&lt;/div&gt;&lt;!-- / Navbar--&gt;<br/></pre>
+
+
+					<h3>Main Content Starts:</h3>
+					<pre class="prettyprint linenums">&lt;div id=&quot;main-content&quot;&gt;</pre>
+
+					<h3>Template Content:</h3>
+					<pre class="prettyprint linenums">&lt;div class=&quot;row&quot;&gt;<br/>	&lt;div class=&quot;col-mod-12&quot;&gt;<br/>		&lt;ul class=&quot;breadcrumb&quot;&gt;<br/>			&lt;li&gt;&lt;a href=&quot;index.html&quot;&gt;Dashboard&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li&gt;&lt;a href=&quot;template.html&quot;&gt;Template&lt;/a&gt;&lt;/li&gt;<br/>			&lt;li class=&quot;active&quot;&gt;Bread Crumb&lt;/li&gt;<br/>		&lt;/ul&gt;<br/>	&lt;/div&gt;<br/>&lt;/div&gt;<br/><br/>&lt;!-- Demo Panel --&gt;<br/>&lt;div class=&quot;row&quot;&gt;<br/>	&lt;div class=&quot;col-md-12&quot;&gt;<br/>		&lt;div class=&quot;panel panel-archon&quot;&gt;<br/>			&lt;div class=&quot;panel-heading&quot;&gt;<br/>				&lt;h3 class=&quot;panel-title&quot;&gt;<br/>					Demo Panel<br/>					&lt;span class=&quot;pull-right&quot;&gt;<br/>						&lt;a  href=&quot;#&quot; class=&quot;panel-minimize&quot;&gt;&lt;i class=&quot;fa fa-chevron-up&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>						&lt;a  href=&quot;#&quot;  class=&quot;panel-settings&quot;&gt;&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>						&lt;a  href=&quot;#&quot;  class=&quot;panel-close&quot;&gt;&lt;i class=&quot;fa fa-remove&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>					&lt;/span&gt;<br/>				&lt;/h3&gt;<br/>			&lt;/div&gt;<br/>			&lt;div class=&quot;panel-body&quot;&gt;<br/>				This is demo panel. Do your magic with this page<br/>			&lt;/div&gt;<br/>		&lt;/div&gt;<br/>	&lt;/div&gt;<br/>&lt;/div&gt;<br/><br/>&lt;!-- Modal --&gt;<br/>&lt;div class=&quot;modal fade&quot; id=&quot;myModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot;&gt;<br/>	&lt;div class=&quot;modal-dialog&quot;&gt;<br/>		&lt;div class=&quot;modal-content&quot;&gt;<br/>			&lt;div class=&quot;modal-header&quot;&gt;<br/>				&lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;<br/>				&lt;h5 class=&quot;modal-title&quot;&gt;Panel Settings&lt;/h5&gt;<br/>				&lt;span class=&quot;small&quot;&gt;Some sort of settings with a form&lt;/span&gt;<br/>			&lt;/div&gt;<br/>			&lt;div class=&quot;modal-body&quot;&gt;<br/>				&lt;form class=&quot;form-horizontal&quot; role=&quot;form&quot;&gt;<br/>					&lt;div class=&quot;form-group&quot;&gt;<br/>						&lt;label for=&quot;inputEmail1&quot; class=&quot;col-lg-2 control-label&quot;&gt;Label&lt;/label&gt;<br/>						&lt;div class=&quot;col-lg-10&quot;&gt;<br/>							&lt;input type=&quot;email&quot; class=&quot;form-control&quot; id=&quot;inputEmail1&quot; placeholder=&quot;Label&quot;&gt;<br/>						&lt;/div&gt;<br/>					&lt;/div&gt;<br/>					&lt;div class=&quot;form-group&quot;&gt;<br/>						&lt;label for=&quot;inputPassword1&quot; class=&quot;col-lg-2 control-label&quot;&gt;Second Label&lt;/label&gt;<br/>						&lt;div class=&quot;col-lg-10&quot;&gt;<br/>							&lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;inputPassword1&quot; placeholder=&quot;Label two&quot;&gt;<br/>						&lt;/div&gt;<br/>					&lt;/div&gt;<br/>				&lt;/form&gt;<br/>			&lt;/div&gt;<br/>			&lt;div class=&quot;modal-footer&quot;&gt;<br/>				&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;<br/>				&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Save changes&lt;/button&gt;<br/>			&lt;/div&gt;<br/>		&lt;/div&gt;&lt;!-- /.modal-content --&gt;<br/>	&lt;/div&gt;&lt;!-- /.modal-dialog --&gt;<br/>&lt;/div&gt;&lt;!-- /.modal --&gt;<br/></pre>
+
+					<h3>Content Ends:</h3>
+					<pre class="prettyprint linenums">	&lt;/div&gt;&lt;!-- /Main Content  @7 --&gt;<br/><br/>&lt;/div&gt;&lt;!-- / Content @5 --&gt;<br/></pre>
+
+					<h3>Footer</h3>
+					<pre class="prettyprint linenums">		&lt;div class=&quot;row footer&quot;&gt;<br/>			&lt;div class=&quot;col-md-12 text-center&quot;&gt;<br/>				&#x00a9; 2013 &lt;a href=&quot;http://bootstrapguru.com&quot;&gt;Bootstrap Guru&lt;/a&gt;<br/>			&lt;/div&gt;<br/>		&lt;/div&gt;<br/></pre>
+
+					<h3>Theme Frame Ends:</h3>
+					<pre class="prettyprint linenums">	&lt;/div&gt; &lt;!-- Frame --&gt;<br/></pre>
+
+					<h3>Java Script on footer:</h3>
+					<pre class="prettyprint linenums">		&lt;!-- Load JS here for greater good =============================--&gt;<br/>		&lt;script src=&quot;js/jquery-1.8.3.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery-ui-1.10.3.custom.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery.ui.touch-punch.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/bootstrap-select.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/bootstrap-switch.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery.tagsinput.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery.placeholder.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/bootstrap-typeahead.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/application.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/moment.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery.dataTables.min.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/jquery.sortable.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.gritter.js&quot;&gt;&lt;/script&gt;<br/><br/>		&lt;!-- Charts  =============================--&gt;<br/>		&lt;script src=&quot;js/charts/jquery.flot.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/charts/jquery.flot.resize.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/charts/jquery.flot.stack.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/charts/jquery.flot.pie.min.js&quot;&gt;&lt;/script&gt;	<br/>		&lt;script src=&quot;js/charts/jquery.sparkline.min.js&quot;&gt;&lt;/script&gt;	<br/>		&lt;script src=&quot;js/jquery.knob.js&quot;&gt;&lt;/script&gt;<br/><br/><br/>		&lt;!-- NVD3 graphs  =============================--&gt;<br/>		&lt;script src=&quot;js/nvd3/lib/d3.v3.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/nv.d3.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/src/models/legend.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/src/models/pie.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/src/models/pieChart.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/src/utils.js&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/nvd3/sample.nvd3.js&quot;&gt;&lt;/script&gt;<br/><br/>		&lt;!-- Map and icons on map--&gt;<br/>		&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&quot;&gt;&lt;/script&gt;<br/>		&lt;script src=&quot;js/map-icons.js&quot;&gt;&lt;/script&gt;<br/><br/>		&lt;!-- Archon JS =============================--&gt;<br/>		&lt;script src=&quot;js/archon.js&quot;&gt;&lt;/script&gt;</pre>
+
+					<h3>End of the html:</h3>
+					<pre class="prettyprint linenums">&lt;/body&gt;<br/>&lt;/html&gt;</pre>
+
+
+				</div>
+			</div>
+
+			<hr />
+			
+			
+		<div class="row">
+			<div class="span3">
+				<h3>Archon Panel structure</h3>
+				<p>Archon admin template extends the twitter bootstrap panel with some buttons on the right. Refer more about panel structure <a href="http://getbootstrap.com/components/#panels">here</a> <br/>
+					Archon panel has three buttons on the right for more interaction on panels. <br /> <code>.panel-minimize</code> to minimise the panel. &nbsp; <br /><code>.panel-settings</code> to show settings modal. &nbsp; <br /><code>.panel-close</code> to close the panel. &nbsp;</p>
+			</div>
+
+			<div class="span9">
+				<pre class="prettyprint linenums">
+				<br/>&lt;div class=&quot;panel panel-archon&quot;&gt;<br/>	&lt;div class=&quot;panel-heading&quot;&gt;<br/>		&lt;h3 class=&quot;panel-title&quot;&gt;<br/>			Demo Panel<br/>			&lt;span class=&quot;pull-right&quot;&gt;<br/>				&lt;a  href=&quot;#&quot; class=&quot;panel-minimize&quot;&gt;&lt;i class=&quot;fa fa-chevron-up&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>				&lt;a  href=&quot;#&quot;  class=&quot;panel-settings&quot;&gt;&lt;i class=&quot;fa fa-cog&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>				&lt;a  href=&quot;#&quot;  class=&quot;panel-close&quot;&gt;&lt;i class=&quot;fa fa-remove&quot;&gt;&lt;/i&gt;&lt;/a&gt;<br/>			&lt;/span&gt;<br/>		&lt;/h3&gt;<br/>	&lt;/div&gt;<br/>	&lt;div class=&quot;panel-body&quot;&gt;<br/>		This is demo panel. Do your magic with this page<br/>	&lt;/div&gt;<br/>&lt;/div&gt;<br/>
+				</pre>
+			</div>
+		</div>
+
+		<hr />
+	
+	</section> <!-- Markup -->
+
+
+	<section id="styles">
+		<div class="page-header">
+			<h1>Styles <small>Styles customization and highlights</small></h1>
+		</div>
+
+		<div class="alert alert-info"> <b>Heads up!</b> I'm using two CSS files in this theme. </div>
+
+		<div class="row">
+			<div class="span3">
+				<h3>Stylesheets</h3>
+				<p>Here's a list of the stylesheet files I'm using with this template, you can find more information opening each file:</p>
+			</div>
+			<div class="span9">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>File Name</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>archon.css</code></td>
+							<td>This is the main css file of the theme. Other style files are included at the top of this file using <code>@import</code>.</td>
+						</tr>
+						<tr>
+							<td><code>responsive.css</code></td>
+							<td>This file consists of all override classes of the main classes when on other devices. It is complete set of media queries (<code>@media</code>)</td>
+						</tr>
+						<tr>
+							<td><code>custom.css</code></td>
+							<td>Create a file with the name custom.css and include it below the responsive.css , in this file you can write any custom classes to override the template.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr />
+	
+	</section>
+	<!-- Styles -->
+
+	<section id="javascript">
+		<div class="page-header">
+			<h1>JavaScript <small>JavaScript customization and highlights</small></h1>
+		</div>
+		<div class="row">
+			<div class="span3">
+				<h3>JavaScript Files</h3>
+				<p>Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+			</div>
+			<div class="span9">
+				
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Tag</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr><td width="150px"><a title="Twitter Bootstrap" href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a></td>
+						<td>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</td>
+						</tr><tr>
+							<td><a title="Jquery UI" href="http://jqueryui.com/" target="_blank"> Jquery UI</a></td><td>
+						jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.</td>
+					</tr><tr>
+							<td><a title="Bootstrap Select" href="http://silviomoreto.github.io/bootstrap-select/" target="_blank"> Bootstrap Select</a></td><td>
+						A custom select for @twitter Bootstrap using button dropdown.</td>
+					</tr><tr>
+							<td><a title="Bootstrap Switch" href="https://github.com/nostalgiaz/bootstrap-switch/" target="_blank"> Bootstrap Switch</a></td><td>
+						Bootstrap Switch is a simple Jquery plugin which converts checkbox to switch where enabling and disabling effect takes place with cool animations.</td>
+					</tr><tr>
+							<td><a title="Jquery Tagsinput" href="http://xoxco.com/projects/code/tagsinput/" target="_blank"> Jquery Tagsinput</a></td><td>
+						This plugin will turn your boring tag list into a magical input that turns each tag into a style-able object with its own delete link. The plugin handles all the data, your form just sees a comma-delimited list of tags!.</td>
+					</tr><tr>
+							<td><a title="Jquery Placeholder" href="http://jqueryui.com/" target="_blank"> Jquery Placeholder</a></td><td>
+						A jQuery plugin that enables HTML5 placeholder behavior for browsers that aren’t trying hard enough yet.</td>
+					</tr><tr>
+							<td><a title="Bootstrap Typehead" href="https://github.com/tcrosen/twitter-bootstrap-typeahead" target="_blank"> Bootstrap Typehead</a></td><td>
+						An extension of Twitter's Bootstrap Typeahead plugin with additional customisation.</td>
+					</tr><tr>
+							<td><a title="Moment JS" href="http://momentjs.com/" target="_blank"> Moment JS</a></td><td>
+						A javascript date library for parsing, validating, manipulating, and formatting dates.</td>
+					</tr><tr>
+							<td><a title="Data Tables" href="https://datatables.net/" target="_blank"> Data Tables</a></td><td>
+						DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.</td>
+					</tr><tr>
+							<td><a title="Jquery Flot" href="http://www.flotcharts.org/" target="_blank"> Jquery Flot</a></td><td>
+						Attractive JavaScript plotting for jQuery. Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks and interactive features.</td>
+					</tr><tr>
+							<td><a title="Jquery Sparkline" href="http://omnipotent.net/jquery.sparkline/#s-about" target="_blank"> Jquery Sparkline</a></td><td>
+						This jQuery plugin generates sparklines (small inline charts) directly in the browser using data supplied either inline in the HTML, or via javascript.</td>
+					</tr><tr>
+							<td><a title="Jquery Knobs" href="http://anthonyterrien.com/knob/" target="_blank"> Jquery Knobs</a></td><td>
+						Nice, downward compatible, touchable, jQuery dial.</td>
+					</tr><tr>
+							<td><a title="NVD3 Charts" href="http://nvd3.org/" target="_blank"> NVD3 Charts</a></td><td>
+						NVD3 Re-usable charts for d3.js</td>
+					</tr><tr>
+							<td><a title="Map Icons" href="http://map-icons.com/" target="_blank"> Map Icons</a></td><td>
+						An icon font for use with Google Maps API and Google Places API using SVG markers and icon labels.</td>
+					</tr><tr>
+							<td><a title="Jquery Gritter" href="http://boedesign.com/demos/gritter/" target="_blank"> Jquery Gritter</a></td><td>
+						The super awesome background is just to show you that all notifications are transparent! Tested in: FF 3+, Opera 9, IE7, IE8, Safari 4+.</td>
+					</tr><tr>
+							<td><a title="Noty" href="http://needim.github.io/noty/" target="_blank"> Jquery Noty</a></td><td>
+						noty is a jquery plugin which is have too many options for display notification.</td>
+					</tr><tr>
+							<td><a title="Bootstrap Progressbar" href="https://github.com/minddust/bootstrap-progressbar" target="_blank"> Bootstrap Progressbar</a></td><td>
+						Extended progressbar interactions for twitter bootstrap 2 &amp; 3.</td>
+					</tr><tr>
+							<td><a title="Mixit Up" href="http://mixitup.io/" target="_blank"> MixitUp</a></td><td>
+						MixItUp is free for non-commercial and commercial use.</td>
+					</tr><tr>
+							<td><a title="Timeline" href="https://github.com/christian-fei/Timeline.css" target="_blank">CSS Timeline</a></td><td>
+						A simple and pure css timeline plugin. Share life and work events with Timeline.css</td>
+					</tr><tr>
+							<td><a title="Font Awesome" href="http://fortawesome.github.io/Font-Awesome/" target="_blank"> Font Awesome</a></td><td>
+						Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.</td>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<hr />
+	
+	</section><!-- JavaScript -->
+
+
+	<section id="installation">
+		<div class="page-header">
+			<h1>Installation <small>How to Install the Template</small></h1>
+		</div>
+		<div class="row">
+			<div class="span12 well">
+				<h3>Install Theme</h3>
+				<p>Here's a brief information about how to install your WordPress theme from scratch</p>
+				Download the zip file from the themeforest  and then unzip them. Copy all the files and folders to the root folder of your app. Open template.html and start working for your awesome app
+			</div>
+			<!-- accordion .span9 --> 
+		</div>
+		<!-- /end row --> 
+	</section> <!-- Installation -->
+
+
+	<section id="changelog">
+		<div class="page-header">
+			<h1>Change Log </h1>
+		</div>
+		<div class="row">
+			<div class="span12">
+				Version 1.0 released
+			</div>
+			<!-- accordion .span9 --> 
+		</div>
+		<!-- /end row --> 
+	</section> <!-- Installation -->
+
+
+	<section id="credits">
+		<div class="page-header">
+			<h1>Credits </h1>
+		</div>
+		<p>The images used in this theme are for showcase only. They cannot be used in your application for any purpose. The ownership of the images still stays with the original author of the images..</p>
+	</section><!-- Credits -->
+
+
+		<div class="goodbye" id="contact">
+			<div class="page-header">
+				<h1>Happy editing bro! </h1>
+			</div>
+			<p>Once again, thank you so much for purchasing my theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" <a href="http://bootstrapguru.com/forums/forum/archon">Forum</a>.</p>
+		</div>
+
+		<hr />
+
+		<footer>
+			<p>&copy; Bootstrapguru 2013</p>
+		</footer>
+
+	</div><!-- /container --> 
+
+<!-- Le javascript
+================================================== --> 
+<!-- Placed at the end of the document so the pages load faster --> 
+<script src="assets/js/jquery.js"></script> 
+<script src="assets/js/scripts.js"></script> 
+<script src="assets/js/google-code-prettify/prettify.js"></script> 
+<script src="assets/js/bootstrap-transition.js"></script> 
+<script src="assets/js/bootstrap-alert.js"></script> 
+<script src="assets/js/bootstrap-modal.js"></script> 
+<script src="assets/js/bootstrap-dropdown.js"></script> 
+<script src="assets/js/bootstrap-scrollspy.js"></script> 
+<script src="assets/js/bootstrap-tab.js"></script> 
+<script src="assets/js/bootstrap-tooltip.js"></script> 
+<script src="assets/js/bootstrap-popover.js"></script> 
+<script src="assets/js/bootstrap-button.js"></script> 
+<script src="assets/js/bootstrap-collapse.js"></script>
+</body>
+</html>

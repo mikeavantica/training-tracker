@@ -148,21 +148,31 @@ $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 
 ?>
 <div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
-<div>
-
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;" > <b>Average Volume:</b> <h4><?php echo number_format($average_volume, 2);//$athlete_stats["average_volume"] ?> </h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2);//$athlete_stats["average_fitness"] ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Squat:</b> <h4><?php echo  number_format($average_maxsquat, 2);//$athlete_stats["max_squat"] ?></h4></div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Press:</b> <h4><?php echo number_format($average_maxpress, 2);//$athlete_stats["max_press"] ?></h4> </div>
-	<div class="span2" style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;"> <b>Max Deadlift:</b> <h4><?php echo number_format($average_deadlift, 2);//$athlete_stats["max_deadlift"] ?></h4></div>
-	<div>
-</div>
-	
+<div  style="margin-left: 20px;">
+<table>
+<tr><td>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;" > <b>Average Volume:</b> <h4><?php echo number_format($average_volume, 2);//$athlete_stats["average_volume"] ?> </h4> </div>
+	</td>
+	<td>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2);//$athlete_stats["average_fitness"] ?></h4></div>
+	</td>
+	<td>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Squat:</b> <h4><?php echo number_format($average_maxsquat, 2);//$athlete_stats["max_squat"] ?></h4></div>
+	</td>
+	<td>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Press:</b> <h4><?php echo number_format($average_maxpress, 2);//$athlete_stats["max_press"] ?></h4> </div>
+	</td>
+	<td>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Deadlift:</b> <h4><?php echo number_format($average_deadlift, 2);//$athlete_stats["max_deadlift"] ?></h4></div>
+	</td>
+</tr>
+	</table>
+<div style= "margin-right: 20px;">	
 <?php
 
 
 $this->widget ( 'chartjs.widgets.ChBars', array (
-		'width' => 600,
+		'width' => 800,
 		'height' => 300,
 		'htmlOptions' => array (),
 		'labels' => $dateschbars,
@@ -182,6 +192,9 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 		),
 		'options' => array ()
 ) );
+?>
+</div>
+<?php 
 
 
 $this->widget('bootstrap.widgets.BsGridView',array(

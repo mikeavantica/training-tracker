@@ -26,14 +26,26 @@
 
 <body>
 
-	<div class="container">
+	<div class="frame">
 
 		<!--  <div id="header">
 		<div id="logo"><?php //echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
 
-		<div>
+		<div class="sidebar">
+		<div class="wrapper">
+		<!-- Replace the src of the image with your logo -->
+		<div class="modal-title"><h1>BlackOps</h1></div>
+		<ul class="nav  nav-list">
+			<!-- sidebar input search box -->
+			<li class="nav-search">
+				<div class="form-group">
+					<input type="text" class="form-control nav-search" placeholder="Search through site" />
+					<span class="input-icon fui-search"></span>
+				</div>
+			</li>
+			<li class="nav-header">Pages</li>
 		<?php
 		
 		$this->widget ( 'bootstrap.widgets.BsNavbar', array (
@@ -42,7 +54,7 @@
 				'items' => array (
 						array (
 								'class' => 'bootstrap.widgets.BsNav',
-								'type' => 'navbar',
+								'type' => 'navlist',
 								'items' => array (
 										array (
 												'label' => 'Home',
@@ -120,20 +132,6 @@
 												),
 												
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),
-										array (
-												'label' => 'Login',
-												'url' => array (
-														'/site/login' 
-												),
-												'visible' => Yii::app ()->user->isGuest 
-										),
-										array (
-												'label' => 'Logout (' . Yii::app ()->user->name . ')',
-												'url' => array (
-														'/site/logout' 
-												),
-												'visible' => ! Yii::app ()->user->isGuest 
 										) 
 								) 
 						) 
@@ -151,20 +149,54 @@
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); */?>
+		</ul>
+		</div>
 	</div>
-		<!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php
-		
-		$this->widget ( 'zii.widgets.CBreadcrumbs', array (
-				'links' => $this->breadcrumbs 
-		) );
-		?>
-		<!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
+	
+	<div class="content">
+		<div class="navbar">
+			<a href="#" onclick="return false;" class="btn pull-left toggle-sidebar "><i class="fa fa-list"></i></a>
+			<a class="navbar-brand" href="index.html">Archon</a>
+			<div class="right">
+				<ul class="navbar-nav user-menu pull-right">
+					<li class="dropdown user-name">
+						<a class="dropdown-toggle" data-toggle="dropdown"><?php if(Yii::app()->user->isGuest){ echo "Login"; } else { echo Yii::app()->user->name;} ?></a>
+						<ul class="dropdown-menu right inbox user">
+						<?php $this->widget ( 'bootstrap.widgets.BsNavbar', array (
+							'brandLabel' => CHtml::encode ( Yii::app ()->name ),
+							'collapse' => true,
+							'items' => array (
+									array (
+											'class' => 'bootstrap.widgets.BsNav',
+											'type' => 'navbar',
+											'items' => array (
+												array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+												array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+											)
+									)
+							)
+						  )
+						)
+						?>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div><!-- / Navbar-->
+		<div class="main-content">
+			<!-- mainmenu -->
+			<?php if(isset($this->breadcrumbs)):?>
+				<?php
+				
+				$this->widget ( 'zii.widgets.CBreadcrumbs', array (
+						'links' => $this->breadcrumbs 
+				) );
+				?>
+				<!-- breadcrumbs -->
+			<?php endif?>
+			<?php echo $content; ?>
+		</div>
+	</div>
 	<div class="clear"></div>
 
 		<div id="footer">
@@ -175,9 +207,8 @@
 		<?php //echo Yii::app()->bootstrap->registerCoreCss(); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-theme.min.css', ''); ?>
-		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-responsive.min.css', ''); //this file is not included in the bootstrap 3 folder, it was taken from the project svn?>
-		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
-		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
 		<?php 
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
