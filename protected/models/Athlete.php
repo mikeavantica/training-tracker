@@ -292,7 +292,7 @@ class Athlete extends CActiveRecord
             $athlete_stats['max_press'] = $max_press;
             $athlete_stats['max_deadlift'] = $max_lift;
             
-             echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
+            // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
             
             return $athlete_stats; 
         }
@@ -468,7 +468,7 @@ class Athlete extends CActiveRecord
         
         private function calculate_results(&$data) {
             $params = $this->load_parameters();
-             echo '<pre> Params '; var_dump($params); echo '</pre>';  //die();
+            // echo '<pre>'; var_dump($params); echo '</pre>'; die();
             
             $Gravity = 9.81;
             $body_profiles = BodyProfiles::model()->findAll(
@@ -537,13 +537,11 @@ class Athlete extends CActiveRecord
                         // calculate power
                         // power = work / time in seconds
                         $rd_time = $this->get_exercise_property($exercise, "Time");
-                        echo "rd_time: " . $rd_time;
                         if ($rd_time != "00:00:00") {
                             $t = new DateTime($rd_time);
                             $minutes = (int) $t->format("i");
                             $seconds = (int) $t->format("s");
                             $total =  $minutes * 60 + $seconds;
-                            echo 'minutes' . $minutes . " " . $seconds . "total " . $total; 
                             if ($total > 0) {
                                 $power[$body_profile->body_part__name]  = $work[$body_profile->body_part__name] / $total;
                             } else {
@@ -561,12 +559,12 @@ class Athlete extends CActiveRecord
                     $fitness += $fitness_output;
                     $volume += $total_effort;
 
-                    echo '<pre> Force '; var_dump($force); echo '</pre>'; 
-                    echo '<pre> Distance'; var_dump($distance); echo '</pre>'; 
-                    echo '<pre> Work'; var_dump($work); echo '</pre>'; 
-                    echo '<pre> Power'; var_dump($power); echo '</pre>'; 
-                    echo '<pre> Fitness output'; var_dump($fitness_output); echo '</pre>'; 
-                    echo '<pre> Total Effort'; var_dump($total_effort); echo '</pre>'; 
+//                    echo '<pre> Force '; var_dump($force); echo '</pre>'; 
+//                    echo '<pre> Distance'; var_dump($distance); echo '</pre>'; 
+//                    echo '<pre> Work'; var_dump($work); echo '</pre>'; 
+//                    echo '<pre> Power'; var_dump($power); echo '</pre>'; 
+//                    echo '<pre> Fitness output'; var_dump($fitness_output); echo '</pre>'; 
+//                    echo '<pre> Total Effort'; var_dump($total_effort); echo '</pre>'; 
                     }
                     $data["WOD"][$index]["fitness"] = $fitness / 10;
                     $data["WOD"][$index]["volume"] = $volume / 1000;
@@ -577,8 +575,8 @@ class Athlete extends CActiveRecord
                     }
 
                     $index++;
-                    echo '<pre> Fitness'; var_dump($wod["fitness"]); echo '</pre>'; 
-                    echo '<pre> Volume '; var_dump($wod["volume"]); echo '</pre>'; 
+//                    echo '<pre> Fitness'; var_dump($wod["fitness"]); echo '</pre>'; 
+//                    echo '<pre> Volume '; var_dump($wod["volume"]); echo '</pre>'; 
             }
             if ($frequency > 0) {
                 $data["average_fitness"] = $sum_fitness / $frequency;
