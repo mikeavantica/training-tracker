@@ -220,8 +220,26 @@ class RecordDataController extends Controller {
         {
             if (isset($_POST['wod']))
             {   
-
+                $criteria = new CDbCriteria();
+                $criteria->condition = "workoutid =:workoutid";
+                $criteria->params = array(':workoutid' => $_POST["wod"]);
+                $workoutDetails = WorkoutDetail::model()->with('workout.workoutType','exercise')->findAll($criteria);
+                
+                //$recordData = new RecordData;
+                $models= array();
+                foreach ($workoutDetails as $wodetail) {
+                    $recordData = new RecordData;
+                    $recordData->workoutDetail = $wodetail;
+                    $recordData->workout_detailid= $wodetail->id;
+                    $recordData->workoutDetail->exercise = $wodetail->exercise;
+                    array_push($models, $recordData);
+                }
+                $is_update = null;
+                $model = $models[0];
+                
+               // var_dump($model->workoutDetail->exercise);return;
             }
+            
             $model->date = date("Y-m-d");
         }
         
@@ -256,8 +274,10 @@ class RecordDataController extends Controller {
                     {
                         $model = RecordData::model()->findByPk($work_array['recorddataid']);
                     }
-                    $time = '00:'.$_POST["RecordData"]["time"];
-                    $model->time = $time;
+                    
+                    $time = explode(':', $model->time);
+                    $model->time = '00:'.$time[0].':'.$time[1];
+                    // $time = '00:'.$_POST["RecordData"]["time"];
                     $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
@@ -352,7 +372,7 @@ class RecordDataController extends Controller {
         $workout = Workout::model()->with('workoutType', 'workoutDetails.exercise')->findByPk($id);
         $data['workout'] = $workout;
         
-        $this->renderPartial('_form2', $data, false, true);
+        $this->renderPartial('_form2', $data, false, false);
     }
 
 }

@@ -53,7 +53,9 @@ $('.search-form form').submit(function(){
 		'workout_typeid',
 		array(
 			'class'=>'bootstrap.widgets.BsButtonColumn',
-            'template'=> '{view},{delete}'
+            'template'=> '{view},{delete}',
+                    'htmlOptions' =>array('width'=>'75px'),
 		),
+            
 	),
 )); ?>
