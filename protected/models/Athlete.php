@@ -523,7 +523,7 @@ class Athlete extends CActiveRecord
                         }
                         $height = $this->get_exercise_property($exercise, "Height") / 100;
 
-                        $distance[$body_profile->body_part__name]  = ($data["aux"]["athlete_height"] * $sum + ($body_profile->height * $height * $other_distance));
+                        $distance[$body_profile->body_part__name]  = (($data["aux"]["athlete_height"]/100) * $sum + ($body_profile->height * $height * $other_distance));
                     
                         // Calcule Work
                         $reps = $this->get_exercise_property($exercise, "Reps");
