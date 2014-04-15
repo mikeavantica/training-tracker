@@ -68,8 +68,8 @@ class Athlete extends CActiveRecord
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
 			'email' => 'Email',
-			'height' => 'Height',
-			'weight' => 'Weight',
+			'height' => 'Height(cm)',
+			'weight' => 'Weight(kg)',
 			'sex_typeid' => 'Gender',
             		'fullName' => 'Athlete'
 		);

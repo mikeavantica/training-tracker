@@ -94,45 +94,46 @@ $this->menu = array (
 										'size' => BsHtml::BUTTON_SIZE_SMALL,
 										'submit' => 'create' 
 								) );
-?> 
+								?> 
 &nbsp &nbsp &nbsp
-<?php 
-         echo BsHtml::submitButton ( 'Update Workout', array (
+<?php
+echo BsHtml::submitButton ( 'Update Workout', array (
 		'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 		'size' => BsHtml::BUTTON_SIZE_SMALL,
-		'submit' => array('update','id'=>$model->id),
-        
-        
-) );
-								?>				
+		'submit' => array (
+				'update',
+				'id' => $model->id 
+		) 
+)
+ );
+?>				
 							
     </div>
-    
+
 </div>
 
 <?php $this->endWidget(); ?>
  <?php
-				
-				$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
-						'id' => 'workout-detail-form',
-					// 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
-						// Please note: When you enable ajax validation, make sure the corresponding
-						// controller action is handling ajax validation correctly.
-						// There is a call to performAjaxValidation() commented in generated controller code.
-						// See class documentation of CActiveForm for details on this.
-						'enableAjaxValidation'=>false,
-                        
-						
-				) );
-				?>
+	
+	$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
+			'id' => 'workout-detail-form',
+			// 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+			// Please note: When you enable ajax validation, make sure the corresponding
+			// controller action is handling ajax validation correctly.
+			// There is a call to performAjaxValidation() commented in generated controller code.
+			// See class documentation of CActiveForm for details on this.
+			'enableAjaxValidation' => false 
+	)
+	 );
+	?>
 
 
 <?php  echo $form->errorSummary($modelDetail); ?>
 <div class="form">
-	<div  style="display:none;">
+	<div style="display: none;">
             <?php echo $form->dropDownList($modelDetail, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
             </div>
-	
+
 	<div class="column">
             <?php  echo $form->label($modelDetail,'exerciseid'); ?>
             <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name')); ?>
@@ -141,69 +142,75 @@ $this->menu = array (
 												?>
             
 </div>
-<div class="column">
-              <?php 
-              	
-              
-														if ($model->workout_typeid == 1 || $model->workout_typeid == 3 ) {
-                                                            echo $form->label($modelDetail, 'total_reps');
-															echo $form->numberField( $modelDetail, 'total_reps', array (
+	<div class="column">
+              <?php
+														
+														if ($model->workout_typeid == 1 || $model->workout_typeid == 3) {
+															echo $form->label ( $modelDetail, 'total_reps' );
+															echo $form->numberField ( $modelDetail, 'total_reps', array (
 																	// 'span' => 3,
 																	'lenght' => 11,
-                                                                    'min'=>0 
+																	'min' => 0 
 															) );
 														}
 														
 														?>
 											<?php
 											if ($model->workout_typeid == 2) {
-                                               echo $form->label ( $modelDetail, 'total_time' );
-                                               $this->widget( 'ext.EJuiTimePicker.EJuiTimePicker', array(
-		'model' => $modelDetail, // Your model
-		'attribute' => 'total_time', // Attribute for input
-		'options'=>array('timeOnly'=>true, 'timeFormat'=> 'mm:ss', 'showSecond'=>true, 'showHour'=>false),
-		'htmlOptions' => array('class'=>'form-control'),
-));
+												echo $form->label ( $modelDetail, 'total_time' );
+												$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
+														'model' => $modelDetail, // Your model
+														'attribute' => 'total_time', // Attribute for input
+														'options' => array (
+																'timeOnly' => true,
+																'timeFormat' => 'mm:ss',
+																'showSecond' => true,
+																'showHour' => false 
+														),
+														'htmlOptions' => array (
+																'class' => 'form-control' 
+														) 
+												) );
 												
-												
-                                         
-												//echo $form->timeField( $modelDetail, 'total_time',array('id'=>'txtTime' ,'step'=>1));
-										
-												
-
-											
+												// echo $form->timeField( $modelDetail, 'total_time',array('id'=>'txtTime' ,'step'=>1));
 											}
-              
+											
 											?>
 
             </div>
-	<div class="column" >
-		<div style="font-weight: bold;
-font-size: 0.9em;
-display: block;">Measure</div>
-            <?php  //echo $form->label($model,'measure_weight'); ?>
+	<div class="column">
+		<div style="font-weight: bold; font-size: 0.9em; display: block;">Measure</div>
+		<div class="column">
             <?php echo $form->checkBoxControlGroup($modelDetail,'measure_weight'); ?>
 
-            <?php  //echo $form->label($model,'measure_height'); ?>
+                        </div>
+		<div class="column"> 
             <?php echo $form->checkBoxControlGroup($modelDetail,'measure_height'); ?>
-           
-            <?php  //echo $form->label($model,'measure_calories'); ?>
-            <?php echo $form->checkBoxControlGroup($modelDetail,'measure_calories');
-                     echo $form->hiddenField($modelDetail,'workoutid',array('value'=>$model->id)) ?>
-               
-            <?php  //echo $form->label($model,'measure_calories'); ?>
-            <?php echo $form->checkBoxControlGroup($modelDetail,'measure_assist'); ?>
-             </div>
+            </div>
+		<div class="column">
+          
+            <?php
+												
+echo $form->checkBoxControlGroup ( $modelDetail, 'measure_calories' );
+												echo $form->hiddenField ( $modelDetail, 'workoutid', array (
+														'value' => $model->id 
+												) )?>
+                     </div>
 
-	<div class="row" style=" padding: 30px;"> 
+		<div class="column">
+            <?php echo $form->checkBoxControlGroup($modelDetail,'measure_assist'); ?>
+            </div>
+	</div>
+
+	<div class="row" style="padding: 30px;"> 
         <?php
 								
-								echo BsHtml::submitButton ( 'Add Exercise(s)', array (
+								echo BsHtml::submitButton ( 'Add Another Exercise', array (
 										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 										'size' => BsHtml::BUTTON_SIZE_SMALL,
-                                        'submit' =>'../WorkoutDetail/create',
-                                         
-								) );
+										'submit' => '../WorkoutDetail/create' 
+								)
+								 );
 								?>
      </div>
 <?php $this->endWidget(); ?>
@@ -256,6 +263,12 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'name' => 'id',
 						'header' => '#',
 				),*/
+               array (
+						'name' => 'exerciseid',
+						'value' => '$data->exercise->name',
+						
+						'header' => 'Exercise' 
+				),
 				array (
 						'class' => 'CCheckBoxColumn',
 						'checked' => '$data->measure_height == 1',
@@ -303,25 +316,20 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
                 /*
 				 * array('name' => 'workoutid', 'header'=> 'WorkOut')
 				 */
-				array (
-						'name' => 'exerciseid',
-						'value' => '$data->exercise->name',
-						
-						'header' => 'Exercise' 
-				),
+				
 				array (
 						'class' => 'CButtonColumn',
 						'template' => '{delete}',
 						'buttons' => array (
 								
-// 								'update' => array (
-// 										'label' => '',
-// 										'imageUrl' => '',
-// 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
-// 										'options' => array (
-// 												'class' => 'glyphicon glyphicon-edit' 
-// 										) 
-// 								),
+								// 'update' => array (
+								// 'label' => '',
+								// 'imageUrl' => '',
+								// 'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
+								// 'options' => array (
+								// 'class' => 'glyphicon glyphicon-edit'
+								// )
+								// ),
 								'delete' => array (
 										'label' => '',
 										'imageUrl' => '',
@@ -336,14 +344,14 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 ) );
 ?>
     <?php
-// 				echo BsHtml::linkButton ( 'Add Exercise(s)', array (
-// 						'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-// 						'size' => BsHtml::BUTTON_SIZE_SMALL,
-// 						'url' => array (
-// 								'WorkoutDetail/create',
-// 								'id' => $model->id 
-// 						) 
-// 				) );
+				// echo BsHtml::linkButton ( 'Add Exercise(s)', array (
+				// 'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+				// 'size' => BsHtml::BUTTON_SIZE_SMALL,
+				// 'url' => array (
+				// 'WorkoutDetail/create',
+				// 'id' => $model->id
+				// )
+				// ) );
 				?>
   
 
