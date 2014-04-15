@@ -3,7 +3,11 @@
 /* @var $model Workout */
 ?>
 <script>
+function userClicks(target_id) {
+    id_lote =$.fn.yiiGridView.getSelection(target_id); 
+    alert(id_lote);
 
+}
    $(function(){
 	   $('#dpExercise').change(function() {
            var url = window.location.pathname;
@@ -21,7 +25,7 @@
                
                  	 }
                  	else{
-                 	alert("you need to choose another exercise, because the exercise selected in already in the workout");
+                 	alert("you need to choose another exercise, because the exercise selected is already in the workout");
                    }
 
                      	}
@@ -39,7 +43,7 @@
 		    
 		     }); 
 
-	 
+	  
 		
 	   });
 
@@ -324,8 +328,9 @@ if ($model->id != "") {
 
 $this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'releasenote-grid',
-		'selectableRows' => 0,
+		'selectableRows' => 1,
 		'dataProvider' => WorkoutDetail::model ()->search2 ( $model->id ),
+        'selectionChanged'=>'js:userClicks',
 		'columns' => array(
 				/*array(
 						'name' => 'id',
@@ -340,7 +345,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'class' => 'CCheckBoxColumn',
 						'checked' => '$data->measure_height == 1',
-						
+						'selectableRows' => 0,
 						'name' => 'measure_height',
 						'header' => 'Height',
 						'disabled' => 'true' 
@@ -348,6 +353,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'class' => 'CCheckBoxColumn',
 						'name' => 'measure_weight',
+                        'selectableRows' => 0,
 						'checked' => '$data->measure_weight == 1',
 						'header' => 'Weight',
 						'disabled' => 'true' 
@@ -355,6 +361,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'class' => 'CCheckBoxColumn',
 						'name' => 'measure_calories',
+                         'selectableRows' => 0,
 						'checked' => '$data->measure_calories == 1',
 						'header' => 'Calories',
 						'disabled' => 'true' 
@@ -363,18 +370,21 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'class' => 'CCheckBoxColumn',
 						'checked' => '$data->measure_assist == 1',
 						'name' => 'measure_assist',
+                        'selectableRows' => 0,
 						'header' => 'Assist',
 						'disabled' => 'true' 
 				),
 				array (
 						'name' => 'total_reps',
 						'header' => 'Reps',
-						'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3 
+						'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3 ,
+                        
 				),
 				array (
 						'name' => 'total_time',
 						'header' => 'Time',
 						'visible' => $model->workout_typeid == 2 
+                        
 				),
 
 

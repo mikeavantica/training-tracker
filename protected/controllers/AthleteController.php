@@ -70,13 +70,11 @@ class AthleteController extends Controller
 		if (isset($_POST['Athlete'])) {
 			$model->attributes=$_POST['Athlete'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 			}
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('admin');
 	}
 
 	/**
@@ -85,23 +83,36 @@ class AthleteController extends Controller
 	 * @param integer $id the ID of the model to be updated
 	 */
 	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
+	{   $this->layout = "";
+		$add=$this->loadModel($id);
+		if($add->height < 100)
+		{
+			$add->height = '0'.$add->height;
+		}
+		if($add->weight <100)
+		{
+			$add->weight = '0'.$add->weight;
+		}
+		$model = new Athlete();
+		$model=  new Athlete('search');
+		$model->unsetAttributes();  // clear any default values
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if (isset($_POST['Athlete'])) {
-			$model->attributes=$_POST['Athlete'];
-			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+			$add->attributes=$_POST['Athlete'];
+			if ($add->save()) {
+				$this->redirect(array('admin'));
 			}
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
+		$this->render('admin',array(
+			'add'=>$add,
+			'model'=>$model
 		));
 	}
+	
 	public function actionAthleteStats(){
 		date_default_timezone_get();
                 $startDate = date("Y-m-1");
@@ -153,7 +164,8 @@ class AthleteController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
+	{  $this->layout = "";
+	   $add = new Athlete();
 		$model=new Athlete('search');
 		$model->unsetAttributes();  // clear any default values
 		if (isset($_GET['Athlete'])) {
@@ -162,6 +174,7 @@ class AthleteController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+		    'add'=>$add,
 		));
 	}
 
