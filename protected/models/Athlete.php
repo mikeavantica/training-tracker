@@ -176,9 +176,9 @@ class Athlete extends CActiveRecord
             $dataReader=$command->query(); 
             $rows=$dataReader->readAll();
 
-            $max_press = -1;
-            $max_squat = -1;
-            $max_lift = -1;
+            $max_press = 0;
+            $max_squat = 0;
+            $max_lift = 0;
             $athlete_stats = array(
                 'id'=> $rows[0]["athleteid"],
                 'athlete_name' => $rows[0]["first_name"] . " " .$rows[0]["last_name"],
@@ -234,7 +234,7 @@ class Athlete extends CActiveRecord
                                             "prop" => array ()
                                         );
 
-                            if ($row["record_dataid"] != null) {
+                            if ($in_exercise["record_dataid"] != null) {
                                 //if ($row["workout_type_name"] == 'ForReps') {
                                     array_push($exercise["prop"], array(
                                         "type" => "Reps",
@@ -242,24 +242,24 @@ class Athlete extends CActiveRecord
                                     ));
                                 //}
 
-                                if ($row["workout_type_name"] == 'ForTime') {
+                                if ($in_exercise["workout_type_name"] == 'ForTime') {
                                     array_push($exercise["prop"], array(
                                         "type" => "Time",
                                         "value" => $in_exercise["record_data_time"]
                                     ));
                                 }
 
-                                if ($row["workout_type_name"] == 'MaxWeight') {
+                                if ($in_exercise["workout_type_name"] == 'MaxWeight') { 
                                     if(strtolower($in_exercise["workout_name"]) == "crossfit total") {
                                         if (strtolower($exercise["name"]) == 'back squat') {
-                                            $max_press = $in_exercise["record_data_weight"];
+                                            $max_squat = $in_exercise["record_data_weight"];
                                         }
 
                                         if (strtolower($exercise["name"]) == 'strict press') {
                                             $max_press = $in_exercise["record_data_weight"];
                                         }
 
-                                        if (strtolower($exercise["name"]) == 'deadlift') {
+                                        if (strtolower($exercise["name"]) == 'dead lift') {
                                             $max_lift = $in_exercise["record_data_weight"];
                                         }
                                     }
@@ -440,6 +440,39 @@ class Athlete extends CActiveRecord
             }       // athlete  loop
             
             // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
+          /*  
+            // fill all dates with placeholders
+            $filled_stats = array("Athlete" => array());
+            $date = $start_date;
+            while ($date <= $end_date) {
+                $flag = false;
+                foreach ($athlete_stats as $item) {
+                    if ($item->date == $date) {
+                        $itemObj = new ArrayObject($item);
+                        array_push($athlete_stats["Athlete"], $itemObj->getArrayCopy());
+                        $flag = true;
+                        break;
+                    }
+                }
+                if (!$flag) {
+                    array_push($athlete_stats["Athlete"], array (
+                        'id'=> -1,
+                        'athlete_name' => "",
+                        'average_volume' => 0,
+                        'average_fitness' => 0,
+                        'max_squat' => 0,
+                        'max_press' => 0,
+                        'max_deadlift' => 0,
+                        'WOD' => array(
+                            
+                        )                        
+                    ));
+                    $athlete = array(
+                );
+                }
+            }
+           
+           */
             return $athlete_stats; 
         }
 

@@ -158,13 +158,13 @@ $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2);//$athlete_stats["average_fitness"] ?></h4></div>
 	</td>
 	<td>
-	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Squat:</b> <h4><?php echo number_format($average_maxsquat, 2);//$athlete_stats["max_squat"] ?></h4></div>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Squat:</b> <h4><?php echo number_format($athlete_stats["max_squat"], 2); ?></h4></div>
 	</td>
 	<td>
-	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Press:</b> <h4><?php echo number_format($average_maxpress, 2);//$athlete_stats["max_press"] ?></h4> </div>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Press:</b> <h4><?php echo number_format($athlete_stats["max_press"], 2); ?></h4> </div>
 	</td>
 	<td>
-	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Deadlift:</b> <h4><?php echo number_format($average_deadlift, 2);//$athlete_stats["max_deadlift"] ?></h4></div>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Deadlift:</b> <h4><?php echo number_format($athlete_stats["max_deadlift"], 2); ?></h4></div>
 	</td>
 </tr>
 	</table>
