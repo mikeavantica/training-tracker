@@ -130,15 +130,46 @@ class WorkoutDetail extends CActiveRecord
 				'criteria'=>$criteria,
 		));
 	}
-	public function hasSons($workout_id)
-	{   $sql = "select total_time,total_reps from workout_detail where workoutid = :workout";
-	    $result = false;
-	    $arr;
-		$command = Yii::app()->db->createCommand($sql);
-		$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
-		$arr = $command->queryAll();
+	
+	public function sonTotalTime($workout_id)
+	{   $sql = "select total_time from workout_detail where workoutid = :workout";
+	$arr;
+	$command = Yii::app()->db->createCommand($sql);
+	$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
+	$arr = $command->queryAll();
+	$time = explode(":", $arr[0]['total_time']);
+	$result = $time[1].':'.$time[2];
+	return $result;
+	}
+	public function sonTotalReps($workout_id)
+	{   $sql = "select total_reps from workout_detail where workoutid = :workout";
+	$result = false;
+	$arr;
+	$command = Yii::app()->db->createCommand($sql);
+	$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
+	$arr = $command->queryAll();
+	
+	return $arr[0]['total_reps'];
+	}
+	public function CheckExercise($idworkout,$idexercise)
+	{   
+	    $returned = 0;
+		$result ="";
+		$sql = "select id from workout_detail where workoutid = :workout and exerciseid = :exercise";
 		
-		return $arr;
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindValue(":workout", $idworkout,PDO::PARAM_STR);
+		$command->bindValue(":exercise",$idexercise,PDO::PARAM_STR);
+		$result = $command->queryColumn();
+		if(isset($result[0]))
+		{
+			$returned = $result[0];
+		}
+		
+		
+		
+		
+		return $returned;
 	}
 	
 	public function deleteSons($workout_id)

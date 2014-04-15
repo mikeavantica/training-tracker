@@ -36,7 +36,7 @@ class WorkoutDetailController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','noRepeatExercise'),
 				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -98,6 +98,7 @@ class WorkoutDetailController extends Controller
 				$model->total_time = '00:'.$time[0].':'.$time[1];
 			}
 			if ($model->save()) {
+				
 				$this->redirect(array('Workout/view','id'=>$model->workoutid));
 			}
 		}
@@ -193,6 +194,13 @@ class WorkoutDetailController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $model;
+	}
+	public function actionnoRepeatExercise()
+	{  
+		$rows = WorkoutDetail::model()->CheckExercise($_GET['id'], $_GET['exercise']);
+		echo CJSON::encode(array(
+		 'id'=> $rows	 
+		));
 	}
 
 	/**

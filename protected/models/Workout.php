@@ -113,4 +113,20 @@ class Workout extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function hasSons($workout_id)
+	{   $sql = "select id from workout_detail where workoutid = :workout";
+	$result = true;
+	$arr;
+	$command = Yii::app()->db->createCommand($sql);
+	$command->bindValue(":workout", $workout_id, PDO::PARAM_STR);
+	$arr = $command->queryColumn();
+    if(!isset($arr[0])){
+    	$result = false;
+    	
+    }
+	
+	
+	return $result;
+	}
 }

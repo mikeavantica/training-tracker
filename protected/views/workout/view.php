@@ -4,7 +4,34 @@
 ?>
 <script>
    $(function(){
-	  
+	   $('#dpExercise').change(function() {
+           var url = window.location.pathname;
+           var exercise = $('#dpExercise').val();
+           $.ajax({
+     			 type:  "get",
+                  url: window.location.pathname,
+                  dataType: "json",
+                  data: "r=WorkoutDetail/noRepeatExercise&id=<?php echo $model->id; ?>&exercise="+exercise,
+                 success: function(data){
+                 	if(data.id == 0 ){
+                     	//everything is okay
+                 
+               
+                 	 }
+                 	else{
+                 	alert("you need to choose another exercise, because the exercise selected in already in the workout");
+                   }
+
+                     	}
+                  ,error : function(request, status, error){}
+
+         		});
+       });
+
+       function loadUpdateDetail()
+       {
+                 alert("Hola!");
+           }
 		
 	   });
 
@@ -79,12 +106,13 @@ $this->menu = array (
             <?php echo $form->textFieldControlGroup($model,'name',array('span'=>1,'maxlength'=>45,'style'=>'width:200px;')); ?>
             </td>
 			<td>
-            <?php echo $form->textFieldControlGroup($model,'description',array('span'=>1,'maxlength'=>150,'style'=>'width:200px;')); ?>
-            </td>
-			<td>
              <?php  echo $form->label($model,'workout_typeid'); ?>
             <?php echo  $form->dropDownList($model, 'workout_typeid', CHtml::listData(WorkoutType::model()->findAll(), 'id', 'name'),array('style'=>'width:200px;'));//echo $form->textFieldControlGroup($model,'workout_typeid',array('span'=>5)); ?>
             </td>
+			<td>
+            <?php echo $form->textFieldControlGroup($model,'description',array('span'=>1,'maxlength'=>150,'style'=>'width:200px;')); ?>
+            </td>
+
 		</tr>
 	</table>
 	<div class="form-actions">
@@ -97,15 +125,17 @@ $this->menu = array (
 								?> 
 &nbsp &nbsp &nbsp
 <?php
-echo BsHtml::submitButton ( 'Update Workout', array (
-		'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-		'size' => BsHtml::BUTTON_SIZE_SMALL,
-		'submit' => array (
-				'update',
-				'id' => $model->id 
-		) 
-)
- );
+
+if ($model->id != "") {
+	echo BsHtml::submitButton ( 'Update Workout', array (
+			'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+			'size' => BsHtml::BUTTON_SIZE_SMALL,
+			'submit' => array (
+					'update',
+					'id' => $model->id 
+			) 
+	) );
+}
 ?>				
 							
     </div>
@@ -123,8 +153,7 @@ echo BsHtml::submitButton ( 'Update Workout', array (
 			// There is a call to performAjaxValidation() commented in generated controller code.
 			// See class documentation of CActiveForm for details on this.
 			'enableAjaxValidation' => false 
-	)
-	 );
+	) );
 	?>
 
 
@@ -136,7 +165,7 @@ echo BsHtml::submitButton ( 'Update Workout', array (
 
 	<div class="column">
             <?php  echo $form->label($modelDetail,'exerciseid'); ?>
-            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name')); ?>
+            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise')); ?>
             <?php
 												
 												?>
@@ -146,33 +175,62 @@ echo BsHtml::submitButton ( 'Update Workout', array (
               <?php
 														
 														if ($model->workout_typeid == 1 || $model->workout_typeid == 3) {
-															echo $form->label ( $modelDetail, 'total_reps' );
-															echo $form->numberField ( $modelDetail, 'total_reps', array (
-																	// 'span' => 3,
-																	'lenght' => 11,
-																	'min' => 0 
-															) );
+															if (! Workout::model ()->hasSons ( $model->id )) {
+																
+																echo $form->label ( $modelDetail, 'total_reps' );
+																echo $form->numberField ( $modelDetail, 'total_reps', array (
+																		// 'span' => 3,
+																		'lenght' => 11,
+																		'min' => 0 
+																) );
+															} else {
+                                                                $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
+																echo $form->label ( $modelDetail, 'total_reps',array('style'=> 'display:none') );
+																echo $form->numberField ( $modelDetail, 'total_reps', array (
+	                                                                           		'lenght' => 11,
+	                                                                                'min' => 0 ,
+                                                                                     'style'=> 'display:none'));
+															}
 														}
 														
 														?>
 											<?php
 											if ($model->workout_typeid == 2) {
-												echo $form->label ( $modelDetail, 'total_time' );
-												$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
-														'model' => $modelDetail, // Your model
-														'attribute' => 'total_time', // Attribute for input
-														'options' => array (
-																'timeOnly' => true,
-																'timeFormat' => 'mm:ss',
-																'showSecond' => true,
-																'showHour' => false 
-														),
-														'htmlOptions' => array (
-																'class' => 'form-control' 
-														) 
-												) );
-												
-												// echo $form->timeField( $modelDetail, 'total_time',array('id'=>'txtTime' ,'step'=>1));
+												if (! Workout::model ()->hasSons ( $model->id )) {
+													echo $form->label ( $modelDetail, 'total_time' );
+													$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
+															'model' => $modelDetail, // Your model
+															'attribute' => 'total_time', // Attribute for input
+															'options' => array (
+																	'timeOnly' => true,
+																	'timeFormat' => 'mm:ss',
+																	'showSecond' => true,
+																	'showHour' => false 
+															),
+															'htmlOptions' => array (
+																	'class' => 'form-control' ,
+                                                                    
+															) 
+													) );
+												} else {
+													$modelDetail->total_time = WorkoutDetail::model ()->sonTotalTime ( $model->id );
+													echo $form->label ( $modelDetail, 'total_time',array('style'=> 'display:none') );
+													$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
+															'model' => $modelDetail, // Your model
+															'attribute' => 'total_time', // Attribute for input
+															'options' => array (
+																	'timeOnly' => true,
+																	'timeFormat' => 'mm:ss',
+																	'showSecond' => true,
+																	'showHour' => false 
+															),
+															'htmlOptions' => array (
+																	'class' => 'form-control' ,
+                                                                     'style'=> 'display:none'
+															) 
+													)
+													 );
+												}
 											}
 											
 											?>
@@ -191,7 +249,7 @@ echo BsHtml::submitButton ( 'Update Workout', array (
           
             <?php
 												
-echo $form->checkBoxControlGroup ( $modelDetail, 'measure_calories' );
+												echo $form->checkBoxControlGroup ( $modelDetail, 'measure_calories' );
 												echo $form->hiddenField ( $modelDetail, 'workoutid', array (
 														'value' => $model->id 
 												) )?>
@@ -204,13 +262,13 @@ echo $form->checkBoxControlGroup ( $modelDetail, 'measure_calories' );
 
 	<div class="row" style="padding: 30px;"> 
         <?php
-								
-								echo BsHtml::submitButton ( 'Add Another Exercise', array (
-										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-										'size' => BsHtml::BUTTON_SIZE_SMALL,
-										'submit' => '../WorkoutDetail/create' 
-								)
-								 );
+								if ($model->id != "") {
+									echo BsHtml::submitButton ( 'Add Another Exercise', array (
+											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+											'size' => BsHtml::BUTTON_SIZE_SMALL,
+											'submit' => '../WorkoutDetail/create' 
+									) );
+								}
 								?>
      </div>
 <?php $this->endWidget(); ?>
@@ -322,14 +380,15 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'template' => '{delete}',
 						'buttons' => array (
 								
-								// 'update' => array (
-								// 'label' => '',
-								// 'imageUrl' => '',
-								// 'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
-								// 'options' => array (
-								// 'class' => 'glyphicon glyphicon-edit'
-								// )
-								// ),
+// 								 'update' => array (
+// 								 'label' => '',
+// 								 'imageUrl' => '',
+// 								 'url' => '',//"CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
+// 								 'options' => array (
+// 								 'class' => 'glyphicon glyphicon-edit',
+//                                  'onclick' => "js:loadUpdateDetail();"
+// 								 )
+// 								 ),
 								'delete' => array (
 										'label' => '',
 										'imageUrl' => '',
