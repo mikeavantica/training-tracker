@@ -138,7 +138,7 @@ while ($total_measures > $contador){
 $columns[] = 'Volume';
 $columns[] = 'Fitness';
  ?>
-<div>
+<div style="overflow: auto;">
    <table>
    <tr>
    <td>

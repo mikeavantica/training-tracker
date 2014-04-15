@@ -147,6 +147,7 @@ $columns[] = 'Fitness';
 $invoiceItemsDataProvider = new CArrayDataProvider ( $dataprovider );
 
 ?>
+<div style="overflow: auto;">
 <div style="text-align: center;"><h1><?php echo $athlete_stats['athlete_name']; ?></h1></div>
 <div  style="margin-left: 20px;">
 <table>
@@ -207,4 +208,5 @@ $this->widget('bootstrap.widgets.BsGridView',array(
 
 
 
+</div>
 </div>

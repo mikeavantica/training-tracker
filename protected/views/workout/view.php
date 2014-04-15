@@ -195,7 +195,7 @@ if ($model->id != "") {
 																) );
 															} else {
                                                                 $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
-																echo $form->label ( $modelDetail, 'total_reps',array('style'=> 'display:none') );
+																echo $form->label ( $modelDetail, 'total_reps' );
 																echo $form->numberField ( $modelDetail, 'total_reps', array (
 	                                                                           		'lenght' => 11,
 	                                                                                'min' => 0 ,
