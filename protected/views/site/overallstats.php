@@ -145,7 +145,7 @@ $columns[] = 'Fitness';
        <div style=" border-color: #aaaaaa;border-width: 1px;border-style: solid; margin-right: 20px;" > <b>Average Volume:</b> <h4><?php echo number_format($average_volume, 2); ?> </h4> </div>
 	</td>
 	<td>
-	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Average Fitness:</b><h4> <?php echo echo number_format($average_fitness, 2); ?></h4></div>
+	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Average Fitness:</b><h4> <?php echo number_format($average_fitness, 2); ?></h4></div>
 	</td>
 	<td>
 	<div  style=" border-color: #aaaaaa;border-width: 1px;border-style: solid;margin-right: 20px;"> <b>Max Squat:</b> <h4><?php echo  number_format($max_squat, 2); ?></h4></div>
