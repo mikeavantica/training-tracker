@@ -104,8 +104,10 @@ class AthleteController extends Controller
 	}
 	public function actionAthleteStats(){
 		date_default_timezone_get();
-		$endDate = date("Y-m-d");
-		$startDate= date('Y-m-d', strtotime('-10 day'));
+                $startDate = date("Y-m-1");
+                $endDate = date("Y-m-d", strtotime("+1 month", strtotime($startDate)));
+                $endDate = date("Y-m-d", strtotime("-1 day", strtotime($endDate)));
+                
 		$this->layout = '';
 		$model=$this->loadModel($_GET['id']);
 

@@ -21,11 +21,11 @@ class SiteController extends Controller {
 		//$first = Athlete::model()->findAllByPk($_GET['id']);
    
                 date_default_timezone_get();
-		$endDate = date("Y-m-d");
-		$startDate= date('Y-m-d', strtotime('-10 day'));
-
+                $startDate = date("Y-m-1");
+                $endDate = date("Y-m-d", strtotime("+1 month", strtotime($startDate)));
+                $endDate = date("Y-m-d", strtotime("-1 day", strtotime($endDate)));
+                
                 $athlete_stats = Athlete::model()->getOverallStats($startDate, $endDate);
- 
 // 		$athlete_stats = array("Athlete"=> array (
 // 				array (
 // 								"id" => 1,
