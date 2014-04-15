@@ -553,8 +553,8 @@ class Athlete extends CActiveRecord
                     }
                     
                     $assist = $this->get_exercise_property($exercise, "Assist");
-                    $fitness_output = $this->sum($power) * (1- $assist);
-                    $total_effort = $this->sum($work) * (1-$assist);
+                    $fitness_output = $this->sum($power) * (1- ($assist/100));
+                    $total_effort = $this->sum($work) * (1 - ($assist/100));
 
                     $fitness += $fitness_output;
                     $volume += $total_effort;
