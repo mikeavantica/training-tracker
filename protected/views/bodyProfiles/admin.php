@@ -56,6 +56,7 @@ $('.search-form form').submit(function(){
          ),
 		array(
 			'class'=>'bootstrap.widgets.BsButtonColumn',
+                         'htmlOptions' =>array('width'=>'75px'),
 		),
 	),
 )); ?>

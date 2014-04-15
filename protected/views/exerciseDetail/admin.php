@@ -62,7 +62,8 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				),
 				array (
 						'name' => 'exerciseid',
-						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name' 
+						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name',
+                                                'htmlOptions' =>array('width'=>'150px'),
 				),
 				'attr1',
 				'attr2',
@@ -74,7 +75,8 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				'attr7',
 				
 				array (
-						'class' => 'bootstrap.widgets.BsButtonColumn' 
+						'class' => 'bootstrap.widgets.BsButtonColumn',
+                                                'htmlOptions' =>array('width'=>'75px'),
 				) 
 		) 
 ) );

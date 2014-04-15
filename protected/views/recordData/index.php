@@ -208,6 +208,15 @@ Yii::app()->clientScript->registerScript('settings-script', <<<EOD
                 $('#RecordData_time').val(total_time);
                 $('#lbltimeValue').html(total_time);
             }
+            
+            var time = $('#RecordData_time').val();
+            
+            if (time.length>5)
+            {
+               var arrayTime = time.split(':');
+               $('#RecordData_time').val(arrayTime[1]+':'+arrayTime[2]);
+               $('#lbltimeValue').html(arrayTime[1]+':'+arrayTime[2]);
+            }
         
             var wotype = $('#workout_type').val();
                     if (wotype==1)
