@@ -538,7 +538,7 @@ class Athlete extends CActiveRecord
                         // power = work / time in seconds
                         $rd_time = $this->get_exercise_property($exercise, "Time");
                         echo "rd_time: " . $rd_time;
-                        if ($rd_time != 0) {
+                        if ($rd_time != "00:00:00") {
                             $t = new DateTime($rd_time);
                             $minutes = (int) $t->format("i");
                             $seconds = (int) $t->format("s");
