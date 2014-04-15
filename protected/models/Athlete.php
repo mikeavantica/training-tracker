@@ -468,7 +468,7 @@ class Athlete extends CActiveRecord
         
         private function calculate_results(&$data) {
             $params = $this->load_parameters();
-             echo '<pre> Params '; var_dump($params); echo '</pre>'; die();
+             echo '<pre> Params '; var_dump($params); echo '</pre>';  //die();
             
             $Gravity = 9.81;
             $body_profiles = BodyProfiles::model()->findAll(
