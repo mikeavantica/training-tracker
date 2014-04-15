@@ -250,7 +250,7 @@ class Athlete extends CActiveRecord
                                 }
 
                                 if ($row["workout_type_name"] == 'MaxWeight') {
-                                    if(strlower($in_exercise["workout_name"]) == "crossfit total") {
+                                    if(strtolower($in_exercise["workout_name"]) == "crossfit total") {
                                         if (strtolower($exercise["name"]) == 'back squat') {
                                             $max_press = $in_exercise["record_data_weight"];
                                         }
