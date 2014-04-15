@@ -275,9 +275,8 @@ class RecordDataController extends Controller {
                         $model = RecordData::model()->findByPk($work_array['recorddataid']);
                     }
                     
-                    $time = explode(':', $model->time);
+                    $time = explode(':', $_POST["RecordData"]["time"]);
                     $model->time = '00:'.$time[0].':'.$time[1];
-                    // $time = '00:'.$_POST["RecordData"]["time"];
                     $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
