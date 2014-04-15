@@ -3,7 +3,7 @@
 /* @var $model User */
 /* @var $authItemDp AuthItemDataProvider */
 /* @var $formModel AddAuthItemForm */
-/* @var $form TbActiveForm */
+/* @var $form BsActiveForm */
 /* @var $assignmentOptions array */
 
 

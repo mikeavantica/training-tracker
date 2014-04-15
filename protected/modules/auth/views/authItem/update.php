@@ -2,7 +2,7 @@
 /* @var $this OperationController|TaskController|RoleController */
 /* @var $model AuthItemForm */
 /* @var $item CAuthItem */
-/* @var $form TbActiveForm */
+/* @var $form BsActiveForm */
 
 $this->breadcrumbs = array(
     $this->capitalize($this->getTypeText(true)) => array('index'),
@@ -17,9 +17,9 @@ $this->breadcrumbs = array(
 </h1>
 
 <?php $form = $this->beginWidget(
-    'bootstrap.widgets.TbActiveForm',
+    'bootstrap.widgets.BsActiveForm',
     array(
-        'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+        'layout' => BsHtml::FORM_LAYOUT_HORIZONTAL,
     )
 ); ?>
 
@@ -35,16 +35,16 @@ $this->breadcrumbs = array(
 <?php echo $form->textFieldControlGroup($model, 'description'); ?>
 
     <div class="form-actions">
-        <?php echo TbHtml::submitButton(
+        <?php echo BsHtml::submitButton(
             Yii::t('AuthModule.main', 'Save'),
             array(
-                'color' => TbHtml::BUTTON_COLOR_PRIMARY,
+                'color' => BsHtml::BUTTON_COLOR_PRIMARY,
             )
         ); ?>
-        <?php echo TbHtml::linkButton(
+        <?php echo BsHtml::linkButton(
             Yii::t('AuthModule.main', 'Cancel'),
             array(
-                'color' => TbHtml::BUTTON_COLOR_LINK,
+                'color' => BsHtml::BUTTON_COLOR_LINK,
                 'url' => array('view', 'name' => $item->name),
             )
         ); ?>

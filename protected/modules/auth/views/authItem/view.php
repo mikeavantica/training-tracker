@@ -4,7 +4,7 @@
 /* @var $ancestorDp AuthItemDataProvider */
 /* @var $descendantDp AuthItemDataProvider */
 /* @var $formModel AddAuthItemForm */
-/* @var $form TbActiveForm */
+/* @var $form BsActiveForm */
 /* @var $childOptions array */
 
 $this->breadcrumbs = array(
@@ -149,7 +149,7 @@ $this->breadcrumbs = array(
             <h4><?php echo Yii::t('AuthModule.main', 'Add child'); ?></h4>
 
             <?php $form = $this->beginWidget(
-                'bootstrap.widgets.TbActiveForm',
+                'bootstrap.widgets.BsActiveForm',
                 array(
                     'layout' => BsHtml::FORM_LAYOUT_INLINE,
                 )

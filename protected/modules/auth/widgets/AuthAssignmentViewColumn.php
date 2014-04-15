@@ -32,11 +32,11 @@ class AuthAssignmentViewColumn extends AuthAssignmentColumn
     protected function renderDataCellContent($row, $data)
     {
         if (!Yii::app()->user->isAdmin) {
-            echo TbHtml::linkButton(
-                TbHtml::icon(TbHtml::ICON_EYE_OPEN),
+            echo BsHtml::linkButton(
+                BsHtml::icon(BsHtml::GLYPHICON_EYE_OPEN),
                 array(
-                    'color' => TbHtml::BUTTON_COLOR_LINK,
-                    'size' => TbHtml::BUTTON_SIZE_MINI,
+                    'color' => BsHtml::BUTTON_COLOR_LINK,
+                    'size' => BsHtml::BUTTON_SIZE_MINI,
                     'url' => array('view', 'id' => $data->{$this->idColumn}),
                     'htmlOptions' => array('rel' => 'tooltip', 'title' => Yii::t('AuthModule.main', 'View')),
                 )

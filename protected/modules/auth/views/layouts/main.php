@@ -5,9 +5,9 @@
 <div class="auth-module">
 
     <?php $this->widget(
-        'bootstrap.widgets.TbNav',
+        'bootstrap.widgets.BsNavbar',
         array(
-            'type' => TbHtml::NAV_TYPE_TABS,
+            'type' => BsHtml::NAV_TYPE_TABS,
             'items' => array(
                 array(
                     'label' => Yii::t('AuthModule.main', 'Assignments'),

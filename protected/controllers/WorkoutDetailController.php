@@ -93,7 +93,10 @@ class WorkoutDetailController extends Controller
 	
 		if (isset($_POST['WorkoutDetail'])) {
 			$model->attributes=$_POST['WorkoutDetail'];
-				
+			if($model->total_time != ''){
+				$time = explode(':', $model->total_time);
+				$model->total_time = '00:'.$time[0].':'.$time[1];
+			}
 			if ($model->save()) {
 				$this->redirect(array('Workout/view','id'=>$model->workoutid));
 			}

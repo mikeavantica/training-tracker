@@ -176,6 +176,9 @@ class Athlete extends CActiveRecord
             $dataReader=$command->query(); 
             $rows=$dataReader->readAll();
 
+            $max_press = -1;
+            $max_squat = -1;
+            $max_lift = -1;
             $athlete_stats = array(
                 'id'=> $rows[0]["athleteid"],
                 'athlete_name' => $rows[0]["first_name"] . " " .$rows[0]["last_name"],
@@ -246,6 +249,22 @@ class Athlete extends CActiveRecord
                                     ));
                                 }
 
+                                if ($row["workout_type_name"] == 'MaxWeight') {
+                                    if(strlower($in_exercise["workout_name"]) == "crossfit total") {
+                                        if (strtolower($exercise["name"]) == 'back squat') {
+                                            $max_press = $in_exercise["record_data_weight"];
+                                        }
+
+                                        if (strtolower($exercise["name"]) == 'strict press') {
+                                            $max_press = $in_exercise["record_data_weight"];
+                                        }
+
+                                        if (strtolower($exercise["name"]) == 'deadlift') {
+                                            $max_lift = $in_exercise["record_data_weight"];
+                                        }
+                                    }
+                                }
+
                                 $this->fill_exercise_property($in_exercise, $exercise, "workout_detail_measure_weight", "Weight", "record_data_weight");
                                 $this->fill_exercise_property($in_exercise, $exercise, "workout_detail_measure_height", "Height", "record_data_height");
                                 $this->fill_exercise_property($in_exercise, $exercise, "workout_detail_measure_calories", "Calories", "record_data_calories");
@@ -268,6 +287,11 @@ class Athlete extends CActiveRecord
             
             
             $this->calculate_results($athlete_stats);
+
+            $athlete_stats['max_squat'] = $max_squat;
+            $athlete_stats['max_press'] = $max_press;
+            $athlete_stats['max_deadlift'] = $max_lift;
+            
             // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
             
             return $athlete_stats; 
@@ -512,12 +536,17 @@ class Athlete extends CActiveRecord
                     
                         // calculate power
                         // power = work / time in seconds
-                        $t = new DateTime($this->get_exercise_property($exercise, "Time"));
-                        $minutes = (int) $t->format("i");
-                        $seconds = (int) $t->format("s");
-                        $total =  $minutes * 60 + $seconds;
-                        if ($total > 0) {
-                            $power[$body_profile->body_part__name]  = $work[$body_profile->body_part__name] / $total;
+                        $rd_time = $this->get_exercise_property($exercise, "Time");
+                        if ($rd_time != 0) {
+                            $t = new DateTime($rd_time);
+                            $minutes = (int) $t->format("i");
+                            $seconds = (int) $t->format("s");
+                            $total =  $minutes * 60 + $seconds;
+                            if ($total > 0) {
+                                $power[$body_profile->body_part__name]  = $work[$body_profile->body_part__name] / $total;
+                            } else {
+                                $power[$body_profile->body_part__name]  = 0;
+                            }
                         } else {
                             $power[$body_profile->body_part__name]  = 0;
                         }

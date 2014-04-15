@@ -35,11 +35,11 @@ class AuthItemRemoveColumn extends AuthItemColumn
         $am = Yii::app()->getAuthManager();
 
         if ($am->hasParent($this->itemName, $data['name'])) {
-            echo TbHtml::linkButton(
-                TbHtml::icon(TbHtml::ICON_REMOVE),
+            echo BsHtml::linkButton(
+                BsHtml::icon(BsHtml::GLYPHICON_REMOVE),
                 array(
-                    'color' => TbHtml::BUTTON_COLOR_LINK,
-                    'size' => TbHtml::BUTTON_SIZE_MINI,
+                    'color' => BsHtml::BUTTON_COLOR_LINK,
+                    'size' => BsHtml::BUTTON_SIZE_MINI,
                     'url' => array('removeParent', 'itemName' => $this->itemName, 'parentName' => $data['name']),
                     'rel' => 'tooltip',
                     'title' => Yii::t('AuthModule.main', 'Remove'),
@@ -47,11 +47,11 @@ class AuthItemRemoveColumn extends AuthItemColumn
             );
         } else {
             if ($am->hasChild($this->itemName, $data['name'])) {
-                echo TbHtml::linkButton(
-                    TbHtml::icon(TbHtml::ICON_REMOVE),
+                echo BsHtml::linkButton(
+                    BsHtml::icon(BsHtml::GLYPHICON_REMOVE),
                     array(
-                        'color' => TbHtml::BUTTON_COLOR_LINK,
-                        'size' => TbHtml::BUTTON_SIZE_MINI,
+                        'color' => BsHtml::BUTTON_COLOR_LINK,
+                        'size' => BsHtml::BUTTON_SIZE_MINI,
                         'url' => array('removeChild', 'itemName' => $this->itemName, 'childName' => $data['name']),
                         'rel' => 'tooltip',
                         'title' => Yii::t('AuthModule.main', 'Remove'),

@@ -5,13 +5,7 @@
 <script>
    $(function(){
 	  
-		$("#txtTime").change(function(){
-			alert("hola");
-			if($("#txtTime").val()==""){
-				 alert($("#txtTime").val());
-				$("#txtTime").val("00:00:00");
-				}
-			});
+		
 	   });
 
 </script>
@@ -163,11 +157,17 @@ $this->menu = array (
 														?>
 											<?php
 											if ($model->workout_typeid == 2) {
-                                               
-												echo $form->label ( $modelDetail, 'total_time' );
+                                               echo $form->label ( $modelDetail, 'total_time' );
+                                               $this->widget( 'ext.EJuiTimePicker.EJuiTimePicker', array(
+		'model' => $modelDetail, // Your model
+		'attribute' => 'total_time', // Attribute for input
+		'options'=>array('timeOnly'=>true, 'timeFormat'=> 'mm:ss', 'showSecond'=>true, 'showHour'=>false),
+		'htmlOptions' => array('class'=>'form-control'),
+));
+												
 												
                                          
-												echo $form->timeField( $modelDetail, 'total_time',array('id'=>'txtTime' ,'step'=>1));
+												//echo $form->timeField( $modelDetail, 'total_time',array('id'=>'txtTime' ,'step'=>1));
 										
 												
 
@@ -201,7 +201,7 @@ display: block;">Measure</div>
 								echo BsHtml::submitButton ( 'Add Exercise(s)', array (
 										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 										'size' => BsHtml::BUTTON_SIZE_SMALL,
-                                        'submit' =>'../workoutdetail/create',
+                                        'submit' =>'../WorkoutDetail/create',
                                          
 								) );
 								?>
@@ -311,17 +311,17 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				),
 				array (
 						'class' => 'CButtonColumn',
-						'template' => '{update}{delete}',
+						'template' => '{delete}',
 						'buttons' => array (
 								
-								'update' => array (
-										'label' => '',
-										'imageUrl' => '',
-										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
-										'options' => array (
-												'class' => 'glyphicon glyphicon-edit' 
-										) 
-								),
+// 								'update' => array (
+// 										'label' => '',
+// 										'imageUrl' => '',
+// 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
+// 										'options' => array (
+// 												'class' => 'glyphicon glyphicon-edit' 
+// 										) 
+// 								),
 								'delete' => array (
 										'label' => '',
 										'imageUrl' => '',
