@@ -56,7 +56,7 @@ class WorkoutController extends Controller {
 								'UpdateDetail' 
 						),
 						'roles' => array (
-								'admin' 
+								'admin','authenticated' 
 						) 
 				),
 				array (

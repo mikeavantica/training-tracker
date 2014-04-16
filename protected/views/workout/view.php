@@ -129,7 +129,7 @@ $this->menu = array (
 		<div class="form-actions">
         <?php
 								if ($model->id == "") {
-									echo BsHtml::submitButton ( 'Submite WOD', array (
+									echo BsHtml::submitButton ( 'Submit WOD', array (
 											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 											'size' => BsHtml::BUTTON_SIZE_SMALL,
 											'submit' => 'create' 

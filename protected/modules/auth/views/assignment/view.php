@@ -19,7 +19,7 @@ $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
     <small><?php echo Yii::t('AuthModule.main', 'Assignments'); ?></small>
 </h1>
 
-<div class="row">
+<div>
 
     <div class="span6">
 

@@ -34,18 +34,9 @@
 
 
 		<div class="sidebar">
-		<div class="wrapper">
+		<div>
 		<!-- Replace the src of the image with your logo -->
-		<div class="modal-title"><h1>BlackOps</h1></div>
 		<ul class="nav  nav-list">
-			<!-- sidebar input search box -->
-			<li class="nav-search">
-				<div class="form-group">
-					<input type="text" class="form-control nav-search" placeholder="Search through site" />
-					<span class="input-icon fui-search"></span>
-				</div>
-			</li>
-			<li class="nav-header">Pages</li>
 		<?php
 		
 		$this->widget ( 'bootstrap.widgets.BsNavbar', array (
@@ -55,40 +46,40 @@
 						array (
 								'class' => 'bootstrap.widgets.BsNav',
 								'type' => 'navlist',
+								'encodeLabel' => false,
 								'items' => array (
 										array (
 												'label' => 'Home',
 												'url' => Yii::app ()->homeUrl ,
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' )
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
+												
 										),
 										array (
-												'label' => 'Daily Record',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u21_normal.png')).'View Dashboard',
+												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
+										),
+										array (
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u29_normal.png')).'Add New WOD',
+												'url' => array (
+														'/Workout/view','id'=>0
+												),
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
+										),
+										array (
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u24_normal.png')).'Record Athlete Data',
 												'url' => array (
 														'/RecordData/index'
 												),
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' )
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => 'Athlete',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u18_normal.png')).'Create New Athlete',
 												'url' => array (
 														'/Athlete/admin' 
 												),
-												'visible' => ! Yii::app ()->user->isGuest 
+												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
-										array (
-												'label' => 'Workout Profile',
-												'url' => array (
-														'/Workout/view','id'=>0 
-												),
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),
-									
-										array (
-												'label' => 'Overall Stats ',
-												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
-										),
-										
 										array (
 												'label' => 'Configuration',
 												'items' => array (
@@ -209,6 +200,7 @@
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-theme.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/tracker.css', ''); ?>
 		<?php 
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();

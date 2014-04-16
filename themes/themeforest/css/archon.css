@@ -3400,9 +3400,3 @@ ol.linenums li {
   background-color: #f5f7fa;
   border-color: #000000;
 }
-
-.navbar-default {
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-  border: medium none;
-  box-shadow: none;
-}

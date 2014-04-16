@@ -22,6 +22,9 @@ $this->menu = array (
 ?>
 
  <?php
+ foreach(Yii::app()->user->getFlashes() as $key => $message) {
+ 	echo '<div class="alert alert-danger alert-dismissable">' . $message . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></div>\n";
+ };
 	
 	$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 			'id' => 'athlete-form',
