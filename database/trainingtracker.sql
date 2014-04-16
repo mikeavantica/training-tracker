@@ -42,7 +42,7 @@ CREATE TABLE `AuthAssignment` (
 
 LOCK TABLES `AuthAssignment` WRITE;
 /*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;'),('authenticated','23',NULL,'N;'),('authenticated','24',NULL,'N;'),('authenticated','4',NULL,'N;');
+INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;'),('authenticated','23',NULL,'N;'),('authenticated','24',NULL,'N;'),('authenticated','4',NULL,'N;'),('authenticated','6',NULL,'N;'),('guest','5',NULL,'N;');
 /*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-16 15:55:00
+-- Dump completed on 2014-04-16 16:46:21
