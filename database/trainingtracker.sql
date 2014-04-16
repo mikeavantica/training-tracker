@@ -329,7 +329,6 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
-INSERT INTO `workout` VALUES (1,'2014-04-07','Mary','No se',2),(8,'2014-04-07','fran','no se',1),(9,'2014-04-08','Fran','12-15-9 thrusters, pullups',1),(10,'2014-04-11','Henry','working',1);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,7 +363,6 @@ CREATE TABLE `workout_detail` (
 
 LOCK TABLES `workout_detail` WRITE;
 /*!40000 ALTER TABLE `workout_detail` DISABLE KEYS */;
-INSERT INTO `workout_detail` VALUES (4,0,0,1,0,20,'10:00:00',1,13),(5,1,1,0,0,20,'20:10:00',8,18),(6,1,0,1,1,20,'10:15:00',8,8),(7,1,0,1,1,20,'01:20:00',1,18),(8,0,1,0,0,20,NULL,8,17),(12,0,0,1,1,20,NULL,8,2),(15,0,1,0,0,20,'10:10:00',1,10),(17,0,1,0,0,NULL,'15:12:00',1,37),(18,0,0,1,1,50,NULL,8,40),(19,0,1,1,0,NULL,'15:12:00',1,13),(20,1,0,1,0,NULL,'01:00:00',1,6),(37,0,1,1,0,10,NULL,8,12),(38,1,1,1,1,NULL,'15:12:00',1,35),(39,0,1,1,1,NULL,'15:10:00',1,19),(45,1,0,0,1,NULL,'15:00:00',1,12),(49,0,1,1,0,10,NULL,10,12),(51,1,1,1,1,10,NULL,10,7);
 /*!40000 ALTER TABLE `workout_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -401,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-16 10:30:37
+-- Dump completed on 2014-04-16 10:47:59
