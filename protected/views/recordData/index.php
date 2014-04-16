@@ -29,7 +29,7 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
 );*/
 ?>
 
-<h1>Record Data</h1>
+<!-- <h1>Record Data</h1>  -->
 
 <div class="form">
 
