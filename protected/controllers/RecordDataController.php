@@ -252,7 +252,7 @@ class RecordDataController extends Controller {
     }
     
     private function createRecordData() {
-    	$log =  new KLogger("C:\Users\javier.dobles\Downloads\log.txt", KLogger::DEBUG);
+    	
           if (isset($_POST['RecordData'])) {
             $total_workdetails = 0;
             $recordDatas = array();
