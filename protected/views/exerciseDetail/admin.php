@@ -63,8 +63,10 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				array (
 						'name' => 'exerciseid',
 						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name',
-                                                'htmlOptions' =>array('width'=>'150px'),
+                                                
 				),
+                //'body_profilesId',
+               // 'exerciseid',
 				'attr1',
 				'attr2',
 				'attr3',

@@ -188,6 +188,11 @@ class WorkoutDetail extends CActiveRecord
 		
 		
 	}
+	public function deleteRecordData($work_detailid)
+	{
+		Yii::app()->db->createCommand()->delete('record_data', 'workout_detailid=:id', array(':id' => $work_detailid));
+		
+	}
 	
 
 	/**

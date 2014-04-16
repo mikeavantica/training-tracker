@@ -140,6 +140,7 @@ class WorkoutDetailController extends Controller
 	{
 		if (Yii::app()->request->isPostRequest) {
 			// we only allow deletion via POST request
+			WorkoutDetail::model()->deleteRecordData($id);
 			$this->loadModel($id)->delete();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

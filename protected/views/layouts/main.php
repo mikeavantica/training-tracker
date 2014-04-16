@@ -78,7 +78,7 @@
 										array (
 												'label' => 'Workout Profile',
 												'url' => array (
-														'/Workout/admin' 
+														'/Workout/view','id'=>0 
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) 
 										),

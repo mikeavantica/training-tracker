@@ -136,13 +136,15 @@ class WorkoutController extends Controller
 		if (isset($_POST['Workout'])) {
 			$model->attributes=$_POST['Workout'];
 			if ($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('view','id'=>0));
 			}
+		}else{
+		$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+	//	$this->render('update',array(
+	//		'model'=>$model,
+	//	));
 	}
 
 	/**
@@ -159,7 +161,7 @@ class WorkoutController extends Controller
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if (!isset($_GET['ajax'])) {
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(array('view','id'=>0));
 			}
 		} else {
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

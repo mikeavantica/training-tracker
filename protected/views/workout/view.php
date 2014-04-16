@@ -179,7 +179,7 @@ if ($model->id != "") {
 
 	<div class="column">
             <?php  echo $form->label($modelDetail,'exerciseid'); ?>
-            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise','prompt'=>'Select a exercise')); ?>
+            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise','prompt'=>'Select a Exercise')); ?>
             <?php
 												
 												?>

@@ -7,7 +7,7 @@
 
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
-				'Exercise Details' => 'index',
+				'Exercise Details' => '../admin',
 				$model->exercise->name => array (
 						'view',
 						'id' => $model->id
@@ -24,6 +24,6 @@ $this->menu=array(
 );
 ?>
 
-    <h1>Update Exercises Details <?php echo $model->id; ?></h1>
+    <h1>Update Exercises Details <?php echo $model->exercise->name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

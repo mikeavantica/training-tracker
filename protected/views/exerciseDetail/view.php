@@ -8,7 +8,7 @@
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Exercise Details' => 'index',
-				$model->exercise->name
+				'Exercise'
 		)
 ) );
 
@@ -21,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h3>View ExerciseDetail <?php echo $model->exercise->name; ?></h3>
+<h3>View ExerciseDetail <?php echo $model->exercise['name']; ?></h3>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(
