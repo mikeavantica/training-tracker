@@ -15,7 +15,7 @@ $this->pageTitle=Yii::app()->name;
 
 ) );*/
 
-echo BsHtml::jumbotron('Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!', BsHtml::emphasis('<p>you can navigate in our web page and enjoy all their facilities</p>'), array(), true)
+ echo BsHtml::jumbotron('Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!', BsHtml::emphasis('<p>you can navigate in our web page and enjoy all their facilities</p>'), array(), true)
 
 
 ?>

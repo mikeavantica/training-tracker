@@ -252,17 +252,18 @@ class RecordDataController extends Controller {
     }
     
     private function createRecordData() {
+    	$log =  new KLogger("C:\Users\javier.dobles\Downloads\log.txt", KLogger::DEBUG);
           if (isset($_POST['RecordData'])) {
             $total_workdetails = 0;
             $recordDatas = array();
             $correct = true;
-   
+            $flag_updating = false;
+            
             if (isset($_POST['total_workdetails']))
             {
                 $total_workdetails = $_POST['total_workdetails'];
             }
            
-
             for ($i = 0; $i < $total_workdetails; $i++) {
                 $work = 'WorkoutDetails' . $i;
 
@@ -273,6 +274,7 @@ class RecordDataController extends Controller {
                     if (array_key_exists('recorddataid', $work_array))
                     {
                         $model = RecordData::model()->findByPk($work_array['recorddataid']);
+                        $flag_updating = true;
                     }
                     
                     $time = explode(':', $_POST["RecordData"]["time"]);
@@ -291,7 +293,23 @@ class RecordDataController extends Controller {
             }
             
             if($correct)
-            {
+            { 
+            	
+                // validate if record already exists
+                if (!$flag_updating) {
+                    $criteria = new CDbCriteria();
+                    $criteria->condition = "athleteid = :athleteid and date = :date";
+                    $criteria->params = array(':athleteid' => $_POST["RecordData"]["athleteid"], ':date' => $_POST["RecordData"]["date"]);
+                    $existingRecords = RecordData::model()->findAll($criteria);
+                   
+                    if (count($existingRecords) > 0) {
+                    	Yii::app()->user->setFlash('error', 'Record already exist');
+                        $this->redirect(array('index'));
+                        //RecordData::model()->addError('athleteid', 'This already exist.');
+                      // return null;
+                    }
+                }
+                
                 foreach ($recordDatas as $record) {
                     $record->save();
                 }
@@ -310,12 +328,11 @@ class RecordDataController extends Controller {
                     $model->workoutDetail->workout = new Workout;
                     $model->workoutDetail->workout->workoutType = new WorkoutType;
                     $model->validate();
-                                   
+
 
                     array_push($recordDatas, $model);
-                    
-                }else
-                {
+
+                } else {
                    return null;
                 }
             }

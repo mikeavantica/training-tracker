@@ -10,6 +10,9 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
     )
 ));
 
+
+
+
 /*$this->menu = array(
     array(
         'label' => 'Create RecordData',
@@ -30,7 +33,12 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
 
 <div class="form">
 
-    <?php $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
+    <?php
+    foreach(Yii::app()->user->getFlashes() as $key => $message) {
+    	echo '<div class="alert alert-danger alert-dismissable">' . $message . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></div>\n";
+    };
+     
+     $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 	'id'=>'record-data-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.

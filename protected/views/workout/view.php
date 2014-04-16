@@ -293,7 +293,7 @@ echo BsHtml::linkButton ( 'Cancel', array (
 											'size' => BsHtml::BUTTON_SIZE_SMALL,
 											'submit' => '../WorkoutDetail/create' 
 									) );
-								} else {
+								} elseif($modelDetail->id != "") {
 									echo BsHtml::submitButton ( 'Update Exercise', array (
 											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 											'size' => BsHtml::BUTTON_SIZE_SMALL,
