@@ -1,3 +1,5 @@
+DROP DATABASE  IF  EXISTS `training_tracker`;
+
 CREATE DATABASE  IF NOT EXISTS `training_tracker` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `training_tracker`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
@@ -18,86 +20,6 @@ USE `training_tracker`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `AuthAssignment`
---
-
-DROP TABLE IF EXISTS `AuthAssignment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthAssignment` (
-  `itemname` varchar(64) NOT NULL,
-  `userid` varchar(64) NOT NULL,
-  `bizrule` text,
-  `data` text,
-  PRIMARY KEY (`itemname`,`userid`),
-  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `AuthAssignment`
---
-
-LOCK TABLES `AuthAssignment` WRITE;
-/*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;');
-/*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `AuthItem`
---
-
-DROP TABLE IF EXISTS `AuthItem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthItem` (
-  `name` varchar(64) NOT NULL,
-  `type` int(11) NOT NULL,
-  `description` text,
-  `bizrule` text,
-  `data` text,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `AuthItem`
---
-
-LOCK TABLES `AuthItem` WRITE;
-/*!40000 ALTER TABLE `AuthItem` DISABLE KEYS */;
-INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
-/*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `AuthItemChild`
---
-
-DROP TABLE IF EXISTS `AuthItemChild`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthItemChild` (
-  `parent` varchar(64) NOT NULL,
-  `child` varchar(64) NOT NULL,
-  PRIMARY KEY (`parent`,`child`),
-  KEY `child` (`child`),
-  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `AuthItemChild`
---
-
-LOCK TABLES `AuthItemChild` WRITE;
-/*!40000 ALTER TABLE `AuthItemChild` DISABLE KEYS */;
-/*!40000 ALTER TABLE `AuthItemChild` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `athlete`
 --
 
@@ -115,7 +37,7 @@ CREATE TABLE `athlete` (
   PRIMARY KEY (`id`),
   KEY `athlete_sex_type` (`sex_typeid`),
   CONSTRAINT `athlete_sex_type` FOREIGN KEY (`sex_typeid`) REFERENCES `sex_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,8 +46,88 @@ CREATE TABLE `athlete` (
 
 LOCK TABLES `athlete` WRITE;
 /*!40000 ALTER TABLE `athlete` DISABLE KEYS */;
-INSERT INTO `athlete` VALUES (1,'chitin','Burton','barry@gmail.com',21.00,131.00,1),(2,'chitin','zamora','zamora@gmail.com',21.00,81.00,1),(3,'chitin','zamora','chitin@gmail.com',20.00,30.00,1),(5,'javier','dobles','javier@avantica.net',20.00,99.99,2),(6,'genesis','parrales','javier@avantica.net',30.00,39.58,2),(7,'christhian','perez','javier@avantica.net',40.00,39.00,1),(8,'javier','dobles','javier@avantica.net',80.99,78.99,2);
+INSERT INTO `athlete` VALUES (17,'Hola','No se','hola@avantica.net',90.12,123.80,1),(18,'hola','nose','javier@avantica.net',90.12,31.12,1);
 /*!40000 ALTER TABLE `athlete` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authassignment`
+--
+
+DROP TABLE IF EXISTS `authassignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authassignment` (
+  `itemname` varchar(64) NOT NULL,
+  `userid` varchar(64) NOT NULL,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`itemname`,`userid`),
+  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authassignment`
+--
+
+LOCK TABLES `authassignment` WRITE;
+/*!40000 ALTER TABLE `authassignment` DISABLE KEYS */;
+INSERT INTO `authassignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;'),('authenticated','4',NULL,'N;'),('authenticated','5',NULL,'N;');
+/*!40000 ALTER TABLE `authassignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authitem`
+--
+
+DROP TABLE IF EXISTS `authitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authitem` (
+  `name` varchar(64) NOT NULL,
+  `type` int(11) NOT NULL,
+  `description` text,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authitem`
+--
+
+LOCK TABLES `authitem` WRITE;
+/*!40000 ALTER TABLE `authitem` DISABLE KEYS */;
+INSERT INTO `authitem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
+/*!40000 ALTER TABLE `authitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `authitemchild`
+--
+
+DROP TABLE IF EXISTS `authitemchild`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `authitemchild` (
+  `parent` varchar(64) NOT NULL,
+  `child` varchar(64) NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`),
+  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `authitemchild`
+--
+
+LOCK TABLES `authitemchild` WRITE;
+/*!40000 ALTER TABLE `authitemchild` DISABLE KEYS */;
+/*!40000 ALTER TABLE `authitemchild` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -138,8 +140,8 @@ DROP TABLE IF EXISTS `body_profiles`;
 CREATE TABLE `body_profiles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `body_part__name` varchar(45) NOT NULL,
-  `weight` decimal(10,6) NOT NULL,
-  `height` decimal(10,6) NOT NULL,
+  `weight` decimal(10,4) NOT NULL,
+  `height` decimal(10,4) NOT NULL,
   `sex_typeid` int(11) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `body_profiles_sex_type` (`sex_typeid`),
@@ -153,7 +155,7 @@ CREATE TABLE `body_profiles` (
 
 LOCK TABLES `body_profiles` WRITE;
 /*!40000 ALTER TABLE `body_profiles` DISABLE KEYS */;
-INSERT INTO `body_profiles` VALUES (1,'Legs',20,10,2),(2,'Arms',20,30,2),(3,'Trunk',54,54,1),(4,'Upper Arm',3,3,1),(5,'Forearm and half hand',2,2,1),(6,'Thigh',11,11,1),(7,'Leg and foot',6,6,1),(8,'Weight',100,100,1),(9,'Head and Neck',11,11,1),(10,'Trunk',30,30,2),(11,'Upper Arm',17,17,2),(12,'Forearm and half hand',19,19,2),(13,'Thigh',23,23,2),(14,'Leg and foot',29,29,2),(15,'Other Distance',100,100,2);
+INSERT INTO `body_profiles` VALUES (1,'Leg and Foot',20.0000,10.0000,2),(2,'Arms',20.0000,30.0000,2),(3,'Trunk',54.1500,30.0000,1),(4,'Upper Arm',3.0750,17.2000,1),(5,'Forearm and half hand',2.2950,18.5700,1),(6,'Thigh',11.1250,23.2000,1),(7,'Leg and foot',6.4300,29.0500,1),(8,'Weight',100.0000,100.0000,1),(9,'Head and Neck',8.2300,10.7500,1),(10,'Trunk',30.0000,30.0000,2),(11,'Upper Arm',17.0000,17.0000,2),(12,'Forearm and half hand',19.0000,19.0000,2),(13,'Thigh',23.0000,23.0000,2),(14,'Leg and foot',29.0000,29.0000,2),(15,'Other Distance',100.0000,100.0000,2);
 /*!40000 ALTER TABLE `body_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +179,7 @@ CREATE TABLE `exercise` (
 
 LOCK TABLES `exercise` WRITE;
 /*!40000 ALTER TABLE `exercise` DISABLE KEYS */;
-INSERT INTO `exercise` VALUES (2,'Thruster'),(3,'Pull Up'),(4,'Hang Clean and Jerk'),(5,'Power Clean and Jerk'),(6,'Power Clean'),(7,'Burpee Box Jump'),(8,'Burpee'),(9,'Strict Press'),(10,'Back of the Neck Push Press'),(11,'Push Press'),(12,'Dead Lift'),(13,'Box Jump'),(14,'Snatch Balance'),(15,'Toes to Bar'),(16,'Kettlebell Push Press'),(17,'Kettlebell Swing'),(18,'Double Under'),(19,'Power Snatch'),(20,'Hand Stand Push Up'),(21,'Hand Release Push Up'),(22,'Push Up'),(23,'Chest to Bar Pull Up'),(24,'Ring Dip'),(25,'Hang Clean'),(26,'Wall Ball'),(27,'Power Clean'),(28,'Hang Power Snatch'),(29,'Row'),(30,'Medicine Ball Sit up'),(31,'Sit up'),(32,'Front Squat'),(33,'Back Squat'),(34,'Overhead Squat'),(35,'Lunge'),(36,'Air Squat'),(37,'Lunge'),(38,'Overhead Plate Lunge'),(39,'Mountain Climber'),(40,'Pistol');
+INSERT INTO `exercise` VALUES (1,'Thruster'),(2,'Pull Up'),(3,'Hang Clean and Jerk'),(4,'Power Clean and Jerk'),(5,'Power Clean'),(6,'Burpee Box Jump'),(7,'Burpee'),(8,'Strict Press'),(9,'Back of the Neck Push Press'),(10,'Push Press'),(11,'Dead Lift'),(12,'Box Jump'),(13,'Snatch Balance'),(14,'Toes to Bar'),(15,'Kettlebell Push Press'),(16,'Kettlebell Swing'),(17,'Double Under'),(18,'Power Snatch'),(19,'Hand Stand Push Up'),(20,'Hand Release Push Up'),(21,'Push Up'),(22,'Chest to Bar Pull Up'),(23,'Ring Dip'),(24,'Hang Clean'),(25,'Wall Ball'),(26,'Power Clean'),(27,'Hang Power Snatch'),(28,'Row'),(29,'Medicine Ball Sit up'),(30,'Sit up'),(31,'Front Squat'),(32,'Back Squat'),(33,'Overhead Squat'),(34,'Lunge'),(35,'Air Squat'),(36,'Lunge'),(37,'Overhead Plate Lunge'),(38,'Mountain Climber'),(39,'Pistol');
 /*!40000 ALTER TABLE `exercise` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +206,7 @@ CREATE TABLE `exercise_detail` (
   KEY `exercise_profile_detail_exercise_profile` (`exerciseid`),
   CONSTRAINT `exercise_profile_detail_body_profiles` FOREIGN KEY (`body_profilesId`) REFERENCES `body_profiles` (`Id`),
   CONSTRAINT `exercise_profile_detail_exercise_profile` FOREIGN KEY (`exerciseid`) REFERENCES `exercise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=274 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -499,10 +501,10 @@ DROP TABLE IF EXISTS `record_data`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `record_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `weight` decimal(10,6) NOT NULL,
-  `height` decimal(10,6) NOT NULL,
-  `calories` decimal(10,6) NOT NULL,
-  `assist` decimal(10,6) NOT NULL,
+  `weight` decimal(10,0) NOT NULL,
+  `height` decimal(10,0) NOT NULL,
+  `calories` decimal(10,0) NOT NULL,
+  `assist` decimal(10,0) NOT NULL,
   `reps` int(11) NOT NULL,
   `time` time NOT NULL,
   `athleteid` int(11) NOT NULL,
@@ -513,7 +515,7 @@ CREATE TABLE `record_data` (
   KEY `record_data_detail_workout` (`workout_detailid`),
   CONSTRAINT `record_data_athlete` FOREIGN KEY (`athleteid`) REFERENCES `athlete` (`id`),
   CONSTRAINT `record_data_detail_workout` FOREIGN KEY (`workout_detailid`) REFERENCES `workout_detail` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -591,7 +593,7 @@ CREATE TABLE `workout` (
   PRIMARY KEY (`id`),
   KEY `workout_workout_type` (`workout_typeid`),
   CONSTRAINT `workout_workout_type` FOREIGN KEY (`workout_typeid`) REFERENCES `workout_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,7 +602,7 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
-INSERT INTO `workout` VALUES (1,'2014-04-07','Mary','No se',2),(8,'2014-04-07','fran','no se',1),(9,'2014-04-08','Fran','12-15-9 thrusters, pullups',1),(10,'2014-04-11','Henry','working',1);
+INSERT INTO `workout` VALUES (31,'2014-04-15','Betelgeuse','50',2);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -626,7 +628,7 @@ CREATE TABLE `workout_detail` (
   KEY `workout_detail_exercise_profile` (`exerciseid`),
   CONSTRAINT `detail_workout_workout` FOREIGN KEY (`workoutid`) REFERENCES `workout` (`id`),
   CONSTRAINT `workout_detail_exercise_profile` FOREIGN KEY (`exerciseid`) REFERENCES `exercise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -635,7 +637,7 @@ CREATE TABLE `workout_detail` (
 
 LOCK TABLES `workout_detail` WRITE;
 /*!40000 ALTER TABLE `workout_detail` DISABLE KEYS */;
-INSERT INTO `workout_detail` VALUES (4,0,0,1,0,20,'10:00:00',1,13),(5,1,1,0,0,20,'20:10:00',8,18),(6,1,0,1,1,20,'10:15:00',8,8),(7,1,0,1,1,20,'01:20:00',1,18),(8,0,1,0,0,20,NULL,8,17),(12,0,0,1,1,20,NULL,8,2),(15,0,1,0,0,20,'10:10:00',1,10),(17,0,1,0,0,NULL,'15:12:00',1,37),(18,0,0,1,1,50,NULL,8,40),(19,0,1,1,0,NULL,'15:12:00',1,13),(20,1,0,1,0,NULL,'01:00:00',1,6),(37,0,1,1,0,10,NULL,8,12),(38,1,1,1,1,NULL,'15:12:00',1,35),(39,0,1,1,1,NULL,'15:10:00',1,19),(45,1,0,0,1,NULL,'15:00:00',1,12),(49,0,1,1,0,10,NULL,10,12),(51,1,1,1,1,10,NULL,10,7);
+INSERT INTO `workout_detail` VALUES (102,1,0,1,1,NULL,'00:15:28',31,8);
 /*!40000 ALTER TABLE `workout_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -672,4 +674,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-09 13:00:20
+-- Dump completed on 2014-04-15 19:15:16
