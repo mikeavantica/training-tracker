@@ -69,7 +69,7 @@ CREATE TABLE `AuthItem` (
 
 LOCK TABLES `AuthItem` WRITE;
 /*!40000 ALTER TABLE `AuthItem` DISABLE KEYS */;
-INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
+INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
 /*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,8 +140,8 @@ DROP TABLE IF EXISTS `body_profiles`;
 CREATE TABLE `body_profiles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `body_part__name` varchar(45) NOT NULL,
-  `weight` decimal(10,0) NOT NULL,
-  `height` decimal(10,0) NOT NULL,
+  `weight` decimal(10,4) NOT NULL,
+  `height` decimal(10,4) NOT NULL,
   `sex_typeid` int(11) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `body_profiles_sex_type` (`sex_typeid`),
@@ -155,7 +155,7 @@ CREATE TABLE `body_profiles` (
 
 LOCK TABLES `body_profiles` WRITE;
 /*!40000 ALTER TABLE `body_profiles` DISABLE KEYS */;
-INSERT INTO `body_profiles` VALUES (1,'Legs',20,10,2),(2,'Arms',20,30,2),(3,'Trunk',54,54,1),(4,'Upper Arm',3,3,1),(5,'Forearm and half hand',2,2,1),(6,'Thigh',11,11,1),(7,'Leg and foot',6,6,1),(8,'Weight',100,100,1),(9,'Head and Neck',11,11,1),(10,'Trunk',30,30,2),(11,'Upper Arm',17,17,2),(12,'Forearm and half hand',19,19,2),(13,'Thigh',23,23,2),(14,'Leg and foot',29,29,2),(15,'Other Distance',100,100,2);
+INSERT INTO `body_profiles` VALUES (1,'Leg and Foot',20.0000,10.0000,2),(2,'Arms',20.0000,30.0000,2),(3,'Trunk',54.1500,30.0000,1),(4,'Upper Arm',3.0750,17.2000,1),(5,'Forearm and half hand',2.2950,18.5700,1),(6,'Thigh',11.1250,23.2000,1),(7,'Leg and foot',6.4300,29.0500,1),(8,'Weight',100.0000,100.0000,1),(9,'Head and Neck',8.2300,10.7500,1),(10,'Trunk',30.0000,30.0000,2),(11,'Upper Arm',17.0000,17.0000,2),(12,'Forearm and half hand',19.0000,19.0000,2),(13,'Thigh',23.0000,23.0000,2),(14,'Leg and foot',29.0000,29.0000,2),(15,'Other Distance',100.0000,100.0000,2);
 /*!40000 ALTER TABLE `body_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-16 10:47:59
+-- Dump completed on 2014-04-16 11:09:02
