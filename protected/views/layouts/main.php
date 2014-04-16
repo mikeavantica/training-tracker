@@ -147,7 +147,6 @@
 	<div class="content">
 		<div class="navbar">
 			<a href="#" onclick="return false;" class="btn pull-left toggle-sidebar "><i class="fa fa-list"></i></a>
-			<a class="navbar-brand" href="index.html">Archon</a>
 			<div class="right">
 				<ul class="navbar-nav user-menu pull-right">
 					<li class="dropdown user-name">
@@ -199,7 +198,7 @@
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-theme.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
-		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
+		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/tracker.css', ''); ?>
 		<?php 
 		/** @var CClientScript $cs */
