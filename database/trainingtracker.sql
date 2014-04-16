@@ -138,8 +138,8 @@ DROP TABLE IF EXISTS `body_profiles`;
 CREATE TABLE `body_profiles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `body_part__name` varchar(45) NOT NULL,
-  `weight` decimal(10,0) NOT NULL,
-  `height` decimal(10,0) NOT NULL,
+  `weight` decimal(10,6) NOT NULL,
+  `height` decimal(10,6) NOT NULL,
   `sex_typeid` int(11) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `body_profiles_sex_type` (`sex_typeid`),
@@ -190,13 +190,13 @@ DROP TABLE IF EXISTS `exercise_detail`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `exercise_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `attr1` decimal(10,0) NOT NULL,
-  `attr2` decimal(10,0) NOT NULL,
-  `attr3` decimal(10,0) NOT NULL,
-  `attr4` decimal(10,0) NOT NULL,
-  `attr5` decimal(10,0) NOT NULL,
-  `attr6` decimal(10,0) NOT NULL,
-  `attr7` decimal(10,0) NOT NULL,
+  `attr1` decimal(10,6) NOT NULL,
+  `attr2` decimal(10,6) NOT NULL,
+  `attr3` decimal(10,6) NOT NULL,
+  `attr4` decimal(10,6) NOT NULL,
+  `attr5` decimal(10,6) NOT NULL,
+  `attr6` decimal(10,6) NOT NULL,
+  `attr7` decimal(10,6) NOT NULL,
   `body_profilesId` int(11) NOT NULL,
   `exerciseid` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -213,7 +213,280 @@ CREATE TABLE `exercise_detail` (
 
 LOCK TABLES `exercise_detail` WRITE;
 /*!40000 ALTER TABLE `exercise_detail` DISABLE KEYS */;
-INSERT INTO `exercise_detail` VALUES (1,0,0,0,0,0,2,0,1,2),(2,0,0,0,2,0,0,0,1,3),(3,0,0,0,0,0,0,0,1,4),(4,0,0,0,0,0,0,0,1,5),(5,0,0,0,0,0,0,0,1,6),(6,1,2,0,0,2,2,2,1,7),(7,1,2,0,0,2,2,2,1,8),(8,0,0,0,0,0,0,0,1,9),(9,0,0,0,0,1,0,0,1,10),(10,0,0,0,0,1,0,0,1,11),(11,0,0,2,0,0,0,0,1,12),(12,0,0,0,0,0,0,2,1,13),(13,0,0,0,0,0,2,0,1,14),(14,0,0,0,0,0,0,0,1,15),(15,0,0,0,0,0,0,0,1,16),(16,0,0,0,0,0,0,0,1,17),(17,0,0,0,0,0,0,2,1,18),(18,0,0,0,0,0,0,0,1,19),(19,0,0,0,1,0,0,0,1,20),(20,0,0,0,2,2,0,0,1,21),(21,0,0,0,2,2,0,0,1,22),(22,0,0,0,2,0,0,0,1,23),(23,0,0,0,2,2,0,0,1,24),(24,0,0,0,0,0,0,0,1,25),(25,0,0,0,0,0,2,0,1,26),(26,0,0,2,0,0,0,0,1,27),(27,0,0,0,0,0,0,0,1,28),(28,0,0,0,0,0,0,0,1,29),(29,2,2,0,0,0,0,0,1,30),(30,2,2,0,0,0,0,0,1,31),(31,0,0,0,0,2,0,0,1,32),(32,0,0,0,0,2,0,0,1,33),(33,0,0,0,0,2,0,0,1,34),(34,0,0,0,0,2,0,0,1,35),(35,0,0,0,0,2,0,0,1,36),(36,0,0,0,0,2,0,0,1,37),(37,0,0,0,0,1,0,0,1,38),(38,0,0,0,0,0,0,0,1,39),(39,0,0,0,0,2,0,0,1,40),(40,0,0,0,0,0,2,0,2,2),(41,0,0,0,2,0,0,0,2,3),(42,0,1,0,0,0,0,0,2,4),(43,0,1,0,0,0,0,0,2,5),(44,0,0,1,0,0,0,0,2,6),(45,0,1,0,0,2,2,2,2,7),(46,0,1,0,0,2,2,2,2,8),(47,0,0,0,0,0,0,0,2,9),(48,0,0,0,0,1,0,0,2,10),(49,0,0,0,0,1,0,0,2,11),(50,0,0,1,0,0,0,0,2,12),(51,0,0,0,0,0,0,2,2,13),(52,0,0,0,0,0,2,0,2,14),(53,0,0,0,0,0,0,0,2,15),(54,0,0,0,0,0,0,0,2,16),(55,0,0,0,0,0,0,0,2,17),(56,0,0,0,0,0,0,2,2,18),(57,0,0,0,0,0,0,0,2,19),(58,0,0,0,2,0,0,0,2,20),(59,0,0,0,2,2,0,0,2,21),(60,0,0,0,2,2,0,0,2,22),(61,0,0,0,2,0,0,0,2,23),(62,0,0,0,2,2,0,0,2,24),(63,0,0,0,0,0,0,0,2,25),(64,0,0,0,0,0,2,0,2,26),(65,0,0,1,0,0,0,0,2,27),(66,0,0,0,0,0,0,0,2,28),(67,0,0,0,0,0,0,0,2,29),(68,0,2,0,0,0,0,0,2,30),(69,0,2,0,0,0,0,0,2,31),(70,0,0,0,0,2,0,0,2,32),(71,0,0,0,0,2,0,0,2,33),(72,0,0,0,0,2,0,0,2,34),(73,0,0,0,0,2,0,0,2,35),(74,0,0,0,0,2,0,0,2,36),(75,0,0,0,0,2,0,0,2,37),(76,0,0,0,0,1,0,0,2,38),(77,0,0,0,0,0,0,0,2,39),(78,0,0,0,0,2,0,0,2,40),(79,0,0,0,2,0,2,0,3,2),(80,0,0,0,1,0,0,0,3,3),(81,0,0,0,2,0,0,0,3,4),(82,0,0,0,2,0,0,0,3,5),(83,0,0,0,2,0,0,0,3,6),(84,0,2,1,0,2,2,2,3,7),(85,0,2,1,0,2,2,2,3,8),(86,0,0,1,0,0,0,0,3,9),(87,0,0,1,2,1,0,0,3,10),(88,0,0,1,2,1,0,0,3,11),(89,0,0,2,0,0,0,0,3,12),(90,0,0,0,0,0,0,2,3,13),(91,0,0,0,1,0,0,0,3,14),(92,0,0,0,0,0,0,0,3,15),(93,0,0,1,0,0,0,0,3,16),(94,0,0,0,2,0,0,0,3,17),(95,0,0,0,0,0,0,2,3,18),(96,0,0,0,2,0,2,0,3,19),(97,0,0,0,1,0,0,0,3,20),(98,0,0,0,0,0,0,0,3,21),(99,0,0,0,0,0,0,0,3,22),(100,0,0,0,1,0,0,0,3,23),(101,0,0,0,1,0,0,0,3,24),(102,0,0,0,1,0,0,0,3,25),(103,0,0,0,0,0,2,0,3,26),(104,0,0,2,1,0,0,0,3,27),(105,0,0,0,2,0,2,0,3,28),(106,0,0,0,0,0,0,0,3,29),(107,0,2,0,0,0,0,0,3,30),(108,0,2,0,0,0,0,0,3,31),(109,0,0,0,0,2,0,0,3,32),(110,0,0,0,0,2,0,0,3,33),(111,0,0,0,0,2,0,0,3,34),(112,0,0,0,0,2,0,0,3,35),(113,0,0,0,0,2,0,0,3,36),(114,0,0,0,0,2,0,0,3,37),(115,0,0,1,2,1,0,0,3,38),(116,0,0,0,0,0,0,0,3,39),(117,0,0,0,0,2,0,0,3,40),(118,0,0,0,2,1,2,0,4,2),(119,0,0,0,0,0,0,0,4,3),(120,0,0,1,2,2,0,0,4,4),(121,0,0,1,2,2,1,0,4,5),(122,0,0,1,2,2,1,0,4,6),(123,0,1,0,0,2,2,2,4,7),(124,0,1,0,0,2,2,2,4,8),(125,0,0,2,1,0,0,0,4,9),(126,0,0,1,2,1,0,0,4,10),(127,0,0,1,2,1,0,0,4,11),(128,0,0,2,0,0,0,0,4,12),(129,0,0,0,0,0,0,2,4,13),(130,0,0,0,2,1,0,0,4,14),(131,0,0,0,0,0,0,0,4,15),(132,0,0,2,1,0,0,0,4,16),(133,0,0,2,2,1,0,0,4,17),(134,0,0,0,0,0,0,2,4,18),(135,0,0,0,2,1,2,1,4,19),(136,0,0,0,0,0,0,0,4,20),(137,0,0,0,0,0,0,0,4,21),(138,0,0,0,0,0,0,0,4,22),(139,0,0,0,0,0,0,0,4,23),(140,0,0,0,0,0,0,0,4,24),(141,0,0,0,2,1,0,0,4,25),(142,0,0,0,0,0,2,0,4,26),(143,0,0,2,2,1,0,0,4,27),(144,0,0,0,2,1,2,1,4,28),(145,0,0,0,0,0,0,0,4,29),(146,0,2,0,0,0,0,0,4,30),(147,0,2,0,0,0,0,0,4,31),(148,0,0,0,0,2,0,0,4,32),(149,0,0,0,0,2,0,0,4,33),(150,0,0,0,0,2,0,0,4,34),(151,0,0,0,0,2,0,0,4,35),(152,0,0,0,0,2,0,0,4,36),(153,0,0,0,0,2,0,0,4,37),(154,0,0,1,2,1,0,0,4,38),(155,0,0,0,0,0,0,0,4,39),(156,0,0,0,0,2,0,0,4,40),(157,0,0,0,0,0,0,0,5,2),(158,0,0,0,2,0,0,0,5,3),(159,0,0,0,0,0,0,0,5,4),(160,0,0,0,0,0,0,0,5,5),(161,0,0,0,0,0,0,0,5,6),(162,0,0,0,0,1,2,2,5,7),(163,0,0,0,0,1,2,2,5,8),(164,0,0,0,0,0,0,0,5,9),(165,0,0,0,0,0,0,0,5,10),(166,0,0,0,0,0,0,0,5,11),(167,0,0,0,0,0,0,0,5,12),(168,0,0,0,0,0,0,2,5,13),(169,0,0,0,0,0,1,0,5,14),(170,0,0,2,0,0,1,0,5,15),(171,0,0,0,0,0,0,0,5,16),(172,0,0,0,0,0,0,0,5,17),(173,0,0,0,0,0,0,2,5,18),(174,0,0,0,0,0,0,0,5,19),(175,0,0,0,2,0,0,0,5,20),(176,0,0,0,0,0,0,0,5,21),(177,0,0,0,0,0,0,0,5,22),(178,0,0,0,2,0,0,0,5,23),(179,0,0,0,2,2,0,0,5,24),(180,0,0,0,0,0,0,0,5,25),(181,0,0,0,0,0,1,0,5,26),(182,0,0,0,0,0,0,0,5,27),(183,0,0,0,0,0,0,0,5,28),(184,0,0,0,0,0,0,0,5,29),(185,0,0,0,0,0,0,0,5,30),(186,0,0,0,0,0,0,0,5,31),(187,0,0,0,0,1,0,0,5,32),(188,0,0,0,0,1,0,0,5,33),(189,0,0,0,0,1,0,0,5,34),(190,0,0,0,0,1,0,0,5,35),(191,0,0,0,0,1,0,0,5,36),(192,0,0,0,0,1,0,0,5,37),(193,0,0,0,0,0,0,0,5,38),(194,0,0,0,0,0,0,0,5,39),(195,0,0,0,0,1,0,0,5,40),(196,0,0,0,0,0,0,0,6,2),(197,0,0,0,2,0,0,0,6,3),(198,0,0,0,0,0,0,0,6,4),(199,0,0,0,0,0,0,0,6,5),(200,0,0,0,0,0,0,0,6,6),(201,0,0,0,0,0,1,2,6,7),(202,0,0,0,0,0,1,2,6,8),(203,0,0,0,0,0,0,0,6,9),(204,0,0,0,0,0,0,0,6,10),(205,0,0,0,0,0,0,0,6,11),(206,0,0,0,0,0,0,0,6,12),(207,0,0,0,0,0,0,2,6,13),(208,0,0,0,0,0,0,0,6,14),(209,0,0,2,1,0,2,1,6,15),(210,0,0,0,0,0,0,0,6,16),(211,0,0,0,0,0,0,0,6,17),(212,0,0,0,0,0,0,2,6,18),(213,0,0,0,0,0,0,0,6,19),(214,0,0,0,2,0,0,0,6,20),(215,0,0,0,0,0,0,0,6,21),(216,0,0,0,0,0,0,0,6,22),(217,0,0,0,2,0,0,0,6,23),(218,0,0,0,2,2,0,0,6,24),(219,0,0,0,0,0,0,0,6,25),(220,0,0,0,0,0,0,0,6,26),(221,0,0,0,0,0,0,0,6,27),(222,0,0,0,0,0,0,0,6,28),(223,0,0,0,0,0,0,0,6,29),(224,0,0,0,0,0,0,0,6,30),(225,0,0,0,0,0,0,0,6,31),(226,0,0,0,0,0,0,0,6,32),(227,0,0,0,0,0,0,0,6,33),(228,0,0,0,0,0,0,0,6,34),(229,0,0,0,0,0,0,0,6,35),(230,0,0,0,0,0,0,0,6,36),(231,0,0,0,0,0,0,0,6,37),(232,0,0,0,0,0,0,0,6,38),(233,0,0,0,0,0,0,0,6,39),(234,0,0,0,0,0,0,0,6,40),(235,0,0,0,2,2,2,0,7,2),(236,0,0,0,0,0,0,0,7,3),(237,0,2,2,2,2,0,0,7,4),(238,0,2,2,2,2,2,0,7,5),(239,0,2,0,0,2,2,0,7,6),(240,0,0,0,0,0,0,2,7,7),(241,0,0,0,0,0,0,2,7,8),(242,0,0,2,2,0,0,0,7,9),(243,0,0,2,2,1,0,0,7,10),(244,0,0,2,2,1,0,0,7,11),(245,0,0,2,0,0,0,0,7,12),(246,0,0,0,0,0,0,2,7,13),(247,0,0,0,2,2,1,0,7,14),(248,0,0,0,0,0,0,0,7,15),(249,0,0,2,2,0,0,0,7,16),(250,0,0,2,2,2,0,0,7,17),(251,0,0,0,0,0,0,2,7,18),(252,0,0,2,2,2,2,2,7,19),(253,0,0,0,0,0,0,0,7,20),(254,0,0,0,0,0,0,0,7,21),(255,0,0,0,0,0,0,0,7,22),(256,0,0,0,0,0,0,0,7,23),(257,0,0,0,0,0,0,0,7,24),(258,0,0,2,0,0,2,0,7,25),(259,0,0,2,0,0,2,2,7,26),(260,0,0,2,0,0,2,2,7,27),(261,0,0,2,2,2,0,0,7,28),(262,0,0,0,0,0,0,0,7,29),(263,0,4,4,4,0,0,0,7,30),(264,0,0,0,0,0,0,0,7,31),(265,0,0,0,0,2,0,0,7,32),(266,0,0,0,0,2,0,0,7,33),(267,0,0,0,0,2,0,0,7,34),(268,0,0,0,0,2,0,0,7,35),(269,0,0,0,0,2,0,0,7,36),(270,0,0,0,0,2,0,0,7,37),(271,0,0,0,0,2,0,0,7,38),(272,0,0,0,0,0,0,0,7,39),(273,0,0,0,0,2,0,0,7,40);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (1,0,0,0,0,0,2,0,1,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (2,0,0,0,2,0,0,0,1,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (3,0,0,0,0,0,0,0,1,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (4,0,0,0,0,0,0,0,1,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (5,0,0,0,0,0,0,0,1,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (6,1,2,0,0,2,2,2,1,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (7,1,2,0,0,2,2,2,1,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (8,0,0,0,0,0,0,0,1,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (9,0,0,0,0,0.5,0,0,1,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (10,0,0,0,0,0.5,0,0,1,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (11,0,0,2,0,0,0,0,1,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (12,0,0,0,0,0,0,2,1,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (13,0,0,0,0,0,2.25,0,1,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (14,0,0,0,0,0,0,0,1,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (15,0,0,0,0,0,0,0,1,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (16,0,0,0,0,0,0,0,1,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (17,0,0,0,0,0,0,2,1,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (18,0,0,0,0,0,0,0,1,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (19,0,0,0,1,0,0,0,1,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (20,0,0,0,2,2,0,0,1,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (21,0,0,0,2,2,0,0,1,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (22,0,0,0.25,2,0,0,0,1,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (23,0,0,0,2,2,0,0,1,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (24,0,0,0,0,0,0,0,1,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (25,0,0,0,0,0,2,0,1,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (26,0,0,2,0,0,0,0,1,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (27,0,0,0,0,0,0,0,1,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (28,0,0,0,0,0,0,0,1,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (29,2,2,0,0,0,0,0,1,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (30,2,2,0,0,0,0,0,1,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (31,0,0,0,0,2,0,0,1,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (32,0,0,0,0,2,0,0,1,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (33,0,0,0,0,2,0,0,1,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (34,0,0,0,0,2,0,0,1,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (35,0,0,0,0,2,0,0,1,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (36,0,0,0,0,2,0,0,1,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (37,0,0,0,0,0.5,0,0,1,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (38,0,0,0,0,0,0,0,1,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (39,0,0,0,0,2,0,0,1,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (40,0,0,0,0,0,2,0,2,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (41,0,0,0,2,0,0,0,2,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (42,0,0.5,0,0,0,0,0,2,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (43,0,1,0,0,0,0,0,2,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (44,0,0,0.5,0,0,0,0,2,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (45,0,1,0,0,2,2,2,2,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (46,0,1,0,0,2,2,2,2,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (47,0,0,0,0,0,0,0,2,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (48,0,0,0,0,0.5,0,0,2,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (49,0,0,0,0,0.5,0,0,2,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (50,0,0,1,0,0,0,0,2,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (51,0,0,0,0,0,0,2,2,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (52,0,0,0,0,0,2.25,0,2,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (53,0,0,0,0,0,0,0,2,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (54,0,0,0,0,0,0,0,2,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (55,0,0,0,0,0,0,0,2,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (56,0,0,0,0,0,0,2,2,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (57,0,0,0,0,0,0,0,2,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (58,0,0,0,2,0,0,0,2,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (59,0,0,0,2,2,0,0,2,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (60,0,0,0,2,2,0,0,2,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (61,0,0,0.25,2,0,0,0,2,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (62,0,0,0,2,2,0,0,2,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (63,0,0,0,0,0,0,0,2,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (64,0,0,0,0,0,2,0,2,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (65,0,0,1,0,0,0,0,2,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (66,0,0,0,0,0,0,0,2,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (67,0,0,0,0,0,0,0,2,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (68,0,2,0,0,0,0,0,2,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (69,0,2,0,0,0,0,0,2,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (70,0,0,0,0,2,0,0,2,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (71,0,0,0,0,2,0,0,2,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (72,0,0,0,0,2,0,0,2,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (73,0,0,0,0,2,0,0,2,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (74,0,0,0,0,2,0,0,2,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (75,0,0,0,0,2,0,0,2,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (76,0,0,0,0,0.5,0,0,2,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (77,0,0,0,0,0,0,0,2,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (78,0,0,0,0,2,0,0,2,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (79,0,0,0,2,0,2,0,3,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (80,0,0,0,1,0,0,0,3,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (81,0,0,0,2,0,0,0,3,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (82,0,0,0,2,0,0,0,3,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (83,0,0,0,2,0,0,0,3,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (84,0,1.5,1,0,2,2,2,3,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (85,0,1.5,1,0,2,2,2,3,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (86,0,0,1,0,0,0,0,3,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (87,0,0,1,2,0.5,0,0,3,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (88,0,0,1,2,0.5,0,0,3,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (89,0,0,2,0,0,0,0,3,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (90,0,0,0,0,0,0,2,3,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (91,0,0,0,1,0,0.25,0,3,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (92,0,0,0,0,0,0,0,3,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (93,0,0,1,0,0,0,0,3,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (94,0,0,0,2,0,0,0,3,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (95,0,0,0,0,0,0,2,3,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (96,0,0,0,2,0,2,0,3,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (97,0,0,0,1,0,0,0,3,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (98,0,0,0,0,0,0,0,3,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (99,0,0,0,0,0,0,0,3,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (100,0,0,0,1,0,0,0,3,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (101,0,0,0,1,0,0,0,3,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (102,0,0,0,1,0,0,0,3,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (103,0,0,0,0,0,2,0,3,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (104,0,0,2,1,0,0,0,3,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (105,0,0,0,2,0,2,0,3,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (106,0,0,0,0,0,0,0,3,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (107,0,2,0,0,0,0,0,3,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (108,0,2,0,0,0,0,0,3,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (109,0,0,0,0,2,0,0,3,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (110,0,0,0,0,2,0,0,3,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (111,0,0,0,0,2,0,0,3,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (112,0,0,0,0,2,0,0,3,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (113,0,0,0,0,2,0,0,3,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (114,0,0,0,0,2,0,0,3,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (115,0,0,1,2,0.5,0,0,3,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (116,0,0,0,0,0,0,0,3,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (117,0,0,0,0,2,0,0,3,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (118,0,0,0,2,1,2,0,4,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (119,0,0,0,0,0,0,0,4,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (120,0,0,1,2,2,0,0,4,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (121,0,0,1,2,2,0.8,0,4,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (122,0,0,1,2,2,0.8,0,4,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (123,0,0.75,0,0,2,2,2,4,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (124,0,0.75,0,0,2,2,2,4,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (125,0,0,2,1,0,0,0,4,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (126,0,0,1,2,0.5,0,0,4,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (127,0,0,1,2,0.5,0,0,4,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (128,0,0,2,0,0,0,0,4,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (129,0,0,0,0,0,0,2,4,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (130,0,0,0,2,1,0.25,0,4,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (131,0,0,0,0,0,0,0,4,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (132,0,0,2,1,0,0,0,4,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (133,0,0,2,2,1,0,0,4,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (134,0,0,0,0,0,0,2,4,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (135,0,0,0,2,1,2,1,4,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (136,0,0,0,0,0,0,0,4,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (137,0,0,0,0,0,0,0,4,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (138,0,0,0,0,0,0,0,4,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (139,0,0,0,0,0,0,0,4,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (140,0,0,0,0,0,0,0,4,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (141,0,0,0,2,1,0,0,4,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (142,0,0,0,0,0,2,0,4,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (143,0,0,2,2,1,0,0,4,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (144,0,0,0,2,1,2,1,4,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (145,0,0,0,0,0,0,0,4,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (146,0,2,0,0,0,0,0,4,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (147,0,2,0,0,0,0,0,4,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (148,0,0,0,0,2,0,0,4,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (149,0,0,0,0,2,0,0,4,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (150,0,0,0,0,2,0,0,4,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (151,0,0,0,0,2,0,0,4,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (152,0,0,0,0,2,0,0,4,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (153,0,0,0,0,2,0,0,4,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (154,0,0,1,2,0.5,0,0,4,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (155,0,0,0,0,0,0,0,4,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (156,0,0,0,0,2,0,0,4,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (157,0,0,0,0,0,0,0,5,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (158,0,0,0,2,0,0,0,5,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (159,0,0,0,0,0,0,0,5,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (160,0,0,0,0,0,0,0,5,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (161,0,0,0,0,0,0,0,5,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (162,0,0,0,0,1,2,2,5,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (163,0,0,0,0,1,2,2,5,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (164,0,0,0,0,0,0,0,5,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (165,0,0,0,0,0.25,0,0,5,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (166,0,0,0,0,0.25,0,0,5,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (167,0,0,0,0,0,0,0,5,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (168,0,0,0,0,0,0,2,5,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (169,0,0,0,0,0,1.125,0,5,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (170,0,0,2,0,0,1,0,5,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (171,0,0,0,0,0,0,0,5,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (172,0,0,0,0,0,0,0,5,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (173,0,0,0,0,0,0,2,5,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (174,0,0,0,0,0,0,0,5,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (175,0,0,0,2,0,0,0,5,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (176,0,0,0,0.4,0.4,0,0,5,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (177,0,0,0,0.4,0.4,0,0,5,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (178,0,0,0.25,2,0,0,0,5,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (179,0,0,0,2,2,0,0,5,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (180,0,0,0,0,0,0,0,5,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (181,0,0,0,0,0,1,0,5,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (182,0,0,0,0,0,0,0,5,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (183,0,0,0,0,0,0,0,5,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (184,0,0,0,0,0,0,0,5,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (185,0,0,0,0,0,0,0,5,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (186,0,0,0,0,0,0,0,5,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (187,0,0,0,0,1,0,0,5,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (188,0,0,0,0,1,0,0,5,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (189,0,0,0,0,1,0,0,5,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (190,0,0,0,0,1,0,0,5,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (191,0,0,0,0,1,0,0,5,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (192,0,0,0,0,1,0,0,5,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (193,0,0,0,0,0.25,0,0,5,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (194,0,0.203873598,0,0,0,0,0,5,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (195,0,0,0,0,1,0,0,5,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (196,0,0,0,0,0,0,0,6,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (197,0,0,0,2,0,0,0,6,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (198,0,0,0,0,0,0,0,6,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (199,0,0,0,0,0,0,0,6,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (200,0,0,0,0,0,0,0,6,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (201,0,0,0,0,0,1,2,6,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (202,0,0,0,0,0,1,2,6,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (203,0,0,0,0,0,0,0,6,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (204,0,0,0,0,0,0,0,6,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (205,0,0,0,0,0,0,0,6,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (206,0,0,0,0,0,0,0,6,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (207,0,0,0,0,0,0,2,6,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (208,0,0,0,0,0,0,0,6,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (209,0,0,2,1,0,2,1,6,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (210,0,0,0,0,0,0,0,6,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (211,0,0,0,0,0,0,0,6,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (212,0,0,0,0,0,0,2,6,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (213,0,0,0,0,0,0,0,6,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (214,0,0,0,2,0,0,0,6,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (215,0,0,0,0.2,0.2,0,0,6,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (216,0,0,0,0.2,0.2,0,0,6,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (217,0,0,0.25,2,0,0,0,6,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (218,0,0,0,2,2,0,0,6,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (219,0,0,0,0,0,0,0,6,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (220,0,0,0,0,0,0,0,6,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (221,0,0,0,0,0,0,0,6,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (222,0,0,0,0,0,0,0,6,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (223,0,0,0,0,0,0,0,6,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (224,0,0,0,0,0,0,0,6,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (225,0,0,0,0,0,0,0,6,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (226,0,0,0,0,0,0,0,6,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (227,0,0,0,0,0,0,0,6,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (228,0,0,0,0,0,0,0,6,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (229,0,0,0,0,0,0,0,6,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (230,0,0,0,0,0,0,0,6,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (231,0,0,0,0,0,0,0,6,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (232,0,0,0,0,0,0,0,6,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (233,0,0.203873598,0,0,0,0,0,6,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (234,0,0,0,0,0,0,0,6,39);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (235,0,0,0,2,2,2,0,7,1);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (236,0,0,0,0,0,0,0,7,2);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (237,0,2,2,2,2,0,0,7,3);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (238,0,2,2,2,2,1.6,0,7,4);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (239,0,2,0,0,2,1.6,0,7,5);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (240,0,0,0,0,0,0,2,7,6);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (241,0,0,0,0,0,0,2,7,7);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (242,0,0,2,2,0,0,0,7,8);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (243,0,0,2,2,0.5,0,0,7,9);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (244,0,0,2,2,0.5,0,0,7,10);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (245,0,0,2,0,0,0,0,7,11);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (246,0,0,0,0,0,0,2,7,12);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (247,0,0,0,2,2,1.25,0,7,13);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (248,0,0,0,0,0,0,0,7,14);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (249,0,0,2,2,0,0,0,7,15);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (250,0,0,2,2,2,0,0,7,16);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (251,0,0,0,0,0,0,2,7,17);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (252,0,0,2,1.5,1.5,2,2,7,18);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (253,0,0,0,0,0,0,0,7,19);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (254,0,0,0,0,0,0,0,7,20);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (255,0,0,0,0,0,0,0,7,21);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (256,0,0,0,0,0,0,0,7,22);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (257,0,0,0,0,0,0,0,7,23);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (258,0,0,2,0,0,1.6,0,7,24);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (259,0,0,2,0,0,2,2,7,25);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (260,0,0,2,0,0,2,2,7,26);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (261,0,0,2,1.5,1.5,0,0,7,27);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (262,0,0,0,0,0,0,0,7,28);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (263,0,4,4,4,0,0,0,7,29);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (264,0,0,0,0,0,0,0,7,30);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (265,0,0,0,0,2,0,0,7,31);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (266,0,0,0,0,2,0,0,7,32);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (267,0,0,0,0,2,0,0,7,33);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (268,0,0,0,0,2,0,0,7,34);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (269,0,0,0,0,2,0,0,7,35);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (270,0,0,0,0,2,0,0,7,36);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (271,0,0,0,0,2,0,0,7,37);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (272,0,0,0,0,0,0,0,7,38);
+INSERT INTO `exercise_detail` (`id`, `attr1`, `attr2`, `attr3`, `attr4`, `attr5`, `attr6`, `attr7`, `body_profilesId`, `exerciseid`) VALUES (273,0,0,0,0,2,0,0,7,39);
+
 /*!40000 ALTER TABLE `exercise_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,10 +499,10 @@ DROP TABLE IF EXISTS `record_data`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `record_data` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `weight` decimal(10,0) NOT NULL,
-  `height` decimal(10,0) NOT NULL,
-  `calories` decimal(10,0) NOT NULL,
-  `assist` decimal(10,0) NOT NULL,
+  `weight` decimal(10,6) NOT NULL,
+  `height` decimal(10,6) NOT NULL,
+  `calories` decimal(10,6) NOT NULL,
+  `assist` decimal(10,6) NOT NULL,
   `reps` int(11) NOT NULL,
   `time` time NOT NULL,
   `athleteid` int(11) NOT NULL,
