@@ -284,8 +284,7 @@ class Athlete extends CActiveRecord
                 $wod_obj = new ArrayObject($wod);
                 $athlete_stats["WOD"] = $wod_obj->getArrayCopy();
             }
-            
-            
+
             $this->calculate_results($athlete_stats);
 
             $athlete_stats['max_squat'] = $max_squat;
@@ -375,6 +374,10 @@ class Athlete extends CActiveRecord
                 );
                 $current_athleteid = $rows[$i]["athleteid"];
                 
+                $max_press = 0;
+                $max_squat = 0;
+                $max_lift = 0;
+
                 while ($i < count($rows) 
                         && $current_athleteid == $rows[$i]["athleteid"]) {
                          
@@ -421,6 +424,22 @@ class Athlete extends CActiveRecord
                                     "value" => $rows[$i]["record_data_time"]
                                 ));
                             }
+                            
+                            if ($rows[$i]["workout_type_name"] == 'MaxWeight') { 
+                                if(strtolower($rows[$i]["workout_name"]) == "crossfit total") {
+                                    if (strtolower($exercise["name"]) == 'back squat') {
+                                        $max_squat = $rows[$i]["record_data_weight"];
+                                    }
+
+                                    if (strtolower($exercise["name"]) == 'strict press') {
+                                        $max_press = $rows[$i]["record_data_weight"];
+                                    }
+
+                                    if (strtolower($exercise["name"]) == 'dead lift') {
+                                        $max_lift = $rows[$i]["record_data_weight"];
+                                    }
+                                }
+                            }
 
                             $this->fill_exercise_property($rows[$i], $exercise, "workout_detail_measure_weight", "Weight", "record_data_weight");
                             $this->fill_exercise_property($rows[$i], $exercise, "workout_detail_measure_height", "Height", "record_data_height");
@@ -439,7 +458,11 @@ class Athlete extends CActiveRecord
                     $athlete["WOD"] = $wod_obj->getArrayCopy();
                 }
                 $this->calculate_results($athlete);
-
+                
+                $athlete['max_squat'] = $max_squat;
+                $athlete['max_press'] = $max_press;
+                $athlete['max_deadlift'] = $max_lift;
+                
                 $athlete_obj = new ArrayObject($athlete);
                 array_push($athlete_stats["Athlete"], $athlete_obj->getArrayCopy());
             }       // athlete  loop
