@@ -22,34 +22,6 @@ USE `training_tracker`;
 --
 -- Table structure for table `AuthAssignment`
 --
-
-DROP TABLE IF EXISTS `AuthAssignment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthAssignment` (
-  `itemname` varchar(64) NOT NULL,
-  `userid` varchar(64) NOT NULL,
-  `bizrule` text,
-  `data` text,
-  PRIMARY KEY (`itemname`,`userid`),
-  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `AuthAssignment`
---
-
-LOCK TABLES `AuthAssignment` WRITE;
-/*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;'),('authenticated','23',NULL,'N;'),('authenticated','24',NULL,'N;'),('authenticated','4',NULL,'N;'),('authenticated','6',NULL,'N;'),('guest','5',NULL,'N;');
-/*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `AuthItem`
---
-
 DROP TABLE IF EXISTS `AuthItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -73,6 +45,35 @@ INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authentica
 /*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
+DROP TABLE IF EXISTS `AuthAssignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AuthAssignment` (
+  `itemname` varchar(64) NOT NULL,
+  `userid` varchar(64) NOT NULL,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`itemname`,`userid`),
+  CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `Authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AuthAssignment`
+--
+
+LOCK TABLES `AuthAssignment` WRITE;
+/*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
+INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('admin','3',NULL,'N;'),('authenticated','2',NULL,'N;'),('authenticated','23',NULL,'N;'),('authenticated','24',NULL,'N;'),('authenticated','4',NULL,'N;'),('authenticated','6',NULL,'N;'),('guest','5',NULL,'N;');
+/*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AuthItem`
+--
+
+
+
 --
 -- Table structure for table `AuthItemChild`
 --
@@ -85,8 +86,8 @@ CREATE TABLE `AuthItemChild` (
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`),
-  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `Authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `Authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
