@@ -60,6 +60,12 @@ $this->menu = array (
 	</div>
 	</td>
 	<td>
+	<div style="margin-right:20px; margin-bottom: 20px;"> 
+	        <?php  echo $form->label($add,'sex_typeid'); ?>
+            <?php echo $form->dropDownList($add,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
+            </div>
+	</td>
+	<td>
 	<div style="margin-right:20px;margin-bottom: 10px;"> 
 	 <?php echo $form->label($add,'height'); ?>
             <?php $this->widget ( 'CMaskedTextField', array (
@@ -86,12 +92,7 @@ $this->menu = array (
 	</div> 
 	</td>
 	
-	<td>
-	<div style="margin-right:20px; margin-bottom: 20px;"> 
-	        <?php  echo $form->label($add,'sex_typeid'); ?>
-            <?php echo $form->dropDownList($add,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
-            </div>
-	</td>
+	
 	<td>
 	<div style="margin-right: 20px; margin-top: 15px;">
 	        <?php
