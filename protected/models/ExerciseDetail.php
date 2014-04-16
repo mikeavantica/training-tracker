@@ -16,8 +16,8 @@
  * @property integer $exerciseid
  *
  * The followings are the available model relations:
- * @property Exercise $exercise
  * @property BodyProfiles $bodyProfiles
+ * @property Exercise $exercise
  */
 class ExerciseDetail extends CActiveRecord
 {
@@ -37,7 +37,7 @@ class ExerciseDetail extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('body_profilesId, exerciseid,attr1, attr2, attr3, attr4, attr5, attr6, attr7', 'required'),
+			array('attr1, attr2, attr3, attr4, attr5, attr6, attr7, body_profilesId, exerciseid', 'required'),
 			array('body_profilesId, exerciseid', 'numerical', 'integerOnly'=>true),
 			array('attr1, attr2, attr3, attr4, attr5, attr6, attr7', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -54,8 +54,8 @@ class ExerciseDetail extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'exercise' => array(self::BELONGS_TO, 'Exercise', 'exerciseid'),
 			'bodyProfiles' => array(self::BELONGS_TO, 'BodyProfiles', 'body_profilesId'),
+			'exercise' => array(self::BELONGS_TO, 'Exercise', 'exerciseid'),
 		);
 	}
 
@@ -74,7 +74,7 @@ class ExerciseDetail extends CActiveRecord
 			'attr6' => 'Attr6',
 			'attr7' => 'Attr7',
 			'body_profilesId' => 'Body Profiles',
-			'exerciseid' => 'Exercise',
+			'exerciseid' => 'Exerciseid',
 		);
 	}
 

@@ -60,9 +60,15 @@ class WorkoutController extends Controller
 	    }
 	    $modelDetail = new WorkoutDetail;
 	    $modelDetail->workoutid = $id;
+	    $criteria = new CDbCriteria();
+	    $criteria->order = 'date DESC, id';
+	    $dataProvider = new CActiveDataProvider('workout', array(
+	    		'criteria' => $criteria
+	    ));
 		$this->render('view',array(
 			'model'=>$model,
-			'modelDetail'=> $modelDetail
+			'modelDetail'=> $modelDetail,
+			'dataProvider'=>$dataProvider
 		));
 	}
 	public function actionCreateWorkout()
@@ -165,6 +171,7 @@ class WorkoutController extends Controller
 	 */
 	public function actionIndex()
 	{
+		
 		$dataProvider=new CActiveDataProvider('Workout');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

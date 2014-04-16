@@ -448,11 +448,10 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
   
 
     <?php
-				// $this->widget('bootstrap.widgets.TbButton', array(
-				// 'type' => 'inverse',
-				// 'label' => 'Go back',
-				// 'url' => Yii::app()->request->urlReferrer,
-				// ));
+    $this->widget('bootstrap.widgets.BsListView',array(
+    		'dataProvider'=>$dataProvider,
+    		'itemView'=>'father',
+    ));
 				?>
 				
 				</div>
