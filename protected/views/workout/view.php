@@ -3,11 +3,11 @@
 /* @var $model Workout */
 ?>
 <script>
-function userClicks(target_id) {
-    id_lote =$.fn.yiiGridView.getSelection(target_id); 
-    alert(id_lote);
+// function userClicks(target_id) {
+//     id_lote =$.fn.yiiGridView.getSelection(target_id); 
+//     alert(id_lote);
 
-}
+// }
    $(function(){
 	   $('#dpExercise').change(function() {
            var url = window.location.pathname;
@@ -26,6 +26,7 @@ function userClicks(target_id) {
                  	 }
                  	else{
                  	alert("you need to choose another exercise, because the exercise selected is already in the workout");
+                 	$('#dpExercise').val("");
                    }
 
                      	}
@@ -35,13 +36,7 @@ function userClicks(target_id) {
           
        });
 	 
-	    $('#updateGrid').on('click', function() { 
-		    var $this = $(this); 
-		    var cityId =$this.data('detail-id'); 
-		    //var projectId = $this.data('project-id'); 
-		    alert("Hola!!!"+cityId);
-		    
-		     }); 
+
 
 	  
 		
@@ -52,7 +47,10 @@ function userClicks(target_id) {
 
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
-				'Workouts' => 'admin',
+				'Workouts' => array (
+						'view',
+						'id' => 0 
+				),
 				$model->name 
 		) 
 ) );
@@ -130,26 +128,38 @@ $this->menu = array (
 		</table>
 		<div class="form-actions">
         <?php
-								echo BsHtml::submitButton ( 'Submite WOD', array (
-										'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-										'size' => BsHtml::BUTTON_SIZE_SMALL,
-										'submit' => 'create' 
-								) );
-								?> 
+								if ($model->id == "") {
+									echo BsHtml::submitButton ( 'Submite WOD', array (
+											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+											'size' => BsHtml::BUTTON_SIZE_SMALL,
+											'submit' => 'create' 
+									) );
+								} else {
+									?> 
+
+<?php
+									
+									echo BsHtml::submitButton ( 'Update Workout', array (
+											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+											'size' => BsHtml::BUTTON_SIZE_SMALL,
+											'submit' => array (
+													'update',
+													'id' => $model->id 
+											) 
+									) );
+								}
+								?>
 &nbsp &nbsp &nbsp
 <?php
-
-if ($model->id != "") {
-	echo BsHtml::submitButton ( 'Update Workout', array (
-			'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-			'size' => BsHtml::BUTTON_SIZE_SMALL,
-			'submit' => array (
-					'update',
-					'id' => $model->id 
-			) 
-	) );
-}
-?>				
+echo BsHtml::linkButton ( 'Cancel', array (
+		'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+		'size' => BsHtml::BUTTON_SIZE_SMALL,
+		'url' => array (
+				'view',
+				'id' => 0 
+		) 
+)
+ )?>				
 							
     </div>
 
@@ -166,8 +176,7 @@ if ($model->id != "") {
 			// There is a call to performAjaxValidation() commented in generated controller code.
 			// See class documentation of CActiveForm for details on this.
 			'enableAjaxValidation' => false 
-	)
-	 );
+	) );
 	?>
 
 
@@ -224,14 +233,14 @@ if ($model->id != "") {
 															),
 															'htmlOptions' => array (
 																	'class' => 'form-control' 
-															)
-															 
-													) );
+															) 
+													)
+													 );
 												} else {
 													$modelDetail->total_time = WorkoutDetail::model ()->sonTotalTime ( $model->id );
-													echo $form->label ( $modelDetail, 'total_time', array (
-															'style' => 'display:none' 
-													) );
+													echo $form->label ( $modelDetail, 'total_time', array ()
+
+													 );
 													$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
 															'model' => $modelDetail, // Your model
 															'attribute' => 'total_time', // Attribute for input
@@ -242,9 +251,9 @@ if ($model->id != "") {
 																	'showHour' => false 
 															),
 															'htmlOptions' => array (
-																	'class' => 'form-control',
-																	'style' => 'display:none' 
-															) 
+																	'class' => 'form-control' 
+															)
+															 
 													) );
 												}
 											}
@@ -278,11 +287,20 @@ if ($model->id != "") {
 
 		<div class="row" style="padding: 30px;"> 
         <?php
-								if ($model->id != "") {
+								if ($model->id != "" && $modelDetail->id == "") {
 									echo BsHtml::submitButton ( 'Add Another Exercise', array (
 											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 											'size' => BsHtml::BUTTON_SIZE_SMALL,
 											'submit' => '../WorkoutDetail/create' 
+									) );
+								} else {
+									echo BsHtml::submitButton ( 'Update Exercise', array (
+											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+											'size' => BsHtml::BUTTON_SIZE_SMALL,
+											'submit' => array (
+													'WorkoutDetail/update',
+													'id' => $modelDetail->id 
+											) 
 									) );
 								}
 								?>
@@ -330,9 +348,9 @@ if ($model->id != "") {
 
 $this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'releasenote-grid',
-		'selectableRows' => 1,
+		'selectableRows' => 0,
 		'dataProvider' => WorkoutDetail::model ()->search2 ( $model->id ),
-		'selectionChanged' => 'js:userClicks',
+		// 'selectionChanged' => 'js:userClicks',
 		'columns' => array(
 				/*array(
 						'name' => 'id',
@@ -346,24 +364,25 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				),
 				array (
 						'class' => 'CCheckBoxColumn',
-						'checked' => '$data->measure_height == 1',
-						'selectableRows' => 0,
-						'name' => 'measure_height',
-						'header' => 'Height',
-						'disabled' => 'true' 
-				),
-				array (
-						'class' => 'CCheckBoxColumn',
 						'name' => 'measure_weight',
-						'selectableRows' => 0,
+						
 						'checked' => '$data->measure_weight == 1',
 						'header' => 'Weight',
 						'disabled' => 'true' 
 				),
 				array (
 						'class' => 'CCheckBoxColumn',
+						'checked' => '$data->measure_height == 1',
+						
+						'name' => 'measure_height',
+						'header' => 'Height',
+						'disabled' => 'true' 
+				),
+				
+				array (
+						'class' => 'CCheckBoxColumn',
 						'name' => 'measure_calories',
-						'selectableRows' => 0,
+						
 						'checked' => '$data->measure_calories == 1',
 						'header' => 'Calories',
 						'disabled' => 'true' 
@@ -372,7 +391,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'class' => 'CCheckBoxColumn',
 						'checked' => '$data->measure_assist == 1',
 						'name' => 'measure_assist',
-						'selectableRows' => 0,
+						
 						'header' => 'Assist',
 						'disabled' => 'true' 
 				),
@@ -380,8 +399,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'name' => 'total_reps',
 						'header' => 'Reps',
 						'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3 
-				)
-				,
+				),
 				array (
 						'name' => 'total_time',
 						'header' => 'Time',
@@ -401,7 +419,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				
 				array (
 						'class' => 'CButtonColumn',
-						'template' => '{delete}',
+						'template' => '{update}{delete}',
 						
 						'buttons' => array (
 								
@@ -409,29 +427,24 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 										'label' => '',
 										'imageUrl' => '',
 										
-										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id,'workout'=>\$model->id))",
+										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/update', 'id'=>\$data->id))",
 										'options' => array (
 												
 												'class' => 'glyphicon glyphicon-edit',
-												'id' => "updateGrid",
-												'data-detail-id' => '$data->id',
-												'data-exercise-id' => '$data->exerciseid',
-												'data-measure-height' => '$data->measure_height',
-												'data-measure-weight' => '$data->measure_weight',
-												'data-measure-calories' => '$data->measure_calories',
-												'data-measure-assist' => '$data->measure_assist' 
+												'id' => "updateGrid" 
 										)
 										 
-								),
+								)
+								,
 								'delete' => array (
 										'label' => '',
 										'imageUrl' => '',
 										'url' => "CHtml::normalizeUrl(array('/WorkoutDetail/delete', 'id'=>\$data->id))",
 										'options' => array (
 												'class' => 'glyphicon glyphicon-remove' 
-										)
-										 
-								) 
+										) 
+								)
+								 
 						) 
 				) 
 		) 
@@ -452,8 +465,8 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
     <?php
 				$this->widget ( 'bootstrap.widgets.BsListView', array (
 						'dataProvider' => $dataProvider,
-						'itemView'=>'father',
-    ));
+						'itemView' => 'father' 
+				) );
 				?>
 				
 				</div>

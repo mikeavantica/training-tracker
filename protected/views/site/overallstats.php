@@ -84,8 +84,9 @@ foreach ( $athlete['WOD'] as $exerciseswod ) {
 		}
 		
 	} // fin del foreach de ejercicios
-	
+	if($row['Volume'] != number_format(0,2) && $row['Fitness'] != number_format(0,2)){
 	$dataprovider[$rowid] = $row;
+	}
 	$rowid++;
 } // fin del foreach de workouts
 $cont++;
