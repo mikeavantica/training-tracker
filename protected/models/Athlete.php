@@ -199,13 +199,14 @@ class Athlete extends CActiveRecord
             $limit_date = new DateTime($end_date);
             $last_processed_date = "01-01-1900";
             
+            $wod = array();
             foreach ($rows as $row) {
-                if ($last_processed_date == $row["record_data_date"]) 
+                if ($last_processed_date == $row["record_data_date"]) {
                     continue;
+                } 
 
                 // fill date range
-                $wod = array();
-                while ($current_date < $limit_date) {
+                while ($current_date <= $limit_date) {
                     $wod_day = array(
                         'date' => $current_date->format('m/d/Y'),   //->format('m/d/Y'),
                         'name' => NULL,
@@ -219,7 +220,6 @@ class Athlete extends CActiveRecord
                     $last_processed_date = $row["record_data_date"];
 
                     $data_for_day = $this->filter_by_date($rows, new DateTime($wod_day["date"]));
-
                     if (count($data_for_day) > 0) {
                         $wod_day['name'] = $data_for_day[0]["workout_name"];
                         $wod_day['type'] = $data_for_day[0]["workout_type_name"];
@@ -278,13 +278,11 @@ class Athlete extends CActiveRecord
                     
                     $wod_day_obj = new ArrayObject($wod_day);
                     array_push($wod, $wod_day_obj->getArrayCopy());
-                    
                     $current_date->add(new DateInterval("P1D"));
-                }
-                $wod_obj = new ArrayObject($wod);
-                $athlete_stats["WOD"] = $wod_obj->getArrayCopy();
+                } 
             }
-
+            $wod_obj = new ArrayObject($wod);
+            $athlete_stats["WOD"] = $wod_obj->getArrayCopy();
             $this->calculate_results($athlete_stats);
 
             $athlete_stats['max_squat'] = $max_squat;
