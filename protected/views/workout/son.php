@@ -58,12 +58,12 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3 ,
                         
 				),
-				array (
-						'name' => 'total_time',
-						'header' => 'Time',
-						'visible' => $model->workout_typeid == 2 
+// 				array (
+// 						'name' => 'total_time',
+// 						'header' => 'Time',
+// 						'visible' => $model->workout_typeid == 2 
                         
-				),
+// 				),
 
 
         
