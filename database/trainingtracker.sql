@@ -18,13 +18,13 @@ USE `training_tracker`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `AuthAssignment`
+-- Table structure for table `authassignment`
 --
 
-DROP TABLE IF EXISTS `AuthAssignment`;
+DROP TABLE IF EXISTS `authassignment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthAssignment` (
+CREATE TABLE `authassignment` (
   `itemname` varchar(64) NOT NULL,
   `userid` varchar(64) NOT NULL,
   `bizrule` text,
@@ -35,23 +35,23 @@ CREATE TABLE `AuthAssignment` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AuthAssignment`
+-- Dumping data for table `authassignment`
 --
 
-LOCK TABLES `AuthAssignment` WRITE;
-/*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('authenticated','2',NULL,'N;');
-/*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
+LOCK TABLES `authassignment` WRITE;
+/*!40000 ALTER TABLE `authassignment` DISABLE KEYS */;
+INSERT INTO `authassignment` VALUES ('admin','1',NULL,'N;'),('authenticated','2',NULL,'N;');
+/*!40000 ALTER TABLE `authassignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `AuthItem`
+-- Table structure for table `authitem`
 --
 
-DROP TABLE IF EXISTS `AuthItem`;
+DROP TABLE IF EXISTS `authitem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthItem` (
+CREATE TABLE `authitem` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -62,23 +62,23 @@ CREATE TABLE `AuthItem` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AuthItem`
+-- Dumping data for table `authitem`
 --
 
-LOCK TABLES `AuthItem` WRITE;
-/*!40000 ALTER TABLE `AuthItem` DISABLE KEYS */;
-INSERT INTO `AuthItem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
-/*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
+LOCK TABLES `authitem` WRITE;
+/*!40000 ALTER TABLE `authitem` DISABLE KEYS */;
+INSERT INTO `authitem` VALUES ('admin',2,'administrator',NULL,'N;'),('authenticated',2,'authenticated user','return !Yii::app()->user->isGuest;','N;'),('guest',2,'guest user','return Yii::app()->user->isGuest;','N;');
+/*!40000 ALTER TABLE `authitem` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `AuthItemChild`
+-- Table structure for table `authitemChild`
 --
 
-DROP TABLE IF EXISTS `AuthItemChild`;
+DROP TABLE IF EXISTS `authitemChild`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `AuthItemChild` (
+CREATE TABLE `authitemChild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
@@ -89,12 +89,12 @@ CREATE TABLE `AuthItemChild` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AuthItemChild`
+-- Dumping data for table `authitemChild`
 --
 
-LOCK TABLES `AuthItemChild` WRITE;
-/*!40000 ALTER TABLE `AuthItemChild` DISABLE KEYS */;
-/*!40000 ALTER TABLE `AuthItemChild` ENABLE KEYS */;
+LOCK TABLES `authitemChild` WRITE;
+/*!40000 ALTER TABLE `authitemChild` DISABLE KEYS */;
+/*!40000 ALTER TABLE `authitemChild` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
