@@ -37,6 +37,7 @@ class Athlete extends CActiveRecord
 			array('first_name,last_name,height,email, weight, sex_typeid', 'required'),
 			array('sex_typeid', 'numerical', 'integerOnly'=>true),
 			array('first_name, last_name', 'length', 'max'=>45),
+			
 			array('email', 'length', 'max'=>150),
 			array('height, weight', 'length', 'max'=>10),
 			// The following rule is used by search().
@@ -289,7 +290,7 @@ class Athlete extends CActiveRecord
             $athlete_stats['max_press'] = $max_press;
             $athlete_stats['max_deadlift'] = $max_lift;
             
-            // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
+             // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
             
             return $athlete_stats; 
         }
@@ -532,13 +533,11 @@ class Athlete extends CActiveRecord
         }
         
         private function calculate_results(&$data) {
-            $params = $this->load_parameters();
+            $params = $this->load_parameters($data);
             // echo '<pre>'; var_dump($params); echo '</pre>'; die();
             
             $Gravity = 9.81;
-            $body_profiles = BodyProfiles::model()->findAll(
-                'sex_typeid=:sex_typeid', array(':sex_typeid' => $data["aux"]["sex_typeid"])
-            );
+            $body_profiles = BodyProfiles::model()->findAll();
 
             $index = 0;
             
@@ -556,19 +555,19 @@ class Athlete extends CActiveRecord
                     $power = array();
                     foreach ($body_profiles as $body_profile) {
                         // calculate force
-                        $key = $data["aux"]["sex_typeid"] . "-" . $body_profile->body_part__name;
-                        if ($body_profile->body_part__name != 'Weight') {
+                        $key = $body_profile->body_part_name;
+                        if ($body_profile->body_part_name != 'Weight') {
                             if (array_key_exists($key, $params)) {
-                                $force[$body_profile->body_part__name] = $data["aux"]["athlete_weight"] * $Gravity * (float)$params[$key]["body_part_weight"] / 100;
+                                $force[$body_profile->body_part_name] = $data["aux"]["athlete_weight"] * $Gravity * (float)$params[$key]["body_part_weight"] / 100;
                             } else {
                                 echo "Key does not exist " . $key;
-                                $force[$body_profile->body_part__name] = 0;
+                                $force[$body_profile->body_part_name] = 0;
                             }
                         } else {
-                            $force[$body_profile->body_part__name] = 0;
+                            $force[$body_profile->body_part_name] = 0;
                             $weight = $this->get_exercise_property($exercise, "Weight");
                             if ($weight != 0) {
-                                $force[$body_profile->body_part__name] = $Gravity * (float)$params[$key]["body_part_weight"] * $weight / 100 ;
+                                $force[$body_profile->body_part_name] = $Gravity * (float)$params[$key]["body_part_weight"] * $weight / 100 ;
                             }
                         }
                         
@@ -576,27 +575,29 @@ class Athlete extends CActiveRecord
                         $sum = 0;
                         $other_distance = 0;
                         foreach ($body_profiles as $body_profile2) {
-                            $key = $this->build_key($data, $body_profile->body_part__name, $body_profile2->body_part__name, $exercise["id"]);
-                            if ($body_profile2->body_part__name == 'Other distance') {
+                            $key = $this->build_key($data, $body_profile->body_part_name, $body_profile2->body_part_name, $exercise["id"]);
+                            $bp_height = $data["aux"]["sex_typeid"] == 1 ? $body_profile2->height_male : $body_profile2->height_female;
+                            if ($body_profile2->body_part_name == 'Other distance') {
                                 $other_distance = $params[$key]["value"]; 
-                            } else if ($body_profile2->body_part__name != 'Weight') {
+                            } else if ($body_profile2->body_part_name != 'Weight') {
                                 if (array_key_exists($key, $params)) {
-                                    // echo "[" . $body_profile->body_part__name . "-" . $body_profile2->body_part__name ."]";
-                                    $sum = $sum + $body_profile2->height * $params[$key]["value"] /  100;
+                                    // echo "[" . $body_profile->body_part_name . "-" . $body_profile2->body_part_name ."]";
+                                    $sum = $sum + $bp_height * $params[$key]["value"] /  100;
                                 }
                             }                            
                         }
-                        $height = $this->get_exercise_property($exercise, "Height") / 100;
+                        $rd_height = $this->get_exercise_property($exercise, "Height") / 100;
+                        $bp_height = $data["aux"]["sex_typeid"] == 1 ? $body_profile->height_male : $body_profile->height_female;
 
-                        $distance[$body_profile->body_part__name]  = (($data["aux"]["athlete_height"]/100) * $sum + ($body_profile->height * $height * $other_distance));
+                        $distance[$body_profile->body_part_name]  = (($data["aux"]["athlete_height"]/100) * $sum + ($bp_height * $rd_height * $other_distance));
                     
                         // Calcule Work
                         $reps = $this->get_exercise_property($exercise, "Reps");
 
                         if ($reps != 0) {
-                            $work[$body_profile->body_part__name]  = $reps * $force[$body_profile->body_part__name] * $distance[$body_profile->body_part__name]; 
+                            $work[$body_profile->body_part_name]  = $reps * $force[$body_profile->body_part_name] * $distance[$body_profile->body_part_name]; 
                         } else {
-                            $work[$body_profile->body_part__name]  = 0;
+                            $work[$body_profile->body_part_name]  = 0;
                         }
                     
                         // calculate power
@@ -608,12 +609,12 @@ class Athlete extends CActiveRecord
                             $seconds = (int) $t->format("s");
                             $total =  $minutes * 60 + $seconds;
                             if ($total > 0) {
-                                $power[$body_profile->body_part__name]  = $work[$body_profile->body_part__name] / $total;
+                                $power[$body_profile->body_part_name]  = $work[$body_profile->body_part_name] / $total;
                             } else {
-                                $power[$body_profile->body_part__name]  = 0;
+                                $power[$body_profile->body_part_name]  = 0;
                             }
                         } else {
-                            $power[$body_profile->body_part__name]  = 0;
+                            $power[$body_profile->body_part_name]  = 0;
                         }
                     }
                     
@@ -639,10 +640,12 @@ class Athlete extends CActiveRecord
                         $frequency += 1;
                     }
 
+//                    echo '<pre> Fitness: '; var_dump($data["WOD"][$index]["fitness"]); echo '</pre>'; 
+//                    echo '<pre> Volume: '; var_dump($data["WOD"][$index]["volume"]); echo '</pre>'; 
+
                     $index++;
-//                    echo '<pre> Fitness'; var_dump($wod["fitness"]); echo '</pre>'; 
-//                    echo '<pre> Volume '; var_dump($wod["volume"]); echo '</pre>'; 
-            }
+                }
+            
             if ($frequency > 0) {
                 $data["average_fitness"] = $sum_fitness / $frequency;
                 $data["average_volume"] = $sum_volume / $frequency;
@@ -672,30 +675,32 @@ class Athlete extends CActiveRecord
          * @return type: Key => value array
          * key = sex_typeid + body_profileid + exerciseid
          */
-        private function load_parameters() {
+        private function load_parameters($athlete) {
             $sql = 'select 
-                        bp.sex_typeid,
-                        bp.Id as body_profileid,
-                        bp.body_part__name as body_part_name,
-                        bp.weight as body_part_weight,
-                        bp.height as body_part_height,
-                        exd.id as exercise_detailid,
-                        exd.attr1,
-                        exd.attr2,
-                        exd.attr3,
-                        exd.attr4,
-                        exd.attr5,
-                        exd.attr6,
-                        exd.attr7,
-                        ex.id as exerciseid,
-                        ex.name as exercise_name
-                    from
-                        body_profiles bp
-                            left outer join
-                        exercise_detail exd ON exd.body_profilesId = bp.Id
-                            left outer join
-                        exercise ex ON ex.id = exd.exerciseid
-                    order by bp.sex_typeid, bp.id';
+		bp.id as body_profileid,
+		bp.body_part_name as body_part_name,
+		bp.weight_male as body_part_weight_male,
+		bp.height_male as body_part_height_male,
+		bp.weight_female as body_part_weight_female,
+		bp.height_female as body_part_height_female,
+		bp.exercise_detail_attr_index as exercise_detail_attr_index,
+		exd.id as exercise_detailid,
+		exd.attr1,
+		exd.attr2,
+		exd.attr3,
+		exd.attr4,
+		exd.attr5,
+		exd.attr6,
+		exd.attr7,
+		ex.id as exerciseid,
+		ex.name as exercise_name
+	from
+		body_profiles bp
+			left outer join
+		exercise_detail exd ON exd.body_profilesId = bp.Id
+			left outer join
+		exercise ex ON ex.id = exd.exerciseid
+	order by bp.exercise_detail_attr_index';
             
             $connection=Yii::app()->db;   
             $command=$connection->createCommand($sql);
@@ -705,49 +710,65 @@ class Athlete extends CActiveRecord
             
             $parameters = array();
             foreach ($rows as $row) {
-                $this->add_parameter($parameters, $row, "Head and Neck", "attr1");
-                $this->add_parameter($parameters, $row, "Trunk", "attr2");
-                $this->add_parameter($parameters, $row, "Upper Arm", "attr3");
-                $this->add_parameter($parameters, $row, "Forearm and half hand", "attr4");
-                $this->add_parameter($parameters, $row, "Thigh", "attr5");
-                $this->add_parameter($parameters, $row, "Leg and foot", "attr6");
-                $this->add_parameter($parameters, $row, "Weight", "attr7");
+                $this->add_parameter($parameters, $athlete, $row, "Head and Neck", "attr1");
+                $this->add_parameter($parameters, $athlete, $row, "Trunk", "attr2");
+                $this->add_parameter($parameters, $athlete, $row, "Upper Arm", "attr3");
+                $this->add_parameter($parameters, $athlete, $row, "Forearm and half hand", "attr4");
+                $this->add_parameter($parameters, $athlete, $row, "Thigh", "attr5");
+                $this->add_parameter($parameters, $athlete, $row, "Leg and foot", "attr6");
+                $this->add_parameter($parameters, $athlete, $row, "Weight", "attr7");
             }
-            //echo 'parameters <pre>';var_dump($parameters);echo '</pre>'; 
+          //  echo 'parameters <pre>';var_dump($parameters);echo '</pre>'; 
             
             return $parameters;
         }
         
-        private function add_parameter(&$target, $row, $body_part_name, $attr) {
-            $key = $row["sex_typeid"] . "-" . $row["body_part_name"];
+        private function add_parameter(&$target, $athlete, $row, $body_part_name, $attr) {
+            $key = $row["body_part_name"];
             $value = array(
                 'body_profileid' => $row['body_profileid'],
                 'body_part_name' => $row['body_part_name'],
-                'body_part_weight' => $row['body_part_weight'],
-                'body_part_height' => $row['body_part_height'],
+                'body_part_weight' => 0,
+                'body_part_height' => 0,
                 'exercise_detailid' => $row['exercise_detailid'],
                 'value' => 0,
                 'exerciseid' => $row['exerciseid'],
                 'exercise_name' => $row['exercise_name']
             );
+            if ($athlete["aux"]["sex_typeid"] == 1) {
+                $value['body_part_weight'] = $row['body_part_weight_male'];
+                $value['body_part_height'] = $row['body_part_height_male'];
+            } else {
+                $value['body_part_weight'] = $row['body_part_weight_female'];
+                $value['body_part_height'] = $row['body_part_height_female'];
+            }
             
             $target[$key] = $value; 
             
             if ($attr != null && $row[$attr] == 0)
                 return;
 
-            $key = $row["sex_typeid"] . "-" . $row["body_part_name"] . "-" . $body_part_name . "-" . $row["exerciseid"];
+            $key = $row["body_part_name"] . "-" . $body_part_name . "-" . $row["exerciseid"];
 
             $value = array(
                 'body_profileid' => $row['body_profileid'],
                 'body_part_name' => $row['body_part_name'],
-                'body_part_weight' => $row['body_part_weight'],
-                'body_part_height' => $row['body_part_height'],
+                'body_part_weight' => 0,
+                'body_part_height' => 0,
                 'exercise_detailid' => $row['exercise_detailid'],
                 'value' => $row[$attr],
                 'exerciseid' => $row['exerciseid'],
                 'exercise_name' => $row['exercise_name']
             );
+
+            if ($athlete["aux"]["sex_typeid"] == 1) {
+                $value['body_part_weight'] = $row['body_part_weight_male'];
+                $value['body_part_height'] = $row['body_part_height_male'];
+            } else {
+                $value['body_part_weight'] = $row['body_part_weight_female'];
+                $value['body_part_height'] = $row['body_part_height_female'];
+            }
+            
             $target[$key] = $value; 
 
             //echo '<pre>';var_dump($target);echo '</pre>'; 
@@ -755,17 +776,14 @@ class Athlete extends CActiveRecord
         
         private function build_key($athlete, $body_part_name_1, $body_part_name_2, $exerciseid) {
             if ($body_part_name_2 == NULL) {
-            $key = $athlete["aux"]["sex_typeid"] . "-"
-                    . $body_part_name_1;
+                $key = $body_part_name_1;
             } else {
-            $key = $athlete["aux"]["sex_typeid"] . "-"
-                    . $body_part_name_1 . "-"
-                    . $body_part_name_2 . "-"
-                    . $exerciseid;
+                $key = $body_part_name_1 . "-"
+                       . $body_part_name_2 . "-"
+                       . $exerciseid;
             }
             return $key;
         }
-
 
     function getFullName() {
         return $this->first_name . ' ' . $this->last_name;

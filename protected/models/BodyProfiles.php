@@ -5,14 +5,12 @@
  *
  * The followings are the available columns in table 'body_profiles':
  * @property integer $Id
- * @property string $body_part__name
- * @property string $weight
- * @property string $height
- * @property integer $sex_typeid
- *
- * The followings are the available model relations:
- * @property SexType $sexType
- * @property ExerciseDetail[] $exerciseDetails
+ * @property string $body_part_name
+ * @property string $weight_male
+ * @property string $height_male
+ * @property string $weight_female
+ * @property string $height_female
+ * @property integer $exercise_detail_attr_index
  */
 class BodyProfiles extends CActiveRecord
 {
@@ -32,13 +30,13 @@ class BodyProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('body_part__name, weight, height, sex_typeid', 'required'),
-			array('sex_typeid', 'numerical', 'integerOnly'=>true),
-			array('body_part__name', 'length', 'max'=>45),
-			array('weight, height', 'length', 'max'=>10),
+			array('body_part_name, weight_male, height_male, weight_female, height_female, exercise_detail_attr_index', 'required'),
+			array('exercise_detail_attr_index', 'numerical', 'integerOnly'=>true),
+			array('body_part_name', 'length', 'max'=>45),
+			array('weight_male, height_male, weight_female, height_female', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('Id, body_part__name, weight, height, sex_typeid', 'safe', 'on'=>'search'),
+			array('Id, body_part_name, weight_male, height_male, weight_female, height_female, exercise_detail_attr_index', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,8 +48,6 @@ class BodyProfiles extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'sexType' => array(self::BELONGS_TO, 'SexType', 'sex_typeid'),
-			'exerciseDetails' => array(self::HAS_MANY, 'ExerciseDetail', 'body_profilesId'),
 		);
 	}
 
@@ -62,10 +58,12 @@ class BodyProfiles extends CActiveRecord
 	{
 		return array(
 			'Id' => 'ID',
-			'body_part__name' => 'Body Part Name',
-			'weight' => 'Weight',
-			'height' => 'Height',
-			'sex_typeid' => 'Gender',
+			'body_part_name' => 'Body Part Name',
+			'weight_male' => 'Weight Male',
+			'height_male' => 'Height Male',
+			'weight_female' => 'Weight Female',
+			'height_female' => 'Height Female',
+			'exercise_detail_attr_index' => 'Exercise Detail Attr Index',
 		);
 	}
 
@@ -84,14 +82,16 @@ class BodyProfiles extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
-		$sex = 1;
+
 		$criteria=new CDbCriteria;
-		if($this->sex_typeid == 'Female' || $this->sex_typeid == 2){$sex = 2;}
+
 		$criteria->compare('Id',$this->Id);
-		$criteria->compare('body_part__name',$this->body_part__name,true);
-		$criteria->compare('weight',$this->weight,true);
-		$criteria->compare('height',$this->height,true);
-		
+		$criteria->compare('body_part_name',$this->body_part_name,true);
+		$criteria->compare('weight_male',$this->weight_male,true);
+		$criteria->compare('height_male',$this->height_male,true);
+		$criteria->compare('weight_female',$this->weight_female,true);
+		$criteria->compare('height_female',$this->height_female,true);
+		$criteria->compare('exercise_detail_attr_index',$this->exercise_detail_attr_index);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
