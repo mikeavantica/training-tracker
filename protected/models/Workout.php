@@ -129,4 +129,10 @@ class Workout extends CActiveRecord
 	
 	return $result;
 	}
+        
+        public function getExtendedName()
+        {
+            return $this->name . ' [' . date('m/d/y', strtotime($this->date)) . ']';
+        }
+        
 }

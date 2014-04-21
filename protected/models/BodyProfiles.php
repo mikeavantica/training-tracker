@@ -95,7 +95,6 @@ class BodyProfiles extends CActiveRecord
 		$criteria->compare('height_male',$this->height_male,true);
 		$criteria->compare('weight_female',$this->weight_female,true);
 		$criteria->compare('height_female',$this->height_female,true);
-		$criteria->compare('exercise_detail_attr_index',$this->exercise_detail_attr_index);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

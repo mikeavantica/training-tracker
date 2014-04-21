@@ -31,7 +31,7 @@
         <tr>
             <td><?php echo $form->textField($model,'date'); ?></td>
             <td><?php 
-                $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                $list=CHtml::listData(Workout::model()->findAll(array('order'=>'id desc')), 'id', 'name');
                 $list['empty'] = 'select';
                 echo CHtml::dropDownList('wod', (isset($workout_id) ? $workout_id : 'empty'), $list);
                 ?>
@@ -62,7 +62,7 @@
     </div>
     
     
-    <input type="submit" class="btn btn-primary btn-small" value="create" >
+    <input type="submit" class="btn btn-primary btn-small" value="Record" >
     
     <?php $this->endWidget(); ?>
     

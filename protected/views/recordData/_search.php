@@ -35,7 +35,7 @@
                      </div>
 	               <div class="row">
                     <?php echo $form->label($model,'workout_detailid'); ?>
-                    <?php echo $form->dropDownList($model,'workout_detailid',CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?> 
+                    <?php echo $form->dropDownList($model,'workout_detailid',CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'name')); ?> 
                     </div>
 	               <div class="row">
                     <?php echo $form->label($model,'date'); ?>

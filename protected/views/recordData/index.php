@@ -68,16 +68,16 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
             if (isset($model->workoutDetail)) {
                 if($is_update)
                 {
-                    $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                    $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
                     echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('disabled' => 'disabled','class'=>'form-control'));
                 }
                 else
                 {
-                    $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                    $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
                     echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('prompt' => '-- Select --','class'=>'form-control'));
                 }
             } else {
-                $list=CHtml::listData(Workout::model()->findAll(), 'id', 'name');
+                $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
                 echo CHtml::dropDownList('wod', 'empty', $list, array('prompt' => '-- Select --','class'=>'form-control'));
             }
             ?>
@@ -101,14 +101,24 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
             
             ?></td>
         <td>&nbsp;</td>
-        <td><?php 
+        <td>
+             <?php $this->widget ( 'CMaskedTextField', array (
+                                        'model' => $model,
+                                        'attribute' => 'time',
+                                        'mask' => '99:99',
+                                        'htmlOptions' => array ('size' => 6) 
+                                                                ) 
+                     );//echo $form->numberField($model,'height',array('span'=>2,'maxlength'=>10)); ?>
+            <?php 
+        
+        /*
                 $this->widget( 'ext.EJuiTimePicker.EJuiTimePicker', array(
                                 'model' => $model, // Your model
                                 'attribute' => 'time', // Attribute for input
                                 'options'=>array('timeOnly'=>true, 'timeFormat'=> 'mm:ss', 'showSecond'=>true, 'showHour'=>false),
                                 'htmlOptions' => array('class'=>'form-control','style'=> 'display:none;'),
                             )); 
-        
+        */
         ?>
             
             <label id="lbltimeValue"><?php echo $model->time ?></label>
@@ -119,7 +129,7 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
     if (isset($models)) {
         echo '<input type="hidden" name="action" value="edit">';
     } else {
-        echo '<input type="hidden" name="action" value="create">';
+        echo '<input type="hidden" name="action" value="Record">';
     }
         
         
@@ -170,7 +180,7 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
 </div>
     
     
-    <input type="submit" class="btn btn-primary btn-small" value=" <?php echo (isset($models)&&($is_update) ? 'update' : 'create') ?>" >
+    <input type="submit" class="btn btn-primary btn-small" value=" <?php echo (isset($models)&&($is_update) ? 'update' : 'Record') ?>" >
     
     <?php $this->endWidget(); ?>
     
