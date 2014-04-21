@@ -11,6 +11,9 @@
  * @property string $weight_female
  * @property string $height_female
  * @property integer $exercise_detail_attr_index
+ *
+ * The followings are the available model relations:
+ * @property ExerciseDetail[] $exerciseDetails
  */
 class BodyProfiles extends CActiveRecord
 {
@@ -30,13 +33,13 @@ class BodyProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('body_part_name, weight_male, height_male, weight_female, height_female, exercise_detail_attr_index', 'required'),
+			array('body_part_name, weight_male, height_male, weight_female, height_female', 'required'),
 			array('exercise_detail_attr_index', 'numerical', 'integerOnly'=>true),
 			array('body_part_name', 'length', 'max'=>45),
 			array('weight_male, height_male, weight_female, height_female', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('Id, body_part_name, weight_male, height_male, weight_female, height_female, exercise_detail_attr_index', 'safe', 'on'=>'search'),
+			array('Id, body_part_name, weight_male, height_male, weight_female, height_female', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,6 +51,7 @@ class BodyProfiles extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'exerciseDetails' => array(self::HAS_MANY, 'ExerciseDetail', 'body_profilesId'),
 		);
 	}
 

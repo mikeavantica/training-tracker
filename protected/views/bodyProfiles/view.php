@@ -31,12 +31,9 @@ $this->menu=array(
     'attributes'=>array(
 		'Id',
 		'body_part_name',
-		'weight',
-		'height',
-		//'sex_typeid',
-        array(
-		'name' => 'sex_typeid',
-		'value' => $model->sex_typeid == 1 ? 'Male' : 'Female'),
-		
+		'weight_male',
+		'height_male',
+		'weight_female',
+		'height_female',
 	),
 )); ?>

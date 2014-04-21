@@ -13,18 +13,20 @@
 	<?php echo CHtml::encode($data->body_part_name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('weight')); ?>:</b>
-	<?php echo CHtml::encode($data->weight); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('weight_male')); ?>:</b>
+	<?php echo CHtml::encode($data->weight_male); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('height')); ?>:</b>
-	<?php echo CHtml::encode($data->height); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('height_male')); ?>:</b>
+	<?php echo CHtml::encode($data->height_male); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sex_typeid')); ?>:</b>
-	     
-	<?php if($data->sex_typeid == 1) echo CHtml::encode('Male');else echo CHtml::encode('Female') ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('weight_female')); ?>:</b>
+	<?php echo CHtml::encode($data->weight_female); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('height_female')); ?>:</b>
+	<?php echo CHtml::encode($data->height_female); ?>
+	<br />
 
 </div>

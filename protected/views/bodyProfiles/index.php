@@ -27,13 +27,10 @@ $this->widget('bootstrap.widgets.BsGridView',array(
 		'columns'=>array(
 				'Id',
 				'body_part_name',
-				'weight',
-				'height',
-				'height',
-				array(
-						'name' => 'sex_typeid',
-						'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
-				),
+				'weight_male',
+				'height_male',
+				'weight_female',
+				'height_female',
 
 				/*array(
 				 'class'=>'bootstrap.widgets.TbButtonColumn',

@@ -15,12 +15,13 @@
 
                     <?php echo $form->textFieldControlGroup($model,'body_part_name',array('span'=>5,'maxlength'=>45)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'weight',array('span'=>5,'maxlength'=>10)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'weight_male',array('span'=>5,'maxlength'=>10)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'height',array('span'=>5,'maxlength'=>10)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'height_male',array('span'=>5,'maxlength'=>10)); ?>
 
-                     <?php echo $form->label($model,'sex_typeid'); ?>
-                    <?php echo $form->dropDownList($model,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
+                    <?php echo $form->textFieldControlGroup($model,'weight_female',array('span'=>5,'maxlength'=>10)); ?>
+
+                    <?php echo $form->textFieldControlGroup($model,'height_female',array('span'=>5,'maxlength'=>10)); ?>
 
         <div class="form-actions">
         <?php echo BsHtml::submitButton('Search',  array('color' => BsHtml::BUTTON_COLOR_PRIMARY,));?>

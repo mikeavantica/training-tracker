@@ -9,7 +9,7 @@ CREATE TABLE `body_profiles` (
   `height_male` decimal(10,4) NOT NULL,
   `weight_female` decimal(10,4) NOT NULL,
   `height_female` decimal(10,4) NOT NULL,
-  `exercise_detail_attr_index` int(11) NOT NULL,
+  `exercise_detail_attr_index` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 

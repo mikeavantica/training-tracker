@@ -47,13 +47,11 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		//'Id',
-		'body_part__name',
-		'weight',
-		'height',
-        array(
-		'name' => 'sex_typeid',
-		'value' => '$data->sex_typeid == 1 ? "Male" : "Female"',
-         ),
+		'body_part_name',
+		'weight_male',
+		'height_male',
+		'weight_female',
+		'height_female',
 		array(
 			'class'=>'bootstrap.widgets.BsButtonColumn',
                          'htmlOptions' =>array('width'=>'75px'),
