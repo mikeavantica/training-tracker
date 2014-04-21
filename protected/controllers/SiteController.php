@@ -3,6 +3,7 @@ class SiteController extends Controller {
 	/**
 	 * Declares class-based actions.
 	 */
+	public $defaultAction = 'Login';
 	public function actions() {
 		return array (
 				// captcha action renders the CAPTCHA image displayed on the contact page
@@ -255,9 +256,9 @@ class SiteController extends Controller {
 		
 		// }else{
 		// $this->render('/site/login');
-		/*
-		 * $auth=Yii::app()->authManager; $bizRule='return !Yii::app()->user->isGuest;'; $auth->createRole('authenticated', 'authenticated user', $bizRule); $bizRule='return Yii::app()->user->isGuest;'; $auth->createRole('guest', 'guest user', $bizRule); $role = $auth->createRole('admin', 'administrator'); $auth->assign('admin',1);
-		 */
+		
+		/*$auth=Yii::app()->authManager; $bizRule='return !Yii::app()->user->isGuest;'; $auth->createRole('authenticated', 'authenticated user', $bizRule); $bizRule='return Yii::app()->user->isGuest;'; $auth->createRole('guest', 'guest user', $bizRule); $role = $auth->createRole('admin', 'administrator'); $auth->assign('admin',1);*/
+		 
 		// adding admin to first user created
 		
 		// }
@@ -316,7 +317,7 @@ class SiteController extends Controller {
 			$model->attributes = $_POST ['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if ($model->validate () && $model->login ())
-				$this->redirect ( Yii::app ()->user->returnUrl );
+				$this->redirect (Yii::app()->homeUrl.'/Athlete/Admin'); //Yii::app ()->user->returnUrl );
 		}
 		// display the login form
 		$this->render ( 'login', array (

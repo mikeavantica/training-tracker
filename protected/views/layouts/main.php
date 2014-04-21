@@ -48,33 +48,33 @@
 								'type' => 'navlist',
 								'encodeLabel' => false,
 								'items' => array (
-										array (
-												'label' => 'Home',
-												'url' => Yii::app ()->homeUrl ,
-												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
+// 										array (
+// 												'label' => 'Home',
+// 												'url' => Yii::app ()->homeUrl ,
+// 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 												
-										),
+// 										),
 										array (
 												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u21_normal.png')).'View Dashboard',
 												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u29_normal.png')).'Add New WOD',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u29_normal.png')).'Manage Workouts',
 												'url' => array (
 														'/Workout/view','id'=>0
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u24_normal.png')).'Record Athlete Data',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u24_normal.png')).'Record Workout Data',
 												'url' => array (
 														'/RecordData/index'
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u18_normal.png')).'Create New Athlete',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u18_normal.png')).'Manage Athletes',
 												'url' => array (
 														'/Athlete/admin' 
 												),

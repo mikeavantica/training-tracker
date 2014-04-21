@@ -118,12 +118,6 @@ class AthleteController extends Controller {
 	public function actionUpdate($id) {
 		$this->layout = "";
 		$add = $this->loadModel ( $id );
-		if ($add->height < 100) {
-			$add->height = '0' . $add->height;
-		}
-		if ($add->weight < 100) {
-			$add->weight = '0' . $add->weight;
-		}
 		$model = new Athlete ();
 		$model = new Athlete ( 'search' );
 		$model->unsetAttributes (); // clear any default values
@@ -170,7 +164,9 @@ class AthleteController extends Controller {
 	 */
 	public function actionDelete($id) {
 		if (Yii::app ()->request->isPostRequest) {
+			
 			// we only allow deletion via POST request
+			Athlete::model()->deleteRecordDataByAthlete($id);
 			$this->loadModel ( $id )->delete ();
 			
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

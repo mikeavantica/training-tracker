@@ -39,7 +39,20 @@ $this->menu = array (
 	?>
 
 <?php echo $form->errorSummary($model); ?>
-
+<script>
+function validateKeys(ele, evt, ints){
+	//no permite comas ni puntos
+	  var charCode = (evt.which) ? evt.which : event.keyCode
+	            var value = ele.value;
+	            var dotcontains = value.indexOf(".") != -1;
+	            if (dotcontains)
+	                if (charCode == 46) return false;
+	            if (charCode == 46) return true;
+	            if (charCode > 31 && (charCode < 48 || charCode > 57))
+	                return false;
+	            return true;
+}
+	</script>
 <div class="form">
  
 	<table>
@@ -70,28 +83,15 @@ $this->menu = array (
 	</td>
 	<td>
 	<div style="margin-right:20px;margin-bottom: 10px;"> 
-	 <?php echo $form->label($add,'height'); ?>
-            <?php $this->widget ( 'CMaskedTextField', array (
-														'model' => $add,
-														'attribute' => 'height',
-														'mask' => '999.99',
-														'htmlOptions' => array (
-																'size' => 6
-														) 
-												) );?>
+	 <?php //echo $form->label($add,'height'); ?>
+            <?php echo $form->textFieldControlGroup($add,'height',array('maxlenght'=>10,'span'=>2,'onKeyPress'=>'return validateKeys(this, event,3);')); 
+														?>
 	</div>
 	</td>
 	<td>
 	<div style="margin-right:20px; margin-bottom: 10px;"> 
-	 <?php echo $form->label($add,'weight'); ?>
-            <?php $this->widget ( 'CMaskedTextField', array (
-														'model' => $add,
-														'attribute' => 'weight',
-														'mask' => '999.99',
-														'htmlOptions' => array (
-																'size' => 6 
-														) 
-												) );  ?>
+	 <?php //echo $form->label($add,'weight'); ?>
+            <?php echo $form->textFieldControlGroup($add,'weight',array('maxlenght'=>10,'span'=>2,'onKeyPress'=> 'return validateKeys(this, event,3);'))  ?>
 	</div> 
 	</td>
 	
@@ -153,6 +153,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				),
                 array('class' => 'CButtonColumn',
 		'template'=>'{update}{delete}{stats}',
+        'deleteConfirmation'=>"js:'if you delete an athlete, you will permanently delete all of the athlete data, are you sure you want to delete '+$(this).parent().parent().children(':nth-child(1)').text()+' '+$(this).parent().parent().children(':nth-child(2)').text()+'?'",
         'htmlOptions'=>array('width'=>'100px'),
 		'buttons' => array(
 

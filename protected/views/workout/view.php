@@ -111,17 +111,17 @@ $this->menu = array (
 			<tr>
 				<td>
               
-            <?php echo $form->dateFieldControlGroup($model, 'date',array('span'=>1,'style'=>'width:200px;')); ?>
+            <?php echo $form->dateFieldControlGroup($model, 'date',array('span'=>1,'style'=>'width:150px;')); ?>
             </td>
 				<td>
             <?php echo $form->textFieldControlGroup($model,'name',array('span'=>1,'maxlength'=>45,'style'=>'width:200px;')); ?>
             </td>
 				<td>
              <?php  echo $form->label($model,'workout_typeid'); ?>
-            <?php echo  $form->dropDownList($model, 'workout_typeid', CHtml::listData(WorkoutType::model()->findAll(), 'id', 'name'),array('style'=>'width:200px;'));//echo $form->textFieldControlGroup($model,'workout_typeid',array('span'=>5)); ?>
+            <?php echo  $form->dropDownList($model, 'workout_typeid', CHtml::listData(WorkoutType::model()->findAll(), 'id', 'name'),array('style'=>'width:150px;'));//echo $form->textFieldControlGroup($model,'workout_typeid',array('span'=>5)); ?>
             </td>
 				<td>
-            <?php echo $form->textFieldControlGroup($model,'description',array('span'=>1,'maxlength'=>150,'style'=>'width:200px;')); ?>
+            <?php echo $form->textFieldControlGroup($model,'description',array('span'=>1,'maxlength'=>150,'style'=>'width:300px;')); ?>
             </td>
 
 			</tr>
@@ -181,7 +181,7 @@ echo BsHtml::linkButton ( 'Cancel', array (
 
 
 <?php  echo $form->errorSummary($modelDetail); ?>
-
+<?php if ($model->id != "" && $modelDetail->id == "") { ?>
 <div class="form">
 		<div style="display: none;">
             <?php echo $form->dropDownList($modelDetail, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
@@ -189,7 +189,7 @@ echo BsHtml::linkButton ( 'Cancel', array (
 
 		<div class="column">
             <?php  echo $form->label($modelDetail,'exerciseid'); ?>
-            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name'),array('id'=>'dpExercise','prompt'=>'Select a Exercise')); ?>
+            <?php echo  $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(array('order'=>'name')), 'id', 'name'),array('id'=>'dpExercise','prompt'=>'Select a Exercise')); ?>
             <?php
 												
 												?>
@@ -232,13 +232,14 @@ echo BsHtml::linkButton ( 'Cancel', array (
 																	'showHour' => false 
 															),
 															'htmlOptions' => array (
-																	'class' => 'form-control' 
+																	'class' => 'form-control',
+                                                                     
 															) 
 													)
 													 );
 												} else {
 													$modelDetail->total_time = WorkoutDetail::model ()->sonTotalTime ( $model->id );
-													echo $form->label ( $modelDetail, 'total_time', array ()
+													echo $form->label ( $modelDetail, 'total_time', array ('style' => 'display:none;')
 
 													 );
 													$this->widget ( 'ext.EJuiTimePicker.EJuiTimePicker', array (
@@ -251,7 +252,8 @@ echo BsHtml::linkButton ( 'Cancel', array (
 																	'showHour' => false 
 															),
 															'htmlOptions' => array (
-																	'class' => 'form-control' 
+																	'class' => 'form-control',
+                                                                    'style' => 'display:none;'
 															)
 															 
 													) );
@@ -287,7 +289,7 @@ echo BsHtml::linkButton ( 'Cancel', array (
 
 		<div class="row" style="padding: 30px;"> 
         <?php
-								if ($model->id != "" && $modelDetail->id == "") {
+								
 									echo BsHtml::submitButton ( 'Add Another Exercise', array (
 											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
 											'size' => BsHtml::BUTTON_SIZE_SMALL,

@@ -67,10 +67,10 @@ class WorkoutDetail extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'measure_weight' => 'Measure Weight',
-			'measure_height' => 'Measure Height',
-			'measure_calories' => 'Measure Calories',
-			'measure_assist' => 'Measure Assist',
+			'measure_weight' => 'Weight',
+			'measure_height' => 'Height',
+			'measure_calories' => 'Calories',
+			'measure_assist' => 'Assist',
 			'total_reps' => 'Total Reps',
 			'total_time' => 'Total Time',
 			'workoutid' => 'Workoutid',

@@ -770,5 +770,9 @@ class Athlete extends CActiveRecord
     function getFullName() {
         return $this->first_name . ' ' . $this->last_name;
     }
+    public function deleteRecordDataByAthlete($id){
+    	
+    	Yii::app()->db->createCommand()->delete('record_data', 'athleteid=:id', array(':id' => $id));
+    }
 
 }
