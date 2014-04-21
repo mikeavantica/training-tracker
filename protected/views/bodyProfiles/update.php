@@ -8,7 +8,7 @@
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Body Profiles' => 'index',
-				$model->body_part__name => array (
+				$model->body_part_name => array (
 						'view',
 						'Id' => $model->Id
 				),

@@ -40,7 +40,7 @@ $this->widget('bootstrap.widgets.BsGridView',array(
 // 						'name' => 'body_profilesId',
 // 						// 'value'=>'$data->customers->FirstNameB',
 // 						//'filter' => CHtml::listData ( Athlete::model ()->findAll (), 'id', 'first_name' ),
-// 						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part__name'
+// 						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part_name'
 // 				),
  				'body_profilesId',
 // 				array (

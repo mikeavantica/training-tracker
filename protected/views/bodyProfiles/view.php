@@ -8,7 +8,7 @@
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 		'links' => array (
 				'Athletes' => 'index',
-				$model->body_part__name
+				$model->body_part_name
 		)
 ) );
 
@@ -21,7 +21,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>BodyProfiles: <?php echo $model->body_part__name; ?></h1>
+<h1>BodyProfiles: <?php echo $model->body_part_name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView',array(
     'htmlOptions' => array(
@@ -30,7 +30,7 @@ $this->menu=array(
     'data'=>$model,
     'attributes'=>array(
 		'Id',
-		'body_part__name',
+		'body_part_name',
 		'weight',
 		'height',
 		//'sex_typeid',

@@ -58,7 +58,7 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'columns' => array (
 				array (
 						'name' => 'body_profilesId',
-						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part__name' 
+						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part_name' 
 				),
 				array (
 						'name' => 'exerciseid',

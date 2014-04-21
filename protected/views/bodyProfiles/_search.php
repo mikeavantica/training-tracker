@@ -13,7 +13,7 @@
 
                     <?php echo $form->textFieldControlGroup($model,'Id',array('span'=>5)); ?>
 
-                    <?php echo $form->textFieldControlGroup($model,'body_part__name',array('span'=>5,'maxlength'=>45)); ?>
+                    <?php echo $form->textFieldControlGroup($model,'body_part_name',array('span'=>5,'maxlength'=>45)); ?>
 
                     <?php echo $form->textFieldControlGroup($model,'weight',array('span'=>5,'maxlength'=>10)); ?>
 

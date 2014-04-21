@@ -32,7 +32,7 @@ CREATE TABLE `exercise_detail` (
   `attr5` decimal(10,6) NOT NULL,
   `attr6` decimal(10,6) NOT NULL,
   `attr7` decimal(10,6) NOT NULL,
-  `body_profilesid` int(11) NOT NULL,
+  `body_profilesId` int(11) NOT NULL,
   `exerciseid` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `exercise_profile_detail_body_profiles` (`body_profilesId`),

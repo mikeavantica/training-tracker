@@ -26,7 +26,7 @@ $this->widget('bootstrap.widgets.BsGridView',array(
 
 		'columns'=>array(
 				'Id',
-				'body_part__name',
+				'body_part_name',
 				'weight',
 				'height',
 				'height',

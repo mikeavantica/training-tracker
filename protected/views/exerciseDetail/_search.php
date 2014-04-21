@@ -14,7 +14,7 @@ $form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 				) );
 				?>                 <div class="row">
                        <?php  echo $form->label($model,'body_profilesId'); ?>
-                       <?php echo  $form->dropDownList($model, 'body_profilesId', CHtml::listData(BodyProfiles::model()->findAll(), 'id', 'body_part__name')); ?>
+                       <?php echo  $form->dropDownList($model, 'body_profilesId', CHtml::listData(BodyProfiles::model()->findAll(), 'id', 'body_part_name')); ?>
                        </div>
                        <?php //echo $form->textFieldControlGroup($model,'exerciseid',array('span'=>5)); ?>
                        <div class="row">

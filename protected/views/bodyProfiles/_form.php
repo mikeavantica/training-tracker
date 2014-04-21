@@ -19,7 +19,7 @@
 
     <?php echo $form->errorSummary($model); ?>
 
-            <?php echo $form->textFieldControlGroup($model,'body_part__name',array('span'=>3,'maxlength'=>45)); ?>
+            <?php echo $form->textFieldControlGroup($model,'body_part_name',array('span'=>3,'maxlength'=>45)); ?>
 
             <?php echo $form->textFieldControlGroup($model,'weight',array('span'=>3,'maxlength'=>10)); ?>
 
