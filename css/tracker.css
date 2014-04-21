@@ -12,3 +12,27 @@
 .nav-navlist {
 	width: 100%;
 }
+
+.navCustom {
+	cursor: pointer;
+	list-style-type: none;
+	font-size: 18px;
+	font-style: bold;
+	margin: 7.5px -15px;
+}
+
+.dropdown-menu {
+	background-color: #3D4A5D;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar a:hover{
+	color: #48C9B0;
+}
+
+.navbar-default .navbar-nav > li > a, .navbar a{
+	color: white;
+}
+
+.navbar-nav > li > .dropdown-menu {
+	margin-top: 50%;
+}

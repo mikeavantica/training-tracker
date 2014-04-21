@@ -22,6 +22,7 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -36,45 +37,39 @@
 		<div class="sidebar">
 		<div>
 		<!-- Replace the src of the image with your logo -->
-		<ul class="nav  nav-list">
+		<ul class="nav nav-list">
 		<?php
 		
 		$this->widget ( 'bootstrap.widgets.BsNavbar', array (
 				'brandLabel' => CHtml::encode ( Yii::app ()->name ),
-				'collapse' => true,
+				'collapse' => false,
 				'items' => array (
 						array (
 								'class' => 'bootstrap.widgets.BsNav',
 								'type' => 'navlist',
 								'encodeLabel' => false,
 								'items' => array (
-// 										array (
-// 												'label' => 'Home',
-// 												'url' => Yii::app ()->homeUrl ,
-// 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
-												
-// 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u21_normal.png')).'View Dashboard',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/view-dashboard.png')).'View Dashboard',
 												'url' => Yii::app ()->homeUrl . '/site/Overallstats',
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u29_normal.png')).'Manage Workouts',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/manage-workouts.png')).'Manage Workouts',
 												'url' => array (
 														'/Workout/view','id'=>0
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u24_normal.png')).'Record Workout Data',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/record-workout-data.png')).'Record Workout Data',
 												'url' => array (
 														'/RecordData/index'
 												),
 												'visible' => Yii::app ()->user->checkAccess ( 'admin' ) || Yii::app ()->user->checkAccess ( 'authenticated' )
 										),
 										array (
-												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/u18_normal.png')).'Manage Athletes',
+												'label' => BsHtml::tag('img',array('src'=>Yii::app()->baseUrl.'/images/manage-athletes.png')).'Manage Athletes',
 												'url' => array (
 														'/Athlete/admin' 
 												),
@@ -148,19 +143,20 @@
 		<div class="navbar">
 			<a href="#" onclick="return false;" class="btn pull-left toggle-sidebar "><i class="fa fa-list"></i></a>
 			<div class="right">
-				<ul class="navbar-nav user-menu pull-right">
-					<li class="dropdown user-name">
-						<a class="dropdown-toggle" data-toggle="dropdown"><?php if(Yii::app()->user->isGuest){ echo "Login"; } else { echo Yii::app()->user->name;} ?></a>
+				<ul class="navCustom navbar-nav user-menu pull-right">
+					<li class="dropdown hidden-xs">
+						<?php if(!Yii::app()->user->isGuest):?>
+							<a class="dropdown-toggle" data-toggle="dropdown"><?php echo Yii::app()->user->name; ?></a>
+						<?php endif;?>
 						<ul class="dropdown-menu right inbox user">
 						<?php $this->widget ( 'bootstrap.widgets.BsNavbar', array (
 							'brandLabel' => CHtml::encode ( Yii::app ()->name ),
-							'collapse' => true,
+							'collapse' => false,
 							'items' => array (
 									array (
 											'class' => 'bootstrap.widgets.BsNav',
 											'type' => 'navbar',
 											'items' => array (
-												array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 												array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 											)
 									)
