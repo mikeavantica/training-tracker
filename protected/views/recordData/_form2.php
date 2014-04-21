@@ -52,7 +52,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[reps]" style="width:50px;" type="text" value="' . (isset($workoutDetail->reps) ? $workoutDetail->reps : '') . '"></td>';
+                            echo '<td><input name="'. $name . '[reps]" style="width:50px;" type="text" value="' . (isset($workoutDetail->reps) ? $workoutDetail->reps : '') . '" class="form-control"></td>';
                         }
                         
                     }
@@ -65,7 +65,7 @@
                     else if ($workout->workoutType->id==3)
                     {
                         echo '<td>Reps</td>';
-                        echo '<input name="'. $name . '[reps]" type="hidden" value="1">';
+                        echo '<input name="'. $name . '[reps]" type="hidden" value="1" >';
                         echo '<td>1</td>';
                     }
                     if ($workoutDetail->measure_weight) {
@@ -78,7 +78,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[weight]" style="width:50px;" type="text" value="' . (isset($workoutDetail->weight) ? $workoutDetail->weight : '') . '"></td>';
+                            echo '<td><input name="'. $name . '[weight]" type="text" style="width:50px;" value="' . (isset($workoutDetail->weight) ? $workoutDetail->weight : '') . '" class="form-control"></td>';
                         }
                         
                     }
@@ -93,7 +93,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[height]" style="width:50px;" type="text" value="' . (isset($workoutDetail->height) ? $workoutDetail->height : '') . '"></td>';
+                            echo '<td><input name="'. $name . '[height]" style="width:50px;" type="text" value="' . (isset($workoutDetail->height) ? $workoutDetail->height : '') . '" class="form-control"></td>';
                         }
                         
                     }
@@ -108,7 +108,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[calories]" style="width:50px;" type="text" value="' . (isset($workoutDetail->calories) ? $workoutDetail->calories : '') . '"></td>';
+                            echo '<td><input name="'. $name . '[calories]" style="width:50px;" type="text" value="' . (isset($workoutDetail->calories) ? $workoutDetail->calories : '') . '" class="form-control"></td>';
                         }
                        
                     }
@@ -123,7 +123,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[assist]" style="width:50px;" type="text" value="' . (isset($workoutDetail->assist) ? $workoutDetail->assist : '') . '"></td>';
+                            echo '<td><input name="'. $name . '[assist]" style="width:50px;" type="text" value="' . (isset($workoutDetail->assist) ? $workoutDetail->assist : '') . '" class="form-control"></td>';
                         }
 
                     }

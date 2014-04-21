@@ -106,7 +106,7 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
                                         'model' => $model,
                                         'attribute' => 'time',
                                         'mask' => '99:99',
-                                        'htmlOptions' => array ('size' => 6) 
+                                        'htmlOptions' => array ('size' => 4, 'class' => 'form-control', 'style' => 'display:none') 
                                                                 ) 
                      );//echo $form->numberField($model,'height',array('span'=>2,'maxlength'=>10)); ?>
             <?php 
@@ -268,6 +268,7 @@ EOD
  $this->widget('bootstrap.widgets.BsListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_recordDetail',
+        'summaryText' => ''
 )); 
 /*$this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'record-data-grid',

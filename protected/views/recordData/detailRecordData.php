@@ -25,6 +25,7 @@ $this->widget('bootstrap.widgets.BsGridView', array(
         ),
     
         'reps',
-    )
+    ),
+    "summaryText" => ""
 ));
 ?>
