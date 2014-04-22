@@ -91,7 +91,7 @@ class AthleteController extends Controller {
 		
 		if (isset ( $_POST ['Athlete'] )) {
 			$model->attributes = $_POST ['Athlete'];
-			
+			if($model->validate()){
 			if ($model->save ()) {
 				$this->redirect ( array (
 						'admin' 
@@ -103,6 +103,13 @@ class AthleteController extends Controller {
 						'admin' 
 				) );
 			}
+		}else{
+			Yii::app ()->user->setFlash ( 'error', 'incorrect Email' );
+			$this->redirect ( array (
+					'admin'
+			) );
+		}
+		
 		}
 		
 		// $this->render('admin');

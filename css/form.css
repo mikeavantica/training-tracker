@@ -162,3 +162,24 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	clear: left;
 	padding-left: 110px;
 }
+div.form-group {
+	
+	float:left;
+	margin-right: 10px;
+}
+
+div.form .input-150 
+{
+	width:150PX;
+}
+
+div.form .input-300 
+{
+	width:300PX;
+}
+
+div.form .input-button 
+{
+	float: left;
+	width: 100%;
+}

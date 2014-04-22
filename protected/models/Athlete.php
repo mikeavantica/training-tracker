@@ -37,7 +37,7 @@ class Athlete extends CActiveRecord
 			array('first_name,last_name,height,email, weight, sex_typeid', 'required'),
 			array('sex_typeid', 'numerical', 'integerOnly'=>true),
 			array('first_name, last_name', 'length', 'max'=>45),
-			
+		    array('email', 'email','checkMX'=>true),
 			array('email', 'length', 'max'=>150),
 			array('height, weight', 'length', 'max'=>10),
 			// The following rule is used by search().
