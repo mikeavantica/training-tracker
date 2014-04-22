@@ -104,7 +104,7 @@ class AthleteController extends Controller {
 				) );
 			}
 		}else{
-			Yii::app ()->user->setFlash ( 'error', 'incorrect Email' );
+			Yii::app ()->user->setFlash ( 'error', 'invalid format for the fields');
 			$this->redirect ( array (
 					'admin'
 			) );

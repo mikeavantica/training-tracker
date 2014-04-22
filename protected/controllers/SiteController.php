@@ -303,8 +303,17 @@ class SiteController extends Controller {
 	 * Displays the login page
 	 */
 	public function actionLogin() {
-		/*$auth=Yii::app()->authManager; $bizRule='return !Yii::app()->user->isGuest;'; $auth->createRole('authenticated', 'authenticated user', $bizRule); $bizRule='return Yii::app()->user->isGuest;'; $auth->createRole('guest', 'guest user', $bizRule); $role = $auth->createRole('admin', 'administrator'); $auth->assign('admin',1);*/
-		
+			
+	$auth=Yii::app()->authManager;
+	//TODO agregar yii param para el id usuario admin
+	if(!$auth->isAssigned("admin",22)){
+	 $bizRule='return !Yii::app()->user->isGuest;'; 
+	 $auth->createRole('authenticated', 'authenticated user', $bizRule); 
+	 $bizRule='return Yii::app()->user->isGuest;'; 
+	 $auth->createRole('guest', 'guest user', $bizRule);
+	 $auth->createRole('admin', 'administrator'); 
+	 $auth->assign('admin',22);
+	}
 		$model = new LoginForm ();
 		
 		// if it is ajax validation request

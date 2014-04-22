@@ -64,22 +64,20 @@ class AssignmentController extends AuthController
 
         /* @var $am CAuthManager|AuthBehavior */
         $am = Yii::app()->getAuthManager();
+        
+       $auth=Yii::app()->authManager;	
 
         if (isset($_POST['AddAuthItemForm'])) {
             $formModel->attributes = $_POST['AddAuthItemForm'];
             if ($formModel->validate()) {
-                if (!$am->isAssigned($formModel->items, $id)) {
-                	if($formModel->items == "admin")
-                    $am->assign("admin", $id);
-                	elseif($formModel->items == "authenticated")
-                	$am->assign("authenticated", $id);
-                	else{ $am->assign("guest", $id); }
-                    if ($am instanceof CPhpAuthManager) {
-                        $am->save();
+                if (!$auth->isAssigned($formModel->items, $id)) {
+                    $auth->assign($formModel->items, $id);
+                    if ($auth instanceof CPhpAuthManager) {
+                        $auth->save();
                     }
 
-                    if ($am instanceof ICachedAuthManager) {
-                        $am->flushAccess($formModel->items, $id);
+                    if ($auth instanceof ICachedAuthManager) {
+                        $auth->flushAccess($formModel->items, $id);
                     }
                 }
             }
@@ -87,8 +85,8 @@ class AssignmentController extends AuthController
 
         $model = CActiveRecord::model($this->module->userClass)->findByPk($id);
 
-        $assignments = $am->getAuthAssignments($id);
-        $authItems = $am->getItemsPermissions(array_keys($assignments));
+        $assignments = $auth->getAuthAssignments($id);
+        $authItems = $auth->getItemsPermissions(array_keys($assignments));
         $authItemDp = new AuthItemDataProvider();
         $authItemDp->setAuthItems($authItems);
 

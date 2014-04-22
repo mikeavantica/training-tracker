@@ -34,6 +34,10 @@ $this->menu = array (
 			// There is a call to performAjaxValidation() commented in generated controller code.
 			// See class documentation of CActiveForm for details on this.
 			'enableAjaxValidation' => false ,
+			'enableClientValidation'=>true, 
+			'focus'=>array($model,'fallas_id'), 
+			'clientOptions'=>array( 'validateOnSubmit'=>true)
+			
       
 	) );
 	?>
@@ -58,50 +62,45 @@ function validateKeys(ele, evt, ints){
         <h3 class="panel-title"> Manage Athletes  </h3>
     </div>
     <div class="panel-body">
-        <table class="table table-striped">
-         <tr>
+       
 	
-	<td>
-	<div style="margin-right:20px;"> 
-	<?php echo $form->textFieldControlGroup($add,'first_name',array('span'=>2,'maxlength'=>45)); ?>
 	
-	</div>
-	</td>
+
+	<?php echo $form->textFieldControlGroup($add,'first_name',array('maxlength'=>45)); ?>
 	
-	<td>
-	<div style="margin-right:20px;"> 
-	<?php echo $form->textFieldControlGroup($add,'last_name',array('span'=>2,'maxlength'=>45)); ?>
-	</div>
-	</td>
-	<td>
-	<div style="margin-right:20px;"> 
+	
+	
+	
+	
+	
+	<?php echo $form->textFieldControlGroup($add,'last_name',array('maxlength'=>45)); ?>
+	
+	
+
+	 
 	<?php echo $form->emailFieldControlGroup($add, 'email'); ?>
-	</div>
-	</td>
-	<td>
-	<div style="margin-right:20px; margin-bottom: 20px;"> 
+	
+	
+
+	 <div class="form-group">
 	        <?php  echo $form->label($add,'sex_typeid'); ?>
             <?php echo $form->dropDownList($add,'sex_typeid',array('1'=>'Male','2'=>'Female')); ?> 
-            </div>
-	</td>
-	<td>
-	<div style="margin-right:20px;margin-bottom: 10px;"> 
-	 <?php //echo $form->label($add,'height'); ?>
-            <?php echo $form->textFieldControlGroup($add,'height',array('maxlenght'=>10,'span'=>2,'onKeyPress'=>'return validateKeys(this, event,3);')); 
-														?>
+            
 	</div>
-	</td>
-	<td>
-	<div style="margin-right:20px; margin-bottom: 10px;"> 
+	
+	 <?php //echo $form->label($add,'height'); ?>
+            <?php echo $form->textFieldControlGroup($add,'height',array('maxlenght'=>10,'onKeyPress'=>'return validateKeys(this, event,3);')); 
+														?>
+	
+
+	
 	 <?php //echo $form->label($add,'weight'); ?>
-            <?php echo $form->textFieldControlGroup($add,'weight',array('maxlenght'=>10,'span'=>2,'onKeyPress'=> 'return validateKeys(this, event,3);'))  ?>
-	</div> 
-	</td>
+            <?php echo $form->textFieldControlGroup($add,'weight',array('maxlenght'=>10,'onKeyPress'=> 'return validateKeys(this, event,3);'))  ?>
 	
+		        <div class="form-group-input-25">
 	
-	<td>
-	<div style="margin-right: 20px; margin-top: 15px;">
 	        <?php
+
 							if($add->id == ""){
 									echo BsHtml::submitButton ('Add Athlete', array (
 											'color' => BsHtml::BUTTON_COLOR_PRIMARY,
@@ -119,9 +118,8 @@ function validateKeys(ele, evt, ints){
 							
 								?>
 								</div>
-	</td>
-	</tr>           
-        </table>
+							
+
 
      </div>
   						

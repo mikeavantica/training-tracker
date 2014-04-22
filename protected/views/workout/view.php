@@ -3,11 +3,13 @@
 /* @var $model Workout */
 ?>
 <script>
-    // function userClicks(target_id) {
-    //     id_lote =$.fn.yiiGridView.getSelection(target_id); 
-    //     alert(id_lote);
-
-    // }
+function validateKeys(ele, evt, ints){
+	//no permite comas ni puntos
+	  var charCode = (evt.which) ? evt.which : event.keyCode
+	  if (charCode > 31 && (charCode < 48 || charCode > 57))
+	      return false;
+	            return true;
+}
     $(function () {
         $('.summary').hide();
         if (<?php if($model->id == ""){echo '0';}else{ echo $model->id;}  ?> !=
@@ -54,15 +56,7 @@
 </script>
 <?php
 
-$this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Workouts' => array(
-            'view',
-            'id' => 0
-        ),
-        $model->name
-    )
-));
+
 
 $this->menu = array(
 
@@ -102,7 +96,17 @@ $this->menu = array(
 <div class="margin-left-20">
 <div class="form">
     <?php
-
+    $this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    		'links' => array(
+    				'Workouts' => array(
+    						'view',
+    						'id' => 0
+    				),
+    				$model->name
+    		)
+    ));
+    
+    
     $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
         'id' => 'workout-form',
         // Please note: When you enable ajax validation, make sure the corresponding
@@ -197,14 +201,16 @@ echo $form->errorSummary($modelDetail); ?>
                 echo $form->numberField($modelDetail, 'total_reps', array(
                     // 'span' => 3,
                     'lenght' => 11,
-                    'min' => 0
+                    'min' => 0,
+                    'onKeyPress'=> 'return validateKeys(this, event,3);'
                 ));
             } else {
                 $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
                 echo $form->label($modelDetail, 'total_reps');
                 echo $form->numberField($modelDetail, 'total_reps', array(
                     'lenght' => 11,
-                    'min' => 0
+                    'min' => 0,
+                    'onKeyPress'=> 'return validateKeys(this, event,3);'
                 ));
             }
         }
