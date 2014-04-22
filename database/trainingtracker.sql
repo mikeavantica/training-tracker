@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `AuthAssignment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `AuthAssignment` (
   `itemname` varchar(64) NOT NULL,
-  `userid` varchar(64) NOT NULL,
+  `userid` int(11) NOT NULL,
   `bizrule` text,
   `data` text,
   PRIMARY KEY (`itemname`,`userid`),
@@ -40,7 +40,7 @@ CREATE TABLE `AuthAssignment` (
 
 LOCK TABLES `AuthAssignment` WRITE;
 /*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;');
+INSERT INTO `AuthAssignment` VALUES ('admin',1,NULL,'N;'),('authenticated',2,NULL,'N;');
 /*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-22  9:02:17
+-- Dump completed on 2014-04-22  9:36:15
