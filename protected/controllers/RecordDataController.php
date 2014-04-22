@@ -255,7 +255,7 @@ class RecordDataController extends Controller {
                         $flag_updating = true;
                     }
                     
-                    if ($time != null) {
+                    if (isset($time)) {
                         $time = explode(':', $_POST["RecordData"]["time"]);
                         $model->time = $time[0].':'.$time[1];
                     }
