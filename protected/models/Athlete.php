@@ -243,12 +243,14 @@ class Athlete extends CActiveRecord
                                     ));
                                 //}
 
-                                if ($in_exercise["workout_type_name"] == 'ForTime') {
+                              //  if ($in_exercise["workout_type_name"] == 'ForTime') {
                                     array_push($exercise["prop"], array(
                                         "type" => "Time",
-                                        "value" => $in_exercise["record_data_time"]
+                                        "value" => $in_exercise["workout_type_name"] == 'ForTime' ? 
+                                            $in_exercise["record_data_time"] :
+                                            $in_exercise["workout_detail_total_time"]
                                     ));
-                                }
+                           //     }
 
                                 if ($in_exercise["workout_type_name"] == 'MaxWeight') { 
                                     if(strtolower($in_exercise["workout_name"]) == "crossfit total") {
@@ -290,7 +292,7 @@ class Athlete extends CActiveRecord
             $athlete_stats['max_press'] = $max_press;
             $athlete_stats['max_deadlift'] = $max_lift;
             
-             // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
+            // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
             
             return $athlete_stats; 
         }

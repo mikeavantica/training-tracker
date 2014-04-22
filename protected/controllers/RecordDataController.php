@@ -278,7 +278,7 @@ class RecordDataController extends Controller {
                     }
                     
                     $time = explode(':', $_POST["RecordData"]["time"]);
-                    $model->time = '00:'.$time[0].':'.$time[1];
+                    $model->time = $time[0].':'.$time[1];
                     $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
@@ -311,6 +311,12 @@ class RecordDataController extends Controller {
                 }
                 
                 foreach ($recordDatas as $record) {
+                    // fix time to take minutes:
+                    $t = explode(':', $record->time);
+                    $f = "00:" . $t[0] . ":" . $t[1];
+                    $time = $f;
+                    $record->time = $time;
+                    // print_r($record);
                     $record->save();
                 }
                 if ($total_workdetails==0)
