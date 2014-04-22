@@ -46,7 +46,6 @@
         var_dump($models);
 
         if (isset($models)) {
-            echo 'models is set';
             $workout = new object;
             $workout->workoutDetails = $models;
             foreach($workout->workoutDetails as $detail) {

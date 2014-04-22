@@ -1,4 +1,4 @@
-<div style="margin-left: 20px;">
+
 <?php
 /* @var $this AthleteController */
 /* @var $model Athlete */
@@ -56,6 +56,9 @@ function validateKeys(ele, evt, ints){
 	                return false;
 	            return true;
 }
+$(function () {
+    
+});
 	</script>
 	  <div class="panel panel-archon">
     <div class="panel-heading">
@@ -88,13 +91,13 @@ function validateKeys(ele, evt, ints){
             
 	</div>
 	
-	 <?php //echo $form->label($add,'height'); ?>
+	 
             <?php echo $form->textFieldControlGroup($add,'height',array('maxlenght'=>10,'onKeyPress'=>'return validateKeys(this, event,3);')); 
 														?>
 	
 
 	
-	 <?php //echo $form->label($add,'weight'); ?>
+	 
             <?php echo $form->textFieldControlGroup($add,'weight',array('maxlenght'=>10,'onKeyPress'=> 'return validateKeys(this, event,3);'))  ?>
 	
 		        <div class="form-group-input-25">
@@ -122,14 +125,23 @@ function validateKeys(ele, evt, ints){
 
 
      </div>
+     </div>
+     
   						
 <?php $this->endWidget(); ?>
-
-<!-- search-form -->
-
-<?php
+<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-archon">
+							<div class="panel-heading">
+								<h3 class="panel-title">Athletes
+									
+								</h3>
+							</div>
+							<div class="panel-body">
+								<?php
 $this->widget ( 'bootstrap.widgets.BsGridView', array (
 		'id' => 'athlete-grid',
+        'type'=> BsHtml::GRID_TYPE_STRIPED,
 		'dataProvider' => $model->search (),
 		'columns' => array (
 				// 'id',
@@ -144,7 +156,6 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 				'email',
 				'height',
 				'weight',
-				// 'sex_typeid',
 				array (
 						'name' => 'sex_typeid',
 						'value' => '$data->sex_typeid == 1 ? "Male" : "Female"' 
@@ -159,25 +170,19 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						'label' => '',
 						'imageUrl' => '',
 						'url' => "CHtml::normalizeUrl(array('/Athlete/update', 'id'=>\$data->id))",
-						'options' => array('class' => 'glyphicon glyphicon-edit', 'style' => 'margin: 0 3px;')
+						'options' => array('class' => 'glyphicon glyphicon-edit')
 				),
-//                 'view' => array(
-// 		        'label' => '',
-// 	            'imageUrl' => '',
-// 		        'url' => "CHtml::normalizeUrl(array('/Athlete/view', 'id'=>\$data->id))",
-// 		        'options' => array('class' => 'glyphicon glyphicon-search', 'style' => 'margin: 0 3px;')
-//                  ),
 				'delete' => array(
 						'label' => '',
 						'imageUrl' => '',
 						'url' => "CHtml::normalizeUrl(array('/Athlete/delete', 'id'=>\$data->id))",
-						'options' => array('class' => 'glyphicon glyphicon-remove', 'style' => 'margin: 0 3px;'),
+						'options' => array('class' => 'glyphicon glyphicon-remove'),
 				),
                 'stats' => array(
 						'label' => '',
 						
 						'url' => "CHtml::normalizeUrl(array('/Athlete/AthleteStats', 'id'=>\$data->id))",
-                        'options' => array('class' => 'glyphicon glyphicon-adjust', 'style' => 'margin: 0 3px;'),
+                        'options' => array('class' => 'glyphicon glyphicon-adjust'),
 						
 				),
                      
@@ -185,11 +190,15 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 		),
 )
 				
-				/*array (
-						'class' => 'bootstrap.widgets.BsButtonColumn' 
-				)*/
+			
 				 
 		) 
 ) );
 ?>
-</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+<!-- search-form -->
+

@@ -104,7 +104,7 @@ class Athlete extends CActiveRecord
 		$criteria->compare('height',$this->height,true);
 		$criteria->compare('weight',$this->weight,true);
 		//$criteria->compare('sex_typeid',$sex/*$this->sex_typeid*/);
-
+        $criteria->order = "first_name ASC";
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
@@ -419,13 +419,15 @@ class Athlete extends CActiveRecord
                                 ));
                             //}
 
-                            if ($rows[$i]["workout_type_name"] === 'ForTime') {
-                                array_push($exercise["prop"], array(
-                                    "type" => "Time",
-                                    "value" => $rows[$i]["record_data_time"]
-                                ));
-                            }
-                            
+                           //  if ($in_exercise["workout_type_name"] == 'ForTime') {
+                                    array_push($exercise["prop"], array(
+                                        "type" => "Time",
+                                        "value" => $rows[$i]["workout_type_name"] == 'ForTime' ? 
+                                            $rows[$i]["record_data_time"] :
+                                            $rows[$i]["workout_detail_total_time"]
+                                    ));
+                           //     }
+                                                        
                             if ($rows[$i]["workout_type_name"] == 'MaxWeight') { 
                                 if(strtolower($rows[$i]["workout_name"]) == "crossfit total") {
                                     if (strtolower($exercise["name"]) == 'back squat') {

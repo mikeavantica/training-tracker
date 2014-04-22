@@ -11,7 +11,7 @@ function validateKeys(ele, evt, ints){
 	            return true;
 }
     $(function () {
-        $('.summary').hide();
+     
         if (<?php if($model->id == ""){echo '0';}else{ echo $model->id;}  ?> !=
         0
         )
@@ -344,7 +344,7 @@ if ($model->id != "") {
         <table class="table table-striped">
               <thead>
     <tr>
-        <!--  <th><?php //echo CHtml::encode($model->getAttributeLabel('id')); ?></th> -->
+      
         <th><?php echo CHtml::encode($model->getAttributeLabel('date')); ?></th>
         <th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
         <th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
@@ -356,7 +356,7 @@ if ($model->id != "") {
     </thead>
     <tbody>
     <tr>
-        <!--  	<td><?php //echo CHtml::encode($model->id); ?></td> -->
+  
         <td><?php echo CHtml::encode($model->date); ?></td>
         <td><?php echo CHtml::encode($model->name); ?></td>
         <td><?php echo CHtml::encode($model->description); ?></td>
@@ -379,16 +379,15 @@ if ($model->id != "") {
             }
         }
         ?>
-        <!--  <td><?php // echo  CHtml::link('<i class="glyphicon glyphicon-edit"style="margin-left:-10px;"></i>',array('Workout/update','id'=>$model->id))//TbHtml::link('',array('icon' => TbHtml::ICON_EDIT,'url'=>array('Workout/update','id'=>$model->id)));//TbHtml::icon(TbHtml::ICON_EDIT) ?> </td>-->
-
+        
     </tr>
     <tr>
-        <!--  <td></td> -->
+        
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <!--  <td></td>-->
+        
 
     </tr>
     </tbody>
@@ -400,12 +399,7 @@ $this->widget('bootstrap.widgets.BsGridView', array(
         'id' => 'releasenote-grid',
         'selectableRows' => 0,
         'dataProvider' => WorkoutDetail::model()->search2($model->id),
-        // 'selectionChanged' => 'js:userClicks',
         'columns' => array(
-            /*array(
-                    'name' => 'id',
-                    'header' => '#',
-            ),*/
             array(
                 'name' => 'exerciseid',
                 'value' => '$data->exercise->name',

@@ -16,11 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -28,18 +23,10 @@
 <body>
 
 	<div class="frame">
-
-		<!--  <div id="header">
-		<div id="logo"><?php //echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-
 		<div class="sidebar">
 		<div>
-		<!-- Replace the src of the image with your logo -->
 		<ul class="nav nav-list">
 		<?php
-		
 		$this->widget ( 'bootstrap.widgets.BsNavbar', array (
 				'brandLabel' => CHtml::encode ( Yii::app ()->name ),
 				'collapse' => false,
@@ -122,26 +109,14 @@
 								) 
 						) 
 				) 
-		) );
-		/*
-		 * bootstrap.widgets.TbNavbar(array( array('label' => 'Home', 'url' => '#'), array('label' => 'Athlete','url' =>array('/Athlete/index'), 'visible'=> !Yii::app()->user->isGuest), array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest), array('label' => 'Logout ('.Yii::app()->user->name.')','url'=> array('site/logout'),'visible'=> !Yii::app()->user->isGuest), ));
-		 */
-		/* $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/Athlete/index')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); */?>
+		) );?>
 		</ul>
 		</div>
 	</div>
 	
 	<div class="content">
 		<div class="navbar">
-			<a href="#" onclick="return false;" class="btn pull-left toggle-sidebar "><i class="fa fa-list"></i></a>
+			<a href="#" onclick="return false;" class="btn pull-left toggle-sidebar"><i class="fa fa-list"></i></a>
 			<div class="right">
 				<ul class="navCustom navbar-nav user-menu pull-right">
 					<li class="dropdown hidden-xs">
@@ -151,7 +126,7 @@
 						<ul class="dropdown-menu right inbox user">
 						<?php $this->widget ( 'bootstrap.widgets.BsNavbar', array (
 							'brandLabel' => CHtml::encode ( Yii::app ()->name ),
-							'collapse' => false,
+							'collapse' => true,
 							'items' => array (
 									array (
 											'class' => 'bootstrap.widgets.BsNav',
@@ -169,7 +144,7 @@
 				</ul>
 			</div>
 		</div><!-- / Navbar-->
-		<div class="main-content">
+		<div id="main-content">
 			<!-- mainmenu -->
 			<?php if(isset($this->breadcrumbs)):?>
 				<?php
@@ -184,27 +159,44 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+		<!-- footer -->
 
-		<div id="footer">
+		<div id="footer" class="row footer">
 		Copyright &copy; <?php echo date('Y'); ?> by BetterWod.<br /> All
 			Rights Reserved.<br />
-		<?php //echo Yii::powered(); ?>
-		<?php //Yii::app()->bootstrap->register(); //method register() and registerCoreCss() don't longer exist in BsApi.php, so the lines below include javascript and style files?> 
-		<?php //echo Yii::app()->bootstrap->registerCoreCss(); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl().'/css/bootstrap-theme.min.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/archon.css', ''); ?>
-		<?php //Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/themes/themeforest/css/responsive.css', ''); ?>
 		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/tracker.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/main.css', ''); ?>
+		<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/form.css', ''); ?>
 		<?php 
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
 		$cs->registerCoreScript('jquery');
 		$cs->registerScriptFile(Yii::app()->bootstrap->getAssetsUrl().'/js/bootstrap.min.js', CClientScript::POS_END);
+		
+		/* Load JS here for greater good */
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery-ui-1.10.3.custom.min.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.ui.touch-punch.min.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/bootstrap-select.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/bootstrap-switch.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.tagsinput.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.placeholder.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.tagsinput.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/bootstrap-typeahead.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/application.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/moment.min.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.dataTables.min.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.sortable.js', CClientScript::POS_END);
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/jquery.gritter.js', CClientScript::POS_END);
+		/*Archon JS */
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/archon.js', CClientScript::POS_END);
+		/*Datepicker*/
+		$cs->registerScriptFile(Yii::app()->baseUrl.'/themes/themeforest/js/bootstrap-datetimepicker.js', CClientScript::POS_END);
 		?>
 	</div>
-		<!-- footer -->
-
 	</div>
 	<!-- page -->
 
