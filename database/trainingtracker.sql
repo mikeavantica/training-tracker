@@ -20,6 +20,9 @@ USE `training_tracker`;
 --
 -- Table structure for table `AuthAssignment`
 --
+drop table if exists `AuthAssignment`;
+drop table if exists `AuthItemChild`;
+drop table if exists `AuthItem`;
 
 create table `AuthItem`
 (
