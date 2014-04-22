@@ -52,8 +52,12 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
 <?php echo $form->errorSummary($model); ?>
 
 
-
-<table>
+<div class="panel panel-archon">
+    <div class="panel-heading">
+        <h3 class="panel-title">Record Data</h3>
+    </div>
+    <div class="panel-body">
+<table class="table table-striped">
     <tr>
         <th><?php echo $form->labelEx($model,'Date'); ?></th>
         <th>WOD</th>
@@ -125,6 +129,8 @@ $this->widget('bootstrap.widgets.BsBreadcrumb', array(
         </td>
     </tr>
 </table>
+        </div>
+</div>
 <?php
     if (isset($models)) {
         echo '<input type="hidden" name="action" value="edit">';
