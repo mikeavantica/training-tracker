@@ -18,7 +18,7 @@
                 <td><?php echo CHtml::encode($data->date); ?></td>
                 <td><?php echo CHtml::encode($data->workoutDetail->workout->name); ?></td>
                 <td><?php echo CHtml::encode($data->athlete->fullname); ?>
-                <td><?php echo CHtml::encode($data->time); ?>
+                <td><?php echo CHtml::encode(date("i:s", strtotime($data->time))); ?>
                 <td class="button-column">
                     <a class="glyphicon glyphicon-edit" href="<?php echo 'update?athleteid=' . $data->athleteid . '&date=' . $data->date ?>" title="Update" class="update">
                         <img src alt></a> 
