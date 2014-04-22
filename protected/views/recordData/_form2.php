@@ -52,7 +52,7 @@
                         }
                         else 
                         {
-                            echo '<td><input name="'. $name . '[reps]"  type="text" value="' . (isset($workoutDetail->reps) ? $workoutDetail->reps : '') . '" class="form-control"></td>';
+                            echo '<td><input name="'. $name . '[reps]"  type="text" style="width:50px;" value="' . (isset($workoutDetail->reps) ? $workoutDetail->reps : '') . '" class="form-control" ></td>';
                         }
                         
                     }
