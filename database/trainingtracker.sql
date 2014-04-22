@@ -40,7 +40,7 @@ CREATE TABLE `AuthAssignment` (
 
 LOCK TABLES `AuthAssignment` WRITE;
 /*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
-INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;'),('authenticated','2',NULL,'N;');
+INSERT INTO `AuthAssignment` VALUES ('admin','1',NULL,'N;');
 /*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +115,7 @@ CREATE TABLE `athlete` (
   PRIMARY KEY (`id`),
   KEY `athlete_sex_type` (`sex_typeid`),
   CONSTRAINT `athlete_sex_type` FOREIGN KEY (`sex_typeid`) REFERENCES `sex_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `athlete` (
 
 LOCK TABLES `athlete` WRITE;
 /*!40000 ALTER TABLE `athlete` DISABLE KEYS */;
-INSERT INTO `athlete` VALUES (1,'chitin','Burton','barry@gmail.com',21.00,131.00,1),(2,'chitin','zamora','zamora@gmail.com',21.00,81.00,1),(3,'chitin','zamora','chitin@gmail.com',20.00,30.00,1),(5,'javier','dobles','javier@avantica.net',20.00,99.99,2),(6,'genesis','parrales','javier@avantica.net',30.00,39.58,2),(7,'christhian','perez','javier@avantica.net',40.00,39.00,1),(8,'javier','dobles','javier@avantica.net',80.99,78.99,2);
+INSERT INTO `athlete` VALUES (1,'chitin','Burton','barry@gmail.com',21.00,131.00,1),(2,'chitin','zamora','zamora@gmail.com',21.00,81.00,1),(3,'chitin','zamora','chitin@gmail.com',20.00,30.00,1),(5,'javier','dobles','javier@avantica.net',20.00,99.99,2),(6,'genesis','parrales','javier@avantica.net',30.00,39.58,2),(7,'christhian','perez','javier@avantica.net',40.00,39.00,1),(8,'javier','dobles','javier@avantica.net',80.99,78.99,2),(9,'javier','dobles','javier@avantica.net',90.00,100.00,2);
 /*!40000 ALTER TABLE `athlete` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,14 +137,14 @@ DROP TABLE IF EXISTS `body_profiles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `body_profiles` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `body_part__name` varchar(45) NOT NULL,
-  `weight` decimal(10,4) NOT NULL,
-  `height` decimal(10,4) NOT NULL,
-  `sex_typeid` int(11) NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `body_profiles_sex_type` (`sex_typeid`),
-  CONSTRAINT `body_profiles_sex_type` FOREIGN KEY (`sex_typeid`) REFERENCES `sex_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+  `body_part_name` varchar(45) NOT NULL,
+  `weight_male` decimal(10,4) NOT NULL,
+  `height_male` decimal(10,4) NOT NULL,
+  `weight_female` decimal(10,4) NOT NULL,
+  `height_female` decimal(10,4) NOT NULL,
+  `exercise_detail_attr_index` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +153,7 @@ CREATE TABLE `body_profiles` (
 
 LOCK TABLES `body_profiles` WRITE;
 /*!40000 ALTER TABLE `body_profiles` DISABLE KEYS */;
-INSERT INTO `body_profiles` VALUES (1,'Leg and Foot',20.0000,10.0000,2),(2,'Arms',20.0000,30.0000,2),(3,'Trunk',54.1500,30.0000,1),(4,'Upper Arm',3.0750,17.2000,1),(5,'Forearm and half hand',2.2950,18.5700,1),(6,'Thigh',11.1250,23.2000,1),(7,'Leg and foot',6.4300,29.0500,1),(8,'Weight',100.0000,100.0000,1),(9,'Head and Neck',8.2300,10.7500,1),(10,'Trunk',30.0000,30.0000,2),(11,'Upper Arm',17.0000,17.0000,2),(12,'Forearm and half hand',19.0000,19.0000,2),(13,'Thigh',23.0000,23.0000,2),(14,'Leg and foot',29.0000,29.0000,2),(15,'Other Distance',100.0000,100.0000,2);
+INSERT INTO `body_profiles` VALUES (1,'Head and Neck',8.2300,11.0000,8.2300,10.7500,1),(2,'Trunk',54.1500,30.0000,54.1500,30.0000,2),(3,'Upper Arm',3.0750,17.2000,3.0750,17.2000,3),(4,'Forearm and half hand',2.2950,18.5700,2.2950,18.5700,4),(5,'Thigh',11.1250,23.2000,11.1250,23.2000,5),(6,'Leg and foot',6.4300,29.0500,6.4300,29.0500,6),(7,'Weight',100.0000,100.0000,100.0000,100.0000,7);
 /*!40000 ALTER TABLE `body_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +168,7 @@ CREATE TABLE `exercise` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,7 +318,7 @@ CREATE TABLE `workout` (
   PRIMARY KEY (`id`),
   KEY `workout_workout_type` (`workout_typeid`),
   CONSTRAINT `workout_workout_type` FOREIGN KEY (`workout_typeid`) REFERENCES `workout_type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -327,6 +327,7 @@ CREATE TABLE `workout` (
 
 LOCK TABLES `workout` WRITE;
 /*!40000 ALTER TABLE `workout` DISABLE KEYS */;
+INSERT INTO `workout` VALUES (14,'2014-04-21','maverick','no se',2),(18,'2014-04-21','adriel','50',1),(19,'2014-04-21','chitin','232131453',2),(23,'2014-04-21','Shoys','50',1),(24,'2014-04-21','maikol guzman','asdads',2);
 /*!40000 ALTER TABLE `workout` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +353,7 @@ CREATE TABLE `workout_detail` (
   KEY `workout_detail_exercise_profile` (`exerciseid`),
   CONSTRAINT `detail_workout_workout` FOREIGN KEY (`workoutid`) REFERENCES `workout` (`id`),
   CONSTRAINT `workout_detail_exercise_profile` FOREIGN KEY (`exerciseid`) REFERENCES `exercise` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -361,6 +362,7 @@ CREATE TABLE `workout_detail` (
 
 LOCK TABLES `workout_detail` WRITE;
 /*!40000 ALTER TABLE `workout_detail` DISABLE KEYS */;
+INSERT INTO `workout_detail` VALUES (57,0,1,0,1,NULL,'00:22:43',14,31),(58,1,0,0,0,NULL,'00:22:43',14,17),(61,0,0,1,0,NULL,'00:22:43',14,32),(62,1,0,1,0,50,NULL,18,31),(66,1,0,0,0,NULL,'00:17:20',19,32),(67,0,1,0,0,NULL,'00:17:20',19,9),(69,1,1,0,0,55,NULL,23,32),(71,0,1,1,0,55,NULL,23,27),(72,1,1,0,0,NULL,'00:22:43',14,12);
 /*!40000 ALTER TABLE `workout_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -397,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-04-21  8:49:59
+-- Dump completed on 2014-04-22  9:02:17

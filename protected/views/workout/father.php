@@ -1,4 +1,4 @@
-<div style="margin-left: 20px;">
+<div class="margin-left-20">
 <div class="row">
      <div class="col-md-12 well">
       
@@ -8,8 +8,13 @@
     </div>
 
 <!--  <div class="col-md-11 well"></div> -->
-<table class="table users-table table-condensed table-hover ">
-        <thead>
+  <div class="panel panel-archon">
+    <div class="panel-heading">
+        <h3 class="panel-title">Workout <?php echo $data->name; ?></h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+               <thead>
             <tr>
                 <th ><?php echo CHtml::encode($data->getAttributeLabel('date')); ?></th>
                 <th><?php echo CHtml::encode($data->getAttributeLabel('name')); ?></th>
@@ -52,11 +57,16 @@ if ( Workout::model ()->hasSons ( $data->id )) {
                 </td>
             </tr>
         </tbody>
-    </table>
+            
+        </table>
+     
+
 <fieldset>
         <?php
         echo $this->renderPartial("son", array('model' => $data));
         ?>
     </fieldset>
+     </div>
+</div>
 
 </div>

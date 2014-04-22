@@ -53,10 +53,13 @@ function validateKeys(ele, evt, ints){
 	            return true;
 }
 	</script>
-<div class="form">
- 
-	<table>
-	<tr>
+	  <div class="panel panel-archon">
+    <div class="panel-heading">
+        <h3 class="panel-title"> Manage Athletes  </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+         <tr>
 	
 	<td>
 	<div style="margin-right:20px;"> 
@@ -117,14 +120,11 @@ function validateKeys(ele, evt, ints){
 								?>
 								</div>
 	</td>
-	</tr>
-	</table>
-	</div>							
-				
-
-	<div class="row" style="padding: 30px;"> 
+	</tr>           
+        </table>
 
      </div>
+  						
 <?php $this->endWidget(); ?>
 
 <!-- search-form -->
