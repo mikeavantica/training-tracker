@@ -69,7 +69,11 @@ class AssignmentController extends AuthController
             $formModel->attributes = $_POST['AddAuthItemForm'];
             if ($formModel->validate()) {
                 if (!$am->isAssigned($formModel->items, $id)) {
-                    $am->assign($formModel->items, $id);
+                	if($formModel->items == "admin")
+                    $am->assign("admin", $id);
+                	elseif($formModel->items == "authenticated")
+                	$am->assign("authenticated", $id);
+                	else{ $am->assign("guest", $id); }
                     if ($am instanceof CPhpAuthManager) {
                         $am->save();
                     }
