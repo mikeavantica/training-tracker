@@ -236,21 +236,17 @@ class Athlete extends CActiveRecord
                                         );
 
                             if ($in_exercise["record_dataid"] != null) {
-                                //if ($row["workout_type_name"] == 'ForReps') {
-                                    array_push($exercise["prop"], array(
-                                        "type" => "Reps",
-                                        "value" => $in_exercise["record_data_reps"]
-                                    ));
-                                //}
+                                array_push($exercise["prop"], array(
+                                    "type" => "Reps",
+                                    "value" => $in_exercise["record_data_reps"]
+                                ));
 
-                              //  if ($in_exercise["workout_type_name"] == 'ForTime') {
-                                    array_push($exercise["prop"], array(
-                                        "type" => "Time",
-                                        "value" => $in_exercise["workout_type_name"] == 'ForTime' ? 
-                                            $in_exercise["record_data_time"] :
-                                            $in_exercise["workout_detail_total_time"]
-                                    ));
-                           //     }
+                                array_push($exercise["prop"], array(
+                                    "type" => "Time",
+                                    "value" => $in_exercise["workout_type_name"] == 'ForTime' ? 
+                                        $in_exercise["record_data_time"] :
+                                        $in_exercise["workout_detail_total_time"]
+                                ));
 
                                 if ($in_exercise["workout_type_name"] == 'MaxWeight') { 
                                     if(strtolower($in_exercise["workout_name"]) == "crossfit total") {
@@ -379,10 +375,10 @@ class Athlete extends CActiveRecord
                 $max_squat = 0;
                 $max_lift = 0;
 
+                $wod = array();
                 while ($i < count($rows) 
-                        && $current_athleteid == $rows[$i]["athleteid"]) {
+                    && $current_athleteid == $rows[$i]["athleteid"]) {
                          
-                    $wod = array();
                     $current_date = $rows[$i]["record_data_date"];
                 
                     while ($i < count($rows) 
@@ -390,6 +386,7 @@ class Athlete extends CActiveRecord
                             && $current_date == $rows[$i]["record_data_date"]) {
                        
                         $date = new DateTime($current_date);
+
                         $wod_day = array(
                             'date' => $date->format('m/d/Y'),
                             'name' => $rows[$i]["workout_name"],
@@ -406,27 +403,22 @@ class Athlete extends CActiveRecord
                                 && $current_athleteid == $rows[$i]["athleteid"] 
                                 && $current_date == $rows[$i]["record_data_date"] 
                                 && $current_workout == $rows[$i]["workoutid"]) {
- 
                             $exercise = array(
                                             "id" => $rows[$i]["exerciseid"],
                                             "name" => $rows[$i]["exercise_name"],
                                             "prop" => array ()
                                         );
-                            //if ($row["workout_type_name"] == 'ForReps') {
-                                array_push($exercise["prop"], array(
-                                    "type" => "Reps",
-                                    "value" => $rows[$i]["record_data_reps"]
-                                ));
-                            //}
+                            array_push($exercise["prop"], array(
+                                "type" => "Reps",
+                                "value" => $rows[$i]["record_data_reps"]
+                            ));
 
-                           //  if ($in_exercise["workout_type_name"] == 'ForTime') {
-                                    array_push($exercise["prop"], array(
-                                        "type" => "Time",
-                                        "value" => $rows[$i]["workout_type_name"] == 'ForTime' ? 
-                                            $rows[$i]["record_data_time"] :
-                                            $rows[$i]["workout_detail_total_time"]
-                                    ));
-                           //     }
+                            array_push($exercise["prop"], array(
+                                "type" => "Time",
+                                "value" => $rows[$i]["workout_type_name"] == 'ForTime' ? 
+                                    $rows[$i]["record_data_time"] :
+                                    $rows[$i]["workout_detail_total_time"]
+                            ));
                                                         
                             if ($rows[$i]["workout_type_name"] == 'MaxWeight') { 
                                 if(strtolower($rows[$i]["workout_name"]) == "crossfit total") {
@@ -470,8 +462,6 @@ class Athlete extends CActiveRecord
                 array_push($athlete_stats["Athlete"], $athlete_obj->getArrayCopy());
             }       // athlete  loop
             
-            // echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
-            
             // fill all dates with placeholders
             $filled_stats = array("Athlete" => array());
             $loop_end_date = date("m/d/Y", strtotime($end_date));
@@ -483,7 +473,7 @@ class Athlete extends CActiveRecord
                 while ($date <= $loop_end_date) {
                     $flag = false;
                     foreach ($athlete_stats["Athlete"][$iterator]["WOD"] as $wod) {
-                        if ($wod["date"] < $date) {
+                        if ($wod["date"] > $date) {
                             break;
                         }
                         if ($date == $wod["date"]) {
@@ -509,7 +499,6 @@ class Athlete extends CActiveRecord
                 $iterator += 1;
             }
             // echo("<pre>"); var_dump($athlete_stats); echo("</pre>"); 
-           
             return $athlete_stats; 
         }
 
@@ -538,7 +527,7 @@ class Athlete extends CActiveRecord
         
         private function calculate_results(&$data) {
             $params = $this->load_parameters($data);
-            // echo '<pre>'; var_dump($params); echo '</pre>'; die();
+          //  echo '<pre>'; var_dump($params); echo '</pre>'; die();
             
             $Gravity = 9.81;
             $body_profiles = BodyProfiles::model()->findAll();

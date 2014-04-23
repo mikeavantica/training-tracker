@@ -33,19 +33,6 @@
 	<?php echo CHtml::encode($data->time); ?>
 	<br />
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('athleteid')); ?>:</b>
-	<?php echo CHtml::encode($data->athleteid); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('workout_detailid')); ?>:</b>
-	<?php echo CHtml::encode($data->workout_detailid); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date')); ?>:</b>
-	<?php echo CHtml::encode($data->date); ?>
-	<br />
-
-	*/ ?>
+	
 
 </div>

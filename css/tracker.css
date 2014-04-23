@@ -21,7 +21,7 @@
 	margin: 7.5px -15px;
 }
 
-.dropdown-menu {
+.dropdown-menu, #logClass nav .navbar-nav {
 	background-color: #3D4A5D;
 }
 
@@ -35,4 +35,8 @@
 
 .navbar-nav > li > .dropdown-menu {
 	margin-top: 50%;
+}
+
+.navbar-header {
+	display: none;
 }

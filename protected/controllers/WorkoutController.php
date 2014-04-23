@@ -156,9 +156,9 @@ class WorkoutController extends Controller {
 		
 		if (isset ( $_POST ['Workout'] )) {
 			$model->attributes = $_POST ['Workout'];
-			// var_dump($model);
+			
 			$valid = $model->validate ();
-			// $model->id = null;
+			
 			if ($valid) {
 				if ($model->save ()) {
 					$this->redirect ( array (
@@ -166,6 +166,12 @@ class WorkoutController extends Controller {
 							'id' => $model->id 
 					) );
 				}
+			}else{
+				Yii::app ()->user->setFlash ( 'error', 'please fill the required fills' );
+				$this->redirect ( array (
+						'view',
+						'id' => 0
+				) );
 			}
 		}
 		

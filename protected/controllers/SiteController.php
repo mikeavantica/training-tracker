@@ -305,7 +305,7 @@ class SiteController extends Controller {
 	public function actionLogin() {
 			
 	$auth=Yii::app()->authManager;
-	//TODO agregar yii param para el id usuario admin
+	
 	if(!$auth->isAssigned("admin",22)){
 	 $bizRule='return !Yii::app()->user->isGuest;'; 
 	 $auth->createRole('authenticated', 'authenticated user', $bizRule); 
@@ -314,6 +314,8 @@ class SiteController extends Controller {
 	 $auth->createRole('admin', 'administrator'); 
 	 $auth->assign('admin',22);
 	}
+	
+	if(Yii::app()->user->isGuest){
 		$model = new LoginForm ();
 		
 		// if it is ajax validation request
@@ -333,6 +335,9 @@ class SiteController extends Controller {
 		$this->render ( 'login', array (
 				'model' => $model 
 		) );
+	}else{
+		$this->redirect(Yii::app()->homeUrl.'/site/OverallStats');
+	}
 	}
 	
 	/**

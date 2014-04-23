@@ -1,3 +1,8 @@
+<div class="panel panel-archon">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        
 <?php
 
 $criteria = new CDbCriteria();
@@ -7,9 +12,11 @@ $detail = new CActiveDataProvider('RecordData', array(
         ));
 
 
+
 $this->widget('bootstrap.widgets.BsGridView', array(
 //'id' => 'record-data-grid',
     'dataProvider' => $detail,
+    'type' => BsHtml::GRID_TYPE_STRIPED,
     'columns' => array(
         array(
             'name' => 'exercise',
@@ -29,3 +36,4 @@ $this->widget('bootstrap.widgets.BsGridView', array(
     "summaryText" => ""
 ));
 ?>
+</div>

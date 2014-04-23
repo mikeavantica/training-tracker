@@ -1,4 +1,5 @@
-
+<div class="row">
+    <div class="col-mod-12">
 <?php
 /* @var $this AthleteController */
 /* @var $model Athlete */
@@ -20,11 +21,14 @@ $this->menu = array (
 );
 
 ?>
+</div>
+</div>
 
  <?php
  foreach(Yii::app()->user->getFlashes() as $key => $message) {
  	echo '<div class="alert alert-danger alert-dismissable">' . $message . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></div>\n";
  };
+ 
 	
 	$form = $this->beginWidget ( 'bootstrap.widgets.BsActiveForm', array (
 			'id' => 'athlete-form',
@@ -200,5 +204,3 @@ $this->widget ( 'bootstrap.widgets.BsGridView', array (
 						</div>
 					</div>
 				</div>
-<!-- search-form -->
-

@@ -1,5 +1,11 @@
 
 <div class="row">
+
+   
+  
+
+
+
 	<div class="col-mod-12">
 <?php
 $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
@@ -7,7 +13,7 @@ $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 				'Athlete' => array (
 						'Athlete/admin' 
 				),
-				'OverallStats' 
+				'Dashboard' 
 		) 
 ) );
 ?>
@@ -15,9 +21,11 @@ $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
 </div>
 </div>
 <h1 class="page-header">Overall Stats</h1>
+
 <div class="row">
 					
 <?php
+$countDates = array();
 $dateschbars = array ();
 $fitness = array ();
 $volume = array ();
@@ -26,19 +34,27 @@ foreach ( $athlete_stats ['Athlete'] as $grafic ) {
 	foreach ( $grafic ["WOD"] as $wod ) {
 		
 		$dateschbars [] = $wod ['date'];
+		if( $wod['volume'] > 0)
+		$countDates[] =  $wod ['date'];
 	}
-} // se guardan unicamente las fechas que no estan repetidas
+} 
+$counts = array_count_values($countDates);
+
+// se guardan unicamente las fechas que no estan repetidas
 $dateschbars = array_unique ( $dateschbars );
+
 foreach ( $athlete_stats ['Athlete'] as $grafic ) {
 	foreach ( $grafic ["WOD"] as $wod ) {
 		
+		$commonMod = isset($counts[$wod['date']]) ?  $counts[$wod['date']] : 1;
 		$clave = array_search ( $wod ['date'], $dateschbars );
 		if (! isset ( $fitness [$clave] )) { // verified if exist
-			$fitness [$clave] = $wod ['fitness'];
-			$volume [$clave] = $wod ['volume'];
+			$fitness [$clave] = $wod ['fitness']/$commonMod;
+			$volume [$clave] = $wod ['volume']/$commonMod;
 		} else {
-			$fitness [$clave] = $fitness [$clave] + $wod ['fitness'];
-			$volume [$clave] = $wod ['volume'] + $volume [$clave];
+			
+			$fitness [$clave] = $fitness [$clave] + ($wod ['fitness']/$commonMod);
+			$volume [$clave] =  $volume [$clave] + ($wod ['volume']/$commonMod);
 		}
 	}
 } // se guardan y suman los valores de fitness y volumen en las fecha que corresponden
@@ -51,6 +67,7 @@ $max_squat = 0;
 $max_deadlift = 0;
 $max_press = 0;
 $cont = 0; // variable needed to define average
+
 foreach ( $athlete_stats ['Athlete'] as $athlete ) {
 	$average_volume += $athlete ['average_volume'];
 	$average_fitness += $athlete ['average_fitness'];
@@ -139,7 +156,22 @@ while ( $total_measures > $contador ) {
 $columns [] = 'Volume';
 $columns [] = 'Fitness';
 ?>
-<div class="col-mod-12"></div>
+<?php if($average_volume == 0){ ?>
+<div class="col-mod-12">
+
+<div class="alert alert-warning alert-dismissable">
+										
+											<h3>No Data found</h3>
+												<p>please add record data in the next link:   <?php echo CHtml::link("Record Data","../RecordData/index",array('class'=> 'alert-link')); ?></p>
+												
+										</div>
+
+</div>
+
+
+</div>
+<?php }else{
+	?>
 </div>
 
 
@@ -231,7 +263,7 @@ $columns [] = 'Fitness';
 </div>
 
 
-<div class="row">
+<div class="row ">
 <div class="col-md-12">
 	<div class="panel panel-archon">
 		<div class="panel-heading">
@@ -240,7 +272,7 @@ $columns [] = 'Fitness';
 				</h3>
 		
 		</div>
-		<div class="panel-body">
+		<div class="panel-body scroll-active">
 												<?php
 												$this->widget ( 'bootstrap.widgets.BsGridView', array (
 														'id' => 'overallstats-grid',
@@ -255,7 +287,7 @@ $columns [] = 'Fitness';
 	</div>
 	</div>
 </div>
-
+<?php } ?>
 
 
 

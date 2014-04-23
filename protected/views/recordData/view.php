@@ -5,12 +5,7 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Record Data' => 'index',
-				$model->id
-		)
-) );
+
 $this->menu=array(
 	array('label'=>'List RecordData', 'url'=>array('index')),
 	array('label'=>'Create RecordData', 'url'=>array('create')),

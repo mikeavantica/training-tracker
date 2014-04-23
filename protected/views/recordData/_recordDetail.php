@@ -3,7 +3,11 @@
 /* @var $data RecordData */
 ?>
 
-<div class="view span-24">
+<div class="panel panel-archon">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        
     <table class="items table">
         <thead>
             <tr>
@@ -40,4 +44,5 @@
         echo $this->renderPartial("detailRecordData", array('model' => $data));
         ?>
     </fieldset>
+</div>
 </div>

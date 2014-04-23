@@ -233,7 +233,7 @@ $this->widget ( 'chartjs.widgets.ChBars', array (
 				<h3 class="panel-title">Stats</h3>
 
 			</div>
-			<div class="panel-body">
+			<div class="panel-body scroll-active">
 												<?php
 												
 												$this->widget ( 'bootstrap.widgets.BsGridView', array (

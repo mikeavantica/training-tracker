@@ -2,198 +2,172 @@
 /* @var $this RecordDataController */
 /* @var $dataProvider CActiveDataProvider */
 ?>
-
-<?php
-$this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Record Data'
-    )
-));
-
-
-
-
-/*$this->menu = array(
-    array(
-        'label' => 'Create RecordData',
-        'url' => array(
-            'create'
-        )
-    ),
-    array(
-        'label' => 'Manage RecordData',
-        'url' => array(
-            'admin'
-        )
-    )
-);*/
-?>
-
-<!-- <h1>Record Data</h1>  -->
-
-<div class="form">
-
-    <?php
-    foreach(Yii::app()->user->getFlashes() as $key => $message) {
-    	echo '<div class="alert alert-danger alert-dismissable">' . $message . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></div>\n";
-    };
-     
-     $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
-	'id'=>'record-data-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
-
-<p class="help-block">Fields with <span class="required">*</span> are required.</p>
-
-<?php echo $form->errorSummary($model); ?>
-
-
-<div class="panel panel-archon">
-    <div class="panel-heading">
-        <h3 class="panel-title">Record Data</h3>
-    </div>
-    <div class="panel-body">
-<table class="table table-striped">
-    <tr>
-        <th><?php echo $form->labelEx($model,'Date'); ?></th>
-        <th>WOD</th>
-        <th><?php echo $form->labelEx($model,'athleteid'); ?></th>
-        <th></th>
-        <th><?php echo $form->labelEx($model,'time',array('id'=>'lbltimeText','style'=>'display:none')); ?> </th>
-    </tr>
-    <tr>
-        
-        <td><?php echo $form->dateField($model, 'date' ,array('span'=>3)); ?></td>
-        <td><?php 
-            if (isset($model->workoutDetail)) {
-                if($is_update)
-                {
-                    $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
-                    echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('disabled' => 'disabled','class'=>'form-control'));
-                }
-                else
-                {
-                    $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
-                    echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('prompt' => '-- Select --','class'=>'form-control'));
-                }
-            } else {
-                $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
-                echo CHtml::dropDownList('wod', 'empty', $list, array('prompt' => '-- Select --','class'=>'form-control'));
-            }
+    <!-- Breadcrumb -->
+    <div class="row">
+        <div class="col-mod-12">
+            <?php
+                $this->widget('bootstrap.widgets.BsBreadcrumb', array(
+                    'links' => array(
+                    'Record Data'
+                )
+            ));
+            
+                foreach(Yii::app()->user->getFlashes() as $key => $message) {
+                    echo '<div class="alert alert-danger alert-dismissable">' . $message . "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></div>\n";
+                };
             ?>
-        </td>
-        <td><?php 
-            if (isset($model->workoutDetail)) {
-                if($is_update)
-                {
-                    $list2 = CHtml::listData(Athlete::model()->findAll(), 'id', 'fullname');
-                    echo  $form->dropDownList($model, 'athleteid',$list2, array('disabled' => 'disabled')); 
-                }
-                else
-                {
-                    $list2 = CHtml::listData(Athlete::model()->findAll(), 'id','fullname');
-                    echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
-                }
-            } else {
-                $list2 = CHtml::listData(Athlete::model()->findAll(), 'id','fullname');
-                echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
-            }
-            
-            ?></td>
-        <td>&nbsp;</td>
-        <td>
-             <?php $this->widget ( 'CMaskedTextField', array (
-                                        'model' => $model,
-                                        'attribute' => 'time',
-                                        'mask' => '99:99',
-                                        'htmlOptions' => array ('size' => 4, 'class' => 'form-control', 'style' => 'display:none') 
-                                                                ) 
-                     );//echo $form->numberField($model,'height',array('span'=>2,'maxlength'=>10)); ?>
-            <?php 
-        
-        /*
-                $this->widget( 'ext.EJuiTimePicker.EJuiTimePicker', array(
-                                'model' => $model, // Your model
-                                'attribute' => 'time', // Attribute for input
-                                'options'=>array('timeOnly'=>true, 'timeFormat'=> 'mm:ss', 'showSecond'=>true, 'showHour'=>false),
-                                'htmlOptions' => array('class'=>'form-control','style'=> 'display:none;'),
-                            )); 
-        */
-        ?>
-            
-            <label id="lbltimeValue"><?php echo $model->time ?></label>
-        </td>
-    </tr>
-</table>
         </div>
-</div>
-<?php
-    if (isset($models)) {
-        echo '<input type="hidden" name="action" value="edit">';
-    } else {
-        echo '<input type="hidden" name="action" value="Record">';
-    }
-        
-        
-?>
-<div class=" prepend-12 span-1 append-4 " id="loading" style="display:none">
-    <img src="../../images/loading3.gif" alt width="40px" />
-</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-archon">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Record Data</h3>
+                </div>
+                
+                <div class="panel-body">
+                   <div class="form">
+                        <?php
+                         $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
+                            'id'=>'record-data-form',
+                            // Please note: When you enable ajax validation, make sure the corresponding
+                            // controller action is handling ajax validation correctly.
+                            // There is a call to performAjaxValidation() commented in generated controller code.
+                            // See class documentation of CActiveForm for details on this.
+                            'enableAjaxValidation'=>false,
+                            )); 
+                         ?>
+
+                        <?php echo $form->errorSummary($model); ?>
+
+                    <p class="help-block">Fields with <span class="required">*</span> are required.</p>
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th><?php echo $form->labelEx($model,'Date'); ?></th>
+                            <th>WOD</th>
+                            <th><?php echo $form->labelEx($model,'athleteid'); ?></th>
+                            <th></th>
+                            <th><?php echo $form->labelEx($model,'time',array('id'=>'lbltimeText','style'=>'display:none')); ?> </th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $form->dateField($model, 'date' ,array('span'=>3)); ?></td>
+                            <td><?php 
+                                if (isset($model->workoutDetail)) {
+                                    if($is_update)
+                                    {
+                                        $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
+                                        echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('disabled' => 'disabled','class'=>'form-control'));
+                                    }
+                                    else
+                                    {
+                                        $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
+                                        echo CHtml::dropDownList('wod', $model->workoutDetail->workoutid, $list, array('prompt' => '-- Select --','class'=>'form-control'));
+                                    }
+                                } else {
+                                    $list=CHtml::listData(Workout::model()->findAll(array("order" => "id desc")), 'id', 'extendedname');
+                                    echo CHtml::dropDownList('wod', 'empty', $list, array('prompt' => '-- Select --','class'=>'form-control'));
+                                }
+                                ?>
+                            </td>
+                            <td><?php 
+                                if (isset($model->workoutDetail)) {
+                                    if($is_update)
+                                    {
+                                        $list2 = CHtml::listData(Athlete::model()->findAll(array('order'=>'last_name')), 'id', 'fullname');
+                                        echo  $form->dropDownList($model, 'athleteid',$list2, array('disabled' => 'disabled')); 
+                                    }
+                                    else
+                                    {
+                                        $list2 = CHtml::listData(Athlete::model()->findAll(array('order'=>'last_name')), 'id','fullname');
+                                        echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
+                                    }
+                                } else {
+                                    $list2 = CHtml::listData(Athlete::model()->findAll(array('order'=>'last_name')), 'id','fullname');
+                                    echo  $form->dropDownList($model, 'athleteid',$list2, array('prompt' => '-- Select --')); 
+                                }
+
+                                ?></td>
+                            <td>&nbsp;</td>
+                            <td>
+                                 <?php $this->widget ( 'CMaskedTextField', array (
+                                                            'model' => $model,
+                                                            'attribute' => 'time',
+                                                            'mask' => '99:99',
+                                                            'htmlOptions' => array ('size' => 4, 'class' => 'form-control', 'style' => 'display:none') 
+                                                                                    ) 
+                                         ); ?>
+
+                                <label id="lbltimeValue"><?php echo $model->time ?></label>
+                            </td>
+                        </tr>
+                    </table>
+
+                        <?php
+                            if (isset($models)) {
+                                echo '<input type="hidden" name="action" value="edit">';
+                            } else {
+                                echo '<input type="hidden" name="action" value="Record">';
+                            }
 
 
-<div id="exercises">
-    <?php
-    
-    if (isset($models)) {
-        $workout = new stdClass();
-        $newDetails = array();
-        $workout->workoutDetails = $models;
-        foreach($workout->workoutDetails as $details) {
-            
-            $obj = new stdClass();
-            $obj->measure_weight = $details->workoutDetail->measure_weight;
-            $obj->weight = $details->weight;
-            $obj->measure_height = $details->workoutDetail->measure_height;
-            $obj->height = $details->height;
-            $obj->measure_assist = $details->workoutDetail->measure_assist;
-            $obj->assist = $details->assist;
-            $obj->measure_calories = $details->workoutDetail->measure_calories;
-            $obj->calories = $details->calories;
-            $obj->time = $details->time;
-            $obj->reps = $details->reps;
-            $obj->id = $details->workout_detailid;
-            $obj->id_record_data = $details->id;
-            $obj->total_time = $details->workoutDetail->total_time;
-            $obj->total_reps = $details->workoutDetail->total_reps;
-            $obj->exercise = new stdClass();
-            $obj->exercise->name = $details->workoutDetail->exercise->name;
-            $obj->errors = $details->getErrors();
-            
-            if(isset($obj->id))
-            {
-                array_push($newDetails, $obj);
-            }
-        }
-        $workout->workoutType = $model->workoutDetail->workout->workoutType;
-        $workout->workoutDetails = $newDetails;
-        $this->renderPartial('_form2', array('workout'=>$workout));
-    }
-    ?>
-</div>
-    
-    
-    <input type="submit" class="btn btn-primary btn-small" value=" <?php echo (isset($models)&&($is_update) ? 'update' : 'Record') ?>" >
-    
-    <?php $this->endWidget(); ?>
-    
-</div><!-- form -->
+                        ?>
+                        <div class=" prepend-12 span-1 append-4 " id="loading" style="display:none">
+                            <img src="../../images/loading3.gif" alt width="40px" />
+                        </div>
 
 
+                        <div id="exercises">
+                            <?php
 
+                            if (isset($models)) {
+                                $workout = new stdClass();
+                                $newDetails = array();
+                                $workout->workoutDetails = $models;
+                                foreach($workout->workoutDetails as $details) {
+
+                                    $obj = new stdClass();
+                                    $obj->measure_weight = $details->workoutDetail->measure_weight;
+                                    $obj->weight = $details->weight;
+                                    $obj->measure_height = $details->workoutDetail->measure_height;
+                                    $obj->height = $details->height;
+                                    $obj->measure_assist = $details->workoutDetail->measure_assist;
+                                    $obj->assist = $details->assist;
+                                    $obj->measure_calories = $details->workoutDetail->measure_calories;
+                                    $obj->calories = $details->calories;
+                                    $obj->time = $details->time;
+                                    $obj->reps = $details->reps;
+                                    $obj->id = $details->workout_detailid;
+                                    $obj->id_record_data = $details->id;
+                                    $obj->total_time = $details->workoutDetail->total_time;
+                                    $obj->total_reps = $details->workoutDetail->total_reps;
+                                    $obj->exercise = new stdClass();
+                                    $obj->exercise->name = $details->workoutDetail->exercise->name;
+                                    $obj->errors = $details->getErrors();
+
+                                    if(isset($obj->id))
+                                    {
+                                        array_push($newDetails, $obj);
+                                    }
+                                }
+                                $workout->workoutType = $model->workoutDetail->workout->workoutType;
+                                $workout->workoutDetails = $newDetails;
+                                $this->renderPartial('_form2', array('workout'=>$workout));
+                            }
+                            ?>
+                        </div>
+
+
+                            <input type="submit" class="btn btn-primary btn-small" value=" <?php echo (isset($models)&&($is_update) ? 'update' : 'Record') ?>" >
+
+                            <?php $this->endWidget(); ?>
+
+                        </div><!-- form -->
+                    </div>
+            </div>
+    </div>
+    </div>
 <?php
 Yii::app()->clientScript->registerScript('settings-script', <<<EOD
         $('#wod').change(function() {
@@ -276,26 +250,4 @@ EOD
 	'itemView'=>'_recordDetail',
         'summaryText' => ''
 )); 
-/*$this->widget('bootstrap.widgets.TbGridView', array(
-    'id' => 'record-data-grid',
-    'dataProvider' => $dataProvider,
-    'columns' => array(
-        'date',
-        array(
-            'name' => 'workout_detailid',
-            //'value'=>'$data->customers->FirstNameB',
-            //	'filter' => CHtml::listData(Workout::model()->findAll(),'id','name'),
-            'value' => 'Workout::model()->FindByPk($data->workout_detailid)->name',
-        ),
-        'athlete.fullName',
-        array(
-            'header' => 'Data',
-            'type' => 'html',
-            'value'=>array($this,'getDetailRecordData')
-        ),
-        array(// display a column with "view", "update" and "delete" buttons
-            'class' => 'CButtonColumn',
-        ),
-    )
-));*/
 ?>
