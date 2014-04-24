@@ -1,23 +1,21 @@
 <?php
-/* @var $this UserController */
-/* @var $model User */
+    /* @var $this UserController */
+    /* @var $model User */
 ?>
-
+<div class="row">
 <?php
 
-$this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Users' => 'index',
-        'Create'
-    )
-));
+        $this->widget('bootstrap.widgets.BsBreadcrumb', array(
+            'links' => array(
+             'Users'=> 'admin',
+                'Create'
+            )
+        ));
 
-$this->menu = array(
+   
+    ?>
+    </div>
 
-    array('label' => 'Manage User', 'url' => array('admin')),
-);
-?>
+<?php echo BsHtml::pageHeader('Create','User') ?>
 
-    <h1>Create User</h1>
-
-<?php $this->renderPartial('_form', array('model' => $model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,23 +1,19 @@
 <?php
-/* @var $this WorkoutTypeController */
-/* @var $model WorkoutType */
+    /* @var $this WorkoutTypeController */
+    /* @var $model WorkoutType */
 ?>
-
+<div class="row">
 <?php
-
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Workout Types' => 'index',
-        'Create'
-    )
+		'links' => array(
+				'Workout Type'=> 'admin',
+				'Create'
+		)
 ));
 
-$this->menu = array(
-
-    array('label' => 'Manage WorkoutType', 'url' => array('admin')),
-);
 ?>
+</div>
 
-    <h1>Create WorkoutType</h1>
+<?php echo BsHtml::pageHeader('Create','WorkoutType') ?>
 
-<?php $this->renderPartial('_form', array('model' => $model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

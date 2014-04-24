@@ -1,29 +1,17 @@
 <?php
-/* @var $this WorkoutTypeController */
-/* @var $model WorkoutType */
+    /* @var $this WorkoutTypeController */
+    /* @var $model WorkoutType */
 ?>
-
+<div class="row">
 <?php
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Workout Types' => 'index',
-        $model->name => array(
-            'view',
-            'id' => $model->id
-        ),
-        'Update'
-    )
-));
+            'links' => array(
+             'Workout Type'=> array('admin'),
+                'Update: '.$model->name
+            )
+        ));
 
+    ?>
+</div>
 
-$this->menu = array(
-
-    array('label' => 'Create WorkoutType', 'url' => array('create')),
-    array('label' => 'View WorkoutType', 'url' => array('view', 'id' => $model->id)),
-    array('label' => 'Manage WorkoutType', 'url' => array('admin')),
-);
-?>
-
-    <h3>Update Workout Type: <?php echo $model->name; ?></h3>
-
-<?php $this->renderPartial('_form', array('model' => $model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

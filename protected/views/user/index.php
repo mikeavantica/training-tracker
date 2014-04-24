@@ -4,39 +4,18 @@
 ?>
 
 <?php
+$this->breadcrumbs=array(
+	'Users',
+);
 
-$this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Users' => 'index',
-
-    )
-));
-
-$this->menu = array(
-    array('label' => 'Create User', 'url' => array('create')),
-    array('label' => 'Manage User', 'url' => array('admin')),
+$this->menu=array(
+array('icon' => 'glyphicon glyphicon-plus-sign','label'=>'Create User', 'url'=>array('create')),
+array('icon' => 'glyphicon glyphicon-tasks','label'=>'Manage User', 'url'=>array('admin')),
 );
 ?>
 
-    <h1>Users</h1>
-
-<?php $this->widget('bootstrap.widgets.BsGridView', array(
-    'id' => 'user-grid',
-    'dataProvider' => $dataProvider,
-
-    'columns' => array(
-        //'id',
-        'username',
-        //'password',
-        'email',
-        /*array(
-            'class'=>'bootstrap.widgets.TbButtonColumn',
-        ),*/
-    ),
-));
-
-/*$this->widget('bootstrap.widgets.TbListView',array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-));*/
-?>
+<?php echo BsHtml::pageHeader('Users') ?>
+<?php $this->widget('bootstrap.widgets.BsListView',array(
+'dataProvider'=>$dataProvider,
+'itemView'=>'_view',
+)); ?>
