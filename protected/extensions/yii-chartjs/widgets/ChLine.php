@@ -10,7 +10,7 @@
 /**
  * ChartJs Line Chart widget.
  * @see http://www.chartjs.org/docs/#lineChart
- */ 
+ */
 class ChLine extends CWidget
 {
     const CONTAINER_PREFIX = 'yii_chartjs_line_';
@@ -56,7 +56,7 @@ class ChLine extends CWidget
         if (!empty($this->htmlOptions['id'])) {
             $this->htmlId = $this->htmlOptions['id'];
         } else {
-            $this->htmlId = self::CONTAINER_PREFIX.self::getNextId();
+            $this->htmlId = self::CONTAINER_PREFIX . self::getNextId();
         }
 
         $this->htmlOptions['width'] = $this->width;
@@ -75,7 +75,7 @@ class ChLine extends CWidget
 
         $data = CJSON::encode(
             array(
-                'labels' => $this->labels, 
+                'labels' => $this->labels,
                 'datasets' => $this->datasets
             )
         );
@@ -83,8 +83,8 @@ class ChLine extends CWidget
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScript(
-            __CLASS__.'#'.$this->htmlId, 
-            "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).Line(".$data.",".$options.");"
+            __CLASS__ . '#' . $this->htmlId,
+            "var chart = new Chart($(\"#" . $this->htmlId . "\").get(0).getContext(\"2d\")).Line(" . $data . "," . $options . ");"
         );
     }
 

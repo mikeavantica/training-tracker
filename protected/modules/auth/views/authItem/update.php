@@ -11,10 +11,10 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<h1>
-    <?php echo CHtml::encode($item->description); ?>
-    <small><?php echo $this->getTypeText(); ?></small>
-</h1>
+    <h1>
+        <?php echo CHtml::encode($item->description); ?>
+        <small><?php echo $this->getTypeText(); ?></small>
+    </h1>
 
 <?php $form = $this->beginWidget(
     'bootstrap.widgets.BsActiveForm',

@@ -5,7 +5,7 @@
         "yii",
         "framework",
         "extension",
-		"bootstrap"
+        "bootstrap"
     ],
     "homepage": "https://bitbucket.org/DrMabuse/yii-bootstrap-3-module",
     "type": "library",

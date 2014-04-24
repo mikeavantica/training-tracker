@@ -5,37 +5,38 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Users' => 'index',
-				
-		)
-) );
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        'Users' => 'index',
 
-$this->menu=array(
-	array('label'=>'Create User','url'=>array('create')),
-	array('label'=>'Manage User','url'=>array('admin')),
+    )
+));
+
+$this->menu = array(
+    array('label' => 'Create User', 'url' => array('create')),
+    array('label' => 'Manage User', 'url' => array('admin')),
 );
 ?>
 
-<h1>Users</h1>
+    <h1>Users</h1>
 
-<?php $this->widget('bootstrap.widgets.BsGridView',array(
-	'id'=>'user-grid',
-	'dataProvider'=>$dataProvider,
-	
-	'columns'=>array(
-		//'id',
-		'username',
-		//'password',
-		'email',
-		/*array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),*/
-	),
-)); 
+<?php $this->widget('bootstrap.widgets.BsGridView', array(
+    'id' => 'user-grid',
+    'dataProvider' => $dataProvider,
+
+    'columns' => array(
+        //'id',
+        'username',
+        //'password',
+        'email',
+        /*array(
+            'class'=>'bootstrap.widgets.TbButtonColumn',
+        ),*/
+    ),
+));
 
 /*$this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-));*/ ?>
+));*/
+?>

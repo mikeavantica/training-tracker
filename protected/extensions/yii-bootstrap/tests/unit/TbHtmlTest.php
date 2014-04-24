@@ -2525,7 +2525,7 @@ class TbHtmlTest extends TbTestCase
             array('label' => 'Separate link', 'url' => '#'),
         );
 
-        $html = TbHtml::splitButtonDropdown('Action',  $items);
+        $html = TbHtml::splitButtonDropdown('Action', $items);
         $group = $I->createNode($html, 'div.btn-group');
         $I->seeNodeChildren($group, array('a.btn', 'button.dropdown-toggle', 'ul.dropdown-menu'));
         CHtml::$count = 0;

@@ -5,9 +5,9 @@
  */
 ?>
 <?php echo "<?php\n"; ?>
-/* @var $this <?php echo $this->getControllerClass(); ?> */
-/* @var $model <?php echo $this->getModelClass(); ?> */
-/* @var $form BSActiveForm */
+    /* @var $this <?php echo $this->getControllerClass(); ?> */
+    /* @var $model <?php echo $this->getModelClass(); ?> */
+    /* @var $form BSActiveForm */
 <?php echo "?>\n"; ?>
 
 <?php echo "<?php \$form=\$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
@@ -21,7 +21,7 @@
 
     <p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-    <?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
+<?php echo "<?php echo \$form->errorSummary(\$model); ?>\n"; ?>
 
 <?php
 foreach ($this->tableSchema->columns as $column) :
@@ -32,6 +32,6 @@ foreach ($this->tableSchema->columns as $column) :
     <?php echo "<?php echo " . $this->generateActiveControlGroup($this->modelClass, $column) . "; ?>\n"; ?>
 <?php endforeach; ?>
 
-    <?php echo "<?php echo BsHtml::submitButton('Submit', array('color' => BsHtml::BUTTON_COLOR_PRIMARY)); ?>\n"; ?>
+<?php echo "<?php echo BsHtml::submitButton('Submit', array('color' => BsHtml::BUTTON_COLOR_PRIMARY)); ?>\n"; ?>
 
 <?php echo "<?php \$this->endWidget(); ?>\n"; ?>

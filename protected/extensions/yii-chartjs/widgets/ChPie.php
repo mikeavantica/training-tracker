@@ -10,7 +10,7 @@
 /**
  * ChartJs Pie Chart widget.
  * @see http://www.chartjs.org/docs/#pieChart
- */ 
+ */
 class ChPie extends CWidget
 {
     const CONTAINER_PREFIX = 'yii_chartjs_pie_';
@@ -47,7 +47,7 @@ class ChPie extends CWidget
      * @var draw labels for this chart if true
      */
     public $drawLabels = false;
-    
+
     /**
      * @var widget count to generate html id
      */
@@ -61,7 +61,7 @@ class ChPie extends CWidget
         if (!empty($this->htmlOptions['id'])) {
             $this->htmlId = $this->htmlOptions['id'];
         } else {
-            $this->htmlId = self::CONTAINER_PREFIX.self::getNextId();
+            $this->htmlId = self::CONTAINER_PREFIX . self::getNextId();
         }
 
         $this->htmlOptions['width'] = $this->width;
@@ -87,8 +87,8 @@ class ChPie extends CWidget
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScript(
-            __CLASS__.'#'.$this->htmlId, 
-            "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).Pie(".$data.",".$options.");"
+            __CLASS__ . '#' . $this->htmlId,
+            "var chart = new Chart($(\"#" . $this->htmlId . "\").get(0).getContext(\"2d\")).Pie(" . $data . "," . $options . ");"
         );
     }
 
@@ -101,7 +101,7 @@ class ChPie extends CWidget
         foreach ($this->datasets as $dataset) {
             if (isset($dataset['label'])) {
                 $attributes['class'] = 'chart-label';
-                $attributes['style'] = 'background-color: '.$dataset['color'].';';
+                $attributes['style'] = 'background-color: ' . $dataset['color'] . ';';
                 echo CHtml::openTag('span', $attributes);
                 echo $dataset['label'];
                 echo CHtml::closeTag('span');

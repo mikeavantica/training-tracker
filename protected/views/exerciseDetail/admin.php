@@ -3,24 +3,23 @@
 /* @var $model ExerciseDetail */
 
 
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        'Exercise Details' => 'index',
+        'Manage'
+    )
+));
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Exercise Details' => 'index',
-				'Manage'
-		)
-) );
-
-$this->menu = array (
-		array (
-				'label' => 'Create Exercises Details',
-				'url' => array (
-						'create' 
-				) 
-		) 
+$this->menu = array(
+    array(
+        'label' => 'Create Exercises Details',
+        'url' => array(
+            'create'
+        )
+    )
 );
 
-Yii::app ()->clientScript->registerScript ( 'search', "
+Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
@@ -31,55 +30,55 @@ $('.search-form form').submit(function(){
 	});
 	return false;
 });
-" );
+");
 ?>
 
-<h1>Manage Exercise Details</h1>
+    <h1>Manage Exercise Details</h1>
 
 
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display: none">
+<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button btn')); ?>
+    <div class="search-form" style="display: none">
+        <?php
+
+        $this->renderPartial('_search', array(
+            'model' => $model
+        ));
+        ?>
+    </div>
+    <!-- search-form -->
+
 <?php
 
-$this->renderPartial ( '_search', array (
-		'model' => $model 
-) );
-?>
-</div>
-<!-- search-form -->
+$this->widget('bootstrap.widgets.BsGridView', array(
+    'id' => 'exercise-detail-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        array(
+            'name' => 'body_profilesId',
+            'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part_name'
+        ),
+        array(
+            'name' => 'exerciseid',
+            'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name',
 
-<?php
+        ),
+        //'body_profilesId',
+        // 'exerciseid',
+        'attr1',
+        'attr2',
+        'attr3',
+        'attr4',
+        'attr5',
 
-$this->widget ( 'bootstrap.widgets.BsGridView', array (
-		'id' => 'exercise-detail-grid',
-		'dataProvider' => $model->search (),
-		'filter' => $model,
-		'columns' => array (
-				array (
-						'name' => 'body_profilesId',
-						'value' => 'BodyProfiles::model()->FindByPk($data->body_profilesId)->body_part_name' 
-				),
-				array (
-						'name' => 'exerciseid',
-						'value' => 'Exercise::model()->FindByPk($data->exerciseid)->name',
-                                                
-				),
-                //'body_profilesId',
-               // 'exerciseid',
-				'attr1',
-				'attr2',
-				'attr3',
-				'attr4',
-				'attr5',
-				
-				'attr6',
-				'attr7',
-				
-				array (
-						'class' => 'bootstrap.widgets.BsButtonColumn',
-                                                'htmlOptions' =>array('width'=>'75px'),
-				) 
-		) 
-) );
+        'attr6',
+        'attr7',
+
+        array(
+            'class' => 'bootstrap.widgets.BsButtonColumn',
+            'htmlOptions' => array('width' => '75px'),
+        )
+    )
+));
 ?>

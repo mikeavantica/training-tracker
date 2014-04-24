@@ -1,9 +1,9 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = Yii::app()->name;
 ?>
-<?php 
+<?php
 /*$this->widget ( 'bootstrap.widgets.TbHeroUnit', array (
 		'heading' => 'Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!',
  		'content' => '<p>you can navigate in our web page and enjoy all their facilities</p>', //. TbHtml::linkButton('HOLA',array(
@@ -15,7 +15,7 @@ $this->pageTitle=Yii::app()->name;
 
 ) );*/
 
- echo BsHtml::jumbotron('Welcome To ' . CHtml::encode ( Yii::app ()->name ) . '!!', BsHtml::emphasis('<p>you can navigate in our web page and enjoy all their facilities</p>'), array(), true)
+echo BsHtml::jumbotron('Welcome To ' . CHtml::encode(Yii::app()->name) . '!!', BsHtml::emphasis('<p>you can navigate in our web page and enjoy all their facilities</p>'), array(), true)
 
 
 ?>

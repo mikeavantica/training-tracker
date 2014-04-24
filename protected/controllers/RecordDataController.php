@@ -1,6 +1,7 @@
 <?php
 
-class RecordDataController extends Controller {
+class RecordDataController extends Controller
+{
 
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -11,7 +12,8 @@ class RecordDataController extends Controller {
     /**
      * @return array action filters
      */
-    public function filters() {
+    public function filters()
+    {
         return array(
             'accessControl', // perform access control for CRUD operations
             'postOnly + delete', // we only allow deletion via POST request
@@ -23,32 +25,34 @@ class RecordDataController extends Controller {
      * This method is used by the 'accessControl' filter.
      * @return array access control rules
      */
-    public function accessRules() {
+    public function accessRules()
+    {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
                 'actions' => array('index', 'view'),
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update','populateWOD'),
+                'actions' => array('create', 'update', 'populateWOD'),
                 'users' => array('@'),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'roles' => array('admin','authenticated'),
+                'roles' => array('admin', 'authenticated'),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
             ),
-            
+
         );
     }
-    
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
-    public function actionView($id) {
+    public function actionView($id)
+    {
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -58,7 +62,8 @@ class RecordDataController extends Controller {
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionCreate() {
+    public function actionCreate()
+    {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
@@ -84,8 +89,6 @@ class RecordDataController extends Controller {
 
                 var_dump($model);
             }
-
-            //$this->redirect(array('view','id'=>$model->id));
         } else {
             $model = new RecordData;
 
@@ -100,41 +103,39 @@ class RecordDataController extends Controller {
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id the ID of the model to be updated
      */
-    public function actionUpdate($athleteid, $date) {
-        
+    public function actionUpdate($athleteid, $date)
+    {
+
         $criteria = new CDbCriteria();
         $criteria->group = 'athleteid, date';
         $criteria->order = 'date DESC, athleteid';
         $dataProvider = new CActiveDataProvider('RecordData', array(
             'criteria' => $criteria
         ));
-        
+
         if (array_key_exists('action', $_POST)) {
             $action = $_POST['action'];
             if ($action == 'edit') {
                 $models = $this->createRecordData();
                 $model = new RecordData;
-                if ($models!=null)
-                {
+                if ($models != null) {
                     $model = $models[0];
                     $is_update = true;
                     $this->render('index', array(
-                              'dataProvider' => $dataProvider,
-                                'model' => $model,
-                                'models' => $models,
-                                'is_update' =>$is_update,
-                                ));
+                        'dataProvider' => $dataProvider,
+                        'model' => $model,
+                        'models' => $models,
+                        'is_update' => $is_update,
+                    ));
                     return;
                 }
-                
+
                 $this->redirect('index');
                 return;
             }
         }
-               
-        
-        
-        
+
+
         if (isset($_POST['RecordData'])) {
             $total_workdetails = $_POST['total_workdetails'];
 
@@ -156,19 +157,19 @@ class RecordDataController extends Controller {
                 $model->save();
             }
         }
-        
+
         $criteria = new CDbCriteria();
         $criteria->condition = "athleteid =:athleteid and date = :date";
         $criteria->params = array(':athleteid' => $athleteid, ':date' => $date);
-        $models = RecordData::model()->with('workoutDetail','workoutDetail.exercise')->findAll($criteria);
-        
+        $models = RecordData::model()->with('workoutDetail', 'workoutDetail.exercise')->findAll($criteria);
+
         $model = $models[0];
         $is_update = true;
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'model' => $model,
             'models' => $models,
-            'is_update' =>$is_update,
+            'is_update' => $is_update,
         ));
     }
 
@@ -177,8 +178,9 @@ class RecordDataController extends Controller {
      * If deletion is successful, the browser will be redirected to the 'admin' page.
      * @param integer $id the ID of the model to be deleted
      */
-    public function actionDelete($id) {
-       if (Yii::app()->request->isPostRequest) {
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest) {
             // we only allow deletion via POST request
             $sample = $this->loadModel($id);
             $criteria = new CDbCriteria();
@@ -198,50 +200,48 @@ class RecordDataController extends Controller {
     /**
      * Lists all models.
      */
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $models = $this->createRecordData();
-       
+
         $criteria = new CDbCriteria();
         $criteria->group = 'athleteid, date';
         $criteria->order = 'date DESC, athleteid';
         $dataProvider = new CActiveDataProvider('RecordData', array(
             'criteria' => $criteria
         ));
-        
+
         $is_update = true;
-        
+
         $model = new RecordData;
-        if ($models!=null)
-        {
+        if ($models != null) {
             $model = $models[0];
             $is_update = null;
-        }
-        else
-        {
+        } else {
             $model->date = date("Y-m-d");
         }
-        
+
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'model' => $model,
-            'models'=>$models,
-            'is_update' =>$is_update,
+            'models' => $models,
+            'is_update' => $is_update,
         ));
     }
-    
-    private function createRecordData() {
-    	
-          if (isset($_POST['RecordData'])) {
+
+    private function createRecordData()
+    {
+
+        if (isset($_POST['RecordData'])) {
             $total_workdetails = 0;
             $recordDatas = array();
             $correct = true;
             $flag_updating = false;
-            
-            if (isset($_POST['total_workdetails']))
-            {
+
+            if (isset($_POST['total_workdetails'])) {
                 $total_workdetails = $_POST['total_workdetails'];
             }
-           
+
             for ($i = 0; $i < $total_workdetails; $i++) {
                 $work = 'WorkoutDetails' . $i;
 
@@ -249,16 +249,16 @@ class RecordDataController extends Controller {
                 $model->attributes = $_POST['RecordData'];
                 if (array_key_exists($work, $_POST)) {
                     $work_array = $_POST[$work];
-                    if (array_key_exists('recorddataid', $work_array))
-                    {
+                    if (array_key_exists('recorddataid', $work_array)) {
                         $model = RecordData::model()->findByPk($work_array['recorddataid']);
                         $flag_updating = true;
                     }
-                    
-                    if (isset($time)) {
-                        $time = explode(':', $_POST["RecordData"]["time"]);
-                        $model->time = $time[0].':'.$time[1];
+                
+                    if (isset($_POST["RecordData"]["time"]))
+                    {
+                    	$model->time = $_POST["RecordData"]["time"];
                     }
+                    
                     $model->date = $_POST["RecordData"]["date"];
                     $model->weight = (array_key_exists('weight', $work_array) ? $work_array['weight'] : 0);
                     $model->height = (array_key_exists('height', $work_array) ? $work_array['height'] : 0);
@@ -267,40 +267,35 @@ class RecordDataController extends Controller {
                     $model->reps = (array_key_exists('reps', $work_array) ? $work_array['reps'] : 0);
                     $model->workout_detailid = $work_array['id'];
                 }
-                
+
                 $correct &= $model->validate();
                 array_push($recordDatas, $model);
             }
-            
-            if($correct)
-            { 
-            	
+
+            if ($correct) {
+
                 // validate if record already exists
                 if (!$flag_updating) {
                     $criteria = new CDbCriteria();
                     $criteria->condition = "athleteid = :athleteid and date = :date";
                     $criteria->params = array(':athleteid' => $_POST["RecordData"]["athleteid"], ':date' => $_POST["RecordData"]["date"]);
                     $existingRecords = RecordData::model()->findAll($criteria);
-                   
+
                     if (count($existingRecords) > 0) {
-                    	Yii::app()->user->setFlash('error', 'Record already exist');
+                        Yii::app()->user->setFlash('error', 'Record already exist');
                         $this->redirect(array('index'));
-                        //RecordData::model()->addError('athleteid', 'This already exist.');
-                      // return null;
                     }
                 }
-                
+
                 foreach ($recordDatas as $record) {
                     // fix time to take minutes:
                     $t = explode(':', $record->time);
                     $f = "00:" . $t[0] . ":" . $t[1];
                     $time = $f;
                     $record->time = $time;
-                    // print_r($record);
                     $record->save();
                 }
-                if ($total_workdetails==0)
-                {
+                if ($total_workdetails == 0) {
                     $model = new RecordData;
                     $model->attributes = $_POST['RecordData'];
                     $model->weight = 0;
@@ -319,7 +314,7 @@ class RecordDataController extends Controller {
                     array_push($recordDatas, $model);
 
                 } else {
-                   return null;
+                    return null;
                 }
             }
             return $recordDatas;
@@ -329,9 +324,10 @@ class RecordDataController extends Controller {
     /**
      * Manages all models.
      */
-    public function actionAdmin() {
+    public function actionAdmin()
+    {
         $model = new RecordData('search');
-        $model->unsetAttributes();  // clear any default values
+        $model->unsetAttributes(); // clear any default values
         if (isset($_GET['RecordData'])) {
             $model->attributes = $_GET['RecordData'];
         }
@@ -348,7 +344,8 @@ class RecordDataController extends Controller {
      * @return RecordData the loaded model
      * @throws CHttpException
      */
-    public function loadModel($id) {
+    public function loadModel($id)
+    {
         $model = RecordData::model()->findByPk($id);
         if ($model === null) {
             throw new CHttpException(404, 'The requested page does not exist.');
@@ -360,20 +357,22 @@ class RecordDataController extends Controller {
      * Performs the AJAX validation.
      * @param RecordData $model the model to be validated
      */
-    protected function performAjaxValidation($model) {
+    protected function performAjaxValidation($model)
+    {
         if (isset($_POST['ajax']) && $_POST['ajax'] === 'record-data-form') {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
     }
 
-    public function actionPopulateWOD($id) {
+    public function actionPopulateWOD($id)
+    {
         $data = array();
         $data["myValue"] = "Content updated in AJAX";
-        
+
         $workout = Workout::model()->with('workoutType', 'workoutDetails.exercise')->findByPk($id);
         $data['workout'] = $workout;
-        
+
         $this->renderPartial('_form2', $data, false, false);
     }
 

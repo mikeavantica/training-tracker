@@ -7,12 +7,12 @@
 /* @var $assignmentOptions array */
 
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				Yii::t('authModule.main','Assignments') => array('index'),
-				CHtml::value($model,$this->module->userNameColumn),
-		)
-) );
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        Yii::t('authModule.main', 'Assignments') => array('index'),
+        CHtml::value($model, $this->module->userNameColumn),
+    )
+));
 ?>
 
 <h1><?php echo CHtml::encode(CHtml::value($model, $this->module->userNameColumn)); ?>
@@ -60,7 +60,7 @@ $this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
             <?php $form = $this->beginWidget(
                 'bootstrap.widgets.BsActiveForm',
                 array(
-                    'layout' =>BsHtml::FORM_LAYOUT_INLINE,
+                    'layout' => BsHtml::FORM_LAYOUT_INLINE,
                 )
             ); ?>
 

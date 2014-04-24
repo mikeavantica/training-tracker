@@ -1,4 +1,5 @@
 <?php
+
 /**
  * User: Pascal Brewing
  * Date: 11.09.13
@@ -6,10 +7,9 @@
  * @package bootstrap.components
  * Class BsApi
  */
- 
 class BsApi extends CComponent
 {
-    
+
     // Bootstrap plugins
     const PLUGIN_AFFIX = 'affix';
     const PLUGIN_ALERT = 'alert';
@@ -24,10 +24,10 @@ class BsApi extends CComponent
     const PLUGIN_TOOLTIP = 'tooltip';
     const PLUGIN_TRANSITION = 'transition';
     const PLUGIN_TYPEAHEAD = 'typeahead';
-    
+
     /**
-    * @var int static counter, used for determining script identifiers
-    */
+     * @var int static counter, used for determining script identifiers
+     */
     public static $counter = 0;
     /**
      * @var array $assetsJs of javascript library names to be registered when initializing the library.

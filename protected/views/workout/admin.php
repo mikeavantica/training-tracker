@@ -3,17 +3,16 @@
 /* @var $model Workout */
 
 
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        'Workout' => 'admin',
+        'Manage'
+    )
+));
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Workout' => 'admin',
-				'Manage'
-		)
-) );
+$this->menu = array(
 
-$this->menu=array(
-	
-	array('label'=>'Create Workout', 'url'=>array('view','id'=> 0)),
+    array('label' => 'Create Workout', 'url' => array('view', 'id' => 0)),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -30,32 +29,32 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Workouts</h1>
+    <h1>Manage Workouts</h1>
 
 
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button btn')); ?>
+    <div class="search-form" style="display:none">
+        <?php $this->renderPartial('_search', array(
+            'model' => $model,
+        )); ?>
+    </div><!-- search-form -->
 
-<?php $this->widget('bootstrap.widgets.BsGridView',array(
-	'id'=>'workout-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		
-		'date',
-		'name',
-		'description',
-		'workout_typeid',
-		array(
-			'class'=>'bootstrap.widgets.BsButtonColumn',
-            'template'=> '{view},{delete}',
-                    'htmlOptions' =>array('width'=>'75px'),
-		),
-            
-	),
+<?php $this->widget('bootstrap.widgets.BsGridView', array(
+    'id' => 'workout-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+
+        'date',
+        'name',
+        'description',
+        'workout_typeid',
+        array(
+            'class' => 'bootstrap.widgets.BsButtonColumn',
+            'template' => '{view},{delete}',
+            'htmlOptions' => array('width' => '75px'),
+        ),
+
+    ),
 )); ?>

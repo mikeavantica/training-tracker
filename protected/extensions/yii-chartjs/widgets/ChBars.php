@@ -10,7 +10,7 @@
 /**
  * ChartJs Bar Chart widget.
  * @see http://www.chartjs.org/docs/#barChart
- */ 
+ */
 class ChBars extends CWidget
 {
     const CONTAINER_PREFIX = 'yii_chartjs_bar_';
@@ -56,7 +56,7 @@ class ChBars extends CWidget
         if (!empty($this->htmlOptions['id'])) {
             $this->htmlId = $this->htmlOptions['id'];
         } else {
-            $this->htmlId = self::CONTAINER_PREFIX.self::getNextId();
+            $this->htmlId = self::CONTAINER_PREFIX . self::getNextId();
         }
 
         $this->htmlOptions['width'] = $this->width;
@@ -75,7 +75,7 @@ class ChBars extends CWidget
 
         $data = CJSON::encode(
             array(
-                'labels' => $this->labels, 
+                'labels' => $this->labels,
                 'datasets' => $this->datasets
             )
         );
@@ -83,8 +83,8 @@ class ChBars extends CWidget
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScript(
-            __CLASS__.'#'.$this->htmlId, 
-            "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).Bar(".$data.",".$options.");"
+            __CLASS__ . '#' . $this->htmlId,
+            "var chart = new Chart($(\"#" . $this->htmlId . "\").get(0).getContext(\"2d\")).Bar(" . $data . "," . $options . ");"
         );
     }
 

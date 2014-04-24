@@ -52,7 +52,7 @@ class BsPager extends CBasePager
      */
     public function init()
     {
-	    $this->attachBehavior('BsWidget', new BsWidget);
+        $this->attachBehavior('BsWidget', new BsWidget);
         $this->copyId();
         if (isset($this->size)) {
             BsArray::defaultValue('size', $this->size, $this->htmlOptions);
@@ -76,22 +76,22 @@ class BsPager extends CBasePager
      */
     protected function createPageLinks()
     {
-	    if ($this->nextPageLabel === null) {
-		    $this->nextPageLabel = Yii::t('yii', 'Next &gt;');
-	    }
-	    
-	    if ($this->prevPageLabel === null) {
-		    $this->prevPageLabel = Yii::t('yii', '&lt; Previous');
-	    }
-	    
-	    if ($this->firstPageLabel === null) {
-		    $this->firstPageLabel = Yii::t('yii', '&lt;&lt; First');
-	    }
-	    
-	    if ($this->lastPageLabel === null) {
-		    $this->lastPageLabel = Yii::t('yii', 'Last &gt;&gt;');
-	    }
-	    
+        if ($this->nextPageLabel === null) {
+            $this->nextPageLabel = Yii::t('yii', 'Next &gt;');
+        }
+
+        if ($this->prevPageLabel === null) {
+            $this->prevPageLabel = Yii::t('yii', '&lt; Previous');
+        }
+
+        if ($this->firstPageLabel === null) {
+            $this->firstPageLabel = Yii::t('yii', '&lt;&lt; First');
+        }
+
+        if ($this->lastPageLabel === null) {
+            $this->lastPageLabel = Yii::t('yii', 'Last &gt;&gt;');
+        }
+
         if (($pageCount = $this->getPageCount()) <= 1) {
             return array();
         }

@@ -5,18 +5,18 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Exercise Details' => 'index',
-				'Create'
-		)
-) );
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        'Exercise Details' => 'index',
+        'Create'
+    )
+));
 
-$this->menu=array(
-	array('label'=>'Manage Exercises Details', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => 'Manage Exercises Details', 'url' => array('admin')),
 );
 ?>
 
-<h1>Create ExerciseDetail</h1>
+    <h1>Create ExerciseDetail</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model' => $model)); ?>

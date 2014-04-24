@@ -1,4 +1,5 @@
 <?php
+
 /**
  * User: Pascal Brewing
  * Date: 11.09.13
@@ -6,7 +7,6 @@
  * @package bootstrap.helpers
  * Class BsHtml
  */
- 
 class BsHtml extends CHtml
 {
     //
@@ -1241,13 +1241,13 @@ class BsHtml extends CHtml
         $containerOptions = BsArray::popValue('containerOptions', $htmlOptions, array());
         $labelOptions = BsArray::popValue('labelOptions', $htmlOptions, array());
 
-        if($inline) {
+        if ($inline) {
             self::addCssClass('checkbox-inline', $labelOptions);
             $template = BsArray::popValue('template', $htmlOptions, '{beginLabel}{input}{labelTitle}{endLabel}');
         } else {
             $template = BsArray::popValue('template', $htmlOptions, parent::tag(
                 'div',
-                array('class'=>'checkbox'),
+                array('class' => 'checkbox'),
                 '{beginLabel}{input}{labelTitle}{endLabel}'
             ));
         }
@@ -1276,7 +1276,7 @@ class BsHtml extends CHtml
             $option = self::checkBox($name, $checked, $htmlOptions);
             $beginLabel = self::openTag('label', $labelOptions);
             $label = self::label($labelTitle, $htmlOptions['id'], $labelOptions);
-            $endLabel=self::closeTag('label');
+            $endLabel = self::closeTag('label');
             $items[] = strtr($template, array(
                 '{input}' => $option,
                 '{beginLabel}' => $beginLabel,
@@ -1370,13 +1370,13 @@ EOD;
         $containerOptions = BsArray::popValue('containerOptions', $htmlOptions, array());
         $labelOptions = BsArray::popValue('labelOptions', $htmlOptions, array());
 
-        if($inline) {
+        if ($inline) {
             self::addCssClass('radio-inline', $labelOptions);
             $template = BsArray::popValue('template', $htmlOptions, '{beginLabel}{input}{labelTitle}{endLabel}');
         } else {
             $template = BsArray::popValue('template', $htmlOptions, parent::tag(
                 'div',
-                array('class'=>'radio'),
+                array('class' => 'radio'),
                 '{beginLabel}{input}{labelTitle}{endLabel}'
             ));
         }
@@ -1394,7 +1394,7 @@ EOD;
             $label = self::label($labelTitle, $htmlOptions['id'], $labelOptions);
             $endLabel = self::closeTag('label');
             $items[] = strtr($template, array(
-                '{input}'=> $option,
+                '{input}' => $option,
                 '{beginLabel}' => $beginLabel,
                 '{label}' => $label,
                 '{labelTitle}' => $labelTitle,
@@ -2954,7 +2954,7 @@ EOD;
                     }
 
                     //HotFix 06.03.2014
-                    if (is_array($itemOptions) && array_key_exists('itemOptions', $itemOptions)) unset( $itemOptions['itemOptions'] );
+                    if (is_array($itemOptions) && array_key_exists('itemOptions', $itemOptions)) unset($itemOptions['itemOptions']);
 
                     // todo: consider removing the support for htmlOptions.
                     $options = BsArray::popValue('htmlOptions', $itemOptions, array());

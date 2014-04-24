@@ -5,9 +5,9 @@ require(__DIR__ . '/../../helpers/TbArray.php');
 
 class TbArrayTest extends TbTestCase
 {
-   /**
-    * @var \CodeGuy
-    */
+    /**
+     * @var \CodeGuy
+     */
     protected $codeGuy;
 
     public function testGetValue()

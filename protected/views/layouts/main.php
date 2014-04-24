@@ -31,7 +31,7 @@
                 <?php
                 $this->widget('bootstrap.widgets.BsNavbar', array(
                     'brandLabel' => '',
-                	'brandUrl' => '',
+                    'brandUrl' => '',
                     'collapse' => false,
                     'items' => array(
                         array(
@@ -130,7 +130,7 @@
                         <ul id="logClass" class="dropdown-menu right inbox user">
                             <?php $this->widget('bootstrap.widgets.BsNavbar', array(
                                     'brandLabel' => '',
-                            		'brandUrl' => '',
+                                    'brandUrl' => '',
                                     'collapse' => false,
                                     'items' => array(
                                         array(
@@ -167,9 +167,11 @@
     <div class="clear"></div>
     <!-- footer -->
 
-    <div id="footer" class="row footer">
-        Copyright &copy; <?php echo date('Y'); ?> by BetterWod.<br/> All
-        Rights Reserved.<br/>
+    <div class="row footer">
+        <div class="col-md-12 text-center">
+            Copyright &copy; <?php echo date('Y'); ?> by BetterWod.<br/> All
+            Rights Reserved.<br/>
+        </div>
         <?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl() . '/css/bootstrap.min.css', ''); ?>
         <?php Yii::app()->clientScript->registerCssFile(Yii::app()->bootstrap->getAssetsUrl() . '/css/bootstrap-theme.min.css', ''); ?>
         <?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . '/themes/themeforest/css/archon.css', ''); ?>
@@ -198,8 +200,10 @@
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/jquery.sortable.js', CClientScript::POS_END);
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/jquery.gritter.js', CClientScript::POS_END);
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/jquery.autosize.min.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/jquery.mask.min.js', CClientScript::POS_END);
         /*Archon JS */
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/archon.js', CClientScript::POS_END);
+
         ?>
     </div>
 </div>

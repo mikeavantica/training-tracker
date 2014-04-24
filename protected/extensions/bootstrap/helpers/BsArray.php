@@ -1,12 +1,11 @@
 <?php
+
 /**
  * User: Pascal Brewing
  * @author Pascal Brewing
  * @package bootstrap.helpers
  * Class BsArray
  */
-
-
 class BsArray
 {
     /**

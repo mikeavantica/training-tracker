@@ -3,11 +3,11 @@
 /* @var $dataProvider CActiveDataProvider */
 
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				Yii::t('authModule.main','Assignments'),
-		)
-) );
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        Yii::t('authModule.main', 'Assignments'),
+    )
+));
 ?>
 
 <h1><?php echo Yii::t('AuthModule.main', 'Roles'); ?></h1>

@@ -669,7 +669,8 @@ class TbHtml extends CHtml // required in order to access the protected methods 
         $action = '',
         $method = 'post',
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::beginFormTb($layout, $action, $method, $htmlOptions);
     }
 
@@ -686,7 +687,8 @@ class TbHtml extends CHtml // required in order to access the protected methods 
         $action = '',
         $method = 'post',
         $htmlOptions = array()
-    ) {
+    )
+    {
         if (!empty($layout)) {
             self::addCssClass('form-' . $layout, $htmlOptions);
         }
@@ -705,7 +707,8 @@ class TbHtml extends CHtml // required in order to access the protected methods 
         $action = '',
         $method = 'post',
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::formTb($layout, $action, $method, $htmlOptions)
         . self::tag('div', array('style' => 'display: none'), parent::pageStateField(''));
     }
@@ -1266,7 +1269,8 @@ EOD;
         $select = '',
         $data = array(),
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::controlGroup(self::INPUT_TYPE_INLINERADIOBUTTONLIST, $name, $select, $htmlOptions, $data);
     }
 
@@ -1973,7 +1977,8 @@ EOD;
         $attribute,
         $data = array(),
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::activeControlGroup(self::INPUT_TYPE_RADIOBUTTONLIST, $model, $attribute, $htmlOptions, $data);
     }
 
@@ -1991,7 +1996,8 @@ EOD;
         $attribute,
         $data = array(),
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::activeControlGroup(
             self::INPUT_TYPE_INLINERADIOBUTTONLIST,
             $model,
@@ -2029,7 +2035,8 @@ EOD;
         $attribute,
         $data = array(),
         $htmlOptions = array()
-    ) {
+    )
+    {
         return self::activeControlGroup(self::INPUT_TYPE_INLINECHECKBOXLIST, $model, $attribute, $htmlOptions, $data);
     }
 
@@ -2854,12 +2861,12 @@ EOD;
                 if (!empty($items)) {
                     $output .= self::buttonDropdown($buttonLabel, $items, $buttonOptions);
                 } else {
-                	$ajaxOptions = TbArray::popValue('ajaxOptions', $buttonOptions, array());
-                	if(!empty($ajaxOptions)) {	                
-	                	$output .= self::ajaxButton($buttonLabel, TbArray::popValue('url', $ajaxOptions, '#'), $ajaxOptions, $buttonOptions);
-	                } else {
-	                    $output .= self::linkButton($buttonLabel, $buttonOptions);
-	                }
+                    $ajaxOptions = TbArray::popValue('ajaxOptions', $buttonOptions, array());
+                    if (!empty($ajaxOptions)) {
+                        $output .= self::ajaxButton($buttonLabel, TbArray::popValue('url', $ajaxOptions, '#'), $ajaxOptions, $buttonOptions);
+                    } else {
+                        $output .= self::linkButton($buttonLabel, $buttonOptions);
+                    }
                 }
             }
             $output .= '</div>';

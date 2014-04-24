@@ -5,25 +5,25 @@
 
 <?php
 
-$this->widget ( 'bootstrap.widgets.BsBreadcrumb', array (
-		'links' => array (
-				'Workout' => 'index',
-				$model->name => array (
-						'view',
-						'id' => $model->id
-				),
-				'Update'
-		)
-) );
+$this->widget('bootstrap.widgets.BsBreadcrumb', array(
+    'links' => array(
+        'Workout' => 'index',
+        $model->name => array(
+            'view',
+            'id' => $model->id
+        ),
+        'Update'
+    )
+));
 
-$this->menu=array(
+$this->menu = array(
 
-	array('label'=>'Create Workout', 'url'=>array('create')),
-	array('label'=>'View Workout', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Workout', 'url'=>array('admin')),
+    array('label' => 'Create Workout', 'url' => array('create')),
+    array('label' => 'View Workout', 'url' => array('view', 'id' => $model->id)),
+    array('label' => 'Manage Workout', 'url' => array('admin')),
 );
 ?>
 
     <h3>Update Workout <?php echo $model->name; ?></h3>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model' => $model)); ?>

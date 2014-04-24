@@ -19,20 +19,20 @@ echo "\$this->breadcrumbs=array(
 ?>
 
 $this->menu=array(
-	array('icon' => 'glyphicon glyphicon-list','label'=>'List <?php echo $this->modelClass; ?>', 'url'=>array('index')),
-	array('icon' => 'glyphicon glyphicon-plus-sign','label'=>'Create <?php echo $this->modelClass; ?>', 'url'=>array('create')),
+array('icon' => 'glyphicon glyphicon-list','label'=>'List <?php echo $this->modelClass; ?>', 'url'=>array('index')),
+array('icon' => 'glyphicon glyphicon-plus-sign','label'=>'Create <?php echo $this->modelClass; ?>', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
+$('.search-form').toggle();
+return false;
 });
 $('.search-form form').submit(function(){
-	$('#<?php echo $this->class2id($this->modelClass); ?>-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
+$('#<?php echo $this->class2id($this->modelClass); ?>-grid').yiiGridView('update', {
+data: $(this).serialize()
+});
+return false;
 });
 ");
 ?>
@@ -57,10 +57,10 @@ $('.search-form form').submit(function(){
         <!-- search-form -->
 
         <?php echo "<?php"; ?> $this->widget('bootstrap.widgets.BsGridView',array(
-			'id'=>'<?php echo $this->class2id($this->modelClass); ?>-grid',
-			'dataProvider'=>$model->search(),
-			'filter'=>$model,
-			'columns'=>array(
+        'id'=>'<?php echo $this->class2id($this->modelClass); ?>-grid',
+        'dataProvider'=>$model->search(),
+        'filter'=>$model,
+        'columns'=>array(
         <?php
         $count = 0;
         foreach ($this->tableSchema->columns as $column) {
@@ -73,10 +73,10 @@ $('.search-form form').submit(function(){
             echo "\t\t*/\n";
         }
         ?>
-				array(
-					'class'=>'bootstrap.widgets.BsButtonColumn',
-				),
-			),
+        array(
+        'class'=>'bootstrap.widgets.BsButtonColumn',
+        ),
+        ),
         )); ?>
     </div>
 </div>

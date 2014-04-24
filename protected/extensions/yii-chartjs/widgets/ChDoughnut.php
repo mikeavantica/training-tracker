@@ -10,7 +10,7 @@
 /**
  * ChartJs Doughnut Chart widget.
  * @see http://www.chartjs.org/docs/#doughnutChart
- */ 
+ */
 class ChDoughnut extends CWidget
 {
     const CONTAINER_PREFIX = 'yii_chartjs_doughnut_';
@@ -60,7 +60,7 @@ class ChDoughnut extends CWidget
         if (!empty($this->htmlOptions['id'])) {
             $this->htmlId = $this->htmlOptions['id'];
         } else {
-            $this->htmlId = self::CONTAINER_PREFIX.self::getNextId();
+            $this->htmlId = self::CONTAINER_PREFIX . self::getNextId();
         }
 
         $this->htmlOptions['width'] = $this->width;
@@ -87,8 +87,8 @@ class ChDoughnut extends CWidget
 
         $cs = Yii::app()->getClientScript();
         $cs->registerScript(
-            __CLASS__.'#'.$this->htmlId, 
-            "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).Doughnut(".$data.",".$options.");"
+            __CLASS__ . '#' . $this->htmlId,
+            "var chart = new Chart($(\"#" . $this->htmlId . "\").get(0).getContext(\"2d\")).Doughnut(" . $data . "," . $options . ");"
         );
     }
 
@@ -101,7 +101,7 @@ class ChDoughnut extends CWidget
         foreach ($this->datasets as $dataset) {
             if (isset($dataset['label'])) {
                 $attributes['class'] = 'chart-label';
-                $attributes['style'] = 'background-color: '.$dataset['color'].';';
+                $attributes['style'] = 'background-color: ' . $dataset['color'] . ';';
                 echo CHtml::openTag('span', $attributes);
                 echo $dataset['label'];
                 echo CHtml::closeTag('span');

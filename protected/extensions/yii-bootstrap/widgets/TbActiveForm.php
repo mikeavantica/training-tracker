@@ -63,7 +63,8 @@ class TbActiveForm extends CActiveForm
         $htmlOptions = array(),
         $enableAjaxValidation = true,
         $enableClientValidation = true
-    ) {
+    )
+    {
         if (!$this->enableAjaxValidation) {
             $enableAjaxValidation = false;
         }
