@@ -173,33 +173,36 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
                 <h3 class="panel-title">Graph</h3>
             </div>
             <div class="panel-body">
-                <div id="chart1" class="with-3d-shadow with-transitions">
+                <div id="chartAthlete" class="with-3d-shadow with-transitions">
+                <svg></svg>
                     <?php
 
-                    $this->widget('chartjs.widgets.ChBars', array(
-                        'width' => 1500,
-                        'height' => 500,
-                        'htmlOptions' => array('id'=>'chartStats'),
-                        'labels' => $dateschbars,
-                        'datasets' => array(
-                            array(
-                                "fillColor" => "#04B404",
-                                "label" => "Fitness",
-                                "strokeColor" => "rgba(220,220,220,1)",
-                                "data" => $fitness
-                            ),
-                            array(
-                                "fillColor" => "#2E2EFE",
-                                "label" => "Volume",
-                                "strokeColor" => "rgba(220,220,220,1)",
-                                "data" => $volume
-                            )
-                        ),
-                        'options' => array()
-                    ));
+                    $newFitnessData = array();
+                    for ($i=0; $i<sizeof($dateschbars);$i++){
+                    	array_push($newFitnessData, array($dateschbars[$i],$fitness[$i]));
+                    }
+                    
+                    $newVolumeData = array();
+                    for ($i=0; $i<sizeof($dateschbars);$i++){
+                    	array_push($newVolumeData, array($dateschbars[$i],$volume[$i]));
+                    }
+                    
+                    $cs = Yii::app()->getClientScript();
+                    $cs->registerScript(
+                    		__CLASS__.'#chartAthlete',
+                    		"addGraph('chartAthlete',".CJSON::encode(array (
+                    				array (
+                    						"key" => "Fitness",
+                    						"bar"=>"true",
+                    						"values" => $newFitnessData
+                    				),
+                    				array (
+                    						"key" => "Volume",
+                    						"values" => $newVolumeData
+                    				)
+                    		)).");"
+                    );
                     ?>
-
-
                 </div>
             </div>
         </div>

@@ -229,7 +229,7 @@
                         $cs = Yii::app()->getClientScript();
                         $cs->registerScript(
                         		__CLASS__.'#chartnvd3',
-                        		"addGraph(".CJSON::encode(array (
+                        		"addGraph('chartnvd3',".CJSON::encode(array (
                         				array (
                         						"key" => "Fitness",
                         						"bar"=>"true",

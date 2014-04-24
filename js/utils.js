@@ -1,4 +1,4 @@
-function addGraph(data) {
+function addGraph(chartId, data) {
 nv.addGraph(function() {
       var chart = nv.models.linePlusBarChart()
             .margin({top: 30, right: 60, bottom: 50, left: 70})
@@ -20,7 +20,7 @@ nv.addGraph(function() {
 
       chart.bars.forceY([0]);
 
-      d3.select('#chartnvd3 svg')
+      d3.select('#'+chartId+' svg')
         .datum(data)
         .transition()
         .duration(0)

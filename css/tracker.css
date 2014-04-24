@@ -41,6 +41,6 @@
 	display: none;
 }
 
-#chartnvd3 svg {
+#chartnvd3, #chartAthlete svg {
   height: 500px;
 }
