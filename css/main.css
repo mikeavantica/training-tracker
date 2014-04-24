@@ -23,5 +23,10 @@ div.form-actions.input-button
 	float: left;
 	width: 100%;
 }
+#chartStats
+{
+	   width: 100% !important;
+       height: auto !important;
+}
 
 

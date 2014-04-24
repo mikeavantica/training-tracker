@@ -36,9 +36,8 @@ class AthleteController extends Controller
                     'index',
                     'view'
                 ),
-                'users' => array(
-                    '*'
-                )
+                 'roles' => array(
+                'admin', 'authenticated'),
             ),
             array(
                 'allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -46,9 +45,8 @@ class AthleteController extends Controller
                     'create',
                     'update'
                 ),
-                'users' => array(
-                    '@'
-                )
+                 'roles' => array(
+                'admin', 'authenticated'),
             ),
             array(
                 'allow', // allow admin user to perform 'admin' and 'delete' actions

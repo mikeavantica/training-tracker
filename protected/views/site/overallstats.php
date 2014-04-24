@@ -5,9 +5,6 @@
         <?php
         $this->widget('bootstrap.widgets.BsBreadcrumb', array(
             'links' => array(
-                'Athlete' => array(
-                    'Athlete/admin'
-                ),
                 'Dashboard'
             )
         ));
@@ -216,33 +213,36 @@
                     <h3 class="panel-title">Graph</h3>
                 </div>
                 <div class="panel-body">
-                    <div id="chart1" class="with-3d-shadow with-transitions">
+                    <div id="chartnvd3" class="with-3d-shadow with-transitions">
+                    <svg></svg>
                         <?php
+						$newFitnessData = array();
+						for ($i=0; $i<sizeof($dateschbars);$i++){
+							array_push($newFitnessData, array($dateschbars[$i],$fitness[$i]));
+						}
+						
+						$newVolumeData = array();
+						for ($i=0; $i<sizeof($dateschbars);$i++){
+							array_push($newVolumeData, array($dateschbars[$i],$volume[$i]));
+						}
+						                        
+                        $cs = Yii::app()->getClientScript();
+                        $cs->registerScript(
+                        		__CLASS__.'#chartnvd3',
+                        		"addGraph(".CJSON::encode(array (
+                        				array (
+                        						"key" => "Fitness",
+                        						"bar"=>"true",
+                        						"values" => $newFitnessData
+                        				),
+                        				array (
+                        						"key" => "Volume",
+                        						"values" => $newVolumeData
+                        				)
+                        		)).");"
+                        );
                         $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
-                        $this->widget('chartjs.widgets.ChBars', array(
-                            'width' => 1500,
-                            'height' => 500,
-
-                            'htmlOptions' => array(),
-                            'labels' => $dateschbars,
-                            'datasets' => array(
-                                array(
-                                    "fillColor" => "#04B404",
-                                    "label" => "Fitness",
-                                    "strokeColor" => "rgba(220,220,220,1)",
-                                    "data" => $fitness
-                                ),
-                                array(
-                                    "fillColor" => "#2E2EFE",
-                                    "label" => "Volume",
-                                    "strokeColor" => "rgba(220,220,220,1)",
-                                    "data" => $volume
-                                )
-                            ),
-                            'options' => array()
-                        ));
                         ?>
-
                     </div>
                 </div>
             </div>

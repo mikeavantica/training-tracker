@@ -22,9 +22,13 @@ class SiteController extends Controller
             )
         );
     }
+ 
+    
+    
 
     public function actionOverallStats()
-    {
+    {  
+    	if(Yii::app()->user->checkAccess('admin')|| Yii::app()->user->checkAccess('authenticated')){
 
         date_default_timezone_get();
         $endDate = date("Y-m-d");
@@ -36,6 +40,12 @@ class SiteController extends Controller
         $this->render('overallstats', array(
             'athlete_stats' => $athlete_stats
         ));
+    	}else{
+    	
+    		$this->redirect('Contact');
+    		
+    	}
+    	
     }
 
     /**
@@ -46,15 +56,7 @@ class SiteController extends Controller
     {
         $this->render('index');
 
-        // }else{
-        // $this->render('/site/login');
-
-
-        // adding admin to first user created
-
-        // }
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
+      
     }
 
     /**
@@ -99,16 +101,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
 
-        $auth = Yii::app()->authManager;
-
-        if (!$auth->isAssigned("admin", 22)) {
-            $bizRule = 'return !Yii::app()->user->isGuest;';
-            $auth->createRole('authenticated', 'authenticated user', $bizRule);
-            $bizRule = 'return Yii::app()->user->isGuest;';
-            $auth->createRole('guest', 'guest user', $bizRule);
-            $auth->createRole('admin', 'administrator');
-            $auth->assign('admin', 22);
-        }
+       
 
         if (Yii::app()->user->isGuest) {
             $model = new LoginForm ();

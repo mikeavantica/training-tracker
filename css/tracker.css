@@ -40,3 +40,7 @@
 .navbar-header {
 	display: none;
 }
+
+#chartnvd3 svg {
+  height: 500px;
+}

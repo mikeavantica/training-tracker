@@ -13,10 +13,7 @@
         'selectableRows' => 0,
         'dataProvider' => $detail,
         'columns' => array(
-            /*array(
-                    'name' => 'id',
-                    'header' => '#',
-            ),*/
+
             array(
                 'name' => 'exerciseid',
                 'value' => '$data->exercise->name',
@@ -58,12 +55,6 @@
                 'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3,
 
             ),
-// 				array (
-// 						'name' => 'total_time',
-// 						'header' => 'Time',
-// 						'visible' => $model->workout_typeid == 2 
-
-// 				),
 
 
         )

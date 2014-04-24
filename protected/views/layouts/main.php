@@ -203,6 +203,15 @@
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/jquery.mask.min.js', CClientScript::POS_END);
         /*Archon JS */
         $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/archon.js', CClientScript::POS_END);
+        /*nvd3 graphs*/
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/lib/d3.v3.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/nv.d3.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/src/models/legend.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/src/models/pie.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/src/models/pieChart.js', CClientScript::POS_END);
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/themes/themeforest/js/nvd3/src/utils.js', CClientScript::POS_END);
+        /*extra js for graphs*/
+        $cs->registerScriptFile(Yii::app()->baseUrl . '/js/utils.js', CClientScript::POS_END);
 
         ?>
     </div>

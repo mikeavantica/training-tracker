@@ -179,7 +179,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
                     $this->widget('chartjs.widgets.ChBars', array(
                         'width' => 1500,
                         'height' => 500,
-                        'htmlOptions' => array(),
+                        'htmlOptions' => array('id'=>'chartStats'),
                         'labels' => $dateschbars,
                         'datasets' => array(
                             array(

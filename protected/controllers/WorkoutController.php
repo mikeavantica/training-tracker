@@ -36,8 +36,8 @@ class WorkoutController extends Controller
                     'index',
                     'view'
                 ),
-                'users' => array(
-                    '*'
+                'roles' => array(
+                'admin', 'authenticated'
                 )
             ),
             array(
@@ -46,8 +46,8 @@ class WorkoutController extends Controller
                     'create',
                     'update'
                 ),
-                'users' => array(
-                    '@'
+                'roles' => array(
+                   'admin', 'authenticated'
                 )
             ),
             array(

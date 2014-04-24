@@ -7,7 +7,6 @@
 
     </div>
 
-    <!--  <div class="col-md-11 well"></div> -->
     <div class="panel panel-archon">
         <div class="panel-heading">
             <h3 class="panel-title">Workout <?php echo $data->name; ?></h3>
@@ -43,9 +42,16 @@
                         }
                     } ?>
                     <td class="button-column">
-                        <a class="glyphicon glyphicon-edit" href="<?php echo 'update?id=' . $data->id ?>" title="Update"
+                    <?php if(strpos(Yii::app()->request->url, 'index.php/Workout/UpdateDetail') !== false){   ?>
+                            <a class="glyphicon glyphicon-edit" href="<?php echo '../update?id=' . $data->id ?>" title="Update"
                            class="update">
                             <img src alt></a>
+                            <?php }else{ ?>
+                             <a class="glyphicon glyphicon-edit" href="<?php echo 'update?id=' . $data->id ?>" title="Update"
+                           class="update">
+                            <img src alt></a>
+                            
+                            <?php } ?>
                         <?php
                         echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
                             array(

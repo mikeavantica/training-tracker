@@ -30,7 +30,7 @@
 
             $.ajax({
                 type: "get",
-                url: window.location.pathname,
+                url: "<?php echo Yii::app()->homeUrl ?>/workout/<?php echo $model->id; ?>",
                 dataType: "json",
                 data: "r=WorkoutDetail/noRepeatExercise&id=<?php echo $model->id; ?>&exercise=" + exercise,
                 success: function (data) {
@@ -190,43 +190,19 @@ $this->menu = array(
                             if (!Workout::model()->hasSons($model->id)) {
                                 echo $form->label($modelDetail, 'total_time');
                                 echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control'));
-// 			$this->widget ( 'CMaskedTextField', array (
-// 					'model' => $modelDetail,
-// 					'attribute' => 'total_time',
-// 					'mask' => '99:99',
-// 					'htmlOptions' => array (
-// 							'class' => 'form-control' 
-// 					) 
-// 			) );
+
                             } elseif ($modelDetail->id != "") {
                                 $modelDetail->total_time = WorkoutDetail::model()->sonTotalTime($model->id);
                                 echo $form->label($modelDetail, 'total_time');
                                 echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control'));
-// 			$this->widget ( 'CMaskedTextField', array (
-// 					'model' => $modelDetail,
-// 					'attribute' => 'total_time',
-// 					'mask' => '99:99',
-// 					'htmlOptions' => array (
-// 							'class' => 'form-control' 
-// 					)
 
-// 			) );
                             } else {
                                 $modelDetail->total_time = WorkoutDetail::model()->sonTotalTime($model->id);
                                 echo $form->label($modelDetail, 'total_time', array(
                                     'style' => 'display:none;'
                                 ));
                                 echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control', 'style' => 'display:none;'));
-// 			$this->widget ( 'CMaskedTextField', array (
-// 					'model' => $modelDetail,
-// 					'attribute' => 'total_time',
-// 					'mask' => '99:99',
-// 					'htmlOptions' => array (
-// 							'class' => 'form-control',
-//                              'style'=> 'display:none;'
-// 					)
 
-// 			) );
                             }
                         }
 
@@ -250,7 +226,7 @@ $this->menu = array(
                                     'min' => 0,
                                     'onKeyPress' => 'return validateKeys(this, event,3);'
                                 ));
-                            } else {
+                            } elseif($modelDetail->id == "") {
                                 $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
                                 echo $form->label($modelDetail, 'total_reps');
                                 echo $form->numberField($modelDetail, 'total_reps', array(
@@ -258,6 +234,14 @@ $this->menu = array(
                                     'min' => 0,
                                     'onKeyPress' => 'return validateKeys(this, event,3);'
                                 ));
+                            }else{
+                            	echo $form->label($modelDetail, 'total_reps');
+                               echo $form->numberField($modelDetail, 'total_reps', array(
+		                        'lenght' => 11,
+		                        'min' => 0,
+		                        'onKeyPress' => 'return validateKeys(this, event,3);'
+                                 ));
+
                             }
                         }
 
@@ -343,7 +327,7 @@ $this->menu = array(
         <table class="table table-striped">
             <thead>
             <tr>
-                <!--  <th><?php //echo CHtml::encode($model->getAttributeLabel('id')); ?></th> -->
+                
                 <th><?php echo CHtml::encode($model->getAttributeLabel('date')); ?></th>
                 <th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
                 <th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
@@ -355,7 +339,7 @@ $this->menu = array(
             </thead>
             <tbody>
             <tr>
-                <!--  	<td><?php //echo CHtml::encode($model->id); ?></td> -->
+                
                 <td><?php echo CHtml::encode($model->date); ?></td>
                 <td><?php echo CHtml::encode($model->name); ?></td>
                 <td><?php echo CHtml::encode($model->description); ?></td>
@@ -381,16 +365,15 @@ $this->menu = array(
                     }
                 }
                 ?>
-                <!--  <td><?php // echo  CHtml::link('<i class="glyphicon glyphicon-edit"style="margin-left:-10px;"></i>',array('Workout/update','id'=>$model->id))//TbHtml::link('',array('icon' => TbHtml::ICON_EDIT,'url'=>array('Workout/update','id'=>$model->id)));//TbHtml::icon(TbHtml::ICON_EDIT) ?> </td>-->
-
+               
             </tr>
             <tr>
-                <!--  <td></td> -->
+               
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <!--  <td></td>-->
+               
 
             </tr>
             </tbody>
@@ -402,12 +385,8 @@ $this->menu = array(
             'id' => 'releasenote-grid',
             'selectableRows' => 0,
             'dataProvider' => WorkoutDetail::model()->search2($model->id),
-            // 'selectionChanged' => 'js:userClicks',
             'columns' => array(
-                /*array(
-                        'name' => 'id',
-                        'header' => '#',
-                ),*/
+                
                 array(
                     'name' => 'exerciseid',
                     'value' => '$data->exercise->name',
@@ -452,21 +431,6 @@ $this->menu = array(
                     'header' => 'Reps',
                     'visible' => $model->workout_typeid == 1 || $model->workout_typeid == 3
                 ),
-                // array (
-                // 'name' => 'total_time',
-                // 'header' => 'Time',
-                // 'visible' => $model->workout_typeid == 2
-                // )
-                // ,
-
-                /*
-                 * array ( 'name' => 'workoutid', 'header'=> 'WorkOut', 'value'=>' $data->workout->name',
-                 */
-
-                /*
-                 * array('name' => 'workoutid', 'header'=> 'WorkOut')
-                 */
-
                 array(
                     'class' => 'CButtonColumn',
                     'template' => '{update}{delete}',
@@ -507,14 +471,7 @@ $this->menu = array(
 
 
 <?php
-// echo BsHtml::linkButton ( 'Add Exercise(s)', array (
-// 'color' => BsHtml::BUTTON_COLOR_PRIMARY,
-// 'size' => BsHtml::BUTTON_SIZE_SMALL,
-// 'url' => array (
-// 'WorkoutDetail/create',
-// 'id' => $model->id
-// )
-// ) );
+
 ?>
 
 

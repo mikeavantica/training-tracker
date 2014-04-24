@@ -171,19 +171,19 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
                                     'label' => '',
                                     'imageUrl' => '',
                                     'url' => "CHtml::normalizeUrl(array('/Athlete/update', 'id'=>\$data->id))",
-                                    'options' => array('class' => 'glyphicon glyphicon-edit')
+                                    'options' => array('class' => 'glyphicon glyphicon-edit','rel' => 'tooltip', 'data-toggle' => 'tooltip', 'title' => Yii::t('app', 'Update the Athlete'))
                                 ),
                                 'delete' => array(
                                     'label' => '',
                                     'imageUrl' => '',
                                     'url' => "CHtml::normalizeUrl(array('/Athlete/delete', 'id'=>\$data->id))",
-                                    'options' => array('class' => 'glyphicon glyphicon-remove'),
+                                    'options' => array('class' => 'glyphicon glyphicon-remove','rel' => 'tooltip', 'data-toggle' => 'tooltip', 'title' => Yii::t('app', 'Delete the Athlete')),
                                 ),
                                 'stats' => array(
                                     'label' => '',
 
                                     'url' => "CHtml::normalizeUrl(array('/Athlete/AthleteStats', 'id'=>\$data->id))",
-                                    'options' => array('class' => 'glyphicon glyphicon-adjust'),
+                                    'options' => array('class' => 'glyphicon glyphicon-adjust','rel' => 'tooltip', 'data-toggle' => 'tooltip', 'title' => Yii::t('app', 'View stats for this Athlete')),
 
                                 ),
 
