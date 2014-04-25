@@ -112,6 +112,8 @@ $this->menu = array(
 
 <h3 class="page-header">Manage Workouts</h3>
 
+<div class="">
+
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-archon">
@@ -226,7 +228,7 @@ $this->menu = array(
                                     'min' => 0,
                                     'onKeyPress' => 'return validateKeys(this, event,3);'
                                 ));
-                            } elseif($modelDetail->id == "") {
+                            } elseif ($modelDetail->id == "") {
                                 $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
                                 echo $form->label($modelDetail, 'total_reps');
                                 echo $form->numberField($modelDetail, 'total_reps', array(
@@ -234,13 +236,13 @@ $this->menu = array(
                                     'min' => 0,
                                     'onKeyPress' => 'return validateKeys(this, event,3);'
                                 ));
-                            }else{
-                            	echo $form->label($modelDetail, 'total_reps');
-                               echo $form->numberField($modelDetail, 'total_reps', array(
-		                        'lenght' => 11,
-		                        'min' => 0,
-		                        'onKeyPress' => 'return validateKeys(this, event,3);'
-                                 ));
+                            } else {
+                                echo $form->label($modelDetail, 'total_reps');
+                                echo $form->numberField($modelDetail, 'total_reps', array(
+                                    'lenght' => 11,
+                                    'min' => 0,
+                                    'onKeyPress' => 'return validateKeys(this, event,3);'
+                                ));
 
                             }
                         }
@@ -327,7 +329,7 @@ $this->menu = array(
         <table class="table table-striped">
             <thead>
             <tr>
-                
+
                 <th><?php echo CHtml::encode($model->getAttributeLabel('date')); ?></th>
                 <th><?php echo CHtml::encode($model->getAttributeLabel('name')); ?></th>
                 <th><?php echo CHtml::encode($model->getAttributeLabel('description')); ?></th>
@@ -339,7 +341,7 @@ $this->menu = array(
             </thead>
             <tbody>
             <tr>
-                
+
                 <td><?php echo CHtml::encode($model->date); ?></td>
                 <td><?php echo CHtml::encode($model->name); ?></td>
                 <td><?php echo CHtml::encode($model->description); ?></td>
@@ -365,15 +367,15 @@ $this->menu = array(
                     }
                 }
                 ?>
-               
+
             </tr>
             <tr>
-               
+
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-               
+
 
             </tr>
             </tbody>
@@ -386,7 +388,7 @@ $this->menu = array(
             'selectableRows' => 0,
             'dataProvider' => WorkoutDetail::model()->search2($model->id),
             'columns' => array(
-                
+
                 array(
                     'name' => 'exerciseid',
                     'value' => '$data->exercise->name',
@@ -464,16 +466,7 @@ $this->menu = array(
     </div>
 </div>
 
-
-
-
-
-
-
-<?php
-
-?>
-
+</div>
 
 <?php
 $this->widget('bootstrap.widgets.BsListView', array(
