@@ -112,8 +112,6 @@ $this->menu = array(
 
 <h2 class="page-header">Manage Workouts</h2>
 
-<div class="well">
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-primary">
@@ -464,8 +462,6 @@ $this->menu = array(
         ));
         ?>
     </div>
-</div>
-
 </div>
 
 <div class="row">
