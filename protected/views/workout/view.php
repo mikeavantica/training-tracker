@@ -112,7 +112,7 @@ $this->menu = array(
 
 <h3 class="page-header">Manage Workouts</h3>
 
-<div class="">
+<div class="well">
 
 <div class="row">
     <div class="col-md-12">
@@ -321,7 +321,7 @@ $this->menu = array(
     </div>
 <?php } ?>
 
-<div class="panel panel-archon">
+<div class="panel panel-info">
     <div class="panel-heading">
         <h3 class="panel-title">Workout Selected: <?php echo $model->name; ?></h3>
     </div>
