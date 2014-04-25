@@ -116,7 +116,7 @@ $this->menu = array(
 
 <div class="row">
     <div class="col-md-12">
-        <div class="panel panel-archon">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Add Workout</h3>
             </div>

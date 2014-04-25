@@ -23,9 +23,9 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-archon">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"> Record Data</h3>
+                    <h3 class="panel-title"> Add Data</h3>
                 </div>
 
                 <div class="panel-body">

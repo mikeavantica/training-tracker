@@ -64,9 +64,12 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 
     });
 </script>
-<div class="panel panel-archon">
+
+<h3 class="page-header">Manage Athletes</h3>
+
+<div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"> Manage Athletes </h3>
+        <h3 class="panel-title"> Add Athlete </h3>
     </div>
     <div class="panel-body">
 
