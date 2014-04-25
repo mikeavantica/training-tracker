@@ -4,7 +4,13 @@
 /* @var $form BSActiveForm */
 ?>
 
-<div class="form">
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+    <div class="panel-heading"> 
+    <h3 class="panel-title"> Exercise Details </h3>
+    </div>
+    <div class="panel-body">
 
     <?php
 
@@ -23,11 +29,14 @@
     </p>
 
     <?php echo $form->errorSummary($model); ?>
+    <div class="form-group">
     <?php echo $form->label($model, 'body_profilesId'); ?>
     <?php echo $form->dropDownList($model, 'body_profilesId', CHtml::listData(BodyProfiles::model()->findAll(), 'Id', 'body_part_name')); ?>
-    <?php //echo $form->textFieldControlGroup($model,'exerciseid',array('span'=>5)); ?>
+    </div>
+    <div class="form-group">     
     <?php echo $form->label($model, 'exerciseid'); ?>
     <?php echo $form->dropDownList($model, 'exerciseid', CHtml::listData(Exercise::model()->findAll(), 'id', 'name')); ?>
+     </div>
     <?php echo $form->textFieldControlGroup($model, 'attr1', array('span' => 5, 'maxlength' => 10)); ?>
 
     <?php echo $form->textFieldControlGroup($model, 'attr2', array('span' => 5, 'maxlength' => 10)); ?>
@@ -42,10 +51,10 @@
 
     <?php echo $form->textFieldControlGroup($model, 'attr7', array('span' => 5, 'maxlength' => 10)); ?>
 
-    <?php //echo $form->textFieldControlGroup($model,'body_profilesId',array('span'=>5)); ?>
 
 
-    <div class="form-actions">
+
+    <div class="form-actions input-button">
         <?php
 
         echo BsHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array(
@@ -57,5 +66,7 @@
 
     <?php $this->endWidget(); ?>
 
+ </div>
 </div>
-<!-- form -->
+</div>
+</div>

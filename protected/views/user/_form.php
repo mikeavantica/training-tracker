@@ -19,7 +19,7 @@
 <div class="col-md-12">
 <div class="panel panel-default">
     <div class="panel-heading"> 
-    <h3 class="panel-title"> Users </h3>
+    <h3 class="panel-title"> Body Profiles </h3>
     </div>
     <div class="panel-body">
 

@@ -2,22 +2,19 @@
 /* @var $this BodyProfilesController */
 /* @var $model BodyProfiles */
 ?>
-
+<div class="row">
 <?php
 
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
     'links' => array(
-        'Body Profiles' => 'index',
+        'Body Profiles' => 'admin',
         'Create'
     )
 ));
 
-$this->menu = array(
-    array('label' => 'List BodyProfiles', 'url' => array('index')),
-    array('label' => 'Manage BodyProfiles', 'url' => array('admin')),
-);
-?>
 
-    <h1>Create BodyProfiles</h1>
+?>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model' => $model)); ?>

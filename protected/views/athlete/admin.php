@@ -171,13 +171,13 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
                                     'label' => '',
                                     'imageUrl' => '',
                                     'url' => "CHtml::normalizeUrl(array('/Athlete/update', 'id'=>\$data->id))",
-                                    'options' => array('class' => 'glyphicon glyphicon-edit')
+                                    'options' => array('class' => 'glyphicon glyphicon-edit','rel' => 'tooltip'),
                                 ),
                                 'delete' => array(
                                     'label' => '',
                                     'imageUrl' => '',
                                     'url' => "CHtml::normalizeUrl(array('/Athlete/delete', 'id'=>\$data->id))",
-                                    'options' => array('class' => 'glyphicon glyphicon-remove'),
+                                    'options' => array('class' => 'glyphicon glyphicon-remove',),
                                 ),
                                 'stats' => array(
                                     'label' => '',

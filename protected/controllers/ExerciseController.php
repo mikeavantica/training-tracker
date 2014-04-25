@@ -72,7 +72,7 @@ class ExerciseController extends Controller
         if (isset($_POST['Exercise'])) {
             $model->attributes = $_POST['Exercise'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect('admin');
             }
         }
 
@@ -96,7 +96,7 @@ class ExerciseController extends Controller
         if (isset($_POST['Exercise'])) {
             $model->attributes = $_POST['Exercise'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->id));
+                $this->redirect('../admin');
             }
         }
 

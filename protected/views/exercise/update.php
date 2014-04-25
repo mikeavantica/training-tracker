@@ -6,22 +6,11 @@
 <?php
 
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Exercises' => 'index',
-        $model->name => array(
-            'view',
-            'Id' => $model->id
-        ),
-        'Update'
-    )
+		'links' => array(
+				'Exercises'=> array('admin'),
+				'Update: '.$model->name
+		)
 ));
-
-$this->menu = array(
-
-    array('label' => 'Create Exercise', 'url' => array('create')),
-    array('label' => 'View Exercise', 'url' => array('view', 'id' => $model->id)),
-    array('label' => 'Manage Exercise', 'url' => array('admin')),
-);
 ?>
 
     <h3>Update Exercise <?php echo $model->name; ?></h3>

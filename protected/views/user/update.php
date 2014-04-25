@@ -7,7 +7,7 @@
  $this->widget('bootstrap.widgets.BsBreadcrumb', array(
             'links' => array(
              'Users'=> array('admin'),
-                'Update: '.$model->username
+              'Update: '.$model->username
             )
         ));
     ?>

@@ -72,7 +72,7 @@ class BodyProfilesController extends Controller
         if (isset($_POST['BodyProfiles'])) {
             $model->attributes = $_POST['BodyProfiles'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->Id));
+                $this->redirect('admin');
             }
         }
 
@@ -96,7 +96,7 @@ class BodyProfilesController extends Controller
         if (isset($_POST['BodyProfiles'])) {
             $model->attributes = $_POST['BodyProfiles'];
             if ($model->save()) {
-                $this->redirect(array('view', 'id' => $model->Id));
+                $this->redirect('../admin');
             }
         }
 

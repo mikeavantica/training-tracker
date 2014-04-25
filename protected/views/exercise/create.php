@@ -7,15 +7,12 @@
 
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
     'links' => array(
-        'Exercises' => 'index',
+        'Exercises' => 'admin',
         'Create'
     )
 ));
 
-$this->menu = array(
 
-    array('label' => 'Manage Exercise', 'url' => array('admin')),
-);
 ?>
 
     <h1>Create Exercise</h1>

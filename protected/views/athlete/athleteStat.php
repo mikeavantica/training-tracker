@@ -50,9 +50,17 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
 
 
     $row ['id'] = $rowid;
-    $row ['Workout'] = $exerciseswod ['name'];
+    $row ['WorkoutName'] = $exerciseswod ['name'];
     $row ['Type'] = $exerciseswod ['type'];
-    $row ['Value'] = $exerciseswod ['value'];
+    if($exerciseswod['type'] == 'ForReps'){
+    	$time = explode(":", $exerciseswod ['value']);
+    	$row ['Time'] = $time[1].':'.$time[2];
+    }
+    else{
+    	$row['Quantity'] = $exerciseswod['value'];
+    }
+    
+    //$row ['Value'] = $exerciseswod ['value'];
     $row ['Date'] = date("n/j/Y", strtotime($exerciseswod['date']));
     $row ['Volume'] = number_format($exerciseswod ['volume'], 2);
     $row ['Fitness'] = number_format($exerciseswod ['fitness'], 2);
@@ -65,7 +73,12 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
         $exermes['Exercise' . $exe] = 'Exercise' . $exe;
         foreach ($exercise ['prop'] as $measure) {
             $row ['Measure' . $measures] = $measure ['type'];
-            $row ['Value' . $measures] = $measure ['value'];
+                     if($measure['type'] == 'Time'){
+                    	$time = explode(':', $measure ['value']);
+                    	$row ['Value' . $measures] = $time[1].':'.$time[2];
+                    }else{
+                    $row ['Value' . $measures] = $measure ['value'];
+                    }
             $exermes['Measure' . $measures] = 'Measure' . $measures;
             $exermes['Value' . $measures] = 'Value' . $measures;
             $measures++;
@@ -80,11 +93,12 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
 } // end of foreach workouts
 $columns = array();
 $columns [] = 'Date';
-$columns [] = 'Workout';
+$columns [] = 'WorkoutName';
 $columns [] = 'Type';
 $columns [] = 'Volume';
 $columns [] = 'Fitness';
-$columns [] = 'Value';
+$columns [] = 'Time';
+$columns [] = 'Quantity';
 
 foreach ($exermes as $key => $value) {
     if (strpos($key, 'Exercise') !== false) {

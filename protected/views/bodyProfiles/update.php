@@ -2,28 +2,17 @@
 /* @var $this BodyProfilesController */
 /* @var $model BodyProfiles */
 ?>
-
+<div class="row">
 <?php
-
 $this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Body Profiles' => 'index',
-        $model->body_part_name => array(
-            'view',
-            'Id' => $model->Id
-        ),
-        'Update'
-    )
+		'links' => array(
+				'Body Profiles'=> array('admin'),
+				'Update: '.$model->body_part_name
+		)
 ));
-
-$this->menu = array(
-    array('label' => 'List BodyProfiles', 'url' => array('index')),
-    array('label' => 'Create BodyProfiles', 'url' => array('create')),
-    array('label' => 'View BodyProfiles', 'url' => array('view', 'id' => $model->Id)),
-    array('label' => 'Manage BodyProfiles', 'url' => array('admin')),
-);
 ?>
+</div>
 
-    <h1>Update BodyProfiles <?php echo $model->Id; ?></h1>
+    <h1>Update BodyProfiles <?php echo $model->body_part_name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model' => $model)); ?>

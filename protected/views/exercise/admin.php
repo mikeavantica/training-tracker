@@ -1,56 +1,113 @@
+<div class="row">
+    <div class="col-mod-12">
+        <?php
+        /* @var $this AthleteController */
+        /* @var $model Athlete */
+
+        $this->widget('bootstrap.widgets.BsBreadcrumb', array(
+            'links' => array(
+                'Manage'
+            )
+        ));
+
+
+        ?>
+    </div>
+</div>
+
 <?php
-/* @var $this ExerciseController */
-/* @var $model Exercise */
 
 
-$this->widget('bootstrap.widgets.BsBreadcrumb', array(
-    'links' => array(
-        'Exercises' => 'index',
-        'Manage'
-    )
+$form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
+    'id' => 'athlete-form',
+    // 'layout' => TbHtml::FORM_LAYOUT_HORIZONTAL,
+    // Please note: When you enable ajax validation, make sure the corresponding
+    // controller action is handling ajax validation correctly.
+    // There is a call to performAjaxValidation() commented in generated controller code.
+    // See class documentation of CActiveForm for details on this.
+    'enableAjaxValidation' => false,
+    'enableClientValidation' => true,
+    'focus' => array($model, 'fallas_id'),
+    'clientOptions' => array('validateOnSubmit' => true)
+
+
 ));
-
-
-$this->menu = array(
-
-    array('label' => 'Create Exercise', 'url' => array('create')),
-);
-
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#exercise-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
 ?>
 
-    <h1>Manage Exercises</h1>
+<?php echo $form->errorSummary($model); ?>
+
+<div class="panel panel-archon">
+    <div class="panel-heading">
+        <h3 class="panel-title"> Manage Exercise </h3>
+    </div>
+    <div class="panel-body">
 
 
+  
+        <div class="form-group-input-25">
 
-<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button btn')); ?>
-    <div class="search-form" style="display:none">
-        <?php $this->renderPartial('_search', array(
-            'model' => $model,
-        )); ?>
-    </div><!-- search-form -->
+<?php  echo BsHtml::linkButton('Create Exercise', array(
+                                'color' => BsHtml::BUTTON_COLOR_PRIMARY,
+                                'size' => BsHtml::BUTTON_SIZE_SMALL,
+                                'url' => array(
+                                    'create',
+                                )
+                            ));
+?>
+           
+        </div>
 
-<?php $this->widget('bootstrap.widgets.BsGridView', array(
-    'id' => 'exercise-grid',
-    'dataProvider' => $model->search(),
-    'type' => BsHtml::GRID_TYPE_STRIPED,
-    'filter' => $model,
-    'columns' => array(
-        //'id',
-        'name',
-        array(
-            'class' => 'bootstrap.widgets.BsButtonColumn',
-        ),
-    ),
-)); ?>
+
+    </div>
+</div>
+
+
+<?php $this->endWidget(); ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-archon">
+            <div class="panel-heading">
+                <h3 class="panel-title">Exercise
+
+                </h3>
+            </div>
+            <div class="panel-body">
+                <?php
+                $this->widget('bootstrap.widgets.BsGridView', array(
+                    'id' => 'athlete-grid',
+                    'type' => BsHtml::GRID_TYPE_STRIPED,
+                    'dataProvider' => $model->search(),
+                    'columns' => array(
+                              'name',
+                        array('class' => 'CButtonColumn',
+                            'template' => '{update}{delete}',
+                            'deleteConfirmation' => "js:'are you sure you want to delete this Exercise: '+$(this).parent().parent().children(':nth-child(1)').text()+'?'",
+                            'htmlOptions' => array('width' => '100px'),
+                            'buttons' => array(
+
+                                'update' => array(
+                                    'label' => '',
+                                    'imageUrl' => '',
+                                    'url' => "CHtml::normalizeUrl(array('/Exercise/update', 'id'=>\$data->id))",
+                                    'options' => array('class' => 'glyphicon glyphicon-edit'),
+                                ),
+                                'delete' => array(
+                                    'label' => '',
+                                    'imageUrl' => '',
+                                    'url' => "CHtml::normalizeUrl(array('/Exercise/delete', 'id'=>\$data->id))",
+                                    'options' => array('class' => 'glyphicon glyphicon-remove',),
+                                ),
+
+
+                            ),
+                        )
+
+
+                    )
+                ));
+                ?>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,15 @@
 /* @var $form BSActiveForm */
 ?>
 
-<div class="form">
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-default">
+    <div class="panel-heading"> 
+    <h3 class="panel-title"> Exercise </h3>
+    </div>
+    <div class="panel-body">
+    
+
 
     <?php $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
         'id' => 'exercise-form',
@@ -21,7 +29,7 @@
 
     <?php echo $form->textFieldControlGroup($model, 'name', array('span' => 5, 'maxlength' => 100)); ?>
 
-    <div class="form-actions">
+    <div class="form-actions input-button">
         <?php echo BsHtml::submitButton($model->isNewRecord ? 'Create' : 'Save', array(
             'color' => BsHtml::BUTTON_COLOR_PRIMARY,
             'size' => BsHtml::BUTTON_SIZE_LARGE,
@@ -30,4 +38,8 @@
 
     <?php $this->endWidget(); ?>
 
-</div><!-- form -->
+
+ </div>
+</div>
+</div>
+</div>
