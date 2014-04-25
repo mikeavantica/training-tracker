@@ -121,8 +121,7 @@ class WorkoutDetailController extends Controller
         if (isset($_POST['WorkoutDetail'])) {
             $model->attributes = $_POST['WorkoutDetail'];
             if ($model->total_time != '') {
-                $time = explode(':', $model->total_time);
-                $model->total_time = '00:' . $time[0] . ':' . $time[1];
+                $model->total_time = date ('i:s',strtotime($model->total_time));
             }
             if ($model->save()) {
                 WorkoutDetail::model()->updateCascadeTime($model->workoutid, $model->total_time);

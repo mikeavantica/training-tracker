@@ -318,7 +318,7 @@ $this->menu = array(
         </div>
     </div>
 <?php } ?>
-
+<?php if($model->id != ""){ ?>
 <div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">Workout Selected: <?php echo $model->name; ?></h3>
@@ -463,6 +463,7 @@ $this->menu = array(
         ?>
     </div>
 </div>
+<?php } ?>
 
 <div class="row">
     <div class="col-md-12">
