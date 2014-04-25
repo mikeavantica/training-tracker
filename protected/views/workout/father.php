@@ -1,6 +1,30 @@
 <div class="panel panel-darkblue">
     <div class="panel-heading">
-        Workout <?php echo $data->name; ?>
+        Workout: <?php echo $data->name; ?>
+        <span class="pull-right">
+            <?php if (strpos(Yii::app()->request->url, 'index.php/Workout/UpdateDetail') !== false) { ?>
+                <a class="glyphicon glyphicon-edit" href="<?php echo '../update?id=' . $data->id ?>"
+                   title="Update"
+                   class="update">
+                    <img src alt></a>
+            <?php
+            } else {
+            ?>
+                <a class="glyphicon glyphicon-edit" href="<?php echo 'update?id=' . $data->id ?>" title="Update"
+                   class="update">
+                    <img src alt></a>
+
+            <?php
+            }
+            echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
+                array(
+                    'submit' => array('workout/delete', 'id' => $data->id),
+                    'title' => 'delete',
+                    'class' => 'glyphicon glyphicon-remove', 'confirm' => 'This will remove the Record Data. Are you sure?'
+                )
+            );
+            ?>
+        </span>
     </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -32,28 +56,6 @@
                     <?php
                     }
                 } ?>
-                <td class="button-column">
-                    <?php if (strpos(Yii::app()->request->url, 'index.php/Workout/UpdateDetail') !== false) { ?>
-                        <a class="glyphicon glyphicon-edit" href="<?php echo '../update?id=' . $data->id ?>"
-                           title="Update"
-                           class="update">
-                            <img src alt></a>
-                    <?php } else { ?>
-                        <a class="glyphicon glyphicon-edit" href="<?php echo 'update?id=' . $data->id ?>" title="Update"
-                           class="update">
-                            <img src alt></a>
-
-                    <?php } ?>
-                    <?php
-                    echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
-                        array(
-                            'submit' => array('workout/delete', 'id' => $data->id),
-                            'title' => 'delete',
-                            'class' => 'glyphicon glyphicon-remove', 'confirm' => 'This will remove the Record Data. Are you sure?'
-                        )
-                    );
-                    ?>
-                </td>
             </tr>
             </tbody>
 
