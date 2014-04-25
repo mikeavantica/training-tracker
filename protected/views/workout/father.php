@@ -1,4 +1,4 @@
-<div class="panel panel-darkblue">
+<div class="panel panel-info">
     <div class="panel-heading">
         Workout: <?php echo $data->name; ?>
         <span class="pull-right">

@@ -161,7 +161,7 @@ $this->menu = array(
 <?php if ($model->id != "") { ?>
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-archon">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Add Exercise</h3>
                 </div>
@@ -319,7 +319,7 @@ $this->menu = array(
     </div>
 <?php } ?>
 
-<div class="panel panel-info">
+<div class="panel panel-darkblue">
     <div class="panel-heading">
         <h3 class="panel-title">Workout Selected: <?php echo $model->name; ?></h3>
     </div>
