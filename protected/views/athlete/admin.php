@@ -65,7 +65,7 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
     });
 </script>
 
-<h3 class="page-header">Manage Athletes</h3>
+<h2 class="page-header">Manage Athletes</h2>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -131,8 +131,10 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
     </div>
 </div>
 
-
 <?php $this->endWidget(); ?>
+
+<h3 class="page-header">Athlete List</h3>
+
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-archon">

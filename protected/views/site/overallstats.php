@@ -12,7 +12,8 @@
 
     </div>
 </div>
-<h1 class="page-header">Overall Stats</h1>
+
+<h2 class="page-header">Overall Stats</h2>
 
 <div class="row">
 

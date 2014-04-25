@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <h3 class="page-header">Record Workout Data</h3>
+    <h2 class="page-header">Record Workout Data</h2>
 
     <div class="row">
         <div class="col-md-12">
@@ -168,6 +168,9 @@
             </div>
         </div>
     </div>
+
+    <h3 class="page-header">Record List</h3>
+
 <?php
 Yii::app()->clientScript->registerScript('settings-script', <<<EOD
         $('#wod').change(function() {
