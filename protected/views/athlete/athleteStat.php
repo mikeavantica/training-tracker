@@ -73,7 +73,7 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
         foreach ($exercise ['prop'] as $measure) {
             $row ['Measure' . $measures] = $measure ['type'];
                      if($measure['type'] == 'Time'){
-                    	$row ['Value'] = date ('i:s',strtotime($measure['value']));
+                    	$row ['Value'.$measures] = date ('i:s',strtotime($measure['value']));
                     }else{
                     $row ['Value' . $measures] = $measure ['value'];
                     }
@@ -128,7 +128,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
 
     </div>
 </div>
-<h1 class="page-header"><?php echo $athlete_stats['athlete_name']; ?></h1>
+<h2 class="page-header">Stats for: <?php echo $athlete_stats['athlete_name']; ?></h2>
 <div class="row">
     <div class="col-mod-12"></div>
 </div>
@@ -208,12 +208,14 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
                     						"key" => "Fitness",
                     						"bar"=>"true",
                     						"values" => $newFitnessData,
-											"color" => "#2ECC71"
+											"color" => "#2ECC71",
+											"max" => max($fitness)
                     				),
                     				array (
                     						"key" => "Volume",
                     						"values" => $newVolumeData,
-											"color" => "#3498DB"
+											"color" => "#3498DB",
+											"max" => max($volume)
                     				)
                     		)).");"
                     );

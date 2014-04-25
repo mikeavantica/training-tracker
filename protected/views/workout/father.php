@@ -1,6 +1,6 @@
 <div class="panel panel-info">
     <div class="panel-heading">
-        <?php echo $data->name; ?> [<?php echo CHtml::encode($data->workoutType->name); ?>]
+        <strong><?php echo $data->name; ?></strong> [ Type: <?php echo CHtml::encode($data->workoutType->name); ?> ]
         <span class="pull-right">
             <?php if (strpos(Yii::app()->request->url, 'index.php/Workout/UpdateDetail') !== false) { ?>
                 <a class="glyphicon glyphicon-edit" href="<?php echo '../update?id=' . $data->id ?>"
@@ -40,7 +40,7 @@
             </thead>
             <tbody>
             <tr class="odd">
-                <td><?php echo CHtml::encode($data->date); ?></td>
+                <td><?php echo CHtml::encode(date("n-j-Y", strtotime($data->date))); ?></td>
                 <td><?php echo CHtml::encode($data->description); ?></td>
                 <td><?php echo CHtml::encode($data->workoutType->name); ?></td>
                 <?php if ($data->workout_typeid == 2) {

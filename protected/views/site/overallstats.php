@@ -249,12 +249,14 @@
                         						"key" => "Fitness",
                         						"bar"=>"true",
                         						"values" => $newFitnessData,
-												"color" => "#2ECC71"
+												"color" => "#2ECC71",
+												"max" => max($fitness)
                         				),
                         				array (
                         						"key" => "Volume",
                         						"values" => $newVolumeData,
-												"color" => "#3498DB"
+												"color" => "#3498DB",
+												"max" => max($volume)
                         				)
                         		)).");"
                         );
