@@ -114,8 +114,6 @@ $this->menu = array(
 
 <div class="well">
 
-<h2 class="page-header">Workouts List</h2>
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-primary">
@@ -470,7 +468,7 @@ $this->menu = array(
 
 </div>
 
-
+<h3 class="page-header">Workouts List</h3>
 
 <?php
 $this->widget('bootstrap.widgets.BsListView', array(

@@ -133,15 +133,11 @@ $form = $this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 
 <?php $this->endWidget(); ?>
 
-<h3 class="page-header">Athlete List</h3>
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-archon">
             <div class="panel-heading">
-                <h3 class="panel-title">Athletes
-
-                </h3>
+                <h3 class="panel-title">Athlete List</h3>
             </div>
             <div class="panel-body">
                 <?php
