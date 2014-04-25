@@ -233,11 +233,13 @@
                         				array (
                         						"key" => "Fitness",
                         						"bar"=>"true",
-                        						"values" => $newFitnessData
+                        						"values" => $newFitnessData,
+												"color" => "#2ECC71"
                         				),
                         				array (
                         						"key" => "Volume",
-                        						"values" => $newVolumeData
+                        						"values" => $newVolumeData,
+												"color" => "#3498DB"
                         				)
                         		)).");"
                         );
