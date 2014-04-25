@@ -48,7 +48,15 @@
 
         });
 
-        $("#time").mask('00:00', {reverse: true});
+        $("#time").mask('00:00', {reverse:true});
+        $("#time").blur(function(){
+            var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
+            if(!$("#time").attr("value").match(regEx)){
+			   $(this).val("");
+			   $(this).focus();
+                }
+            
+            });
     });
 
 </script>
@@ -184,7 +192,7 @@ $this->menu = array(
                         <?php echo $form->dropDownList($modelDetail, 'workoutid', CHtml::listData(Workout::model()->findAll(), 'id', 'name')); ?>
                     </div>
 
-                    <div class="column">
+                    <div class="form-actions input-button">
                         <?php
                         if ($model->workout_typeid == 2) {
                             if (!Workout::model()->hasSons($model->id)) {
@@ -205,8 +213,11 @@ $this->menu = array(
 
                             }
                         }
+                        
 
                         ?>
+                        </div>
+                         <div class="form-group">
                         <?php echo $form->label($modelDetail, 'exerciseid'); ?>
                         <?php echo $form->dropDownList($modelDetail, 'exerciseid', CHtml::listData(Exercise::model()->findAll(array('order' => 'name')), 'id', 'name'), array('id' => 'dpExercise', 'prompt' => 'Select a Exercise')); ?>
                         <?php
@@ -214,7 +225,7 @@ $this->menu = array(
                         ?>
 
                     </div>
-                    <div class="column">
+                    <div class="form-group">
                         <?php
 
                         if ($model->workout_typeid == 1 || $model->workout_typeid == 3) {
@@ -249,7 +260,9 @@ $this->menu = array(
 
 
                     </div>
-                    <div class="column">
+                    <div class="form-group">
+                      
+
                         <div style="font-weight: bold; font-size: 0.9em; display: block;">Measure</div>
                         <div class="column">
                             <?php echo $form->checkBoxControlGroup($modelDetail, 'measure_weight'); ?>
@@ -272,11 +285,11 @@ $this->menu = array(
                             <?php echo $form->checkBoxControlGroup($modelDetail, 'measure_assist'); ?>
                         </div>
 
-
-                        <div class="column">
+                       <div class="column">
+                   
                             <?php
                             if ($modelDetail->id == "" && $model->id != "") {
-                                echo BsHtml::submitButton('Add Another Exercise', array(
+                                echo BsHtml::submitButton('Add Exercise', array(
                                     'color' => BsHtml::BUTTON_COLOR_PRIMARY,
                                     'size' => BsHtml::BUTTON_SIZE_SMALL,
                                     'submit' => '../WorkoutDetail/create'
@@ -293,8 +306,9 @@ $this->menu = array(
                             }
 
                             ?>
-                        </div>
-
+                           
+                      </div>
+                      
                     </div>
                     <div class="form-actions input-button">
                         <?php
@@ -314,6 +328,7 @@ $this->menu = array(
 
                     <?php $this->endWidget(); ?>
                 </div>
+                
             </div>
         </div>
     </div>

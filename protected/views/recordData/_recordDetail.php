@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <tr class="odd">
-                <td><?php echo CHtml::encode($data->date); ?></td>
+                <td><?php echo CHtml::encode(date("n-j-Y", strtotime($data->date))); ?></td>
                 <td><?php echo CHtml::encode(date("i:s", strtotime($data->time))); ?>
             </tr>
             </tbody>

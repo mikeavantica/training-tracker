@@ -29,7 +29,9 @@
 
             $dateschbars [] =  date("n/j/Y", strtotime($wod ['date']));
             if ($wod['volume'] > 0)
+            {
                 $countDates[] = date("n/j/Y", strtotime($wod ['date']));
+            }
         }
     }
     $counts = array_count_values($countDates);

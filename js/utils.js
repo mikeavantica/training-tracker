@@ -15,12 +15,12 @@ nv.addGraph(function() {
       chart.yAxis
           .tickFormat(d3.format(',.2f'));
       
-      chart.yAxis.tickValues(d3.range(0, data[0]['max'], 0.25));
+      chart.yAxis.tickValues(d3.range(0, data[0]['max'], 25));
 
       chart.yAxis
           .tickFormat(function(d) { return d3.format(',.2f')(d) });
       
-      chart.yAxis.tickValues(d3.range(0, data[1]['max'], 0.25));
+      chart.yAxis.tickValues(d3.range(0, data[1]['max'], 25));
 
       d3.select('#'+chartId+' svg')
         .datum(data)

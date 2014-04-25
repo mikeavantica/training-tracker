@@ -206,6 +206,14 @@
 
 
             $("#RecordData_time").mask('00:00',{reverse:true});
+		    $("#RecordData_time").blur(function(){
+            var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
+            if(!$("#RecordData_time").attr("value").match(regEx)){
+			   $(this).val("");
+			   $(this).focus();
+                }
+            
+            });
 
                 $(function(){
                     changeWorkoutType();
