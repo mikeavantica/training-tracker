@@ -75,11 +75,11 @@
 
             $row ['id'] = $rowid;
             $row ['Athlete'] = $athlete ['athlete_name'];
-            $row ['WorkoutName'] = $exerciseswod ['name'];
+            $row ['Workout'] = $exerciseswod ['name'];
             $row ['Type'] = $exerciseswod ['type'];
             if($exerciseswod['type'] == 'ForReps'){
-            	$time = explode(":", $exerciseswod ['value']);
-            	$row ['Time'] = $time[1].':'.$time[2];
+            	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
+            	
             }
             else{
             	$row['Quantity'] = $exerciseswod['value'];
@@ -100,10 +100,10 @@
                     $exermes['Value' . $measures] = 'Value' . $measures;
                   
                     $row ['Measure' . $measures] = $measure ['type'];
-                    if($measure['type'] == 'Time'){
-                    	$time = explode(':', $measure ['value']);
-                    	$row ['Value' . $measures] = $time[1].':'.$time[2];
-                    }else{
+                     if($measure['type'] == 'Time'){
+                    	
+                    	$row ['Value' . $measures] = date ('i:s',strtotime($measure['value']));
+                     }else{
                     $row ['Value' . $measures] = $measure ['value'];
                     }
                     $measures++;
@@ -136,7 +136,7 @@
     $columns = array();
     $columns [] = 'Date';
     $columns [] = 'Athlete';
-    $columns [] = 'WorkoutName';
+    $columns [] = array('name'=>'Workout','header'=> 'Workout Name','headerHtmlOptions'=>array('class'=>'tbllongname'));
     $columns [] = 'Type';
     $columns [] = 'Fitness';
     $columns [] = 'Volume';

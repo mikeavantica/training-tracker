@@ -50,11 +50,10 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
 
 
     $row ['id'] = $rowid;
-    $row ['WorkoutName'] = $exerciseswod ['name'];
+    $row ['Workout'] = $exerciseswod ['name'];
     $row ['Type'] = $exerciseswod ['type'];
     if($exerciseswod['type'] == 'ForReps'){
-    	$time = explode(":", $exerciseswod ['value']);
-    	$row ['Time'] = $time[1].':'.$time[2];
+    	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
     }
     else{
     	$row['Quantity'] = $exerciseswod['value'];
@@ -74,8 +73,7 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
         foreach ($exercise ['prop'] as $measure) {
             $row ['Measure' . $measures] = $measure ['type'];
                      if($measure['type'] == 'Time'){
-                    	$time = explode(':', $measure ['value']);
-                    	$row ['Value' . $measures] = $time[1].':'.$time[2];
+                    	$row ['Value'] = date ('i:s',strtotime($measure['value']));
                     }else{
                     $row ['Value' . $measures] = $measure ['value'];
                     }
@@ -93,7 +91,7 @@ foreach ($athlete_stats ['WOD'] as $exerciseswod) {
 } // end of foreach workouts
 $columns = array();
 $columns [] = 'Date';
-$columns [] = 'WorkoutName';
+$columns [] = array('name'=>'Workout','header'=> 'Workout Name','headerHtmlOptions'=>array('class'=>'tbllongname'));
 $columns [] = 'Type';
 $columns [] = 'Volume';
 $columns [] = 'Fitness';
@@ -109,6 +107,7 @@ foreach ($exermes as $key => $value) {
         $columns[] = array('name' => $value, 'header' => 'Quantity');
     }
 }
+
 
 
 $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);

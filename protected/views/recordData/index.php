@@ -195,10 +195,13 @@ Yii::app()->clientScript->registerScript('settings-script', <<<EOD
                 }
             );
         });
+	
+	
 	$("#RecordData_time").mask('00:00',{reverse:true});
+	
         $(function(){
             changeWorkoutType();
-        
+		    
         });
         
         function changeWorkoutType()
