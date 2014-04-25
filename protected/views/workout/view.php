@@ -319,7 +319,7 @@ $this->menu = array(
     </div>
 <?php } ?>
 
-<div class="panel panel-darkblue">
+<div class="panel panel-success">
     <div class="panel-heading">
         <h3 class="panel-title">Workout Selected: <?php echo $model->name; ?></h3>
     </div>

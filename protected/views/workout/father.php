@@ -1,6 +1,6 @@
 <div class="panel panel-info">
     <div class="panel-heading">
-        Workout: <?php echo $data->name; ?>
+        <?php echo $data->name; ?>
         <span class="pull-right">
             <?php if (strpos(Yii::app()->request->url, 'index.php/Workout/UpdateDetail') !== false) { ?>
                 <a class="glyphicon glyphicon-edit" href="<?php echo '../update?id=' . $data->id ?>"
