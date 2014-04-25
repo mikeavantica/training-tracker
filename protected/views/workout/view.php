@@ -477,14 +477,12 @@ $this->menu = array(
                 </h3>
             </div>
             <div class="panel-body">
-                <div class="panel panel-default">
-                    <?php
-                    $this->widget('bootstrap.widgets.BsListView', array(
-                        'dataProvider' => $dataProvider,
-                        'itemView' => 'father'
-                    ));
-                    ?>
-                </div>
+                <?php
+                $this->widget('bootstrap.widgets.BsListView', array(
+                    'dataProvider' => $dataProvider,
+                    'itemView' => 'father'
+                ));
+                ?>
             </div>
         </div>
     </div> <!-- /col-md-12 -->

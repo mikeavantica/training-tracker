@@ -1,6 +1,6 @@
 <div class="panel panel-darkblue">
     <div class="panel-heading">
-        <h3 class="panel-title">Workout <?php echo $data->name; ?></h3>
+        Workout <?php echo $data->name; ?>
     </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -58,8 +58,6 @@
             </tbody>
 
         </table>
-
-
         <fieldset>
             <?php
             echo $this->renderPartial("son", array('model' => $data));
