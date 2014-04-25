@@ -1,6 +1,6 @@
 function addGraph(chartId, data) {
 nv.addGraph(function() {
-      var chart = nv.models.linePlusBarChart()
+      var chart = nv.models.multiBarChart()
             .margin({top: 30, right: 60, bottom: 50, left: 70})
             //We can set x data accessor to use index. Reason? So the bars all appear evenly spaced.
             .x(function(d,i) { return i })
@@ -12,17 +12,15 @@ nv.addGraph(function() {
         return d3.time.format('%_m/%_d/%Y')(new Date(dx))
       });
 
-      chart.y1Axis
+      chart.yAxis
           .tickFormat(d3.format(',.2f'));
       
-      chart.y1Axis.tickValues(d3.range(0, data[0]['max'], 0.25));
+      chart.yAxis.tickValues(d3.range(0, data[0]['max'], 0.25));
 
-      chart.y2Axis
+      chart.yAxis
           .tickFormat(function(d) { return d3.format(',.2f')(d) });
       
-      chart.y2Axis.tickValues(d3.range(0, data[1]['max'], 0.25));
-
-      chart.bars.forceY([0]);
+      chart.yAxis.tickValues(d3.range(0, data[1]['max'], 0.25));
 
       d3.select('#'+chartId+' svg')
         .datum(data)
