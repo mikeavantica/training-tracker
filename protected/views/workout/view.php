@@ -468,11 +468,24 @@ $this->menu = array(
 
 </div>
 
-<h3 class="page-header">Workouts List</h3>
-
-<?php
-$this->widget('bootstrap.widgets.BsListView', array(
-    'dataProvider' => $dataProvider,
-    'itemView' => 'father'
-));
-?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-archon">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Workouts List
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-default">
+                    <?php
+                    $this->widget('bootstrap.widgets.BsListView', array(
+                        'dataProvider' => $dataProvider,
+                        'itemView' => 'father'
+                    ));
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /col-md-12 -->
+</div>
