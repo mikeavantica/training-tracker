@@ -43,6 +43,7 @@ $('.search-form form').submit(function(){
 <?php $this->widget('bootstrap.widgets.BsGridView', array(
     'id' => 'body-profiles-grid',
     'dataProvider' => $model->search(),
+    'type' => BsHtml::GRID_TYPE_STRIPED,
     'filter' => $model,
     'columns' => array(
         //'Id',

@@ -53,6 +53,7 @@ $('.search-form form').submit(function(){
 $this->widget('bootstrap.widgets.BsGridView', array(
     'id' => 'exercise-detail-grid',
     'dataProvider' => $model->search(),
+    'type' => BsHtml::GRID_TYPE_STRIPED,
     'filter' => $model,
     'columns' => array(
         array(
