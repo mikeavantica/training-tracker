@@ -131,6 +131,9 @@ class Athlete extends CActiveRecord
      */
     public function getStats($athleteid, $start_date, $end_date)
     {
+    	$Stats = new stdClass;
+    	$Stats->a_stats = null;
+    	$Stats->max_prop = 0;
         $sql = 'select
                         at.id as athleteid,
                         at.first_name,
@@ -274,6 +277,10 @@ class Athlete extends CActiveRecord
 
                         $exercise_obj = new ArrayObject($exercise);
                         array_push($wod_day["exercises"], $exercise_obj->getArrayCopy());
+                        if($Stats->max_prop < sizeof($exercise['prop']))
+                        {
+                        	$Stats->max_prop = sizeof($exercise['prop']);
+                        }
                     }
                 }
 
@@ -290,10 +297,9 @@ class Athlete extends CActiveRecord
         $athlete_stats['max_press'] = $max_press;
         $athlete_stats['max_deadlift'] = $max_lift;
 
-        // Uncomment the line below to dump athelete_stats results.
-//             echo '<pre>'; var_dump($athlete_stats); echo '</pre>'; 
 
-        return $athlete_stats;
+       $Stats->a_stats = $athlete_stats;
+        return $Stats;
     }
 
     /**
@@ -304,7 +310,10 @@ class Athlete extends CActiveRecord
      * @return type
      */
     public function getOverallStats($start_date, $end_date)
-    {
+    {   
+    	$overall_stats = new stdClass;
+    	$overall_stats->a_stats = null;
+    	$overall_stats->max_prop = 0;
         $sql = 'select
                         at.id as athleteid,
                         at.first_name,
@@ -423,6 +432,7 @@ class Athlete extends CActiveRecord
                                     $rows[$i]["record_data_time"] :
                                     $rows[$i]["workout_detail_total_time"]
                         ));
+                        
 
                         if ($rows[$i]["workout_type_name"] == 'MaxWeight') {
                             if (strtolower($rows[$i]["workout_name"]) == "crossfit total") {
@@ -449,6 +459,10 @@ class Athlete extends CActiveRecord
                         array_push($wod_day["exercises"], $exercise_obj->getArrayCopy());
 
                         $i += 1;
+                        if($overall_stats->max_prop < sizeof($exercise["prop"]))
+                        {  
+                        $overall_stats->max_prop = sizeof($exercise["prop"]);
+                        }
                     } // workout loop
                     $wod_day_obj = new ArrayObject($wod_day);
                     array_push($wod, $wod_day_obj->getArrayCopy());
@@ -501,7 +515,10 @@ class Athlete extends CActiveRecord
             $athlete_stats["Athlete"][$iterator]["WOD"] = $result;
             $iterator += 1;
         }
-        return $athlete_stats;
+        $overall_stats->a_stats = $athlete_stats;
+        
+        
+        return $overall_stats;
     }
 
 

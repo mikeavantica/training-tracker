@@ -18,13 +18,13 @@
 <div class="row">
 
     <?php
-    
+    $max_prop = $athlete_stats->max_prop++;
     $countDates = array();
     $dateschbars = array();
     $fitness = array();
     $volume = array();
     $dataprovider = array();
-    foreach ($athlete_stats ['Athlete'] as $grafic) {
+    foreach ($athlete_stats->a_stats ['Athlete'] as $grafic) {
         foreach ($grafic ["WOD"] as $wod) {
 
             $dateschbars [] =  date("n/j/Y", strtotime($wod ['date']));
@@ -39,7 +39,7 @@
     // we only save unique dates
     $dateschbars = array_unique($dateschbars);
 
-    foreach ($athlete_stats ['Athlete'] as $grafic) {
+    foreach ($athlete_stats->a_stats ['Athlete'] as $grafic) {
         foreach ($grafic ["WOD"] as $wod) {
 
             $commonMod = isset($counts[date("n/j/Y", strtotime($wod ['date']))]) ? $counts[date("n/j/Y", strtotime($wod ['date']))] : 1;
@@ -64,8 +64,8 @@
     $max_press = 0;
     $cont = 0; // variable needed to define average
     $exermes = array();
-
-    foreach ($athlete_stats ['Athlete'] as $athlete) {
+    
+    foreach ($athlete_stats->a_stats ['Athlete'] as $athlete) {
         $average_volume += $athlete ['average_volume'];
         $average_fitness += $athlete ['average_fitness'];
         $max_squat += $athlete ['max_squat'];
@@ -81,10 +81,10 @@
             $row ['Type'] = $exerciseswod ['type'];
             if($exerciseswod['type'] == 'ForReps'){
             	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
-            	
+            	$row['Reps'] = 0;
             }
             else{
-            	$row['Quantity'] = $exerciseswod['value'];
+            	$row['Reps'] = $exerciseswod['value'];
             }
             
             $row ['Date'] = date("n/j/Y", strtotime($exerciseswod ['date']));
@@ -98,21 +98,27 @@
                 $row ['Exercise' . $exe] = $exercise ['name'];
                 $exermes['Exercise' . $exe] = 'Exercise' . $exe;
                 foreach ($exercise ['prop'] as $measure) {
-                    $exermes['Measure' . $measures] = 'Measure' . $measures;
-                    $exermes['Value' . $measures] = 'Value' . $measures;
-                  
-                    $row ['Measure' . $measures] = $measure ['type'];
+                    
+                    
                      if($measure['type'] == 'Time'){
                     	
-                    	$row ['Value' . $measures] = date ('i:s',strtotime($measure['value']));
+                    	$row ['Time'] = date ('i:s',strtotime($measure['value']));
                      }else{
-                    $row ['Value' . $measures] = $measure ['value'];
+                     $exermes['Measure' . $measures] = 'Measure' . $measures;
+                     $exermes['Value' . $measures] = 'Value' . $measures;
+                     $row ['Measure' . $measures] = $measure ['type'];
+                     $row ['Value' . $measures] = $measure ['value'];
                     }
+                   
                     $measures++;
+                   
                 } // end of foreach measures
                 $exe++;
+                $measures = $max_prop++;
+                $max_prop = $max_prop + $athlete_stats->max_prop;
 
             } // end of foreach de exercises
+            $max_prop = $athlete_stats->max_prop;
             if ($row ['Volume'] != number_format(0, 2) && $row ['Fitness'] != number_format(0, 2)) {
                 $dataprovider [$rowid] = $row;
             }
@@ -143,7 +149,7 @@
     $columns [] = 'Fitness';
     $columns [] = 'Volume';
     $columns [] = 'Time';
-    $columns [] = 'Quantity';
+    $columns [] = 'Reps';
 
 
     foreach ($exermes as $key => $value) {

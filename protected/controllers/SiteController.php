@@ -41,9 +41,11 @@ class SiteController extends Controller
             'athlete_stats' => $athlete_stats
         ));
     	}else{
-    	
+    	   if(!Yii::app()->user->isGuest){
     		$this->redirect('Contact');
-    		
+    	   }else{
+    	   	$this->redirect('Login');
+    	   }
     	}
     	
     }

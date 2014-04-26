@@ -197,12 +197,12 @@ $this->menu = array(
                         if ($model->workout_typeid == 2) {
                             if (!Workout::model()->hasSons($model->id)) {
                                 echo $form->label($modelDetail, 'total_time');
-                                echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control'));
+                                echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control time'));
 
                             } elseif ($modelDetail->id != "") {
                                 $modelDetail->total_time = WorkoutDetail::model()->sonTotalTime($model->id);
                                 echo $form->label($modelDetail, 'total_time');
-                                echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control'));
+                                echo $form->textField($modelDetail, 'total_time', array('id' => 'time', 'class' => 'form-control time'));
 
                             } else {
                                 $modelDetail->total_time = WorkoutDetail::model()->sonTotalTime($model->id);
