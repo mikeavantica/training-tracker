@@ -74,7 +74,7 @@ class ExerciseDetail extends CActiveRecord
             'attr6' => 'Attr6',
             'attr7' => 'Attr7',
             'body_profilesId' => 'Body Profiles',
-            'exerciseid' => 'Exerciseid',
+            'exerciseid' => 'Exercise',
         );
     }
 

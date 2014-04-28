@@ -5,10 +5,16 @@
 <script>
     //not allow to write letters in the number textfield
     function validateKeys(ele, evt, ints) {
-
+        
+        if (ele.value.length >= 9)
+            {
+            return false;
+            }
         var charCode = (evt.which) ? evt.which : event.keyCode
         if (charCode > 31 && (charCode < 48 || charCode > 57))
+        {
             return false;
+        }
         return true;
     }
     $(function () {
@@ -233,24 +239,24 @@ $this->menu = array(
 
                                 echo $form->label($modelDetail, 'total_reps');
                                 echo $form->numberField($modelDetail, 'total_reps', array(
-                                    'lenght' => 11,
+                                    'lenght' => 10,
                                     'min' => 0,
-                                    'onKeyPress' => 'return validateKeys(this, event,3);'
+                                    'onKeyPress' => 'return validateKeys(this, event,3);',
                                 ));
                             } elseif ($modelDetail->id == "") {
                                 $modelDetail->total_reps = WorkoutDetail::model()->sonTotalReps($model->id);
                                 echo $form->label($modelDetail, 'total_reps');
                                 echo $form->numberField($modelDetail, 'total_reps', array(
-                                    'lenght' => 11,
+                                    'lenght' => 10,
                                     'min' => 0,
-                                    'onKeyPress' => 'return validateKeys(this, event,3);'
+                                    'onKeyPress' => 'return validateKeys(this, event,3);',
                                 ));
                             } else {
                                 echo $form->label($modelDetail, 'total_reps');
                                 echo $form->numberField($modelDetail, 'total_reps', array(
-                                    'lenght' => 11,
+                                    'lenght' => 10,
                                     'min' => 0,
-                                    'onKeyPress' => 'return validateKeys(this, event,3);'
+                                    'onKeyPress' => 'return validateKeys(this, event,3);',
                                 ));
 
                             }

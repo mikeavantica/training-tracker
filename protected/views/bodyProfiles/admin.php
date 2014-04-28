@@ -10,16 +10,6 @@
             )
         ));
 
-        $this->menu = array(
-
-            array(
-                'label' => 'Create Athlete',
-                'url' => array(
-                    'create'
-                )
-            )
-        );
-
         ?>
     </div>
 </div>

@@ -81,11 +81,9 @@
             $row ['Type'] = $exerciseswod ['type'];
             if($exerciseswod['type'] == 'ForReps'){
             	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
-            	$row['Reps'] = 0;
+            	
             }
-            else{
-            	$row['Reps'] = $exerciseswod['value'];
-            }
+            
             
             $row ['Date'] = date("n/j/Y", strtotime($exerciseswod ['date']));
             $row ['Volume'] = number_format($exerciseswod ['volume'], 2);
@@ -103,11 +101,27 @@
                      if($measure['type'] == 'Time'){
                     	
                     	$row ['Time'] = date ('i:s',strtotime($measure['value']));
-                     }else{
-                     $exermes['Measure' . $measures] = 'Measure' . $measures;
-                     $exermes['Value' . $measures] = 'Value' . $measures;
-                     $row ['Measure' . $measures] = $measure ['type'];
-                     $row ['Value' . $measures] = $measure ['value'];
+                     }elseif($measure['type']=='Reps' || $measure['type'] == 'MaxWeight'){
+                     	$exermes['reps'.$exe] = 'reps'.$exe;
+                        $row['reps'.$exe] = $measure['value'];
+                    }else
+                    {
+                    	
+                    	$exermes['Value' . $measures] = 'Value' . $measures;
+                        if($measure['type'] == 'Height'){
+                        $height = $measure['value'] / 100;
+                    	$row ['Value' . $measures] =$height.'mts';
+                    	}elseif($measure['type']=='Weight')
+                    	{
+                    	$row ['Value' . $measures] = $measure ['value'].'kg';
+                    		
+                    	}elseif($measure['type'] == 'Assist')
+                    	{
+                    		$row ['Value' . $measures] = $measure ['value'].'%';
+                    	}else
+                    	{
+                    		$row ['Value' . $measures] = $measure ['value'].'cal';
+                    	}
                     }
                    
                     $measures++;
@@ -149,13 +163,18 @@
     $columns [] = 'Fitness';
     $columns [] = 'Volume';
     $columns [] = 'Time';
-    $columns [] = 'Reps';
-
+ 
 
     foreach ($exermes as $key => $value) {
         if (strpos($key, 'Exercise') !== false) {
             $columns[] = array('name' => $value, 'header' => 'Exercise');
-        } elseif (strpos($key, 'Measure') !== false) {
+        }elseif(strpos($key,'reps') !== false)
+        {
+        	$exer = array_pop($columns);
+        	$columns[] = array('name'=>$value,'header'=> 'Qty');
+        	$columns[] = $exer;
+        }
+         elseif (strpos($key, 'Measure') !== false) {
             $columns[] = array('name' => $value, 'header' => 'Measurement');
         } else {
             $columns[] = array('name' => $value, 'header' => 'Quantity');

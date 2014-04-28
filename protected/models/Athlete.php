@@ -40,6 +40,7 @@ class Athlete extends CActiveRecord
             array('email', 'email', 'checkMX' => true),
             array('email', 'length', 'max' => 150),
             array('height, weight', 'length', 'max' => 10),
+            array('height,weight','numerical', 'min'=>1),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
             array('id, first_name, last_name, email, height, weight, sex_typeid', 'safe', 'on' => 'search'),
@@ -172,7 +173,7 @@ class Athlete extends CActiveRecord
                         workout_type wt ON wt.id = wo.workout_typeid
                     where
                         at.id = :athleteid and (rd.id is null or rd.date between :start_date and :end_date)
-                    order by at.id , rd.date desc';
+                    order by at.id , ex.name ,rd.date desc';
 
         $connection = Yii::app()->db;
         $command = $connection->createCommand($sql);
@@ -353,7 +354,7 @@ class Athlete extends CActiveRecord
                         workout_type wt ON wt.id = wo.workout_typeid
                     where
                         rd.date between :start_date and :end_date
-                    order by at.id, rd.date, wo.id';
+                    order by at.id, rd.date, wo.id,ex.name';
 
         $connection = Yii::app()->db;
         $command = $connection->createCommand($sql);

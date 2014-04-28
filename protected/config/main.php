@@ -93,7 +93,7 @@ return array (
 				),*/
 				// uncomment the following to use a MySQL database
 				
-				  'db'=>array( 'connectionString' => 'mysql:host=localhost;dbname=training_tracker', 'emulatePrepare' => true, 'username' => 'root', 'password' => 'abc123', 'charset' => 'utf8', ),
+				  'db'=>array( 'connectionString' => 'mysql:host=localhost;dbname=training_tracker', 'emulatePrepare' => true, 'username' => 'root', 'password' => 'betterwod', 'charset' => 'utf8', ),
 				 
 				'errorHandler' => array (
 						// use 'site/error' action to display errors
@@ -121,5 +121,9 @@ return array (
 				// this is used in contact page
 				'adminEmail' => 'jcarrigan@blackopsdev.com',
 			   
+		),
+		'session' => array(
+				 'class' => 'CDbHttpSession',
+                 'timeout' => 3600,
 		)),
 		);

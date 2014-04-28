@@ -54,11 +54,7 @@ foreach ($athlete_stats->a_stats ['WOD'] as $exerciseswod) {
     $row ['Workout'] = $exerciseswod ['name'];
     $row ['Type'] = $exerciseswod ['type'];
     if($exerciseswod['type'] == 'ForReps'){
-    	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
-    	$row ['Quantity'] = 0; 
-    }
-    else{
-    	$row['Quantity'] = $exerciseswod['value'];
+    	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value'])); 
     }
     
     //$row ['Value'] = $exerciseswod ['value'];
@@ -76,12 +72,26 @@ foreach ($athlete_stats->a_stats ['WOD'] as $exerciseswod) {
           
                      if($measure['type'] == 'Time'){
                      	$row['Time'] = date ('i:s',strtotime($measure['value']));
-                    	//$row ['Value'.$measures] = date ('i:s',strtotime($measure['value']));
-                    }else{
-                    $exermes['Measure' . $measures] = 'Measure' . $measures;
+                    }elseif($measure['type']=='Reps' || $measure['type'] == 'MaxWeight'){
+                    	$exermes['reps'.$exe] = 'reps'.$exe;
+                    	$row['reps'.$exe] = $measure['value'];
+                    }else
+                    {
                     $exermes['Value' . $measures] = 'Value' . $measures;
-                    $row ['Measure' . $measures] = $measure ['type'];
-                    $row ['Value' . $measures] = $measure ['value'];
+                        if($measure['type'] == 'Height'){
+                        $height = $measure['value'] / 100;
+                    	$row ['Value' . $measures] =$height.'mts';
+                    	}elseif($measure['type']=='Weight')
+                    	{
+                    	$row ['Value' . $measures] = $measure ['value'].'kg';
+                    		
+                    	}elseif($measure['type'] == 'Assist')
+                    	{
+                    		$row ['Value' . $measures] = $measure ['value'].'%';
+                    	}else
+                    	{
+                    		$row ['Value' . $measures] = $measure ['value'].'cal';
+                    	}                    
                     }
            
             $measures++;
@@ -105,12 +115,18 @@ $columns [] = 'Type';
 $columns [] = 'Volume';
 $columns [] = 'Fitness';
 $columns [] = 'Time';
-$columns [] = 'Quantity';
+
 
 foreach ($exermes as $key => $value) {
     if (strpos($key, 'Exercise') !== false) {
         $columns[] = array('name' => $value, 'header' => 'Exercise');
-    } elseif (strpos($key, 'Measure') !== false) {
+    }elseif(strpos($key,'reps') !== false)
+    {
+        	$exer = array_pop($columns);
+        	$columns[] = array('name'=>$value,'header'=> 'Qty');
+        	$columns[] = $exer;
+    }
+     elseif (strpos($key, 'Measure') !== false) {
         $columns[] = array('name' => $value, 'header' => 'Measurement');
     } else {
         $columns[] = array('name' => $value, 'header' => 'Quantity');
@@ -149,7 +165,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
 
             <div class="pull-left">
                 <h5><?php echo number_format($average_fitness, 2); ?> </h5>
-                <span class="description">Average Fitness:</span>
+                <span class="description">Max Fitness:</span>
             </div>
 
         </div>
@@ -159,7 +175,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
 
             <div class="pull-left">
                 <h5><?php echo number_format($average_volume, 2); ?> </h5>
-                <span class="description">Average Volume</span>
+                <span class="description">Max Volume</span>
             </div>
         </div>
     </div>
@@ -167,7 +183,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
         <div class="web-stats danger">
             <div class="pull-left">
                 <h5><?php echo number_format($athlete_stats->a_stats["max_squat"], 2); ?> </h5>
-                <span class="description">Average Squat</span>
+                <span class="description">Max Squat</span>
             </div>
         </div>
     </div>
@@ -175,7 +191,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
         <div class="web-stats danger">
             <div class="pull-left">
                 <h5><?php echo number_format($athlete_stats->a_stats["max_press"], 2); ?> </h5>
-                <span class="description">Average Deadlift</span>
+                <span class="description">Max Deadlift</span>
             </div>
         </div>
     </div>
@@ -183,7 +199,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
         <div class="web-stats danger">
             <div class="pull-left">
                 <h5><?php echo number_format($athlete_stats->a_stats["max_deadlift"], 2); ?> </h5>
-                <span class="description">Average Press:</span>
+                <span class="description">Max Press:</span>
             </div>
         </div>
     </div>
