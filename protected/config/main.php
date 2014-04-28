@@ -78,7 +78,8 @@ return array (
 				'class' => 'auth.components.AuthWebUser',
 				'admins' => array('admin', 'Jason', 'bar'), // users with full access
 						// enable cookie-based authentication
-						'allowAutoLogin' => true 
+						'allowAutoLogin' => true,
+						'authTimeout' => 3600
 				),
 				'bootstrap' => array (
 						'class' => 'bootstrap.components.BsApi',
