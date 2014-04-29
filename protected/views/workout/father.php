@@ -7,22 +7,34 @@
                    title="Update"
                    class="update">
                     <img src alt></a>
+                    <?php 
+                    echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
+                    		array(
+                    				'submit' => array('../workout/delete', 'id' => $data->id),
+                    				'title' => 'delete',
+                    				'class' => 'glyphicon glyphicon-remove', 'confirm' => 'This will remove the Workout. Are you sure?'
+                    		)
+                    );
+                    ?>
             <?php
             } else {
             ?>
                 <a class="glyphicon glyphicon-edit" href="<?php echo 'update?id=' . $data->id ?>" title="Update"
                    class="update">
                     <img src alt></a>
+                    <?php 
+                    echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
+                    		array(
+                    				'submit' => array('workout/delete', 'id' => $data->id),
+                    				'title' => 'delete',
+                    				'class' => 'glyphicon glyphicon-remove', 'confirm' => 'This will remove the Workout. Are you sure?'
+                    		)
+                    );
+                    ?>
 
             <?php
             }
-            echo CHtml::link(CHtml::encode(''), array('delete', 'id' => $data->id),
-                array(
-                    'submit' => array('workout/delete', 'id' => $data->id),
-                    'title' => 'delete',
-                    'class' => 'glyphicon glyphicon-remove', 'confirm' => 'This will remove the Record Data. Are you sure?'
-                )
-            );
+           
             ?>
         </span>
     </div>
