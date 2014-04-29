@@ -42,7 +42,7 @@ var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
                 data: "r=WorkoutDetail/noRepeatExercise&id=<?php echo $model->id; ?>&exercise=" + exercise,
                 success: function (data) {
                     if (data.id != 0) {
-                        alert("you need to choose another exercise, because the exercise selected is already in the workout");
+                        alert("you need to choose another exercise, because the exercise selected is already in the workout, this button will be enabled only if you write a valid time");
                         $('#dpExercise').val("");
 
 
@@ -74,6 +74,7 @@ var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
              if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00" || $("#time").val() == "0:00")
                  {
             	 $("#exer").prop('disabled', true);
+            	 alert("Invalid time, please fill the time field");
                  }else
                      {
                 	 $("#exer").prop('disabled', false);
