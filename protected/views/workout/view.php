@@ -3,6 +3,7 @@
 /* @var $model Workout */
 ?>
 <script>
+var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
     //not allow to write letters in the number textfield
     function validateKeys(ele, evt, ints) {
         
@@ -56,8 +57,8 @@
 
         $("#time").mask('00:00', {reverse:true});
         $("#time").blur(function(){
-            var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
-            if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00"){
+        	
+            if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00" || $("#time").val() == "0:00"){
 			   $(this).val("");
 			   $("#exer").prop('disabled', true);
 			  
@@ -67,6 +68,19 @@
                 }
             
             });
+        <?php if($model->workout_typeid == 2){ ?>
+        $("#exer").mouseover(function(){
+            
+             if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00" || $("#time").val() == "0:00")
+                 {
+            	 $("#exer").prop('disabled', true);
+                 }else
+                     {
+                	 $("#exer").prop('disabled', false);
+                     }
+        
+            });
+        <?php }?>
     });
 
 </script>
