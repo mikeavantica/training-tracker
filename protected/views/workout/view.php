@@ -57,9 +57,11 @@
         $("#time").mask('00:00', {reverse:true});
         $("#time").blur(function(){
             var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
-            if(!$("#time").attr("value").match(regEx)){
+            if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00"){
 			   $(this).val("");
-			   $(this).focus();
+			   alert("please, fill total time with a valid value");
+			  
+			  
                 }
             
             });
@@ -188,7 +190,8 @@ $this->menu = array(
                         // controller action is handling ajax validation correctly.
                         // There is a call to performAjaxValidation() commented in generated controller code.
                         // See class documentation of CActiveForm for details on this.
-                        'enableAjaxValidation' => false
+                        'enableAjaxValidation' => false,
+              
                     ));
 
                     echo $form->errorSummary($modelDetail);
