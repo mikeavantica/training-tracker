@@ -59,9 +59,11 @@
             var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
             if(!$("#time").attr("value").match(regEx) || $("#time").val()== "" || $("#time").val() == "00:00"){
 			   $(this).val("");
-			   alert("please, fill total time with a valid value");
+			   $("#exer").prop('disabled', true);
 			  
-			  
+                }else
+                {
+                    $("#exer").prop('disabled', false);
                 }
             
             });
@@ -301,12 +303,14 @@ $this->menu = array(
                                 echo BsHtml::submitButton('Add Exercise', array(
                                     'color' => BsHtml::BUTTON_COLOR_PRIMARY,
                                     'size' => BsHtml::BUTTON_SIZE_SMALL,
+                                    'id'=>'exer',
                                     'submit' => '../WorkoutDetail/create'
                                 ));
                             } elseif ($modelDetail->id != "") {
                                 echo BsHtml::submitButton('Update Exercise', array(
                                     'color' => BsHtml::BUTTON_COLOR_PRIMARY,
                                     'size' => BsHtml::BUTTON_SIZE_SMALL,
+                                    'id'=>'exer',
                                     'submit' => array(
                                         'WorkoutDetail/update',
                                         'id' => $modelDetail->id
