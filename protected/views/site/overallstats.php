@@ -110,17 +110,17 @@
                     	$exermes['Value' . $measures] = 'Value' . $measures;
                         if($measure['type'] == 'Height'){
                         $height = $measure['value'] / 100;
-                    	$row ['Value' . $measures] =$height.'mts';
+                    	$row ['Value' . $measures] =$height.' m';
                     	}elseif($measure['type']=='Weight')
                     	{
-                    	$row ['Value' . $measures] = $measure ['value'].'kg';
+                    	$row ['Value' . $measures] = $measure ['value'].' kg';
                     		
                     	}elseif($measure['type'] == 'Assist')
                     	{
-                    		$row ['Value' . $measures] = $measure ['value'].'%';
+                    		$row ['Value' . $measures] = $measure ['value'].' %';
                     	}else
                     	{
-                    		$row ['Value' . $measures] = $measure ['value'].'cal';
+                    		$row ['Value' . $measures] = $measure ['value'].' cal';
                     	}
                     }
                    
