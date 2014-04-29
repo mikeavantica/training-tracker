@@ -66,8 +66,8 @@
     $exermes = array();
     
     foreach ($athlete_stats->a_stats ['Athlete'] as $athlete) {
-        $average_volume += $athlete ['average_volume'];
-        $average_fitness += $athlete ['average_fitness'];
+        //$average_volume += $athlete ['average_volume'];
+        //$average_fitness += $athlete ['average_fitness'];
         $max_squat += $athlete ['max_squat'];
         $max_press += $athlete ['max_press'];
         $max_deadlift += $athlete ['max_deadlift'];
@@ -83,12 +83,17 @@
             	$row ['Time'] = date ('i:s',strtotime($exerciseswod['value']));
             	
             }
-            
+         
             
             $row ['Date'] = date("n/j/Y", strtotime($exerciseswod ['date']));
             $row ['Volume'] = number_format($exerciseswod ['volume'], 2);
             $row ['Fitness'] = number_format($exerciseswod ['fitness'], 2);
-
+            if($exerciseswod['volume'] != 0 || $exerciseswod['fitness'] != 0)
+            { 
+            $average_fitness += number_format($exerciseswod ['fitness'], 2);
+            $average_volume += number_format($exerciseswod ['volume'], 2);
+            	$cont++;
+            }
             $exe = 1; // number of exercises
             $measures = 1; // number of measures
             foreach ($exerciseswod ['exercises'] as $exercise) {
@@ -138,7 +143,7 @@
             }
             $rowid++;
         } // end of  foreach workouts
-        $cont++;
+        
     } // end of foreach de athletes
     /*
      * we calculate average for all
@@ -210,7 +215,7 @@
             <div class="web-stats success">
                 <div class="pull-left">
                     <h5><?php echo number_format($average_fitness, 2); ?> </h5>
-                    <span class="description">Average Fitness:</span>
+                    <span class="description">Average Fitness</span>
                 </div>
 
             </div>
@@ -219,7 +224,7 @@
             <div class="web-stats info">
                 <div class="pull-left">
                     <h5><?php echo number_format($average_volume, 2); ?> </h5>
-                    <span class="description">Average Volume:</span>
+                    <span class="description">Average Volume</span>
                 </div>
             </div>
         </div>
@@ -243,7 +248,7 @@
             <div class="web-stats danger">
                 <div class="pull-left">
                     <h5><?php echo number_format($max_press, 2); ?> </h5>
-                    <span class="description">Average Press:</span>
+                    <span class="description">Average Press</span>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ $dataprovider = array();
 $cont = 0;
 foreach ($athlete_stats->a_stats ["WOD"] as $wod) {
 
-    $cont++;
+    
     $dateschbars [] = date("n/j/Y", strtotime($wod ['date']));
 }
 //only unique dates
@@ -21,7 +21,10 @@ $dateschbars = array_unique($dateschbars);
 foreach ($athlete_stats->a_stats ["WOD"] as $wod) {
     $average_volume = $average_volume + $wod ['volume'];
     $average_fitness = $average_fitness + $wod ['fitness'];
-
+    if($wod['volume'] != 0 || $wod['fitness'] != 0){
+    	$cont++;
+    }
+    
     $clave = array_search(date("n/j/Y", strtotime($wod ['date'])), $dateschbars);
     if (!isset ($fitness [$clave])) { // verified if exist
         //
@@ -165,7 +168,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
 
             <div class="pull-left">
                 <h5><?php echo number_format($average_fitness, 2); ?> </h5>
-                <span class="description">Max Fitness:</span>
+                <span class="description">Average Fitness</span>
             </div>
 
         </div>
@@ -175,7 +178,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
 
             <div class="pull-left">
                 <h5><?php echo number_format($average_volume, 2); ?> </h5>
-                <span class="description">Max Volume</span>
+                <span class="description">Average Volume</span>
             </div>
         </div>
     </div>
@@ -199,7 +202,7 @@ $invoiceItemsDataProvider = new CArrayDataProvider ($dataprovider);
         <div class="web-stats danger">
             <div class="pull-left">
                 <h5><?php echo number_format($athlete_stats->a_stats["max_deadlift"], 2); ?> </h5>
-                <span class="description">Max Press:</span>
+                <span class="description">Max Press</span>
             </div>
         </div>
     </div>
