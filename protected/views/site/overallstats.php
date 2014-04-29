@@ -177,7 +177,7 @@
          elseif (strpos($key, 'Measure') !== false) {
             $columns[] = array('name' => $value, 'header' => 'Measurement');
         } else {
-            $columns[] = array('name' => $value, 'header' => 'Quantity');
+            $columns[] = array('name' => $value, 'header' => 'Measurement','htmlOptions'=>array('style'=>'width:80px') );
         }
     }
 
