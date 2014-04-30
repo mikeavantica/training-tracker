@@ -75,6 +75,7 @@ var regEx = /^([0-5]?[0-9]):([0-5]?[0-9])$/;
                  {
             	 $("#exer").prop('disabled', true);
             	 alert("Invalid time, please fill the time field, this button will be enable only if you write a valid time.");
+            	 $("#time").focus();
                  }else
                      {
                 	 $("#exer").prop('disabled', false);
